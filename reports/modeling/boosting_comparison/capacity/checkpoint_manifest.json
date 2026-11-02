@@ -1,0 +1,74 @@
+[
+  {
+    "model": "LR raw",
+    "fold": 0,
+    "path": "tmp\\phase4_checkpoints\\student-v1\\22b4f4cea20139d3b97f\\B_LR_02\\fold_0.npz",
+    "sha256": "5c601344b72fd1b5e02b74d1dd1645842bd4beb0336defcd9125c9e87ae164cf"
+  },
+  {
+    "model": "LR raw",
+    "fold": 1,
+    "path": "tmp\\phase4_checkpoints\\student-v1\\22b4f4cea20139d3b97f\\B_LR_02\\fold_1.npz",
+    "sha256": "80589a74c900598929addcf86c212e16b4b93e1c1cbb38510b3a9bd9dabf0f38"
+  },
+  {
+    "model": "LR raw",
+    "fold": 2,
+    "path": "tmp\\phase4_checkpoints\\student-v1\\22b4f4cea20139d3b97f\\B_LR_02\\fold_2.npz",
+    "sha256": "fe7b31d7142f343a6ed33cbb510e4b2730ac0bf467c679d94594fe5ad8bf4b44"
+  },
+  {
+    "model": "LR sigmoid",
+    "fold": 0,
+    "path": "tmp\\phase4_checkpoints\\student-v1\\22b4f4cea20139d3b97f\\B_LR_02\\calibration_outer_0.npz",
+    "sha256": "743d2e7c49ecfd9fc049c55fdad69c1db918c1b01a29ea03de01135c446ad984"
+  },
+  {
+    "model": "LR sigmoid",
+    "fold": 1,
+    "path": "tmp\\phase4_checkpoints\\student-v1\\22b4f4cea20139d3b97f\\B_LR_02\\calibration_outer_1.npz",
+    "sha256": "a4b03ed83b4a7a5742979c3f964c96234a44a585f2bb1b4dc4939a6d5b9fd52d"
+  },
+  {
+    "model": "LR sigmoid",
+    "fold": 2,
+    "path": "tmp\\phase4_checkpoints\\student-v1\\22b4f4cea20139d3b97f\\B_LR_02\\calibration_outer_2.npz",
+    "sha256": "bf0fb14dcda872a26f26f5db09fd1129798d03e5ba806f06cc7f37b4c243da51"
+  },
+  {
+    "model": "XGBoost",
+    "fold": 0,
+    "path": "tmp\\phase4_checkpoints\\boosting-v1\\850c0e56187d77bc2d0c\\B_XGB_01\\fold_0.npz",
+    "sha256": "4c39b37b6adebbd18548146850906e6d1d0e3180ada0e2bcbeee9ed9932d5e83"
+  },
+  {
+    "model": "XGBoost",
+    "fold": 1,
+    "path": "tmp\\phase4_checkpoints\\boosting-v1\\850c0e56187d77bc2d0c\\B_XGB_01\\fold_1.npz",
+    "sha256": "24b555521b8abc330e96335d036c8b12164ecc3af4566d5c160d09fd42a3ae89"
+  },
+  {
+    "model": "XGBoost",
+    "fold": 2,
+    "path": "tmp\\phase4_checkpoints\\boosting-v1\\850c0e56187d77bc2d0c\\B_XGB_01\\fold_2.npz",
+    "sha256": "3bbe30a3e874320228779fb7aa35dc706686d5ce672681b37c3a82f92adf00a3"
+  },
+  {
+    "model": "CatBoost",
+    "fold": 0,
+    "path": "tmp\\phase4_checkpoints\\boosting-v1\\850c0e56187d77bc2d0c\\B_CAT_02\\fold_0.npz",
+    "sha256": "466ff684f23f5c49ebdb71ccdc8d535d5aeca72f7009130f38beedd783169879"
+  },
+  {
+    "model": "CatBoost",
+    "fold": 1,
+    "path": "tmp\\phase4_checkpoints\\boosting-v1\\850c0e56187d77bc2d0c\\B_CAT_02\\fold_1.npz",
+    "sha256": "0e67d3b504ddd40e7f1a27492d4f4c2bc72abb50550f1dbc14a9f85cd605ce6a"
+  },
+  {
+    "model": "CatBoost",
+    "fold": 2,
+    "path": "tmp\\phase4_checkpoints\\boosting-v1\\850c0e56187d77bc2d0c\\B_CAT_02\\fold_2.npz",
+    "sha256": "f81594fe492a7aae8afb048efc00d960b6955718cdd358ab1678a8e2643d6437"
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "verified_at_utc": "2026-10-22T06:12:12.729408+00:00",
+  "batch_size": 50000,
+  "implementation": "Shared .py class for SQL/history checks; pandas analysis and plots in notebook; Markdown objectives and conclusions",
+  "application_quantiles": "Exact full train",
+  "history_statistics": "Exact counts and ranges on all identifiable train history rows",
+  "payment_reconciliation_sample": "Five repeated installment keys; illustrative only",
+  "logic_checks": "Application chronology and cross-field checks; history chronology/amount checks; all repeated train installment periods",
+  "global_checks": "Schema, keys, exact duplicate verification and relationship integrity",
+  "label_guided_eda": "Train only; frozen split from notebook 01",
+  "outlier_review": "Global and per-product IQR; top/bottom five examples per variable; three money pairs by product; no cleaning or risk classification",
+  "source_files_modified": false,
+  "versions": {
+    "pandas": "2.3.3",
+    "pyarrow": "25.0.1",
+    "numpy": "2.4.6",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.10.9"
+  },
+  "business_data_source": "MySQL raw_* and application_split",
+  "comparison_evidence": "reusable_code_checks.json",
+  "source_verification_scope": "Complete train parity, unchanged frozen files, and all 35 output tables; no new full-source cell-by-cell parity audit"
+}

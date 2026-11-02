@@ -1,0 +1,4 @@
+fraction,dataset,review_n,captured_positive_n,precision_top10,recall_top10,lift_top10,tie_break
+0.05,historical_internal_test,3076,1147,0.37288686605981797,0.2310171198388721,4.619065644164548,"score descending, SK_ID_CURR ascending"
+0.1,historical_internal_test,6151,1842,0.2994635018696147,0.37099697885196375,3.709547584186689,"score descending, SK_ID_CURR ascending"
+0.2,historical_internal_test,12301,2818,0.22908706609218762,0.5675730110775428,2.837772774595733,"score descending, SK_ID_CURR ascending"

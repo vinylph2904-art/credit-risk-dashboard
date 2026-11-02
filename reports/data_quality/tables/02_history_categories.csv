@@ -1,0 +1,22 @@
+value,n,table,column
+C,4235831.0,bureau_balance,STATUS
+0,2785464.0,bureau_balance,STATUS
+X,1717508.0,bureau_balance,STATUS
+1,93440.0,bureau_balance,STATUS
+5,24765.0,bureau_balance,STATUS
+2,9346.0,bureau_balance,STATUS
+3,3556.0,bureau_balance,STATUS
+4,2350.0,bureau_balance,STATUS
+Approved,532100.0,previous_application,NAME_CONTRACT_STATUS
+Canceled,155838.0,previous_application,NAME_CONTRACT_STATUS
+Refused,146938.0,previous_application,NAME_CONTRACT_STATUS
+Unused offer,13602.0,previous_application,NAME_CONTRACT_STATUS
+XAP,687934.0,previous_application,CODE_REJECT_REASON
+HC,87449.0,previous_application,CODE_REJECT_REASON
+LIMIT,28499.0,previous_application,CODE_REJECT_REASON
+SCO,19729.0,previous_application,CODE_REJECT_REASON
+CLIENT,13602.0,previous_application,CODE_REJECT_REASON
+SCOFR,6446.0,previous_application,CODE_REJECT_REASON
+XNA,2584.0,previous_application,CODE_REJECT_REASON
+VERIF,1839.0,previous_application,CODE_REJECT_REASON
+SYSTEM,396.0,previous_application,CODE_REJECT_REASON

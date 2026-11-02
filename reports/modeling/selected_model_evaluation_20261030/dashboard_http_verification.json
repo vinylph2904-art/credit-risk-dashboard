@@ -1,0 +1,26 @@
+{
+  "routes": {
+    "/": 200,
+    "/risk": 200,
+    "/applications": 200,
+    "/applications/1": 200,
+    "/history": 200,
+    "/model": 200,
+    "/model/evaluation.png": 200,
+    "/diagnostics": 200,
+    "/payments": 200,
+    "/api/profiles/1/score": 200
+  },
+  "model_version": "catboost-selected-a8763faa0c2ef0786f72",
+  "profile_id": 1,
+  "feature_export_columns": 182,
+  "scenarios_passed": 3,
+  "post_score_event_id": 619,
+  "score_matches_direct_inference": true,
+  "events_before": 603,
+  "events_after": 604,
+  "previous_events_unchanged": true,
+  "input_snapshot_feature_n": 182,
+  "all_active_profiles_scored": true,
+  "authentication_fixture": "session of active manager; password login tested separately"
+}

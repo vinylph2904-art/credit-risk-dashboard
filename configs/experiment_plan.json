@@ -1,0 +1,45 @@
+{
+  "version": "1.0",
+  "protocol_version": "1.1",
+  "status": "Declared before classifier cross-validation",
+  "seed": 42,
+  "feature_sets": ["A", "B"],
+  "log_columns": ["AMT_INCOME_TOTAL", "AMT_CREDIT", "AMT_ANNUITY", "AMT_GOODS_PRICE"],
+  "numeric_cast": "float32 inside fitted pipeline, after median imputation",
+  "categorical_dtype": "float32",
+  "LR": {
+    "C": [0.1, 1.0],
+    "class_weight": [null, "balanced"],
+    "preprocessing": ["standard", "log_amounts"],
+    "solver": "liblinear",
+    "l1_ratio": 0.0,
+    "max_iter": 1000,
+    "tol": 0.0001
+  },
+  "DT": {
+    "max_depth": [6, 10],
+    "min_samples_leaf": 100,
+    "class_weight": [null, "balanced"],
+    "criterion": "gini"
+  },
+  "RF": {
+    "n_estimators": 100,
+    "max_depth": [10, 16],
+    "min_samples_leaf": 30,
+    "max_features": "sqrt",
+    "class_weight": [null, "balanced"],
+    "n_jobs": 1,
+    "criterion": "gini"
+  },
+  "calibration": {
+    "method": "sigmoid",
+    "outer_folds": "same three frozen training folds",
+    "inner_folds": 3,
+    "ensemble": false,
+    "selection": "Use sigmoid if honest outer-OOF Brier is strictly lower than raw OOF Brier; otherwise keep raw",
+    "scope": "Winner only, after base candidate selection; train data only"
+  },
+  "threshold": "Use protocol validation-only cost and tie-break, then freeze before internal test",
+  "convergence_policy": "Record warnings and iteration count; do not silently accept a nonconverged LR as eligible",
+  "execution": "Sequential fits, n_jobs=1; per-fold CSV and OOF checkpoints for resumption"
+}

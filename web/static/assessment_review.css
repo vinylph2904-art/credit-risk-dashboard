@@ -1,0 +1,288 @@
+/* Verification notes need enough contrast against the surrounding white panels. */
+html body.analytics-shell .assessment-page .decision-panel .recommendation {
+  background:#e3eefb;
+  border:1px solid #b7cfea
+}
+html body.analytics-shell .assessment-page .decision-panel .recommendation h3 {
+  color:#1e3a5f
+}
+html body.analytics-shell .assessment-page .decision-panel .recommendation p {
+  color:#344455
+}
+html body.analytics-shell .assessment-page .decision-panel .recommendation .action {
+  color:#185a9d;
+  font-weight:600
+}
+/* Review workbench: compact outcome form and a larger evidence notebook. */
+html body.analytics-shell .assessment-page .case-explanation .panel-heading>div {
+  min-width:0
+}
+.assessment-page .case-explanation-intro {
+  margin:5px 0 0;
+  font-size:12px;
+  line-height:1.5;
+  color:#697580
+}
+.assessment-page .case-method-label {
+  font-size:11px;
+  padding:4px 8px;
+  background:#f1f5f9;
+  color:#526579;
+  border-radius:var(--dashboard-radius,10px)
+}
+html body.analytics-shell .assessment-page .case-explanation .case-direction-key {
+  justify-content:flex-end;
+  flex-wrap:wrap;
+  white-space:normal;
+  margin-bottom:10px;
+  gap:6px 16px
+}
+.assessment-page .case-ranked-factors {
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  grid-template-columns:1fr
+}
+.assessment-page .case-ranked-factor {
+  display:grid;
+  grid-template-columns:28px minmax(0,1fr) 88px;
+  gap:14px;
+  align-items:center;
+  padding:12px 0;
+  border-bottom:1px solid #edf0f3
+}
+.assessment-page .case-ranked-factor:last-child {
+  border-bottom:0
+}
+.assessment-page .case-factor-rank {
+  color:#8b98a5;
+  font-size:12px;
+  font-variant-numeric:tabular-nums
+}
+.assessment-page .case-factor-main {
+  min-width:0
+}
+.assessment-page .case-factor-name {
+  display:block;
+  font-size:13px;
+  line-height:1.5;
+  color:#344455;
+  overflow-wrap:anywhere
+}
+html body.analytics-shell .assessment-page .case-ranked-factor .case-factor-track {
+  display:block;
+  height:5px;
+  margin-top:7px;
+  background:#f0f3f6;
+  border-radius:var(--dashboard-radius,10px);
+  overflow:hidden
+}
+.assessment-page .case-ranked-factor>strong {
+  text-align:right;
+  font-size:13px;
+  font-weight:650;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap
+}
+.assessment-page .case-explanation-footnote {
+  margin:16px 0 0;
+  font-size:11px;
+  line-height:1.65;
+  color:#697580
+}
+@media(max-width:480px) {
+  .assessment-page .case-ranked-factor {
+    grid-template-columns:20px minmax(0,1fr) 68px;
+    gap:8px
+  }
+  .assessment-page .case-ranked-factor>strong,.assessment-page .case-factor-name {
+    font-size:12px
+  }
+}
+html body.analytics-shell .assessment-page:has(.case-reference-section) .assessment-secondary {
+  grid-template-columns:minmax(280px,340px) minmax(0,1fr);
+  gap:20px;
+  align-items:stretch;
+}
+html body.analytics-shell .assessment-page .assessment-secondary>.panel {
+  min-width:0;
+  margin:0;
+  align-self:stretch;
+  background:#fff!important
+}
+html body.analytics-shell .assessment-page .assessment-secondary .panel-heading {
+  padding:18px 20px 14px;
+  min-height:0
+}
+html body.analytics-shell .assessment-page .assessment-secondary .panel-body {
+  padding:0 20px 20px
+}
+html body.analytics-shell .assessment-page #management .field-grid {
+  grid-template-columns:1fr;
+  gap:16px
+}
+html body.analytics-shell .assessment-page #management .field {
+  min-width:0
+}
+html body.analytics-shell .assessment-page #management label,
+html body.analytics-shell .assessment-page #notes label {
+  font-size:12px;
+  font-weight:600;
+  color:#4c5d6b
+}
+html body.analytics-shell .assessment-page #management select {
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  min-height:40px
+}
+html body.analytics-shell .assessment-page #management>.panel-body>.form-stack {
+  gap:18px
+}
+html body.analytics-shell .assessment-page #management>.panel-body>.form-stack>.button {
+  width:100%;
+  min-height:40px
+}
+html body.analytics-shell .assessment-page #management .case-score-again {
+  margin:16px 0 0;
+  padding-top:16px;
+  border-top:1px solid #e5e9ee
+}
+html body.analytics-shell .assessment-page #management .case-score-again .button {
+  width:100%;
+  min-height:38px
+}
+html body.analytics-shell .assessment-page #management .case-admin-details {
+  margin-top:16px;
+  padding-top:4px
+}
+html body.analytics-shell .assessment-page #management .case-admin-details>summary {
+  padding:12px 0
+}
+.assessment-page .review-note-count {
+  font-size:11px;
+  color:#697580;
+  background:#f1f5f9;
+  padding:4px 8px;
+  border-radius:var(--dashboard-radius,10px)
+}
+.assessment-page .note-composer {
+  gap:12px;
+  margin:0
+}
+html body.analytics-shell .assessment-page #notes textarea {
+  width:100%;
+  max-width:100%;
+  min-height:112px;
+  resize:vertical;
+  line-height:1.6;
+  padding:12px;
+  font:13px/1.6 "Segoe UI",Arial,sans-serif;
+  box-sizing:border-box
+}
+.assessment-page .note-compose-footer {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap
+}
+.assessment-page .note-compose-footer small {
+  font-size:11px;
+  line-height:1.5;
+  color:#697580
+}
+.assessment-page .note-compose-footer .button {
+  min-height:38px;
+  flex-shrink:0
+}
+.assessment-page .review-note-history {
+  margin-top:22px;
+  padding-top:18px;
+  border-top:1px solid #e5e9ee
+}
+.assessment-page .review-note-history>h3 {
+  font-size:12px;
+  font-weight:650;
+  color:#4c5d6b;
+  margin:0 0 14px
+}
+.assessment-page .review-note {
+  margin:0;
+  padding:0 0 16px 16px;
+  border-left:2px solid #e5e9ee;
+  overflow-wrap:anywhere
+}
+.assessment-page .review-note:last-child {
+  padding-bottom:0
+}
+.assessment-page .review-note-meta {
+  display:flex;
+  align-items:baseline;
+  gap:4px 12px;
+  flex-wrap:wrap;
+  font-size:11px;
+  line-height:1.5
+}
+.assessment-page .review-note-meta strong {
+  font-size:12px;
+  color:#263849
+}
+.assessment-page .review-note-meta span {
+  color:#697580
+}
+.assessment-page .review-note-content {
+  white-space:pre-wrap;
+  font-size:13px;
+  line-height:1.65;
+  color:#344455;
+  margin:8px 0
+}
+.assessment-page .review-note-edit>summary {
+  font-size:11px;
+  color:#2f7be5;
+  cursor:pointer;
+  width:fit-content;
+  padding:4px 0
+}
+.assessment-page .review-note-edit-body {
+  display:grid;
+  gap:10px;
+  margin-top:8px;
+  padding:12px;
+  background:#f7f9fc;
+  border-radius:var(--dashboard-radius,10px)
+}
+.assessment-page .review-note-edit-body form {
+  margin:0
+}
+.assessment-page .review-note-edit-body .button {
+  justify-self:start
+}
+.assessment-page .review-empty {
+  font-size:12px;
+  line-height:1.6;
+  color:#697580;
+  margin:0
+}
+@media(max-width:1000px) {
+  html body.analytics-shell .assessment-page:has(.case-reference-section) .assessment-secondary {
+    grid-template-columns:minmax(0,1fr)
+  }
+}
+@media(max-width:480px) {
+  .assessment-page .note-compose-footer {
+    align-items:stretch;
+    flex-direction:column
+  }
+  .assessment-page .note-compose-footer .button {
+    width:100%
+  }
+  html body.analytics-shell .assessment-page .assessment-secondary .panel-body {
+    padding:0 16px 16px
+  }
+  html body.analytics-shell .assessment-page .assessment-secondary .panel-heading {
+    padding:16px
+  }
+}

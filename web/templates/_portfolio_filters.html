@@ -1,0 +1,29 @@
+<dialog id="report-filters" class="portfolio-filters filter-dropdown report-dialog" aria-labelledby="report-filter-title">
+  <div class="dialog-header"><h2 id="report-filter-title">Bộ lọc báo cáo</h2><button type="button" class="icon-button" data-close aria-label="Đóng bộ lọc">×</button></div>
+  <form method="get" action="{{ url_for(request.endpoint) }}" id="cohort-filter-form" class="panel-body">
+    <div class="filter-title"><strong>Phạm vi phân tích</strong><a href="{{ url_for(request.endpoint) }}">Đặt lại</a></div>
+    <div class="cohort-grid">
+      <div class="field"><label for="pf-product">Loại vay của hồ sơ</label><select id="pf-product" name="product"><option value="">Tất cả loại vay</option>{% for key,label in products.items() %}<option value="{{ key }}" {% if cohort_filters.product==key %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>
+      <div class="field"><label for="pf-income">Nguồn thu nhập</label><select id="pf-income" name="income"><option value="">Tất cả nhóm</option>{% for key,label in income_types.items() %}<option value="{{ key }}" {% if cohort_filters.income==key %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>
+      <div class="field"><label for="pf-currency">Loại tiền bureau</label><select id="pf-currency" name="currency">{% for value in currency_options %}<option value="{{ value }}" {% if financial_currency==value %}selected{% endif %}>{{ value }}</option>{% endfor %}{% if not currency_options %}<option value="">Không có dữ liệu</option>{% endif %}</select></div>
+      <div class="field"><label for="pf-state">Trạng thái khoản bureau</label><select id="pf-state" name="credit_status">{% for key,label in credit_states.items() %}<option value="{{ key }}" {% if credit_status==key %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>
+    </div>
+    <details class="advanced-filters"><summary>Khoảng tiền, tuổi và thông tin cần xác minh</summary><div class="cohort-grid">
+      {% for name,label in [('amount_min','Tiền hồ sơ từ'),('amount_max','Tiền hồ sơ đến'),('age_min','Tuổi từ'),('age_max','Tuổi đến')] %}<div class="field"><label for="pf-{{ name }}">{{ label }}</label><input id="pf-{{ name }}" name="{{ name }}" type="number" min="0" step="any" value="{{ cohort_filters[name] if cohort_filters[name] is not none else '' }}" placeholder="Không giới hạn"></div>{% endfor %}
+      <div class="field span-two"><label for="pf-availability">Khả dụng thông tin hồ sơ</label><select id="pf-availability" name="availability"><option value="">Tất cả</option>{% for key,label in availability_options.items() %}<option value="{{ key }}" {% if cohort_filters.availability==key %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>
+    </div></details>
+    {% if active=='payment_analysis' %}<div class="cohort-grid history-selectors">
+      <div class="field"><label for="pf-source">Nguồn biểu đồ lịch sử tháng</label><select id="pf-source" name="source">{% for key,label in [('bureau','Bureau theo tháng'),('pos','POS / khoản trả góp'),('card','Thẻ tín dụng')] %}<option value="{{ key }}" {% if history_source==key %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>
+      <div class="field"><label for="pf-months">Cửa sổ lịch sử</label><select id="pf-months" name="months">{% for key,label in [('3','3 tháng'),('6','6 tháng'),('12','12 tháng'),('24','24 tháng'),('all','Toàn bộ trước mốc nộp đơn')] %}<option value="{{ key }}" {% if history_months==key %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>
+    </div>{% endif %}
+    {% if financial_filter %}<input type="hidden" name="financial_filter" value="{{ financial_filter }}">{% for name in ['from_state','to_state'] %}{% if request.args.get(name) %}<input type="hidden" name="{{ name }}" value="{{ request.args[name] }}">{% endif %}{% endfor %}{% endif %}
+    {% for name in ['drill_kind','drill_value'] %}{% if request.args.get(name) %}<input type="hidden" name="{{ name }}" value="{{ request.args[name] }}">{% endif %}{% endfor %}
+    <input type="hidden" name="breakdown" value="{{ breakdown }}"><div class="filter-toolbar"><button type="submit" class="button primary">{{ icon('filter') }}Áp dụng</button></div>
+    <p id="cohort-draft-notice" class="draft-notice" role="status" tabindex="-1" hidden>Bộ lọc đã thay đổi. Nhấn Áp dụng trước khi mở phân tích hoặc danh sách.</p>
+  </form>
+</dialog>
+<div class="report-context">
+{% if request.endpoint not in ['credit_diagnostics','payment_analysis'] %}<div class="scope-strip"><strong>{{ profiles|length }} hồ sơ</strong><span>{{ finance.loans_n }} khoản bureau · {{ financial_currency or 'Chưa có loại tiền' }} · {{ credit_states[credit_status] }} · trước mốc nộp đơn</span></div>{% endif %}
+{% if selection_chips or request.args.get('drill_kind') %}<div class="active-selections"><span>ĐANG XEM</span>{% for chip in selection_chips %}<a class="chip selected" data-dashboard-nav data-cohort-link href="{{ chip.remove_url }}">{{ chip.label }}: {{ chip.value }} ×</a>{% endfor %}{% if request.args.get('drill_kind') %}<a class="chip selected" data-dashboard-nav data-cohort-link href="{{ cohort_url(request.endpoint,drill_kind=None,drill_value=None) }}">{{ request.args.get('drill_value') }} ×</a>{% endif %}<a data-dashboard-nav href="{{ url_for(request.endpoint) }}">Xóa lựa chọn</a></div>{% endif %}
+{% if financial_filter %}<div class="selected-scope"><span>{{ financial_filters[financial_filter] }}</span><a data-cohort-link href="{{ cohort_url(request.endpoint,financial_filter=None,from_state=None,to_state=None) }}">Bỏ nhóm đang xem ×</a></div>{% endif %}
+</div>

@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "study_code_cells": 6,
+  "descriptive_operational_cells": 2,
+  "new_model_fits": 0,
+  "constructors_forbidden": true,
+  "fit_forbidden": true,
+  "original_notebook_cells_preserved": true,
+  "reports_and_active_metadata_unchanged": true
+}

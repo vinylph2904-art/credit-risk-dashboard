@@ -1,0 +1,120 @@
+{
+  "version": "1.0",
+  "created_by": "04_data_preparation_feature_engineering.ipynb",
+  "split_path": "data/splits/application_split.parquet",
+  "time_rules": [
+    {
+      "source": "bureau",
+      "time_rule": "DAYS_CREDIT <= 0 and DAYS_CREDIT_UPDATE <= 0 and DAYS_CREDIT_UPDATE >= DAYS_CREDIT",
+      "limitation": "Trạng thái/tiền ở lần cập nhật đủ điều kiện; ngày kết thúc dự kiến không làm bộ lọc"
+    },
+    {
+      "source": "bureau_balance",
+      "time_rule": "Eligible bureau parent and MONTHS_BALANCE < 0",
+      "limitation": "Không xác định chủ thì không tạo feature"
+    },
+    {
+      "source": "previous_application",
+      "time_rule": "DAYS_DECISION < 0",
+      "limitation": "Không dùng DAYS_LAST_DUE/DAYS_TERMINATION và ngày thực tế chưa xác minh"
+    },
+    {
+      "source": "pos_cash_balance",
+      "time_rule": "MONTHS_BALANCE < 0",
+      "limitation": "Số tháng quan sát khác số kỳ thanh toán"
+    },
+    {
+      "source": "credit_card_balance",
+      "time_rule": "MONTHS_BALANCE < 0",
+      "limitation": "Tỷ số tính cùng khoản/cùng tháng, mẫu số > 0"
+    },
+    {
+      "source": "installments_payments",
+      "time_rule": "DAYS_ENTRY_PAYMENT <= 0 and DAYS_INSTALMENT <= 0; valid keys and amounts",
+      "limitation": "Giữ phiên bản lịch trả trong khóa kỳ; không suy ra nợ quá hạn hiện hữu từ thiếu dòng"
+    }
+  ],
+  "application_day_to_year": {
+    "DAYS_BIRTH": "AGE_YEARS",
+    "DAYS_EMPLOYED": "EMPLOYED_YEARS",
+    "DAYS_REGISTRATION": "REGISTRATION_YEARS",
+    "DAYS_ID_PUBLISH": "ID_DOCUMENT_YEARS",
+    "DAYS_LAST_PHONE_CHANGE": "PHONE_CHANGE_YEARS"
+  },
+  "year_days": 365.25,
+  "employment_sentinel": 365243,
+  "categorical_missing_token": "__MISSING__",
+  "outliers": "Retain; no global clipping or row deletion by IQR",
+  "bureau_money_currency": "currency 1 only; other currencies retained in record counts",
+  "installment_period_key": [
+    "SK_ID_CURR",
+    "SK_ID_PREV",
+    "NUM_INSTALMENT_VERSION",
+    "NUM_INSTALMENT_NUMBER"
+  ],
+  "count_features_fill_zero": [
+    "BUR_LOAN_N",
+    "BUR_ACTIVE_N",
+    "BUR_CLOSED_N",
+    "BUR_OTHER_CURRENCY_N",
+    "BB_LOAN_N",
+    "BB_MONTH_N",
+    "BB_KNOWN_DPD_MONTH_N",
+    "BB_DPD_MONTH_N",
+    "BB_CLOSED_MONTH_N",
+    "BB_UNKNOWN_MONTH_N",
+    "PREV_APPLICATION_N",
+    "PREV_APPROVED_N",
+    "PREV_REFUSED_N",
+    "POS_LOAN_N",
+    "POS_MONTH_N",
+    "POS_KNOWN_DPD_MONTH_N",
+    "CC_LOAN_N",
+    "CC_MONTH_N",
+    "CC_KNOWN_DPD_MONTH_N",
+    "INS_OBS_PAYMENT_ROW_N",
+    "INS_OBS_VERSIONED_PERIOD_N",
+    "INS_OBS_LOAN_N"
+  ],
+  "source_flags": {
+    "bureau": {
+      "primary_count": "BUR_LOAN_N",
+      "flag": "HAS_USABLE_BUREAU"
+    },
+    "bureau_balance": {
+      "primary_count": "BB_MONTH_N",
+      "flag": "HAS_USABLE_BUREAU_BALANCE"
+    },
+    "previous_application": {
+      "primary_count": "PREV_APPLICATION_N",
+      "flag": "HAS_USABLE_PREVIOUS"
+    },
+    "pos_cash_balance": {
+      "primary_count": "POS_MONTH_N",
+      "flag": "HAS_USABLE_POS"
+    },
+    "credit_card_balance": {
+      "primary_count": "CC_MONTH_N",
+      "flag": "HAS_USABLE_CARD"
+    },
+    "installments_payments": {
+      "primary_count": "INS_OBS_VERSIONED_PERIOD_N",
+      "flag": "HAS_USABLE_INSTALLMENTS"
+    }
+  },
+  "history_artifacts": {
+    "bureau": "data\\features\\history\\bureau.parquet",
+    "bureau_balance": "data\\features\\history\\bureau_balance.parquet",
+    "previous_application": "data\\features\\history\\previous_application.parquet",
+    "pos_cash_balance": "data\\features\\history\\pos_cash_balance.parquet",
+    "credit_card_balance": "data\\features\\history\\credit_card_balance.parquet",
+    "installments_payments": "data\\features\\history\\installments_payments.parquet"
+  },
+  "limitations": [
+    "Retrospective availability assumption; no event timestamps within a day/month",
+    "No full schedule of unobserved obligations; installment metrics are observed-period summaries",
+    "Versioned installment groups are not verified independent economic obligations across schedule versions",
+    "No verified DTI, EAD, legal NPL, 12-month PD or actual lending cost",
+    "No classifier, feature selection by target, calibration or threshold fitting in this notebook"
+  ]
+}

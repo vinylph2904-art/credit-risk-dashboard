@@ -1,0 +1,13 @@
+{
+  "case_id": "B_LR_02",
+  "set": "B",
+  "model": "LR",
+  "config": {
+    "C": 0.1,
+    "class_weight": null,
+    "preprocessing": "log_amounts"
+  },
+  "mean_cv_ap": 0.25226242326982323,
+  "mean_cv_roc_auc": 0.7674172705468577,
+  "selection_scope": "Training three-fold CV only; no validation/test metrics used"
+}

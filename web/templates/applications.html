@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% set financial_view = true %}
+{% set assessment_view = true %}
+{% set assignment_view = request.args.get('section') == 'assignments' %}
+{% from '_components.html' import csrf, icon, risk_badge, status_badge, pagination with context %}
+{% from '_assignment.html' import assignment_select with context %}
+{% from '_kpi_targets.html' import comparison, settings %}
+{% block title %}Rà soát hồ sơ{% endblock %}
+{% block breadcrumb %}Công việc & hồ sơ{% endblock %}
+{% block topbar_content %}
+  <div class="financial-topbar-title"><h1>Rà soát hồ sơ</h1></div>
+  {% if not assignment_view %}{% include '_assessment_search.html' %}{% endif %}
+  <div class="financial-topbar-controls">
+
+    <div class="assessment-action-group assessment-actions">
+    {% if is_manager %}<button class="button primary" type="button" data-open="add-profile">{{ icon('plus') }}Thêm hồ sơ</button><button class="button" type="button" data-open="import-profiles">{{ icon('upload') }}Nhập hồ sơ</button><button class="button" type="button" aria-label="Phân tích kịch bản" data-open="portfolio-scenario">Kịch bản</button>{% endif %}
+    <details class="report-menu assessment-export"><summary class="button" aria-label="Chọn định dạng xuất">Xuất<span class="assessment-menu-caret" aria-hidden="true"></span></summary><div class="report-menu-items">
+      {% for format,label in [('csv','CSV'),('xlsx','Excel'),('pdf','PDF')] %}<a href="{{ url_for('export_applications', **dict(request.args.to_dict(),format=format)) }}">{{ icon('download') }}{{ label }}</a>{% endfor %}
+    </div></details>
+    </div>
+  </div>
+{% endblock %}
+{% block content %}
+
+{% include '_assessment_nav.html' %}
+{% if assignment_view %}
+  {% include '_workload.html' %}
+{% else %}
+
+{% include '_assessment_active_filters.html' %}
+<dialog id="application-filters" class="filter-dropdown report-dialog application-filters-panel" aria-labelledby="application-filter-title"><div class="dialog-header"><h2 id="application-filter-title">Bộ lọc hồ sơ</h2><button type="button" class="icon-button" data-close aria-label="Đóng bộ lọc">&#215;</button></div><div class="panel-body">
+  <form method="get" action="{{ url_for('applications') }}" id="cohort-filter-form" class="filter-grid application-filters">
+    <input type="hidden" name="q" value="{{ q }}">
+    <h3 class="assessment-filter-heading span-all">Lọc thường dùng</h3>
+    <div class="field"><label for="filter-product">Loại khoản vay</label><select id="filter-product" name="product"><option value="">Tất cả loại vay</option>{% for key,label in products.items() %}<option value="{{ key }}" {% if product==key %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>
+    <div class="field"><label for="filter-status">Trạng thái rà soát</label><select id="filter-status" name="status"><option value="">Tất cả trạng thái</option><option value="pending" {% if status=='pending' %}selected{% endif %}>Chưa hoàn tất (Mới / Đang xem xét)</option>{% for key,label in statuses.items() %}<option value="{{ key }}" {% if status==key %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>
+    <div class="field"><label for="filter-assignee">Người phụ trách</label><select id="filter-assignee" name="assignee"><option value="">Tất cả</option>{% for name in assignees %}<option value="{{ name }}" {% if assignee==name %}selected{% endif %}>{{ name }}</option>{% endfor %}</select></div>
+    <div class="field"><label for="filter-alert">Cảnh báo mô hình</label><select id="filter-alert" name="alert"><option value="">Tất cả</option><option value="1" {% if alert=='1' %}selected{% endif %}>Có cảnh báo</option><option value="0" {% if alert=='0' %}selected{% endif %}>Theo dõi thông thường</option><option value="unscored" {% if alert=='unscored' %}selected{% endif %}>Chưa chấm</option></select></div>
+    
+    
+    
+    
+    <div class="field"><label for="filter-score-min">Điểm rủi ro từ (%)</label><input id="filter-score-min" data-score-percent="score_min" type="number" min="0" max="100" step="any" value="{{ (score_min|float * 100)|round(6) if score_min != '' else '' }}" placeholder="0"><input type="hidden" name="score_min" value="{{ score_min }}"></div>
+    <div class="field"><label for="filter-score-max">Điểm rủi ro đến (%)</label><input id="filter-score-max" data-score-percent="score_max" type="number" min="0" max="100" step="any" value="{{ (score_max|float * 100)|round(6) if score_max != '' else '' }}" placeholder="100"><input type="hidden" name="score_max" value="{{ score_max }}"></div>
+    <input type="hidden" name="sort" value="{{ sort }}">
+    <details class="list-cohort-ranges span-all" {% if cohort_filters.amount_min is not none or cohort_filters.amount_max is not none or cohort_filters.age_min is not none or cohort_filters.age_max is not none or cohort_filters.availability %}open{% endif %}>
+      <summary>Lọc bổ sung · khoản vay, thu nhập và dữ liệu</summary>
+      <div class="cohort-grid"><div class="field"><label for="filter-currency">Loại tiền bureau</label><select id="filter-currency" name="currency">{% for value in currency_options %}<option value="{{ value }}" {% if financial_currency==value %}selected{% endif %}>{{ value }}</option>{% endfor %}{% if not currency_options %}<option value="">Không có dữ liệu</option>{% endif %}</select></div><div class="field"><label for="filter-credit-status">Trạng thái khoản bureau</label><select id="filter-credit-status" name="credit_status">{% for key,label in credit_states.items() %}<option value="{{ key }}" {% if credit_status==key %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div><div class="field"><label for="filter-data">Dữ liệu cần xác minh</label><select id="filter-data" name="data_check"><option value="">Tất cả hồ sơ</option>{% for key,label in data_checks.items() %}<option value="{{ key }}" {% if data_check==key %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div><div class="field"><label for="filter-income">Nguồn thu nhập</label><select id="filter-income" name="income"><option value="">Tất cả nhóm</option>{% for key,label in income_types.items() %}<option value="{{ key }}" {% if income==key %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>
+        {% for name,label in [('amount_min','Số tiền từ'),('amount_max','Số tiền đến'),('age_min','Tuổi từ'),('age_max','Tuổi đến')] %}
+        <div class="field"><label for="list-{{ name }}">{{ label }}</label><input id="list-{{ name }}" name="{{ name }}" type="number" min="0" step="any" value="{{ cohort_filters[name] if cohort_filters[name] is not none else '' }}" placeholder="Không giới hạn"></div>
+        {% endfor %}
+        <div class="field span-two"><label for="list-availability">Tình trạng dữ liệu của phân khúc</label><select id="list-availability" name="availability"><option value="">Tất cả hồ sơ</option>{% for key,label in availability_options.items() %}<option value="{{ key }}" {% if cohort_filters.availability==key %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>
+      </div>
+    </details>
+    <div class="button-row filter-actions">
+      <input type="hidden" name="page_size" value="{{ page_size }}">{% if view %}<input type="hidden" name="view" value="{{ view }}">{% endif %}
+      {% if archived %}<input type="hidden" name="archived" value="1">{% endif %}
+      {% if unassigned %}<input type="hidden" name="unassigned" value="1">{% endif %}
+      {% for name in ['financial_filter','source','months','from_state','to_state','breakdown','drill_kind','drill_value'] %}{% if request.args.get(name) %}<input type="hidden" name="{{ name }}" value="{{ request.args[name] }}">{% endif %}{% endfor %}
+      <button type="submit" class="button primary">{{ icon('filter') }}Áp dụng</button>
+      <a href="{{ url_for('applications') }}" class="button">Xóa bộ lọc</a>
+    </div>
+  </form>
+  <p id="cohort-draft-notice" class="draft-notice" role="status" tabindex="-1" hidden>Bộ lọc đã thay đổi. Nhấn Áp dụng để cập nhật danh sách.</p>
+  {% if data_check %}<div class="callout small"><p><strong>{{ data_checks[data_check] }}.</strong> Thiếu trường đầu vào không chứng minh rủi ro hoặc gian lận. Không có bureau đủ điều kiện sau lọc không đồng nghĩa chưa từng vay.</p></div>{% endif %}
+
+</div></dialog>
+
+<form id="assessment-page-size" method="get" action="{{ url_for('applications') }}"></form>
+<form id="batch-form" method="post" action="{{ cohort_url('batch_applications') }}">
+  {{ csrf() }}
+  <div id="batch-actions" class="batch-bar" hidden><span><strong id="selected-count">0</strong> hồ sơ đã chọn</span><div class="button-row"><button type="submit" class="button primary small" name="action" value="score">Chấm điểm đã chọn</button>{% if is_manager %}{{ assignment_select(id="batch-assigned-user") }}<button type="submit" class="button small" name="action" value="assign">Phân công</button>{% endif %}<button type="button" class="button small" id="clear-selection">Bỏ chọn</button></div></div>
+  <section class="panel assessment-table-panel">
+    <div class="assessment-table-toolbar">
+      <p class="assessment-count" role="status"><strong>{{ total|number }} hồ sơ{% if total != scope_total %} phù hợp{% endif %}</strong>{% if total != scope_total %}<span> / {{ scope_total|number }} hồ sơ trong phạm vi</span>{% endif %}<small>Hiển thị {{ start_n }}–{{ end_n }}{% if total == scope_total %} trên {{ total|number }} hồ sơ{% endif %}</small></p>
+      <div class="assessment-list-settings"><label for="queue-sort">Sắp xếp</label><select id="queue-sort" name="sort" form="assessment-page-size"><option value="score" {% if sort=='score' %}selected{% endif %}>Điểm rủi ro cao nhất</option><option value="amount" {% if sort=='amount' %}selected{% endif %}>Khoản vay lớn nhất</option></select>
+      <div class="assessment-page-size"><label for="page-size">Mỗi trang</label><select id="page-size" name="page_size" form="assessment-page-size">{% for n in [15,30,50,100] %}<option value="{{ n }}" {% if n==page_size %}selected{% endif %}>{{ n }}</option>{% endfor %}</select>
+      {% for name,value in request.args.items() %}{% if name not in ['page_size','page','sort'] %}<input type="hidden" name="{{ name }}" value="{{ value }}" form="assessment-page-size">{% endif %}{% endfor %}
+      <noscript><button class="button small" type="submit" form="assessment-page-size">Áp dụng</button></noscript></div></div>
+    </div>
+    <div class="table-scroll"><table class="profile-table">
+    <thead><tr><th class="center"><input id="select-all" type="checkbox" aria-label="Chọn tất cả hồ sơ trên trang"></th><th>Mã hồ sơ</th><th class="right">Điểm rủi ro</th><th>Cảnh báo mô hình</th><th>Trạng thái rà soát</th><th>Người phụ trách</th></tr></thead>
+    <tbody>
+    {% for row in profiles %}
+    <tr>
+      <td class="center"><input class="row-checkbox" type="checkbox" name="profile_ids" value="{{ row.profile_id }}" aria-label="Chọn hồ sơ {{ row.case_label }}" {% if row.is_archived %}disabled{% endif %}></td>
+      <td><a class="profile-link" data-assessment-detail href="{{ cohort_url('application_detail',profile_id=row.profile_id) }}">{{ row.case_label }}</a><span class="subtext">{% if row.case_label != 'HC-' ~ row.source_application_id|string %}#{{ row.source_application_id }} · {% endif %}{{ products.get(row.NAME_CONTRACT_TYPE,row.NAME_CONTRACT_TYPE) }} {% if row.is_archived %}<span class="badge archived">Đã lưu trữ</span>{% endif %}</span></td>
+
+      
+      <td class="right">{% if row.score is not none %}<span class="score-number {% if row.alert %}risk-value{% endif %}">{{ row.score|percent }}</span>{% else %}<span class="badge muted-badge">Chưa chấm</span>{% endif %}</td>
+      <td><span class="risk-pill {% if row.score is none %}is-unscored{% elif row.alert %}is-alert{% else %}is-below{% endif %}">{{ 'Chưa chấm' if row.score is none else 'Cảnh báo' if row.alert else 'Dưới ngưỡng' }}</span></td><td>{{ status_badge(row.review_status) }}</td><td>{{ row.assignee or 'Chưa phân công' }}</td>
+    </tr>
+    {% else %}<tr><td colspan="6" class="empty">{% if is_manager %}Không có hồ sơ phù hợp. Thử đặt lại bộ lọc hoặc thêm hồ sơ.{% else %}Chưa có hồ sơ phù hợp. Trưởng bộ phận có thể phân công hồ sơ cho bạn.{% endif %}</td></tr>{% endfor %}
+    </tbody>
+  </table></div>{{ pagination(page,pages,total) }}</section>
+</form>
+{% endif %}
+{% if is_manager %}<dialog id="add-profile">
+  <div class="dialog-header"><h2>Thêm hồ sơ thẩm định</h2><button type="button" class="icon-button" data-close aria-label="Đóng hộp thoại">{{ icon('close') }}</button></div>
+  <div class="dialog-body"><form method="post" action="{{ url_for('add_application') }}" class="form-stack">
+    {{ csrf() }}
+    <div class="field"><label for="source-id">Mã hồ sơ nguồn SK_ID_CURR</label><input id="source-id" name="source_application_id" inputmode="numeric" pattern="[0-9]+" required><small>Chọn mã thuộc application_test có sẵn. <a href="{{ url_for('application_template') }}">Tải CSV mẫu để xem ID khả dụng.</a></small></div>
+    <div class="field"><label for="case-label">Tên hồ sơ</label><input id="case-label" name="case_label" maxlength="100" placeholder="Để trống để dùng HC-mã nguồn"></div>
+    <div class="field"><label for="assignee">Người phụ trách</label>{{ assignment_select(id="assignee") }}</div>
+    <div class="callout small"><p>Hệ thống lấy {{ model_feature_n }} đặc trưng theo mô hình đang dùng từ MySQL. Đầu vào được chuẩn bị theo schema đã lưu khi huấn luyện.</p></div>
+    <div class="dialog-actions"><button class="button" type="button" data-close>Hủy</button><button class="button primary" type="submit">Lưu hồ sơ</button></div>
+  </form></div>
+</dialog>
+<dialog id="import-profiles">
+  <div class="dialog-header"><h2>Nhập hồ sơ từ CSV / Excel</h2><button type="button" class="icon-button" data-close aria-label="Đóng hộp thoại">{{ icon('close') }}</button></div>
+  <div class="dialog-body"><form method="post" enctype="multipart/form-data" action="{{ url_for('import_applications') }}" class="form-stack">
+    {{ csrf() }}<p class="subtext">CSV UTF-8 hoặc Excel .xlsx một sheet, tối đa 1 MB và 1.000 dòng. Dùng giá trị, không dùng công thức. Toàn bộ file được kiểm tra trước khi lưu.</p>
+    <div class="button-row"><a href="{{ url_for('application_template') }}">Mẫu CSV</a><a href="{{ url_for('application_template',format='xlsx') }}">Mẫu Excel (.xlsx)</a></div>
+    <div class="field"><label for="import-file">Chọn file CSV hoặc Excel</label><input id="import-file" name="file" type="file" accept=".csv,.xlsx" required></div>
+    <div class="dialog-actions"><button class="button" type="button" data-close>Hủy</button><button class="button primary" type="submit">Nhập dữ liệu</button></div>
+  </form></div>
+</dialog>{% endif %}
+{% if is_manager %}{% set scenario_operational=true %}{% include '_policy_scenario.html' %}{% endif %}
+{% endblock %}

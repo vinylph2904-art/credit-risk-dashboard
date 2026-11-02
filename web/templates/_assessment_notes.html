@@ -1,0 +1,29 @@
+<section class="panel review-notes-panel" id="notes" aria-labelledby="notes-title">
+  <div class="panel-heading"><h2 id="notes-title">Ghi chú thẩm định</h2><span class="review-note-count">{{ notes|length }} ghi chú</span></div>
+  <div class="panel-body">
+    {% if profile.event_id %}
+    <form method="post" action="{{ cohort_url('add_note',event_id=profile.event_id) }}" class="form-stack note-composer">
+      {{ csrf() }}
+      <div class="field"><label for="note-content">Thêm ghi chú</label><textarea id="note-content" name="content" maxlength="2000" rows="4" required aria-describedby="note-compose-help" placeholder="Thông tin đã đối chiếu, kết quả xác minh và việc cần bổ sung…"></textarea></div>
+      <div class="note-compose-footer"><small id="note-compose-help">Tối đa 2.000 ký tự · gắn với lần chấm #{{ profile.event_id }}</small><button class="button primary" type="submit">Lưu ghi chú</button></div>
+    </form>
+    {% else %}<p class="review-empty">Chấm điểm hồ sơ để bắt đầu ghi chú thẩm định.</p>{% endif %}
+    <div class="review-note-history"><h3>Nhật ký ghi chú</h3>
+      {% for note in notes %}
+      <article class="review-note" id="note-{{ note.note_id }}">
+        <div class="review-note-meta"><strong>{{ note.author }}</strong><span>{{ note.updated_at|localtime }} · Lần chấm #{{ note.event_id }}</span></div>
+        <p class="review-note-content">{{ note.content }}</p>
+        {% if is_manager or note.author==signed_in_user %}
+        <details class="review-note-edit"><summary>Chỉnh sửa ghi chú</summary>
+          <div class="review-note-edit-body">
+            <form method="post" action="{{ cohort_url('update_note',note_id=note.note_id) }}" class="form-stack">
+              {{ csrf() }}<div class="field"><label for="content-{{ note.note_id }}">Nội dung ghi chú</label><textarea id="content-{{ note.note_id }}" name="content" maxlength="2000" rows="4" required>{{ note.content }}</textarea></div><button class="button small" type="submit">Lưu sửa đổi</button>
+            </form>
+            <form method="post" action="{{ cohort_url('delete_note',note_id=note.note_id) }}" data-confirm="Xóa ghi chú này?">{{ csrf() }}<button class="button small danger" type="submit">Xóa ghi chú</button></form>
+          </div>
+        </details>{% endif %}
+      </article>
+      {% else %}<p class="review-empty">Chưa có ghi chú thẩm định cho hồ sơ này.</p>{% endfor %}
+    </div>
+  </div>
+</section>

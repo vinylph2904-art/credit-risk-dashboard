@@ -1,0 +1,72 @@
+{
+  "captured_at": "2026-10-19T13:20:39.963082+00:00",
+  "scope": "read_only_metadata_and_label_counts_no_model_training_no_data_split",
+  "tables": [
+    {
+      "path": "data/parquet/application_test.parquet",
+      "rows": 48744,
+      "columns": 121,
+      "bytes": 4246979,
+      "sha256": "64b552448025527adba82ac29fa4770e36da1bae42ccea9f037471fc53f173eb"
+    },
+    {
+      "path": "data/parquet/application_train.parquet",
+      "rows": 307511,
+      "columns": 122,
+      "bytes": 22369543,
+      "sha256": "685c7ef40c8de858ab63c278b9e607aa13a11a1a637d96b354530a608cb8ed3f"
+    },
+    {
+      "path": "data/parquet/bureau.parquet",
+      "rows": 1716428,
+      "columns": 17,
+      "bytes": 35603647,
+      "sha256": "c39508af9426d47041d3cf457d3b4d8f4aae474607b75731967825a5d38298d8"
+    },
+    {
+      "path": "data/parquet/bureau_balance.parquet",
+      "rows": 27299925,
+      "columns": 3,
+      "bytes": 16648672,
+      "sha256": "8f7b824d3cac8d40c9417501feb1fd93b8e5643e48f22fe039772c79c769b3f4"
+    },
+    {
+      "path": "data/parquet/credit_card_balance.parquet",
+      "rows": 3840312,
+      "columns": 23,
+      "bytes": 114345678,
+      "sha256": "5da088faea76214e086cf87b381c2a4e01a731d43d7b8c67908c00d0d45f1736"
+    },
+    {
+      "path": "data/parquet/installments_payments.parquet",
+      "rows": 13605401,
+      "columns": 8,
+      "bytes": 304911287,
+      "sha256": "adb0cbee8126090ebc412cf25137dd36b53b2eab15d1784cae7572c8dc249c01"
+    },
+    {
+      "path": "data/parquet/pos_cash_balance.parquet",
+      "rows": 10001358,
+      "columns": 8,
+      "bytes": 126164355,
+      "sha256": "d4e7187c03e527f3a582d8dd465990e2f9800a4397383757c9b89343a3f9c11e"
+    },
+    {
+      "path": "data/parquet/previous_application.parquet",
+      "rows": 1670214,
+      "columns": 37,
+      "bytes": 63822577,
+      "sha256": "24693d7f92a2256091678bcd13fa54d6a27aec2fc629db2ea50c7e5c46993657"
+    }
+  ],
+  "target_counts": {
+    "0": 282686,
+    "1": 24825
+  },
+  "positive_rate": 0.08072881945686496,
+  "unique_current_ids": 307511,
+  "majority_class_accuracy_reference": 0.9192711805431351,
+  "target_definition": "Target variable (1 - client with payment difficulties: he/she had late payment more than X days on at least one of the first Y installments of the loan in our sample, 0 - all other cases)",
+  "dictionary_source": "original competition CSV in the cache referenced by the existing notebook",
+  "dictionary_sha256": "eef7665398228a80f7367c9258220c5fbe1038f3f54094244f354d54e2d4fb03"
+}

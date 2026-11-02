@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block title %}Nhật ký tài khoản{% endblock %}
+{% block breadcrumb %}Nhật ký tài khoản{% endblock %}
+{% block topbar_content %}
+<div class="workspace-heading"><div><h1>Nhật ký tài khoản</h1><p>200 thao tác gần nhất.</p></div><a class="button" href="{{ url_for('users_admin') }}">← Quản lý tài khoản</a></div>
+{% endblock %}
+{% block content %}
+<section class="panel table-scroll"><table><thead><tr><th>Thời gian</th><th>Người thực hiện</th><th>Thao tác</th><th>Tài khoản liên quan</th><th>Chi tiết</th></tr></thead><tbody>{% for row in rows %}<tr><td>{{ row.created_at|localtime }}</td><td>{{ row.actor or 'Hệ thống' }}</td><td>{{ {'initialize_users':'Khởi tạo tài khoản','login':'Đăng nhập','logout':'Đăng xuất','create_user':'Tạo tài khoản','update_user':'Cập nhật tài khoản','reset_password':'Đặt lại mật khẩu','change_password':'Đổi mật khẩu'}.get(row.action,row.action) }}</td><td>{{ row.target or '—' }}</td><td>{{ row.detail or '—' }}</td></tr>{% else %}<tr><td colspan="5" class="empty">Chưa có thao tác.</td></tr>{% endfor %}</tbody></table></section>{% endblock %}

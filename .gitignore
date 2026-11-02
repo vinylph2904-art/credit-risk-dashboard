@@ -1,0 +1,37 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+pytest-cache*/
+.ipynb_checkpoints/
+.idea/
+.env
+.env.*
+!.env.example
+*.local.json
+tmp/
+*.log
+data/parquet/
+data/raw_mysql/
+data/features/
+data/model_input/
+data/eda/
+
+# Development-only tools, backups and generated audit outputs.
+.agents/
+.codex/
+backups/
+_review_before_delete/
+reports/system_audit/
+reports/domain/
+reports/modeling/notebooklm_review_*/
+artifacts/workspace-audit/
+artifacts/assessment-ux/
+
+# Database exports and submission archives are distributed separately.
+data_bundle/
+submission_release/
+*.sql.gz
+*.zip
+demo_accounts.json

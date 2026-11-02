@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "checks_n": 18,
+  "checks": [
+    "two_sample_queries_for_initial_load",
+    "same_dataframes_returned_on_second_load",
+    "no_query_on_second_load",
+    "preview_uses_loaded_application",
+    "preview_does_not_reload_application",
+    "application_train_sql_sample_matches_values_types_order_and_nan",
+    "application_test_sql_sample_matches_values_types_order_and_nan",
+    "batch_boundaries_and_final_short_batch",
+    "no_rows_lost_or_reordered_across_batches",
+    "reject_unknown_table_or_column_None",
+    "reject_unknown_table_or_column_['unknown_column']",
+    "initial_split_saved_to_temporary_table",
+    "split_save_is_repeatable",
+    "second_save_does_not_duplicate_rows",
+    "reject_conflicting_existing_fold",
+    "reject_duplicate_ids",
+    "reject_unexpected_existing_id",
+    "permanent_split_table_unchanged_after_write_tests"
+  ],
+  "application_sample_rows_each": 200,
+  "write_test_scope": "connection-local TEMPORARY application_split; dropped before disconnect",
+  "permanent_database_split_unchanged": true,
+  "training_run": false
+}

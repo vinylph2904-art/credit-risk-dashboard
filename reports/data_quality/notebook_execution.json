@@ -1,0 +1,41 @@
+[
+  {
+    "notebook": "notebooks\\01_Data_Understanding.ipynb",
+    "fresh_kernel": true,
+    "kernel_mode": "in_process_ipython_in_separate_fresh_python_process",
+    "code_cells_executed": 20,
+    "errors": 0,
+    "elapsed_seconds": 301.46,
+    "executed_code_sha256": "081314efdd8f44fb16a444bbbea9f868bb408c84094793b45a55a81d3e78b58f",
+    "code_hash_definition": "sha256 of code-cell sources joined by two newline characters",
+    "shared_source_sha256": {
+      "Connectors/Connector.py": "26480561e7e47b629e154cbb3d52bd714ffab968590cb8bf0f7440399c036910",
+      "Models/HomeCreditData.py": "59ea56d28dd710ab3bf593dc1859bf23944b2173966c278926fec0dbbae581a1"
+    },
+    "connection_setup_changed_after_full_run": true,
+    "current_code_sha256_after_connection_simplification": "adc66732dfe20b220d96bb84ba889051b03fbe998d1a7fadc072560091ed0023",
+    "connection_only_verification_report": "reports/data_quality/simple_connection_calls_checks.json",
+    "latest_verification_scope": "Changed connection setup and imports tested; heavy analysis/training not rerun; earlier full-run results retained."
+  },
+  {
+    "notebook": "notebooks\\02_Data_Quality_EDA.ipynb",
+    "fresh_kernel": true,
+    "kernel_mode": "in_process_ipython_in_separate_fresh_python_process",
+    "code_cells_executed": 37,
+    "errors": 0,
+    "elapsed_seconds": 956.36,
+    "executed_code_sha256": "1eee1887688d72aae6ca9a164c72e70c184c6a813cf93b8c403cf386c0187dea",
+    "code_hash_definition": "sha256 of code-cell sources joined by two newline characters",
+    "shared_source_sha256": {
+      "Connectors/Connector.py": "26480561e7e47b629e154cbb3d52bd714ffab968590cb8bf0f7440399c036910",
+      "Models/HomeCreditData.py": "59ea56d28dd710ab3bf593dc1859bf23944b2173966c278926fec0dbbae581a1",
+      "Models/HomeCreditQuality.py": "ddd722fba20573d2fb72007c9375b531cd68fb5b1478fc5aaad0cbb9b372e054"
+    },
+    "connector_defaults_updated_by_user_during_run": true,
+    "current_connector_compatibility_evidence": "connector_defaults_checks.json",
+    "connection_setup_changed_after_full_run": true,
+    "current_code_sha256_after_connection_simplification": "4f5a681c694f2438b6e02118f5b7edd3013c629170e57baa49cf462f3222e2d3",
+    "connection_only_verification_report": "reports/data_quality/simple_connection_calls_checks.json",
+    "latest_verification_scope": "Changed connection setup and imports tested; heavy analysis/training not rerun; earlier full-run results retained."
+  }
+]

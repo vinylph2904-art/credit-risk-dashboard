@@ -1,0 +1,19 @@
+<dialog id="portfolio-scenario" class="scenario-dialog" aria-labelledby="portfolio-scenario-title">
+  <div class="dialog-header"><div><h2 id="portfolio-scenario-title">Phân tích kịch bản</h2><span class="scenario-badge">Mô phỏng · Không lưu thay đổi</span></div><button class="icon-button" type="button" data-close aria-label="Đóng mô phỏng">×</button></div>
+  <div class="dialog-body">
+    {% if scenario_operational|default(false) %}<p class="scenario-note">Mô phỏng trên hồ sơ đang quản lý theo bộ lọc phân khúc. Không áp dụng tìm kiếm, bộ lọc điểm số, phân công hoặc trạng thái công việc của bảng.</p>{% endif %}
+    <form data-scenario="portfolio" {% if scenario_operational|default(false) %}data-operational-scope{% endif %} action="{{ url_for('simulate_portfolio') }}" method="get" class="scenario-form">
+      <div class="field"><label for="policy-mode">Phân tích theo</label><select id="policy-mode" name="mode"><option value="threshold">Ngưỡng cảnh báo</option><option value="capacity">Năng lực rà soát</option></select></div>
+      <div class="scenario-threshold"><div class="field"><label for="scenario-threshold">Ngưỡng mô phỏng (%)</label><input id="scenario-threshold" name="threshold_percent" type="number" min="0" max="100" step="any" value="{{ model_threshold * 100 }}" required></div><input data-threshold-range type="range" min="0" max="100" step="0.1" value="{{ model_threshold * 100 }}" aria-label="Điều chỉnh ngưỡng mô phỏng"><div class="scenario-presets">{% for value,label in [(12,'12%'),(model_threshold * 100,'Hiện tại'),(18,'18%'),(20,'20%')] %}<button type="button" class="chip" data-scenario-threshold="{{ value }}">{{ label }}</button>{% endfor %}</div></div>
+      <div data-capacity-fields class="field-grid" hidden>
+        <div class="field"><label for="scenario-capacity">Số hồ sơ có thể rà soát mỗi lượt</label><input id="scenario-capacity" name="capacity" type="number" min="0" step="1" value="20" disabled required></div>
+        <div class="field"><label for="scenario-scope">Phạm vi lựa chọn</label><select id="scenario-scope" name="scope" disabled><option value="backlog">Cảnh báo chưa rà soát xong</option><option value="portfolio">Toàn phạm vi đã chấm</option></select></div>
+      </div>
+      <p class="scenario-note" data-portfolio-scope-note hidden>Phân tích toàn tập đã chấm, gồm cả hồ sơ đã rà soát và dưới ngưỡng; không phải phân công hàng chờ.</p>
+      <div class="scenario-actions"><button type="reset" class="button">Đặt lại</button><button type="submit" class="button primary">Mô phỏng</button></div>
+    </form>
+    <div class="scenario-error" data-scenario-error role="alert" hidden></div>
+    <div class="scenario-output" data-scenario-output aria-live="polite" hidden></div>
+    <details class="scenario-help"><summary>Cách đọc mô phỏng</summary><p>Dùng cùng phạm vi và điểm số trên trang. Hạ ngưỡng mở rộng diện rà soát; tăng ngưỡng thu hẹp diện rà soát. Các chỉ số không chứng minh thay đổi tổn thất thực tế.</p><p>Năng lực K chọn score giảm dần, đồng hạng theo Mã hồ sơ nguồn tăng dần. Không đổi ngưỡng hoạt động, phân công hay trạng thái rà soát.</p><p>Giá trị khoản vay theo đơn vị nguồn, chỉ cộng số tiền hữu hạn và không âm. Tập hồ sơ này chưa có nhãn để tính recall hoặc FP/FN.</p></details>
+  </div>
+</dialog>

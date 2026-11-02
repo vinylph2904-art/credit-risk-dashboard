@@ -1,0 +1,10 @@
+<dialog id="report-notes" class="report-dialog" aria-labelledby="risk-notes-title"><div class="dialog-header"><h2 id="risk-notes-title">Cách đọc chỉ số</h2><button class="icon-button" type="button" data-close aria-label="Đóng">×</button></div><div class="dialog-body">
+<p><strong>Phạm vi:</strong> hồ sơ đang quản lý, chưa lưu trữ; mỗi hồ sơ dùng lần chấm mới nhất của phiên bản {{ model_version }}. Không tự mở rộng mẫu thành toàn danh mục tín dụng.</p>
+<p><strong>Cảnh báo:</strong> risk score ≥ {{ model_threshold|percent }}. Tỷ lệ cảnh báo = số cảnh báo / hồ sơ đã chấm. Điểm trung bình chỉ tính trên hồ sơ đã chấm, không phải tỷ lệ vỡ nợ của danh mục hay PD 12 tháng.</p>
+<p><strong>Giá trị tín dụng:</strong> tổng AMT_CREDIT của các hồ sơ đã chấm, chỉ nhận giá trị hữu hạn, không âm. {{ amounts.eligible_n }} hồ sơ đủ dữ liệu; {{ amounts.excluded_n }} hồ sơ bị loại khỏi tổng tiền. Đây là giá trị trong hồ sơ, chưa phải dư nợ hiện tại, EAD hay tổn thất dự kiến; không chứng minh đã giải ngân. Đơn vị tiền giữ theo nguồn.</p>
+<p><strong>Tỷ trọng tiền:</strong> tỷ trọng trong nhóm = tiền cảnh báo / tổng tiền của nhóm; đóng góp vào tổng = tiền cảnh báo của nhóm / tổng tiền cảnh báo trong phạm vi. Chỉ dùng tiền hợp lệ, mẫu số 0 hiển thị —.</p>
+<p><strong>Phân khúc:</strong> các biểu đồ dùng cùng tối đa 6 nhóm từ 5 hồ sơ đã chấm, cùng thứ tự theo lựa chọn Ưu tiên theo. Mốc 5 chỉ là quy tắc trình bày, không đảm bảo độ tin cậy thống kê. Bảng giữ toàn bộ nhóm và cho sắp xếp riêng. Các khoảng tuổi/tiền không phải ngưỡng quyết định.</p>
+<p><strong>Tiền quá hạn:</strong> bureau lịch sử tại các mốc trước từng hồ sơ, cùng tiền tệ/trạng thái được ghi trên KPI. Không cộng với AMT_CREDIT để suy ra dư nợ hiện tại.</p>
+<p>Chọn khoảng điểm để xem hồ sơ tạo nên số đếm; chọn phân khúc để lọc báo cáo. Bảng ưu tiên chỉ giữ cảnh báo Mới hoặc Đang xem xét, score giảm dần, tối đa 10 hồ sơ. Cảnh báo hỗ trợ rà soát, không tự duyệt hoặc từ chối.</p>
+<p><a href="{{ cohort_url('credit_diagnostics') }}">Tín hiệu lịch sử tín dụng & đối chiếu bureau →</a> · <a href="{{ cohort_url('payment_analysis') }}">Phân tích lịch sử thanh toán →</a></p>
+</div></dialog>

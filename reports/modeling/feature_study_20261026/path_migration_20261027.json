@@ -1,0 +1,16 @@
+{
+  "reason": "Folder migration Assets -> artifacts; no model, feature, threshold, or experimental decision change",
+  "metadata_before_sha256": "76712c4d1ba76cab537db2678bc40843b3952b335b1337c270aa54802bea7db8",
+  "metadata_after_sha256": "e42cc12dbcac28ac82f1e7af43ed20522aad77e7dc6d7f6ac8b284857356919c",
+  "decision_before_sha256": "63aa821e28e627ed9f2e7b71c86203c15193af7a9da1f531a0a21793cf840194",
+  "decision_after_sha256": "ae38b31c4898edc58cde76699f30239e337370de170690cc45bcc96e6fe10502",
+  "model_sha256": "ff1d1fdeb27d5431482a7b9ea0c3d17b34bd19296d1262ebfa85aed9b3bbddfb",
+  "model_path_before": "Assets/catboost_4fec95c745d24f99893d/credit_risk_model.joblib",
+  "model_path_after": "artifacts/catboost_4fec95c745d24f99893d/credit_risk_model.joblib",
+  "changed_metadata_fields": [
+    "model_path"
+  ],
+  "changed_decision_fields": [
+    "final_model_path"
+  ]
+}

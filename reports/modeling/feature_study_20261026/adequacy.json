@@ -1,0 +1,12 @@
+{
+  "scope": "relative demo benchmark; not proof of bank readiness",
+  "ap_above_prevalence": true,
+  "roc_above_random": true,
+  "cost_below_always_negative": true,
+  "cost_below_frozen_LR": true,
+  "always_negative_cost": 0.4036454099053689,
+  "frozen_LR_cost": 0.3355338037787389,
+  "remaining_FN_share": 0.5458207452165156,
+  "next_preprocessing_if_failed": "inspect source coverage, missing/sentinel rules, timing and feature groups on train; declare a new study before additional fits; never retune on historical test",
+  "passes_declared_demo_benchmarks": true
+}

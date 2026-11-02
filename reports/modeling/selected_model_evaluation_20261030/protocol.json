@@ -1,0 +1,54 @@
+{
+  "case_id": "B_FILTER_CAT_02",
+  "case": {
+    "set": "B_FILTER",
+    "model": "CAT",
+    "config": {
+      "depth": 6
+    }
+  },
+  "catboost_parameters": {
+    "loss_function": "Logloss",
+    "iterations": 500,
+    "learning_rate": 0.05,
+    "l2_leaf_reg": 5.0,
+    "boosting_type": "Plain",
+    "bootstrap_type": "Bernoulli",
+    "subsample": 0.8,
+    "rsm": 0.8,
+    "max_ctr_complexity": 1,
+    "used_ram_limit": "1gb",
+    "allow_writing_files": false,
+    "verbose": false,
+    "depth": 6,
+    "random_seed": 42,
+    "thread_count": 4
+  },
+  "selection_policy": {
+    "method": "constant filter and Pearson redundancy filter",
+    "correlation_limit": 0.9,
+    "minimum_pairwise_overlap": 0.5,
+    "representative_rule": "lower missingness, then original schema order",
+    "target_used_by_selector": false
+  },
+  "calibration": {
+    "method": "sigmoid",
+    "inner_folds": 3,
+    "seed": 42,
+    "ensemble": false,
+    "selection": "sigmoid iff nested train OOF Brier < raw Brier"
+  },
+  "threshold": {
+    "dataset": "validation",
+    "fn_cost": 5,
+    "fp_cost": 1,
+    "tie_break": "recall descending, threshold descending"
+  },
+  "versions": {
+    "catboost": "1.2.10",
+    "sklearn": "1.9.1"
+  },
+  "source_boosting_cache_key": "a450fb4764d4016017e0",
+  "test_status": "historical test; evaluate only after freezing the model and threshold",
+  "maximum_new_base_fits": 16
+}

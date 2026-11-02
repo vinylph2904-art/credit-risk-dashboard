@@ -1,0 +1,7 @@
+{
+  "case_id": "B_LR_02",
+  "raw_oof_brier": 0.06731847729313516,
+  "sigmoid_oof_brier": 0.06730985014121608,
+  "use_sigmoid": true,
+  "scope": "Outer training folds; sigmoid learned from inner training CV only"
+}

@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% from '_kpi_mini.html' import mini %}
+{% from '_components.html' import icon, kpi_icon with context %}
+{% block title %}{{ 'Tổng quan tài chính & tín dụng' if overview else 'Phân tích phân khúc' }}{% endblock %}
+{% block breadcrumb %}{{ 'Tổng quan tài chính' if overview else 'Phân tích phân khúc' }}{% endblock %}
+{% block topbar_content %}
+<div class="financial-topbar-title"><h1>{{ 'Tổng quan tài chính & tín dụng' if overview else 'Phân tích phân khúc' }}</h1>
+  <div class="financial-scopebar"><span>{{ 'Dữ liệu lịch sử' if data_scope=='research' else 'Hồ sơ quản lý' }} · <b>{{ financial_summary.n|number }}</b> hồ sơ · Tiền theo đơn vị nguồn</span>{% if is_filtered %}<span class="financial-comparison-note">So sánh với {{ reference_n|number }} hồ sơ trước lọc</span>{% endif %}</div>
+</div>
+<div class="financial-topbar-controls" aria-label="Tùy chọn báo cáo">
+  {% if not overview %}<div class="field-inline"><label for="financial-dimension">Phân khúc</label><select id="financial-dimension" data-report-navigation>{% for key,label in dimension_options.items() %}<option value="{{ cohort_url(request.endpoint,segment=key,finance_group=none) }}" {% if dimension==key %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>{% endif %}
+  {% if is_manager and data_scope=='managed' and not overview %}<button class="button small" type="button" data-open="portfolio-scenario">Phân tích kịch bản</button>{% endif %}
+  <button class="button small financial-help-action" type="button" data-open="financial-method" aria-label="Cách tính chỉ số">Cách tính</button>
+</div>
+{% endblock %}
+{% block content %}
+{% if active_financial_filters %}<section class="financial-dashboard-header" aria-label="Điều kiện đang áp dụng">
+<div class="financial-active-filters">
+  {% for item in active_financial_filters %}<a class="financial-filter-chip" data-dashboard-nav href="{{ item.url }}" aria-label="Bỏ điều kiện {{ item.label }}">{{ item.label }}<span aria-hidden="true">×</span></a>{% endfor %}
+  <a class="financial-clear-filters" data-dashboard-nav href="{{ clear_financial_filters_url }}">Xóa bộ lọc</a>
+</div>
+</section>{% endif %}
+<div class="kpi-grid financial-kpis reference-card-layout">
+{% for kpi in kpis %}<article class="kpi {% if kpi.key in ['rate','credit_share'] %}financial-kpi-risk{% endif %}" data-financial-kpi="{{ kpi.key }}" data-level-value="{{ kpi.value if kpi.value is not none else '' }}" data-level-unit="{{ kpi.kind }}" data-reference-value="{{ kpi.reference if kpi.reference is not none else '' }}" data-reference-count="{{ reference_n }}" data-reference-active="{{ '1' if is_filtered and kpi.key != 'credit' else '0' }}" title="{% if kpi.key=='credit_share' %}Tổng giá trị khoản vay của nhóm khó khăn thanh toán / tổng giá trị khoản vay có nhãn và đủ dữ liệu tiền. {% endif %}{{ kpi.n|number }} hồ sơ đủ dữ liệu">
+  <div class="financial-kpi-heading"><span class="label">{{ kpi.label }}</span></div>
+  <strong class="{% if kpi.key in ['rate','credit_share'] %}financial-risk-value{% endif %}">{{ kpi_icon({'credit':'wallet','rate':'alert','credit_share':'share','median_credit':'wallet','credit_income':'ratio','annuity_income':'receipt','credit_goods':'card'}[kpi.key]) }}{% if kpi.kind=='amount' %}{{ kpi.value|compact_amount }}{% elif kpi.kind=='percent' %}{{ kpi.value|percent }}{% else %}{{ kpi.value|times }}{% endif %}</strong>
+  <div class="kpi-mini-summary">
+    <div class="kpi-mini-comparison">{% if is_filtered and kpi.key != 'credit' and kpi.delta is not none %}<b>{{ '%+.2f'|format(kpi.delta) }} {{ 'đpt' if kpi.pp else '%' }}</b><span>So với toàn tập</span>{% else %}{% endif %}</div>
+    {{ mini(kpi.mini.points, kpi.label, kpi.kind, kpi.mini.chart, kpi.mini.caption, kpi.mini.note) }}
+  </div>
+</article>{% endfor %}
+</div>
+
+<section class="financial-analysis-section" aria-label="Biểu đồ phân tích">
+<div class="financial-chart-grid">
+{% for panel in financial_panels %}<section class="panel report-panel" data-chart-position="{{ loop.index }}"><div class="panel-heading"><h2>{{ panel.title }}</h2>
+{% if (overview and loop.index==5) or (not overview and loop.index==4) %}<label class="financial-chart-control"><span>Tỷ số</span><select id="financial-ratio" data-report-navigation aria-label="Chọn tỷ số cho biểu đồ này">{% for key,value in ratio_options.items() %}<option value="{{ cohort_url(request.endpoint,ratio=key) }}" {% if ratio==key %}selected{% endif %}>{{ value[1] }}</option>{% endfor %}</select></label>
+{% elif not overview and loop.index==6 %}<label class="financial-chart-control"><span>Lịch sử</span><select id="financial-history" data-report-navigation aria-label="Chọn nguồn lịch sử cho biểu đồ này">{% for key,value in history_options.items() %}<option value="{{ cohort_url(request.endpoint,history_metric=key) }}" {% if history_metric==key %}selected{% endif %}>{{ value[0] }}</option>{% endfor %}</select></label>{% endif %}
+</div><div class="report-chart">{{ panel.html|safe }}</div></section>{% endfor %}
+</div>
+</section>
+
+<details class="panel financial-extra"><summary><strong>{{ 'Dư nợ và lịch sử tín dụng từ bureau' if overview else 'Bảng đối chiếu phân khúc' }}</strong><span>{% if overview %}{{ financial_bureau.overdue|compact_amount }} tiền quá hạn · {{ financial_currency }}{% else %}{{ financial_groups|length }} nhóm · Xem chi tiết{% endif %}</span></summary><div class="financial-extra-body">
+{% if overview %}<section class="financial-bureau-section" aria-label="Chất lượng tín dụng bureau">
+  <div class="financial-section-heading"><h2>Chất lượng tín dụng bureau</h2><span>{{ financial_currency }} · {{ credit_states[credit_status] }} · {{ financial_bureau.money_n|number }} khoản có đủ dữ liệu dư nợ và số tiền quá hạn</span></div>
+  <div class="financial-history-kpis">
+    <div class="panel"><span>Dư nợ bureau ghi nhận</span><strong>{{ financial_bureau.debt|compact_amount }}</strong></div>
+    <div class="panel"><span>Số tiền quá hạn ghi nhận</span><strong>{{ financial_bureau.overdue|compact_amount }}</strong></div>
+    <div class="panel"><span>Tỷ trọng tiền quá hạn</span><strong>{{ financial_bureau.share|percent }}</strong></div>
+    <div class="panel"><span>Tỷ lệ khoản có DPD &gt; 0</span><strong>{{ financial_bureau.rate|percent }}</strong><small>{{ financial_bureau.overdue_n|number }} / {{ financial_bureau.dpd_n|number }} khoản có DPD xác định</small></div>
+  </div>
+  {% if financial_bureau.outside_overdue %}<p class="financial-data-note">{{ financial_bureau.outside_overdue|amount }} tiền quá hạn có giá trị ngoài tập đủ thông tin đối soát; chưa cộng vào tỷ trọng tiền trên.</p>{% endif %}
+</section>
+<div class="financial-behavior-summary"><div><span>Tỷ lệ đơn trước bị từ chối</span><strong>{{ financial_support.refused_rate|percent }}</strong></div><div><span>Hồ sơ từng có ít nhất một đơn bị từ chối</span><strong>{{ financial_support.refused_profile_rate|percent }}</strong></div><span>{{ financial_support.previous_n|number }} đơn lịch sử · {{ financial_support.previous_profile_n|number }} hồ sơ xác định được lịch sử từ chối{% if financial_support.previous_unknown_n %} · {{ financial_support.previous_unknown_n }} đơn chưa xác định trạng thái{% endif %}</span></div>
+
+{% else %}<section class="panel report-panel financial-segment-table"><div class="panel-heading"><h2>Đối chiếu {{ dimension_options[dimension]|lower }}</h2>{% if is_manager %}<a class="button small" data-dashboard-nav href="{{ cohort_url('financial_records',page=none) }}">Xem hồ sơ nguồn →</a>{% endif %}</div>
+<div class="report-table" data-report-table data-max-rows="8"><div class="table-scroll"><table><thead><tr><th>Phân khúc</th><th class="right">Hồ sơ</th><th class="right">Giá trị khoản vay</th>{% if data_scope=='research' %}<th class="right">Tỷ lệ khó khăn thanh toán</th><th class="right">Tỷ trọng giá trị khoản vay của nhóm khó khăn thanh toán</th>{% endif %}<th class="right">Hệ số đòn bẩy khoản vay</th><th class="right">Tỷ lệ niên kim trên thu nhập</th></tr></thead><tbody>
+{% for row in financial_groups %}<tr><td>{% if is_manager %}<a data-dashboard-nav href="{{ row.url }}">{{ row.label }}</a>{% else %}{{ row.label }}{% endif %}{% if row.n<5 %}<small class="small-sample">Mẫu nhỏ · n={{ row.n }}</small>{% endif %}</td><td class="right">{{ row.n|number }}</td><td class="right">{{ row.credit|amount }}</td>{% if data_scope=='research' %}<td class="right">{{ row.rate|percent }}</td><td class="right">{{ row.credit_share|percent }}</td>{% endif %}<td class="right">{{ row.credit_income|times }}</td><td class="right">{{ row.annuity_income|percent }}</td></tr>{% else %}<tr><td colspan="7" class="empty">Không có hồ sơ trong phạm vi đã chọn.</td></tr>{% endfor %}
+</tbody></table></div><div class="report-table-pager"></div></div></section>{% endif %}
+</div></details>
+
+<dialog id="financial-method" class="report-dialog" aria-labelledby="financial-method-title"><div class="dialog-header"><h2 id="financial-method-title">Cách đọc chỉ số tài chính</h2><button class="icon-button" type="button" data-close aria-label="Đóng">×</button></div><div class="dialog-body financial-method">
+<p><strong>Phạm vi:</strong> {% if data_scope=='research' %}Train nghiên cứu có nhãn, {{ reference_n|number }} hồ sơ trước lọc. Kết quả khó khăn thanh toán được ghi nhận theo định nghĩa của dữ liệu nguồn, không phải tỷ lệ nợ xấu vận hành hoặc PD 12 tháng.{% else %}Hồ sơ chưa lưu trữ đang quản lý, chưa có kết quả thanh toán thực tế. Không dùng cảnh báo dự báo thay cho kết quả thanh toán thực tế.{% endif %}</p>
+<p><strong>Tiền khoản vay:</strong> AMT_CREDIT hữu hạn, không âm; chưa phải dư nợ hiện tại, EAD hoặc số tiền đã giải ngân. {{ financial_summary.credit_n|number }} / {{ financial_summary.n|number }} hồ sơ đủ dữ liệu tiền.</p>
+<p><strong>Hệ số đòn bẩy khoản vay:</strong> AMT_CREDIT / AMT_INCOME_TOTAL. Đơn vị “lần”; 3,267 lần nghĩa là khoản vay bằng 3,267 lần thu nhập ghi nhận. Thẻ tổng quan hiển thị trung vị tỷ số từng hồ sơ.</p>
+<p><strong>Tỷ lệ niên kim trên thu nhập:</strong> AMT_ANNUITY / AMT_INCOME_TOTAL, hiển thị %. <strong>Tỷ lệ tài trợ hàng hóa:</strong> AMT_CREDIT / AMT_GOODS_PRICE, hiển thị %. Hai thẻ dùng trung vị trên hồ sơ đủ dữ liệu, mẫu số &gt;0; không phải tỷ số của các tổng.</p>
+<p><strong>Tỷ số tài chính:</strong> trung vị các tỷ số từng hồ sơ, mẫu số hữu hạn &gt;0. Income/annuity chưa xác minh kỳ; không gọi là DTI hoặc tỷ lệ trả nợ hàng tháng. Credit/Goods là khoản vay trên giá hàng hóa ghi nhận, không phải LTV tài sản bảo đảm.</p>
+<p><strong>Phân bố:</strong> bin cuối gộp toàn bộ giá trị từ P99 trở lên, không loại hồ sơ đuôi. Biểu đồ khoảng hiển thị P10/P25/P50/P75/P90, không phải min/max hoặc khoảng tin cậy.</p>
+<p><strong>So sánh:</strong> khi lọc, KPI so với toàn phạm vi gốc cùng nguồn. Chỉ số hiển thị % có chênh lệch theo điểm phần trăm; tiền và hệ số đòn bẩy chênh tương đối. Đây không phải MoM. Nhóm n&lt;5 có cảnh báo; n≥5 không bảo đảm ý nghĩa thống kê.</p>
+<p><strong>Bureau:</strong> cùng currency/trạng thái, trước từng ngày nộp hồ sơ. Tổng debt/overdue và tỷ trọng dùng cùng tập đủ dữ liệu; số tiền ngoài tập được báo riêng. DPD có mẫu số khoản xác định riêng. Bộ lọc bureau không thay đổi tập application.</p>
+<p><strong>Lịch sử:</strong> tỷ lệ dấu hiệu được tính trên hồ sơ có nguồn khả dụng và đủ quan sát; bốn nguồn có cửa sổ khác nhau, không cộng các tỷ lệ. Chưa ghi nhận không chứng minh lịch sử sạch. Tỷ lệ đơn từ chối tính theo đơn; tỷ lệ hồ sơ có từ chối tính theo hồ sơ và tách lịch sử chưa xác định.</p>
+<p><strong>Phân tích phân khúc:</strong> màu trên biểu đồ ma trận thể hiện mức chênh lệch so với trung vị của toàn bộ hồ sơ trước lọc, cùng nguồn dữ liệu. Màu không phải mức xếp hạng rủi ro. Biểu đồ lịch sử tách ghi nhận / chưa ghi nhận / chưa xác định theo nguồn được chọn. Cơ cấu sở hữu tài sản không chứng minh tài sản bảo đảm hoặc khả năng trả nợ.</p>
+<p><strong>Drill-through:</strong> bấm phân khúc để lọc; bảng mở hồ sơ nguồn chỉ đọc trong phạm vi nghiên cứu. Không tạo hồ sơ quản lý hoặc scoring event.</p>
+</div></dialog>
+{% if is_manager and data_scope=='managed' and not overview %}{% include '_policy_scenario.html' %}{% endif %}
+{% endblock %}

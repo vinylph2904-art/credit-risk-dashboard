@@ -1,0 +1,49 @@
+{
+  "status": "complete",
+  "cases": 8,
+  "new_cv_fits": 24,
+  "old_model_fits": 0,
+  "validation_labels_used": false,
+  "test_labels_used": false,
+  "dashboard_model_changed": false,
+  "old_cache_preserved": true,
+  "input_rows": 184506,
+  "feature_sets": {
+    "A": 127,
+    "B": 199
+  },
+  "winner_cv_case": "B_CAT_02",
+  "winner_mean_ap": 0.2693284735465195,
+  "baseline_mean_ap": 0.2522624232698232,
+  "delta_ap": 0.017066050276696332,
+  "experiment_elapsed_seconds": 1400.5098355000082,
+  "recorded_fit_seconds": 1303.1704278999532,
+  "peak_working_set_mib": 1640.1796875,
+  "checkpoints_verified": 24,
+  "warm_resume_fits": 0,
+  "warm_resume_seconds": 0.29516459998558275,
+  "legacy_cv_checkpoints_accepted": 102,
+  "legacy_calibration_checkpoints_accepted": 3,
+  "legacy_cv_metrics_preserved": true,
+  "libraries": {
+    "XGB": "3.4.1",
+    "CAT": "1.2.10"
+  },
+  "cache_id": "850c0e56187d77bc2d0c",
+  "small_fit_checks": {
+    "status": "passed",
+    "checks": [
+      "Numeric zeros and NaN preserved; XGB probe category vocabulary comes only from fit",
+      "XGB: three real small fits, finite probabilities, checkpoint identity and zero-fit warm resume",
+      "CAT: three real small fits, finite probabilities, checkpoint identity and zero-fit warm resume"
+    ],
+    "fixture_fits": 6,
+    "full_data_fits": 0
+  },
+  "protected_files_unchanged": [
+    "artifacts",
+    "configs",
+    "web"
+  ],
+  "original_notebook_outputs_preserved": true
+}

@@ -1,0 +1,5 @@
+split,n,features_n,ids_schema_values_nan_equal
+train,184506,199,True
+validation,61502,199,True
+test,61503,199,True
+application_test,48744,199,True

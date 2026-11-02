@@ -1,0 +1,24 @@
+{
+  "method": "constant-column filter, then Pearson redundancy filter",
+  "scope": "train features only; no labels loaded",
+  "input_features": 199,
+  "numeric_input": 183,
+  "categorical_input": 16,
+  "absolute_pearson_threshold": 0.9,
+  "minimum_pairwise_overlap_fraction": 0.5,
+  "representative_rule": "lower missingness first, then original schema order",
+  "categorical_policy": "retained unless constant in the fit data",
+  "cv_selection_scope": "fit selector separately inside each training fold",
+  "final_train_only_feature_count": 182,
+  "numeric_selected": 166,
+  "categorical_selected": 16,
+  "final_train_only_dropped_count": 17,
+  "train_labels_read": false,
+  "validation_labels_read": false,
+  "test_labels_read": false,
+  "model_evaluation": "reported separately in notebook 06",
+  "sources": [
+    "Han et al., Data Mining: Concepts and Techniques, section 7.1",
+    "Kele Xu, Data Mining Competition Practices, section 2.4"
+  ]
+}

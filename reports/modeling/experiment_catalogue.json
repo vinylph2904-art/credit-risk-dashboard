@@ -1,0 +1,290 @@
+{
+  "cases": {
+    "A_Dummy_01": {
+      "set": "A",
+      "model": "Dummy",
+      "config": {
+        "strategy": "prior"
+      }
+    },
+    "A_LR_01": {
+      "set": "A",
+      "model": "LR",
+      "config": {
+        "C": 0.1,
+        "class_weight": null,
+        "preprocessing": "standard"
+      }
+    },
+    "A_LR_02": {
+      "set": "A",
+      "model": "LR",
+      "config": {
+        "C": 0.1,
+        "class_weight": null,
+        "preprocessing": "log_amounts"
+      }
+    },
+    "A_LR_03": {
+      "set": "A",
+      "model": "LR",
+      "config": {
+        "C": 0.1,
+        "class_weight": "balanced",
+        "preprocessing": "standard"
+      }
+    },
+    "A_LR_04": {
+      "set": "A",
+      "model": "LR",
+      "config": {
+        "C": 0.1,
+        "class_weight": "balanced",
+        "preprocessing": "log_amounts"
+      }
+    },
+    "A_LR_05": {
+      "set": "A",
+      "model": "LR",
+      "config": {
+        "C": 1.0,
+        "class_weight": null,
+        "preprocessing": "standard"
+      }
+    },
+    "A_LR_06": {
+      "set": "A",
+      "model": "LR",
+      "config": {
+        "C": 1.0,
+        "class_weight": null,
+        "preprocessing": "log_amounts"
+      }
+    },
+    "A_LR_07": {
+      "set": "A",
+      "model": "LR",
+      "config": {
+        "C": 1.0,
+        "class_weight": "balanced",
+        "preprocessing": "standard"
+      }
+    },
+    "A_LR_08": {
+      "set": "A",
+      "model": "LR",
+      "config": {
+        "C": 1.0,
+        "class_weight": "balanced",
+        "preprocessing": "log_amounts"
+      }
+    },
+    "A_DT_01": {
+      "set": "A",
+      "model": "DT",
+      "config": {
+        "class_weight": null,
+        "max_depth": 6
+      }
+    },
+    "A_DT_02": {
+      "set": "A",
+      "model": "DT",
+      "config": {
+        "class_weight": null,
+        "max_depth": 10
+      }
+    },
+    "A_DT_03": {
+      "set": "A",
+      "model": "DT",
+      "config": {
+        "class_weight": "balanced",
+        "max_depth": 6
+      }
+    },
+    "A_DT_04": {
+      "set": "A",
+      "model": "DT",
+      "config": {
+        "class_weight": "balanced",
+        "max_depth": 10
+      }
+    },
+    "A_RF_01": {
+      "set": "A",
+      "model": "RF",
+      "config": {
+        "class_weight": null,
+        "max_depth": 10
+      }
+    },
+    "A_RF_02": {
+      "set": "A",
+      "model": "RF",
+      "config": {
+        "class_weight": null,
+        "max_depth": 16
+      }
+    },
+    "A_RF_03": {
+      "set": "A",
+      "model": "RF",
+      "config": {
+        "class_weight": "balanced",
+        "max_depth": 10
+      }
+    },
+    "A_RF_04": {
+      "set": "A",
+      "model": "RF",
+      "config": {
+        "class_weight": "balanced",
+        "max_depth": 16
+      }
+    },
+    "B_Dummy_01": {
+      "set": "B",
+      "model": "Dummy",
+      "config": {
+        "strategy": "prior"
+      }
+    },
+    "B_LR_01": {
+      "set": "B",
+      "model": "LR",
+      "config": {
+        "C": 0.1,
+        "class_weight": null,
+        "preprocessing": "standard"
+      }
+    },
+    "B_LR_02": {
+      "set": "B",
+      "model": "LR",
+      "config": {
+        "C": 0.1,
+        "class_weight": null,
+        "preprocessing": "log_amounts"
+      }
+    },
+    "B_LR_03": {
+      "set": "B",
+      "model": "LR",
+      "config": {
+        "C": 0.1,
+        "class_weight": "balanced",
+        "preprocessing": "standard"
+      }
+    },
+    "B_LR_04": {
+      "set": "B",
+      "model": "LR",
+      "config": {
+        "C": 0.1,
+        "class_weight": "balanced",
+        "preprocessing": "log_amounts"
+      }
+    },
+    "B_LR_05": {
+      "set": "B",
+      "model": "LR",
+      "config": {
+        "C": 1.0,
+        "class_weight": null,
+        "preprocessing": "standard"
+      }
+    },
+    "B_LR_06": {
+      "set": "B",
+      "model": "LR",
+      "config": {
+        "C": 1.0,
+        "class_weight": null,
+        "preprocessing": "log_amounts"
+      }
+    },
+    "B_LR_07": {
+      "set": "B",
+      "model": "LR",
+      "config": {
+        "C": 1.0,
+        "class_weight": "balanced",
+        "preprocessing": "standard"
+      }
+    },
+    "B_LR_08": {
+      "set": "B",
+      "model": "LR",
+      "config": {
+        "C": 1.0,
+        "class_weight": "balanced",
+        "preprocessing": "log_amounts"
+      }
+    },
+    "B_DT_01": {
+      "set": "B",
+      "model": "DT",
+      "config": {
+        "class_weight": null,
+        "max_depth": 6
+      }
+    },
+    "B_DT_02": {
+      "set": "B",
+      "model": "DT",
+      "config": {
+        "class_weight": null,
+        "max_depth": 10
+      }
+    },
+    "B_DT_03": {
+      "set": "B",
+      "model": "DT",
+      "config": {
+        "class_weight": "balanced",
+        "max_depth": 6
+      }
+    },
+    "B_DT_04": {
+      "set": "B",
+      "model": "DT",
+      "config": {
+        "class_weight": "balanced",
+        "max_depth": 10
+      }
+    },
+    "B_RF_01": {
+      "set": "B",
+      "model": "RF",
+      "config": {
+        "class_weight": null,
+        "max_depth": 10
+      }
+    },
+    "B_RF_02": {
+      "set": "B",
+      "model": "RF",
+      "config": {
+        "class_weight": null,
+        "max_depth": 16
+      }
+    },
+    "B_RF_03": {
+      "set": "B",
+      "model": "RF",
+      "config": {
+        "class_weight": "balanced",
+        "max_depth": 10
+      }
+    },
+    "B_RF_04": {
+      "set": "B",
+      "model": "RF",
+      "config": {
+        "class_weight": "balanced",
+        "max_depth": 16
+      }
+    }
+  }
+}

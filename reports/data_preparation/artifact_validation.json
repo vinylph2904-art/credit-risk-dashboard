@@ -1,0 +1,12 @@
+{
+  "notebook_valid": true,
+  "all_code_cells_executed": true,
+  "code_cells": 40,
+  "error_outputs": 0,
+  "feature_artifacts_checked": 15,
+  "all_feature_values_and_hashes_unchanged": true,
+  "feature_manifest_and_model_signature_preserved": true,
+  "source": "all_history_sql_checks.json",
+  "authoring_matches_executed_notebook": true,
+  "executed_code_sha256": "6704f9739f7a01b39e5140d09350b4df5396306b1b702d7602e8cbbfe74de1cd"
+}

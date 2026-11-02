@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "version": "catboost-4fec95c745d24f99893d-ff1d1fde",
+  "threshold": 0.14841034110253978,
+  "active_profiles": 200,
+  "active_alerts": 31,
+  "routes": [
+    {
+      "url": "/",
+      "status": 200,
+      "seconds": 1.3623406999977306
+    },
+    {
+      "url": "/risk",
+      "status": 200,
+      "seconds": 0.405444100004388
+    },
+    {
+      "url": "/applications?view=assessment",
+      "status": 200,
+      "seconds": 0.23259759999928065
+    },
+    {
+      "url": "/applications",
+      "status": 200,
+      "seconds": 0.14018469999427907
+    },
+    {
+      "url": "/history",
+      "status": 200,
+      "seconds": 0.0659569000126794
+    },
+    {
+      "url": "/model",
+      "status": 200,
+      "seconds": 0.7648141999961808
+    },
+    {
+      "url": "/model/evaluation.png",
+      "status": 200,
+      "seconds": 0.0821799999976065
+    },
+    {
+      "url": "/applications/1",
+      "status": 200,
+      "seconds": 0.4727581999904942
+    },
+    {
+      "url": "/api/profiles/1/score",
+      "status": 200,
+      "seconds": 0.01878059998853132
+    },
+    {
+      "url": "/events/3/input",
+      "status": 200,
+      "seconds": 0.010724299994762987
+    }
+  ],
+  "old_event_input_accessible": true
+}

@@ -1,0 +1,7 @@
+{
+  "host": "127.0.0.1",
+  "port": 3306,
+  "user": "root",
+  "database": "home_credit_submission",
+  "password_source": "Explicit Connector password, MYSQL_PASSWORD, or ignored mysql_connection.local.json; never stored in this shared file"
+}

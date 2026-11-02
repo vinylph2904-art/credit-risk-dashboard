@@ -1,0 +1,24 @@
+{% set chips = namespace(items=[]) %}
+{% set choices = {'product': products, 'status': dict(statuses, pending='Chưa hoàn tất'), 'alert': {'1': 'Có cảnh báo', '0': 'Dưới ngưỡng', 'unscored': 'Chưa chấm'}, 'income': income_types, 'availability': availability_options, 'data_check': data_checks, 'credit_status': credit_states, 'financial_filter': financial_filters} %}
+{% for name,label in [('q','Tìm kiếm'),('product','Loại vay'),('status','Trạng thái'),('alert','Cảnh báo'),('assignee','Phụ trách'),('unassigned','Phân công'),('score_min','Điểm từ'),('score_max','Điểm đến'),('income','Thu nhập'),('amount_min','Khoản vay từ'),('amount_max','Khoản vay đến'),('age_min','Tuổi từ'),('age_max','Tuổi đến'),('availability','Dữ liệu'),('data_check','Xác minh'),('currency','Loại tiền'),('credit_status','Khoản bureau'),('financial_filter','Điều kiện'),('drill_value','Nhóm')] %}
+  {% set value = request.args.get(name, '') %}
+  {% if value and (name not in ['currency','credit_status'] or financial_filter) %}
+    {% set shown = choices.get(name, {}).get(value, value) %}
+    {% if name in ['score_min','score_max'] %}{% set shown = value|float|percent %}{% endif %}
+    {% if name == 'unassigned' %}{% set shown = 'Chưa phân công' %}{% endif %}
+    {% set chips.items = chips.items + [{'name': name, 'value': value, 'label': label ~ ': ' ~ shown}] %}
+  {% endif %}
+{% endfor %}
+{% if chips.items %}
+<div class="assessment-active-filters" aria-label="Bộ lọc đang áp dụng">
+  {% for chip in chips.items %}
+    {% set remove_url = filter_url(chip.name,chip.value) %}
+    {% if chip.name == 'drill_value' %}
+      {% set params = request.args.to_dict() %}{% set _ = params.pop('drill_kind',none) %}{% set _ = params.pop('drill_value',none) %}{% set _ = params.pop('page',none) %}
+      {% set remove_url = url_for('applications',**params) %}
+    {% endif %}
+    <a class="assessment-filter-chip" href="{{ remove_url }}" aria-label="Bỏ lọc {{ chip.label }}">{{ chip.label }}<span aria-hidden="true">×</span></a>
+  {% endfor %}
+  <a class="assessment-clear" href="{{ url_for('applications',view=view,page_size=page_size,sort=sort) }}">Xóa bộ lọc</a>
+</div>
+{% endif %}

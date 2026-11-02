@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% from '_components.html' import kpi_icon, icon, status_badge with context %}
+{% from '_kpi_targets.html' import comparison, settings %}
+{% block title %}Dự báo rủi ro{% endblock %}
+{% block breadcrumb %}Dự báo rủi ro{% endblock %}
+{% block topbar_content %}
+<div class="workspace-heading"><div><h1>Dự báo rủi ro</h1></div>{% include '_report_tools.html' %}</div>
+{% endblock %}
+{% block content %}
+
+{% include '_portfolio_filters.html' %}
+<div class="kpi-grid">
+  <div class="kpi"><span class="label">HỒ SƠ ĐÃ CHẤM</span><strong>{{ kpi_icon('folder') }}{{ summary.scored_n }}</strong><small>{{ summary.total }} hồ sơ trong phạm vi</small>{{ comparison('scored', summary.scored_n, 'Hồ sơ đã chấm', 'count') }}</div>
+  <a class="kpi" data-cohort-link href="{{ cohort_url('applications',alert='1') }}"><span class="label">HỒ SƠ CÓ CẢNH BÁO</span><strong class="text-warning">{{ kpi_icon('alert') }}{{ summary.alert_share|percent }}</strong><small>{{ summary.alert_n }} / {{ summary.scored_n }} đã chấm · trước lọc {{ baseline.alert_share|percent }}</small>{{ comparison('alerts', summary.alert_share, 'Tỷ lệ hồ sơ có cảnh báo', 'percent') }}</a>
+  <div class="kpi"><span class="label">DƯ NỢ BUREAU NHÓM CẢNH BÁO</span><strong class="finance-amount">{{ kpi_icon('wallet') }}{{ alert_debt|amount }}</strong><small>{{ alert_debt_profiles_n }} hồ sơ đủ tiền · {{ financial_currency }}</small>{{ comparison('alert_debt', alert_debt, 'Dư nợ bureau của nhóm cảnh báo', 'money', financial_currency) }}</div>
+  <a class="kpi" data-cohort-link href="{{ cohort_url('applications',alert='unscored') }}"><span class="label">HỒ SƠ CHƯA CÓ ĐIỂM</span><strong>{{ kpi_icon('history') }}{{ summary.unscored_n }}</strong><small>Cần bổ sung điểm dự báo</small>{{ comparison('unscored', summary.unscored_n, 'Hồ sơ chưa có điểm', 'count') }}</a>
+</div>
+{{ settings(false) }}
+<section class="report-insight" aria-label="Ưu tiên rà soát">{{ icon('alert') }}<p>
+{% if focus %}<strong>{{ income_types.get(focus.NAME_INCOME_TYPE,focus.NAME_INCOME_TYPE) }}</strong> có <strong>{{ focus.pending_alert_n }} cảnh báo chưa hoàn tất</strong> · {{ focus.alert_n }} / {{ focus.n }} đã chấm · {{ focus.delta_alert_share|pp }} đpt so với trước lọc.
+{% else %}<strong>{{ workflow.pending_n }} cảnh báo chưa hoàn tất</strong> · {{ workflow.unassigned_pending_n }} chưa phân công · {{ summary.unscored_n }} chưa có điểm.{% endif %}</p><a data-cohort-link href="{{ cohort_url('applications',alert='1',status='pending') }}">Xem hồ sơ chờ rà soát →</a></section>
+<div class="report-grid risk-grid">
+  <section class="panel report-panel"><div class="panel-heading"><h2>Phân bố điểm dự báo</h2></div><div class="report-chart">{{ score_chart|safe }}</div></section>
+  <section class="panel report-panel"><div class="panel-heading"><div><h2>Tỷ lệ cảnh báo theo nguồn thu</h2></div></div><div class="report-chart">{{ risk_segment_chart|safe }}</div></section>
+  <section class="panel report-panel risk-queue"><div class="panel-heading"><h2>Cảnh báo chưa hoàn tất</h2><a data-cohort-link href="{{ cohort_url('applications',alert='1',status='pending') }}">Xem toàn bộ →</a></div>
+    <div class="report-table" data-report-table data-max-rows="5"><div class="table-scroll"><table><thead><tr><th>Hồ sơ</th><th class="right">Điểm dự báo</th><th class="right">Dư nợ bureau</th><th>Người phụ trách</th><th>Trạng thái</th><th></th></tr></thead><tbody>{% for row in queue %}<tr><td><a data-cohort-link href="{{ cohort_url('application_detail',profile_id=row.profile_id) }}">{{ row.case_label }}</a></td><td class="right">{{ row.score|percent }}</td><td class="right">{{ row.bureau_debt|amount }}</td><td>{{ row.assignee or 'Chưa phân công' }}</td><td>{{ status_badge(row.review_status) }}</td><td><a data-cohort-link href="{{ cohort_url('application_detail',profile_id=row.profile_id) }}">Rà soát →</a></td></tr>{% else %}<tr><td colspan="6" class="empty">Không có cảnh báo chưa hoàn tất.</td></tr>{% endfor %}</tbody></table></div><div class="report-table-pager" aria-label="Phân trang cảnh báo"></div></div>
+  </section>
+</div>
+<dialog id="score-utilization" class="report-dialog" aria-labelledby="score-utilization-title">
+<div class="dialog-header"><h2 id="score-utilization-title">Điểm dự báo & sử dụng hạn mức</h2><button class="icon-button" type="button" data-close aria-label="Đóng">×</button></div>
+<div class="dialog-body">{{ scatter_chart|safe }}<div class="table-scroll"><table><thead><tr><th>Hồ sơ</th><th>Utilization trung vị</th><th>Điểm dự báo</th></tr></thead><tbody>{% for row in scatter_rows %}<tr><td><a href="{{ row.detail_url }}">{{ row.case_label }}</a></td><td>{{ row.utilization|percent }}</td><td>{{ row.score|percent }}</td></tr>{% else %}<tr><td colspan="3" class="empty">Không có hồ sơ đủ cả score và utilization.</td></tr>{% endfor %}</tbody></table></div></div></dialog><dialog id="risk-diagnostics" class="report-dialog" aria-labelledby="risk-diagnostics-title">
+<div class="dialog-header"><h2 id="risk-diagnostics-title">Thông tin cần xác minh</h2><button class="icon-button" type="button" data-close aria-label="Đóng">×</button></div>
+<div class="dialog-body"><table><thead><tr><th>Dấu hiệu</th><th>Nhóm cảnh báo</th><th>Dưới ngưỡng</th><th></th></tr></thead><tbody>{% for row in diagnostic %}<tr><td>{{ row.label }}</td><td>{{ row.alert.n }} / {{ row.alert.denominator }}</td><td>{{ row.normal.n }} / {{ row.normal.denominator }}</td><td>{% if row.alert.n %}<a href="{{ cohort_url('applications',alert='1',data_check=row.key) }}">Mở hồ sơ →</a>{% endif %}</td></tr>{% endfor %}</tbody></table></div></dialog><dialog id="report-notes" class="report-dialog" aria-labelledby="report-notes-title">
+<div class="dialog-header"><h2 id="report-notes-title">Cách tính & giới hạn diễn giải</h2><button class="icon-button" type="button" data-close aria-label="Đóng">×</button></div>
+<div class="dialog-body"><p>Mốc so sánh là tỷ lệ cảnh báo trước lọc: {{ baseline.alert_share|percent }}.</p>
+<p>Tỷ lệ cảnh báo tính trên hồ sơ đã chấm trong phạm vi. Mỗi hồ sơ dùng lần chấm gần nhất của phiên bản đang triển khai. Chỉ so sánh nhóm có từ 5 hồ sơ đã chấm.</p><p>Điểm dự báo và tỷ lệ vượt ngưỡng là hai chỉ tiêu khác nhau. Điểm hỗ trợ ưu tiên rà soát; quyết định tín dụng thuộc người thẩm định.</p><p>Dư nợ bureau nhóm cảnh báo chỉ cộng khoản có thông tin tiền hợp lệ theo cùng loại tiền và trạng thái đã lọc; không phải tổn thất dự kiến.</p><a href="{{ url_for('model_info') }}">Xem thông tin mô hình →</a></div></dialog>
+{% endblock %}

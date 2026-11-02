@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Hồ sơ nguồn tài chính{% endblock %}
+{% block breadcrumb %}Hồ sơ nguồn{% endblock %}
+{% block topbar_content %}
+<div class="workspace-heading"><div><h1>Hồ sơ nguồn tài chính</h1><p>{{ total|number }} hồ sơ · {{ 'Train nghiên cứu có nhãn' if data_scope=='research' else 'Hồ sơ đang quản lý' }}{% if selected_group %} · {{ selected_group }}{% endif %}</p></div><a class="button" href="{{ cohort_url('risk_dashboard') }}">← Phân tích danh mục</a></div>
+{% endblock %}
+{% block content %}
+
+<section class="panel"><div class="table-scroll"><table><thead><tr><th>Mã hồ sơ nguồn</th><th class="right">Khoản vay</th><th class="right">Thu nhập</th><th class="right">Niên kim</th><th class="right">Hệ số đòn bẩy khoản vay</th><th>{{ 'Kết quả thanh toán lịch sử' if data_scope=='research' else 'Trạng thái' }}</th></tr></thead><tbody>{% for row in source_rows %}<tr><td><a href="{{ cohort_url('financial_source',source_id=row.source_application_id) if data_scope=='research' else url_for('application_detail',profile_id=row.profile_id) }}">{{ row.source_application_id }}</a></td><td class="right">{{ row.AMT_CREDIT|amount }}</td><td class="right">{{ row.AMT_INCOME_TOTAL|amount }}</td><td class="right">{{ row.AMT_ANNUITY|amount }}</td><td class="right">{{ row.RATIO_CREDIT_INCOME_RECORDED|times }}</td><td>{{ row.TARGET|payment_outcome if data_scope=='research' else statuses.get(row.review_status,row.review_status) }}</td></tr>{% else %}<tr><td colspan="6" class="empty">Không có hồ sơ.</td></tr>{% endfor %}</tbody></table></div><div class="financial-pagination"><span>{{ page }} / {{ pages }}</span>{% if page>1 %}<a class="button small" href="{{ page_url(page-1) }}">← Trước</a>{% endif %}{% if page<pages %}<a class="button small" href="{{ page_url(page+1) }}">Tiếp →</a>{% endif %}</div></section>
+{% endblock %}

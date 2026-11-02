@@ -1,0 +1,70 @@
+{
+  "status": "passed",
+  "raw_tables": 8,
+  "raw_rows": 58489893,
+  "all_raw_values_order_types_missing_equal": true,
+  "protected_files_unchanged": 41,
+  "labels_unchanged": true,
+  "notebooks": [
+    {
+      "notebook": "01_Data_Understanding.ipynb",
+      "changed_original_code_cells": [
+        2
+      ],
+      "fresh_kernel_execution": {
+        "notebook": "notebooks\\01_Data_Understanding.ipynb",
+        "fresh_kernel": true,
+        "kernel_mode": "in_process_ipython_in_separate_fresh_python_process",
+        "code_cells_executed": 20,
+        "errors": 0,
+        "elapsed_seconds": 530.74,
+        "executed_code_sha256": "82e8f54f76709d3a7beac9ee7513835da10215779c4646818e7ebb3f023391bb"
+      }
+    },
+    {
+      "notebook": "02_Data_Quality_EDA.ipynb",
+      "changed_original_code_cells": [
+        3
+      ],
+      "fresh_kernel_execution": {
+        "notebook": "notebooks\\02_Data_Quality_EDA.ipynb",
+        "fresh_kernel": true,
+        "kernel_mode": "in_process_ipython_in_separate_fresh_python_process",
+        "code_cells_executed": 30,
+        "errors": 0,
+        "elapsed_seconds": 188.7,
+        "executed_code_sha256": "9f9859328abf30ecd1d05c105873ec9b759f99d6e14f745dd7677c6b432452f8"
+      }
+    },
+    {
+      "notebook": "03_Data_Preparation_Feature_Engineering.ipynb",
+      "changed_original_code_cells": [
+        3
+      ],
+      "fresh_kernel_execution": {
+        "notebook": "notebooks\\03_Data_Preparation_Feature_Engineering.ipynb",
+        "fresh_kernel": true,
+        "kernel_mode": "in_process_ipython_in_separate_fresh_python_process",
+        "code_cells_executed": 23,
+        "errors": 0,
+        "elapsed_seconds": 221.92,
+        "executed_code_sha256": "7a44cfc4072a89122c4788c99b20214a064f1265b194ef137f2bdedf134f3686"
+      }
+    },
+    {
+      "notebook": "04_Model_Training_Evaluation.ipynb",
+      "changed_original_code_cells": [
+        17
+      ]
+    }
+  ],
+  "training_rerun": false,
+  "model_and_threshold_unchanged": true,
+  "mysql_local_infile_restored_off": true,
+  "research_mysql_rows": 356255,
+  "dashboard_profiles": 200,
+  "dashboard_alerts": 24,
+  "scoring_events": 202,
+  "browser_visual_review": "not_performed",
+  "dashboard_layout": "pending_business_review"
+}

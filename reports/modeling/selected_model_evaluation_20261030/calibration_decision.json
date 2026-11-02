@@ -1,0 +1,7 @@
+{
+  "cache_key": "a8763faa0c2ef0786f72",
+  "use_sigmoid": false,
+  "criterion": "lower nested train OOF Brier",
+  "validation_labels_used": false,
+  "test_labels_used": false
+}

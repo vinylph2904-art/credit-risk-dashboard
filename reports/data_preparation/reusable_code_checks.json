@@ -1,0 +1,760 @@
+{
+  "status": "passed",
+  "raw_input": "SELECT raw_* directly from MySQL; no raw Parquet inputs",
+  "saved_split_parquet": "Verification only; split is loaded from application_split",
+  "feature_parquet": "Intermediate/output files for handoff, not raw business inputs",
+  "features_verified": [
+    {
+      "path": "data/features/a/application_test.parquet",
+      "rows": 48744,
+      "columns": 128,
+      "id_order_dtype_values_nan_equal": true,
+      "sha256_unchanged": true
+    },
+    {
+      "path": "data/features/a/test.parquet",
+      "rows": 61503,
+      "columns": 128,
+      "id_order_dtype_values_nan_equal": true,
+      "sha256_unchanged": true
+    },
+    {
+      "path": "data/features/a/train.parquet",
+      "rows": 184506,
+      "columns": 128,
+      "id_order_dtype_values_nan_equal": true,
+      "sha256_unchanged": true
+    },
+    {
+      "path": "data/features/a/validation.parquet",
+      "rows": 61502,
+      "columns": 128,
+      "id_order_dtype_values_nan_equal": true,
+      "sha256_unchanged": true
+    },
+    {
+      "path": "data/features/b/application_test.parquet",
+      "rows": 48744,
+      "columns": 200,
+      "id_order_dtype_values_nan_equal": true,
+      "sha256_unchanged": true
+    },
+    {
+      "path": "data/features/b/test.parquet",
+      "rows": 61503,
+      "columns": 200,
+      "id_order_dtype_values_nan_equal": true,
+      "sha256_unchanged": true
+    },
+    {
+      "path": "data/features/b/train.parquet",
+      "rows": 184506,
+      "columns": 200,
+      "id_order_dtype_values_nan_equal": true,
+      "sha256_unchanged": true
+    },
+    {
+      "path": "data/features/b/validation.parquet",
+      "rows": 61502,
+      "columns": 200,
+      "id_order_dtype_values_nan_equal": true,
+      "sha256_unchanged": true
+    },
+    {
+      "path": "data/features/feature_index.parquet",
+      "rows": 356255,
+      "columns": 3,
+      "id_order_dtype_values_nan_equal": true,
+      "sha256_unchanged": true
+    },
+    {
+      "path": "data/features/history/bureau.parquet",
+      "rows": 305807,
+      "columns": 14,
+      "id_order_dtype_values_nan_equal": true,
+      "sha256_unchanged": true
+    },
+    {
+      "path": "data/features/history/bureau_balance.parquet",
+      "rows": 134299,
+      "columns": 10,
+      "id_order_dtype_values_nan_equal": true,
+      "sha256_unchanged": true
+    },
+    {
+      "path": "data/features/history/credit_card_balance.parquet",
+      "rows": 103558,
+      "columns": 13,
+      "id_order_dtype_values_nan_equal": true,
+      "sha256_unchanged": true
+    },
+    {
+      "path": "data/features/history/installments_payments.parquet",
+      "rows": 339575,
+      "columns": 10,
+      "id_order_dtype_values_nan_equal": true,
+      "sha256_unchanged": true
+    },
+    {
+      "path": "data/features/history/pos_cash_balance.parquet",
+      "rows": 337252,
+      "columns": 9,
+      "id_order_dtype_values_nan_equal": true,
+      "sha256_unchanged": true
+    },
+    {
+      "path": "data/features/history/previous_application.parquet",
+      "rows": 338857,
+      "columns": 10,
+      "id_order_dtype_values_nan_equal": true,
+      "sha256_unchanged": true
+    }
+  ],
+  "report_tables_verified": [
+    {
+      "file": "03_application_rule_counts.csv",
+      "equal": true
+    },
+    {
+      "file": "03_bureau_currency_example.csv",
+      "equal": true
+    },
+    {
+      "file": "03_history_scope.csv",
+      "equal": true
+    },
+    {
+      "file": "03_installment_payment_examples.csv",
+      "equal": true
+    },
+    {
+      "file": "03_installment_period_examples.csv",
+      "equal": true
+    },
+    {
+      "file": "03_installment_period_scope.csv",
+      "equal": true
+    },
+    {
+      "file": "03_join_checks.csv",
+      "equal": true
+    },
+    {
+      "file": "03_output_checks.csv",
+      "equal": true
+    },
+    {
+      "file": "03_preprocessing_cv_checks.csv",
+      "equal": true
+    },
+    {
+      "file": "03_source_integrity.csv",
+      "equal": true
+    },
+    {
+      "file": "03_time_rules.csv",
+      "equal": true
+    },
+    {
+      "file": "03_train_history_coverage.csv",
+      "equal": true
+    }
+  ],
+  "protected_files_unchanged": 47,
+  "runtime_cache_checks": [
+    {
+      "method": "loadInputs",
+      "same_result_object": true,
+      "extra_sql_reads": 0
+    },
+    {
+      "method": "loadInputs",
+      "same_result_object": true,
+      "extra_sql_reads": 0
+    },
+    {
+      "method": "loadInputs",
+      "same_result_object": true,
+      "extra_sql_reads": 0
+    },
+    {
+      "method": "prepareApplication",
+      "same_result_object": true,
+      "extra_sql_reads": 0
+    },
+    {
+      "method": "loadInputs",
+      "same_result_object": true,
+      "extra_sql_reads": 0
+    },
+    {
+      "method": "loadInputs",
+      "same_result_object": true,
+      "extra_sql_reads": 0
+    },
+    {
+      "method": "prepareApplication",
+      "same_result_object": true,
+      "extra_sql_reads": 0
+    },
+    {
+      "method": "loadInputs",
+      "same_result_object": true,
+      "extra_sql_reads": 0
+    },
+    {
+      "method": "loadInputs",
+      "same_result_object": true,
+      "extra_sql_reads": 0
+    },
+    {
+      "method": "prepareApplication",
+      "same_result_object": true,
+      "extra_sql_reads": 0
+    },
+    {
+      "method": "addApplicationRatios",
+      "same_result_object": true,
+      "extra_sql_reads": 0
+    },
+    {
+      "method": "processBureau",
+      "same_result_object": true,
+      "extra_sql_reads": 0
+    },
+    {
+      "method": "processBureau",
+      "same_result_object": true,
+      "extra_sql_reads": 0
+    },
+    {
+      "method": "processBureauBalance",
+      "same_result_object": true,
+      "extra_sql_reads": 0
+    },
+    {
+      "method": "processPrevious",
+      "same_result_object": true,
+      "extra_sql_reads": 0
+    },
+    {
+      "method": "processPos",
+      "same_result_object": true,
+      "extra_sql_reads": 0
+    },
+    {
+      "method": "processCard",
+      "same_result_object": true,
+      "extra_sql_reads": 0
+    },
+    {
+      "method": "processInstallments",
+      "same_result_object": true,
+      "extra_sql_reads": 0
+    }
+  ],
+  "case_checks": {
+    "status": "passed",
+    "checks": [
+      {
+        "check": "bureau excludes future update, impossible chronology and unknown owner",
+        "passed": true
+      },
+      {
+        "check": "currency codes are not averaged together",
+        "passed": true
+      },
+      {
+        "check": "negative reported debt is retained",
+        "passed": true
+      },
+      {
+        "check": "other currency still counted",
+        "passed": true
+      },
+      {
+        "check": "bureau balance excludes month zero and ineligible parent",
+        "passed": true
+      },
+      {
+        "check": "C and X not treated as DPD status",
+        "passed": true
+      },
+      {
+        "check": "card excludes current month and unknown owner",
+        "passed": true
+      },
+      {
+        "check": "negative DPD is unknown, not healthy month",
+        "passed": true
+      },
+      {
+        "check": "zero credit limit excluded; negative balance and ratio above one retained",
+        "passed": true
+      },
+      {
+        "check": "multiple payments grouped within a versioned period",
+        "passed": true
+      },
+      {
+        "check": "schedule versions remain distinct",
+        "passed": true
+      },
+      {
+        "check": "future rows, invalid amount/key and inconsistent period excluded",
+        "passed": true
+      },
+      {
+        "check": "one late component does not imply uncovered amount",
+        "passed": true
+      },
+      {
+        "check": "repeated aggregations do not query SQL again",
+        "passed": true
+      },
+      {
+        "check": "empty SQL range has expected columns",
+        "passed": true
+      },
+      {
+        "check": "employment sentinel not converted into years",
+        "passed": true
+      },
+      {
+        "check": "car not applicable differs from car age missing",
+        "passed": true
+      },
+      {
+        "check": "future day is missing; XNA retained and true missing tokenized",
+        "passed": true
+      },
+      {
+        "check": "invalid denominator produces missing; large valid ratio retained",
+        "passed": true
+      },
+      {
+        "check": "application methods idempotent",
+        "passed": true
+      },
+      {
+        "check": "unseen category and missing values produce finite features",
+        "passed": true
+      },
+      {
+        "check": "imputer learns fit data median",
+        "passed": true
+      }
+    ],
+    "count": 22
+  },
+  "classifier_retrained": false,
+  "mysql_source_or_application_rows_changed": false,
+  "method_cache_scope": "Same object in same session; explicit release ends cached application lifetime",
+  "cell_timings": [
+    {
+      "execution_order": 1,
+      "first_line": "from pathlib import Path",
+      "complete": true,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "execution_order": 2,
+      "first_line": "config = json.loads((ROOT / 'configs/mysql_connection.json').read_text(encoding='utf-8'))",
+      "complete": true,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "execution_order": 3,
+      "first_line": "preparation = HomeCreditPreparation(connector)",
+      "complete": true,
+      "elapsed_seconds": 43.159
+    },
+    {
+      "execution_order": 4,
+      "first_line": "design = json.loads((ROOT / 'configs/research_design.json').read_text(encoding='utf-8'))",
+      "complete": true,
+      "elapsed_seconds": 0.43
+    },
+    {
+      "execution_order": 5,
+      "first_line": "time_rules = pd.DataFrame([",
+      "complete": true,
+      "elapsed_seconds": 0.017
+    },
+    {
+      "execution_order": 6,
+      "first_line": "raw_categorical = application.select_dtypes(include=['object', 'string', 'category']).columns.tolist()",
+      "complete": true,
+      "elapsed_seconds": 0.414
+    },
+    {
+      "execution_order": 7,
+      "first_line": "description_path = next((ROOT / 'data/metadata').glob('*description*.csv'))",
+      "complete": true,
+      "elapsed_seconds": 2.473
+    },
+    {
+      "execution_order": 8,
+      "first_line": "application = preparation.addApplicationRatios()",
+      "complete": true,
+      "elapsed_seconds": 0.023
+    },
+    {
+      "execution_order": 9,
+      "first_line": "derived_definitions = [",
+      "complete": true,
+      "elapsed_seconds": 0.016
+    },
+    {
+      "execution_order": 10,
+      "first_line": "feature_columns_a = application.columns.tolist()",
+      "complete": true,
+      "elapsed_seconds": 5.366
+    },
+    {
+      "execution_order": 11,
+      "first_line": "aggregate = preparation.processBureau()",
+      "complete": true,
+      "elapsed_seconds": 13.848
+    },
+    {
+      "execution_order": 12,
+      "first_line": "specs = pd.DataFrame([",
+      "complete": true,
+      "elapsed_seconds": 0.01
+    },
+    {
+      "execution_order": 13,
+      "first_line": "aggregate.to_parquet(HISTORY / 'bureau.parquet')",
+      "complete": true,
+      "elapsed_seconds": 0.609
+    },
+    {
+      "execution_order": 14,
+      "first_line": "aggregate = preparation.processBureauBalance()",
+      "complete": true,
+      "elapsed_seconds": 133.265
+    },
+    {
+      "execution_order": 15,
+      "first_line": "specs = pd.DataFrame([",
+      "complete": true,
+      "elapsed_seconds": 0.008
+    },
+    {
+      "execution_order": 16,
+      "first_line": "aggregate.to_parquet(HISTORY / 'bureau_balance.parquet')",
+      "complete": true,
+      "elapsed_seconds": 0.24
+    },
+    {
+      "execution_order": 17,
+      "first_line": "aggregate = preparation.processPrevious()",
+      "complete": true,
+      "elapsed_seconds": 10.954
+    },
+    {
+      "execution_order": 18,
+      "first_line": "specs = pd.DataFrame([",
+      "complete": true,
+      "elapsed_seconds": 0.01
+    },
+    {
+      "execution_order": 19,
+      "first_line": "aggregate.to_parquet(HISTORY / 'previous_application.parquet')",
+      "complete": true,
+      "elapsed_seconds": 0.43
+    },
+    {
+      "execution_order": 20,
+      "first_line": "aggregate = preparation.processPos()",
+      "complete": true,
+      "elapsed_seconds": 50.839
+    },
+    {
+      "execution_order": 21,
+      "first_line": "specs = pd.DataFrame([",
+      "complete": true,
+      "elapsed_seconds": 0.009
+    },
+    {
+      "execution_order": 22,
+      "first_line": "aggregate.to_parquet(HISTORY / 'pos_cash_balance.parquet')",
+      "complete": true,
+      "elapsed_seconds": 0.347
+    },
+    {
+      "execution_order": 23,
+      "first_line": "aggregate = preparation.processCard()",
+      "complete": true,
+      "elapsed_seconds": 22.51
+    },
+    {
+      "execution_order": 24,
+      "first_line": "specs = pd.DataFrame([",
+      "complete": true,
+      "elapsed_seconds": 0.009
+    },
+    {
+      "execution_order": 25,
+      "first_line": "aggregate.to_parquet(HISTORY / 'credit_card_balance.parquet')",
+      "complete": true,
+      "elapsed_seconds": 0.279
+    },
+    {
+      "execution_order": 26,
+      "first_line": "payment_columns = preparation.payment_columns",
+      "complete": true,
+      "elapsed_seconds": 197.431
+    },
+    {
+      "execution_order": 27,
+      "first_line": "assert aggregate.index.is_unique",
+      "complete": true,
+      "elapsed_seconds": 0.292
+    },
+    {
+      "execution_order": 28,
+      "first_line": "definitions = [",
+      "complete": true,
+      "elapsed_seconds": 0.121
+    },
+    {
+      "execution_order": 29,
+      "first_line": "(FEATURES / 'B').mkdir(exist_ok=True)",
+      "complete": true,
+      "elapsed_seconds": 10.752
+    },
+    {
+      "execution_order": 30,
+      "first_line": "source_flags = {",
+      "complete": true,
+      "elapsed_seconds": 9.591
+    },
+    {
+      "execution_order": 31,
+      "first_line": "flag_dictionary = pd.DataFrame([",
+      "complete": true,
+      "elapsed_seconds": 0.011
+    },
+    {
+      "execution_order": 32,
+      "first_line": "feature_dictionary = pd.concat(dictionary_parts, ignore_index=True)",
+      "complete": true,
+      "elapsed_seconds": 0.068
+    },
+    {
+      "execution_order": 33,
+      "first_line": "schemas = {}",
+      "complete": true,
+      "elapsed_seconds": 2.553
+    },
+    {
+      "execution_order": 34,
+      "first_line": "preprocessor_templates = {}",
+      "complete": true,
+      "elapsed_seconds": 0.009
+    },
+    {
+      "execution_order": 35,
+      "first_line": "pipeline_check_rows = []",
+      "complete": true,
+      "elapsed_seconds": 64.828
+    },
+    {
+      "execution_order": 36,
+      "first_line": "output_check_rows = []",
+      "complete": true,
+      "elapsed_seconds": 6.092
+    },
+    {
+      "execution_order": 37,
+      "first_line": "example = period_examples.iloc[0]",
+      "complete": true,
+      "elapsed_seconds": 19.336
+    },
+    {
+      "execution_order": 38,
+      "first_line": "integrity_rows = []",
+      "complete": true,
+      "elapsed_seconds": 0.812
+    },
+    {
+      "execution_order": 39,
+      "first_line": "rules_config = {",
+      "complete": true,
+      "elapsed_seconds": 0.014
+    },
+    {
+      "execution_order": 40,
+      "first_line": "artifact_rows = []",
+      "complete": true,
+      "elapsed_seconds": 0.217
+    }
+  ],
+  "sql_queries": [
+    {
+      "sql": "SELECT SK_ID_CURR, dataset_role AS split, cv_fold FROM application_split WHERE dataset_role IN ('train', 'validation', 'test') ORDER BY SK_ID_CURR",
+      "mode": "dataset",
+      "rows": 307511,
+      "complete": true
+    },
+    {
+      "sql": "\n            SELECT TABLE_NAME AS raw_table, COLUMN_NAME AS `column`,\n                   DATA_TYPE AS dtype\n            FROM information_schema.COLUMNS\n            WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME LIKE 'raw_%'\n              AND COLUMN_NAME <> '_source_row'\n            ORDER BY TABLE_NAME, ORDINAL_POSITION\n        ",
+      "mode": "dataset",
+      "rows": 343,
+      "complete": true
+    },
+    {
+      "sql": "SELECT `SK_ID_CURR`, `NAME_CONTRACT_TYPE`, `CODE_GENDER`, `FLAG_OWN_CAR`, `FLAG_OWN_REALTY`, `CNT_CHILDREN`, `AMT_INCOME_TOTAL`, `AMT_CREDIT`, `AMT_ANNUITY`, `AMT_GOODS_PRICE`, `NAME_TYPE_SUITE`, `NAME_INCOME_TYPE`, `NAME_EDUCATION_TYPE`, `NAME_FAMILY_STATUS`, `NAME_HOUSING_TYPE`, `REGION_POPULATION_RELATIVE`, `DAYS_BIRTH`, `DAYS_EMPLOYED`, `DAYS_REGISTRATION`, `DAYS_ID_PUBLISH`, `OWN_CAR_AGE`, `FLAG_MOBIL`, `FLAG_EMP_PHONE`, `FLAG_WORK_PHONE`, `FLAG_CONT_MOBILE`, `FLAG_PHONE`, `FLAG_EMAIL`, `OCCUPATION_TYPE`, `CNT_FAM_MEMBERS`, `REGION_RATING_CLIENT`, `REGION_RATING_CLIENT_W_CITY`, `WEEKDAY_APPR_PROCESS_START`, `HOUR_APPR_PROCESS_START`, `REG_REGION_NOT_LIVE_REGION`, `REG_REGION_NOT_WORK_REGION`, `LIVE_REGION_NOT_WORK_REGION`, `REG_CITY_NOT_LIVE_CITY`, `REG_CITY_NOT_WORK_CITY`, `LIVE_CITY_NOT_WORK_CITY`, `ORGANIZATION_TYPE`, `EXT_SOURCE_1`, `EXT_SOURCE_2`, `EXT_SOURCE_3`, `APARTMENTS_AVG`, `BASEMENTAREA_AVG`, `YEARS_BEGINEXPLUATATION_AVG`, `YEARS_BUILD_AVG`, `COMMONAREA_AVG`, `ELEVATORS_AVG`, `ENTRANCES_AVG`, `FLOORSMAX_AVG`, `FLOORSMIN_AVG`, `LANDAREA_AVG`, `LIVINGAPARTMENTS_AVG`, `LIVINGAREA_AVG`, `NONLIVINGAPARTMENTS_AVG`, `NONLIVINGAREA_AVG`, `APARTMENTS_MODE`, `BASEMENTAREA_MODE`, `YEARS_BEGINEXPLUATATION_MODE`, `YEARS_BUILD_MODE`, `COMMONAREA_MODE`, `ELEVATORS_MODE`, `ENTRANCES_MODE`, `FLOORSMAX_MODE`, `FLOORSMIN_MODE`, `LANDAREA_MODE`, `LIVINGAPARTMENTS_MODE`, `LIVINGAREA_MODE`, `NONLIVINGAPARTMENTS_MODE`, `NONLIVINGAREA_MODE`, `APARTMENTS_MEDI`, `BASEMENTAREA_MEDI`, `YEARS_BEGINEXPLUATATION_MEDI`, `YEARS_BUILD_MEDI`, `COMMONAREA_MEDI`, `ELEVATORS_MEDI`, `ENTRANCES_MEDI`, `FLOORSMAX_MEDI`, `FLOORSMIN_MEDI`, `LANDAREA_MEDI`, `LIVINGAPARTMENTS_MEDI`, `LIVINGAREA_MEDI`, `NONLIVINGAPARTMENTS_MEDI`, `NONLIVINGAREA_MEDI`, `FONDKAPREMONT_MODE`, `HOUSETYPE_MODE`, `TOTALAREA_MODE`, `WALLSMATERIAL_MODE`, `EMERGENCYSTATE_MODE`, `OBS_30_CNT_SOCIAL_CIRCLE`, `DEF_30_CNT_SOCIAL_CIRCLE`, `OBS_60_CNT_SOCIAL_CIRCLE`, `DEF_60_CNT_SOCIAL_CIRCLE`, `DAYS_LAST_PHONE_CHANGE`, `FLAG_DOCUMENT_2`, `FLAG_DOCUMENT_3`, `FLAG_DOCUMENT_4`, `FLAG_DOCUMENT_5`, `FLAG_DOCUMENT_6`, `FLAG_DOCUMENT_7`, `FLAG_DOCUMENT_8`, `FLAG_DOCUMENT_9`, `FLAG_DOCUMENT_10`, `FLAG_DOCUMENT_11`, `FLAG_DOCUMENT_12`, `FLAG_DOCUMENT_13`, `FLAG_DOCUMENT_14`, `FLAG_DOCUMENT_15`, `FLAG_DOCUMENT_16`, `FLAG_DOCUMENT_17`, `FLAG_DOCUMENT_18`, `FLAG_DOCUMENT_19`, `FLAG_DOCUMENT_20`, `FLAG_DOCUMENT_21`, `AMT_REQ_CREDIT_BUREAU_HOUR`, `AMT_REQ_CREDIT_BUREAU_DAY`, `AMT_REQ_CREDIT_BUREAU_WEEK`, `AMT_REQ_CREDIT_BUREAU_MON`, `AMT_REQ_CREDIT_BUREAU_QRT`, `AMT_REQ_CREDIT_BUREAU_YEAR` FROM `raw_application_train` ORDER BY _source_row",
+      "mode": "batches",
+      "rows": 307511,
+      "complete": true
+    },
+    {
+      "sql": "SELECT `SK_ID_CURR`, `NAME_CONTRACT_TYPE`, `CODE_GENDER`, `FLAG_OWN_CAR`, `FLAG_OWN_REALTY`, `CNT_CHILDREN`, `AMT_INCOME_TOTAL`, `AMT_CREDIT`, `AMT_ANNUITY`, `AMT_GOODS_PRICE`, `NAME_TYPE_SUITE`, `NAME_INCOME_TYPE`, `NAME_EDUCATION_TYPE`, `NAME_FAMILY_STATUS`, `NAME_HOUSING_TYPE`, `REGION_POPULATION_RELATIVE`, `DAYS_BIRTH`, `DAYS_EMPLOYED`, `DAYS_REGISTRATION`, `DAYS_ID_PUBLISH`, `OWN_CAR_AGE`, `FLAG_MOBIL`, `FLAG_EMP_PHONE`, `FLAG_WORK_PHONE`, `FLAG_CONT_MOBILE`, `FLAG_PHONE`, `FLAG_EMAIL`, `OCCUPATION_TYPE`, `CNT_FAM_MEMBERS`, `REGION_RATING_CLIENT`, `REGION_RATING_CLIENT_W_CITY`, `WEEKDAY_APPR_PROCESS_START`, `HOUR_APPR_PROCESS_START`, `REG_REGION_NOT_LIVE_REGION`, `REG_REGION_NOT_WORK_REGION`, `LIVE_REGION_NOT_WORK_REGION`, `REG_CITY_NOT_LIVE_CITY`, `REG_CITY_NOT_WORK_CITY`, `LIVE_CITY_NOT_WORK_CITY`, `ORGANIZATION_TYPE`, `EXT_SOURCE_1`, `EXT_SOURCE_2`, `EXT_SOURCE_3`, `APARTMENTS_AVG`, `BASEMENTAREA_AVG`, `YEARS_BEGINEXPLUATATION_AVG`, `YEARS_BUILD_AVG`, `COMMONAREA_AVG`, `ELEVATORS_AVG`, `ENTRANCES_AVG`, `FLOORSMAX_AVG`, `FLOORSMIN_AVG`, `LANDAREA_AVG`, `LIVINGAPARTMENTS_AVG`, `LIVINGAREA_AVG`, `NONLIVINGAPARTMENTS_AVG`, `NONLIVINGAREA_AVG`, `APARTMENTS_MODE`, `BASEMENTAREA_MODE`, `YEARS_BEGINEXPLUATATION_MODE`, `YEARS_BUILD_MODE`, `COMMONAREA_MODE`, `ELEVATORS_MODE`, `ENTRANCES_MODE`, `FLOORSMAX_MODE`, `FLOORSMIN_MODE`, `LANDAREA_MODE`, `LIVINGAPARTMENTS_MODE`, `LIVINGAREA_MODE`, `NONLIVINGAPARTMENTS_MODE`, `NONLIVINGAREA_MODE`, `APARTMENTS_MEDI`, `BASEMENTAREA_MEDI`, `YEARS_BEGINEXPLUATATION_MEDI`, `YEARS_BUILD_MEDI`, `COMMONAREA_MEDI`, `ELEVATORS_MEDI`, `ENTRANCES_MEDI`, `FLOORSMAX_MEDI`, `FLOORSMIN_MEDI`, `LANDAREA_MEDI`, `LIVINGAPARTMENTS_MEDI`, `LIVINGAREA_MEDI`, `NONLIVINGAPARTMENTS_MEDI`, `NONLIVINGAREA_MEDI`, `FONDKAPREMONT_MODE`, `HOUSETYPE_MODE`, `TOTALAREA_MODE`, `WALLSMATERIAL_MODE`, `EMERGENCYSTATE_MODE`, `OBS_30_CNT_SOCIAL_CIRCLE`, `DEF_30_CNT_SOCIAL_CIRCLE`, `OBS_60_CNT_SOCIAL_CIRCLE`, `DEF_60_CNT_SOCIAL_CIRCLE`, `DAYS_LAST_PHONE_CHANGE`, `FLAG_DOCUMENT_2`, `FLAG_DOCUMENT_3`, `FLAG_DOCUMENT_4`, `FLAG_DOCUMENT_5`, `FLAG_DOCUMENT_6`, `FLAG_DOCUMENT_7`, `FLAG_DOCUMENT_8`, `FLAG_DOCUMENT_9`, `FLAG_DOCUMENT_10`, `FLAG_DOCUMENT_11`, `FLAG_DOCUMENT_12`, `FLAG_DOCUMENT_13`, `FLAG_DOCUMENT_14`, `FLAG_DOCUMENT_15`, `FLAG_DOCUMENT_16`, `FLAG_DOCUMENT_17`, `FLAG_DOCUMENT_18`, `FLAG_DOCUMENT_19`, `FLAG_DOCUMENT_20`, `FLAG_DOCUMENT_21`, `AMT_REQ_CREDIT_BUREAU_HOUR`, `AMT_REQ_CREDIT_BUREAU_DAY`, `AMT_REQ_CREDIT_BUREAU_WEEK`, `AMT_REQ_CREDIT_BUREAU_MON`, `AMT_REQ_CREDIT_BUREAU_QRT`, `AMT_REQ_CREDIT_BUREAU_YEAR` FROM `raw_application_test` ORDER BY _source_row",
+      "mode": "batches",
+      "rows": 48744,
+      "complete": true
+    },
+    {
+      "sql": "SELECT COUNT(*) AS n FROM `raw_application_train`",
+      "mode": "dataset",
+      "rows": 1,
+      "complete": true
+    },
+    {
+      "sql": "SELECT COUNT(*) AS n FROM `raw_application_test`",
+      "mode": "dataset",
+      "rows": 1,
+      "complete": true
+    },
+    {
+      "sql": "SELECT COUNT(*) AS n FROM `raw_bureau`",
+      "mode": "dataset",
+      "rows": 1,
+      "complete": true
+    },
+    {
+      "sql": "SELECT COUNT(*) AS n FROM `raw_bureau_balance`",
+      "mode": "dataset",
+      "rows": 1,
+      "complete": true
+    },
+    {
+      "sql": "SELECT COUNT(*) AS n FROM `raw_previous_application`",
+      "mode": "dataset",
+      "rows": 1,
+      "complete": true
+    },
+    {
+      "sql": "SELECT COUNT(*) AS n FROM `raw_pos_cash_balance`",
+      "mode": "dataset",
+      "rows": 1,
+      "complete": true
+    },
+    {
+      "sql": "SELECT COUNT(*) AS n FROM `raw_installments_payments`",
+      "mode": "dataset",
+      "rows": 1,
+      "complete": true
+    },
+    {
+      "sql": "SELECT COUNT(*) AS n FROM `raw_credit_card_balance`",
+      "mode": "dataset",
+      "rows": 1,
+      "complete": true
+    },
+    {
+      "sql": "SELECT `SK_ID_CURR`, `SK_ID_BUREAU`, `DAYS_CREDIT`, `DAYS_CREDIT_UPDATE`, `CREDIT_ACTIVE`, `CREDIT_CURRENCY`, `CREDIT_DAY_OVERDUE`, `AMT_CREDIT_SUM`, `AMT_CREDIT_SUM_DEBT`, `AMT_CREDIT_SUM_OVERDUE`, `AMT_ANNUITY` FROM `raw_bureau` ORDER BY _source_row",
+      "mode": "batches",
+      "rows": 1716428,
+      "complete": true
+    },
+    {
+      "sql": "SELECT SK_ID_BUREAU, MONTHS_BALANCE, STATUS FROM raw_bureau_balance ORDER BY _source_row",
+      "mode": "batches",
+      "rows": 27299925,
+      "complete": true
+    },
+    {
+      "sql": "SELECT `SK_ID_CURR`, `SK_ID_PREV`, `DAYS_DECISION`, `NAME_CONTRACT_STATUS`, `AMT_APPLICATION`, `AMT_CREDIT`, `AMT_ANNUITY`, `CNT_PAYMENT` FROM `raw_previous_application` WHERE DAYS_DECISION < 0 ORDER BY _source_row",
+      "mode": "batches",
+      "rows": 1670214,
+      "complete": true
+    },
+    {
+      "sql": "SELECT `SK_ID_CURR`, `SK_ID_PREV`, `MONTHS_BALANCE`, `SK_DPD`, `SK_DPD_DEF`, `CNT_INSTALMENT_FUTURE` FROM `raw_pos_cash_balance` WHERE MONTHS_BALANCE < 0 ORDER BY _source_row",
+      "mode": "batches",
+      "rows": 10001358,
+      "complete": true
+    },
+    {
+      "sql": "SELECT `SK_ID_CURR`, `SK_ID_PREV`, `MONTHS_BALANCE`, `AMT_BALANCE`, `AMT_CREDIT_LIMIT_ACTUAL`, `AMT_PAYMENT_TOTAL_CURRENT`, `AMT_DRAWINGS_CURRENT`, `SK_DPD` FROM `raw_credit_card_balance` WHERE MONTHS_BALANCE < 0 ORDER BY _source_row",
+      "mode": "batches",
+      "rows": 3840312,
+      "complete": true
+    },
+    {
+      "sql": "SELECT `SK_ID_CURR`, `SK_ID_PREV`, `NUM_INSTALMENT_VERSION`, `NUM_INSTALMENT_NUMBER`, `DAYS_INSTALMENT`, `DAYS_ENTRY_PAYMENT`, `AMT_INSTALMENT`, `AMT_PAYMENT` FROM `raw_installments_payments` WHERE SK_ID_CURR >= %s AND SK_ID_CURR < %s AND DAYS_ENTRY_PAYMENT <= 0 AND DAYS_INSTALMENT <= 0 AND AMT_PAYMENT >= 0 AND AMT_INSTALMENT > 0 ORDER BY _source_row",
+      "mode": "batches",
+      "rows": 1894716,
+      "complete": true
+    },
+    {
+      "sql": "SELECT `SK_ID_CURR`, `SK_ID_PREV`, `NUM_INSTALMENT_VERSION`, `NUM_INSTALMENT_NUMBER`, `DAYS_INSTALMENT`, `DAYS_ENTRY_PAYMENT`, `AMT_INSTALMENT`, `AMT_PAYMENT` FROM `raw_installments_payments` WHERE SK_ID_CURR >= %s AND SK_ID_CURR < %s AND DAYS_ENTRY_PAYMENT <= 0 AND DAYS_INSTALMENT <= 0 AND AMT_PAYMENT >= 0 AND AMT_INSTALMENT > 0 ORDER BY _source_row",
+      "mode": "batches",
+      "rows": 1904198,
+      "complete": true
+    },
+    {
+      "sql": "SELECT `SK_ID_CURR`, `SK_ID_PREV`, `NUM_INSTALMENT_VERSION`, `NUM_INSTALMENT_NUMBER`, `DAYS_INSTALMENT`, `DAYS_ENTRY_PAYMENT`, `AMT_INSTALMENT`, `AMT_PAYMENT` FROM `raw_installments_payments` WHERE SK_ID_CURR >= %s AND SK_ID_CURR < %s AND DAYS_ENTRY_PAYMENT <= 0 AND DAYS_INSTALMENT <= 0 AND AMT_PAYMENT >= 0 AND AMT_INSTALMENT > 0 ORDER BY _source_row",
+      "mode": "batches",
+      "rows": 1910369,
+      "complete": true
+    },
+    {
+      "sql": "SELECT `SK_ID_CURR`, `SK_ID_PREV`, `NUM_INSTALMENT_VERSION`, `NUM_INSTALMENT_NUMBER`, `DAYS_INSTALMENT`, `DAYS_ENTRY_PAYMENT`, `AMT_INSTALMENT`, `AMT_PAYMENT` FROM `raw_installments_payments` WHERE SK_ID_CURR >= %s AND SK_ID_CURR < %s AND DAYS_ENTRY_PAYMENT <= 0 AND DAYS_INSTALMENT <= 0 AND AMT_PAYMENT >= 0 AND AMT_INSTALMENT > 0 ORDER BY _source_row",
+      "mode": "batches",
+      "rows": 1905387,
+      "complete": true
+    },
+    {
+      "sql": "SELECT `SK_ID_CURR`, `SK_ID_PREV`, `NUM_INSTALMENT_VERSION`, `NUM_INSTALMENT_NUMBER`, `DAYS_INSTALMENT`, `DAYS_ENTRY_PAYMENT`, `AMT_INSTALMENT`, `AMT_PAYMENT` FROM `raw_installments_payments` WHERE SK_ID_CURR >= %s AND SK_ID_CURR < %s AND DAYS_ENTRY_PAYMENT <= 0 AND DAYS_INSTALMENT <= 0 AND AMT_PAYMENT >= 0 AND AMT_INSTALMENT > 0 ORDER BY _source_row",
+      "mode": "batches",
+      "rows": 1915439,
+      "complete": true
+    },
+    {
+      "sql": "SELECT `SK_ID_CURR`, `SK_ID_PREV`, `NUM_INSTALMENT_VERSION`, `NUM_INSTALMENT_NUMBER`, `DAYS_INSTALMENT`, `DAYS_ENTRY_PAYMENT`, `AMT_INSTALMENT`, `AMT_PAYMENT` FROM `raw_installments_payments` WHERE SK_ID_CURR >= %s AND SK_ID_CURR < %s AND DAYS_ENTRY_PAYMENT <= 0 AND DAYS_INSTALMENT <= 0 AND AMT_PAYMENT >= 0 AND AMT_INSTALMENT > 0 ORDER BY _source_row",
+      "mode": "batches",
+      "rows": 1967067,
+      "complete": true
+    },
+    {
+      "sql": "SELECT `SK_ID_CURR`, `SK_ID_PREV`, `NUM_INSTALMENT_VERSION`, `NUM_INSTALMENT_NUMBER`, `DAYS_INSTALMENT`, `DAYS_ENTRY_PAYMENT`, `AMT_INSTALMENT`, `AMT_PAYMENT` FROM `raw_installments_payments` WHERE SK_ID_CURR >= %s AND SK_ID_CURR < %s AND DAYS_ENTRY_PAYMENT <= 0 AND DAYS_INSTALMENT <= 0 AND AMT_PAYMENT >= 0 AND AMT_INSTALMENT > 0 ORDER BY _source_row",
+      "mode": "batches",
+      "rows": 1864685,
+      "complete": true
+    },
+    {
+      "sql": "SELECT `SK_ID_CURR`, `SK_ID_PREV`, `NUM_INSTALMENT_VERSION`, `NUM_INSTALMENT_NUMBER`, `DAYS_INSTALMENT`, `DAYS_ENTRY_PAYMENT`, `AMT_INSTALMENT`, `AMT_PAYMENT` FROM `raw_installments_payments` WHERE SK_ID_CURR >= %s AND SK_ID_CURR < %s AND DAYS_ENTRY_PAYMENT <= 0 AND DAYS_INSTALMENT <= 0 AND AMT_PAYMENT >= 0 AND AMT_INSTALMENT > 0 ORDER BY _source_row",
+      "mode": "batches",
+      "rows": 240390,
+      "complete": true
+    },
+    {
+      "sql": "SELECT `SK_ID_CURR`, `SK_ID_PREV`, `NUM_INSTALMENT_VERSION`, `NUM_INSTALMENT_NUMBER`, `DAYS_INSTALMENT`, `DAYS_ENTRY_PAYMENT`, `AMT_INSTALMENT`, `AMT_PAYMENT` FROM `raw_installments_payments` WHERE SK_ID_CURR = %s AND SK_ID_PREV = %s AND NUM_INSTALMENT_VERSION = %s AND NUM_INSTALMENT_NUMBER = %s ORDER BY _source_row",
+      "mode": "batches",
+      "rows": 2,
+      "complete": true
+    },
+    {
+      "sql": "SELECT `SK_ID_CURR`, `DAYS_CREDIT`, `DAYS_CREDIT_UPDATE`, `CREDIT_CURRENCY`, `AMT_CREDIT_SUM` FROM `raw_bureau` WHERE SK_ID_CURR = %s ORDER BY _source_row",
+      "mode": "batches",
+      "rows": 11,
+      "complete": true
+    }
+  ],
+  "notebook_code_sha256": "df9708f2175e4fbf548d6c6184ef323b7dc5510e6e660b1560702e4b64060191"
+}

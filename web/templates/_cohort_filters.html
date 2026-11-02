@@ -1,0 +1,29 @@
+<section class="cohort-panel" id="global-filters" aria-label="Bộ lọc phân tích">
+  <details class="cohort-dropdown">
+    <summary class="button small">{{ icon('filter') }}Bộ lọc{% if filter_chips %}<span class="filter-count">{{ filter_chips|length }}</span>{% endif %}<span class="filter-chevron" aria-hidden="true">▾</span></summary>
+    <div class="panel cohort-options">
+      <div class="panel-heading"><div><h2>Bộ lọc phân tích</h2><p>Chọn phân khúc, bấm Áp dụng để cập nhật toàn bộ các phần bên dưới.</p></div></div>
+      <div class="panel-body">
+    <form method="get" action="{{ url_for('dashboard') }}" id="cohort-filter-form">
+      <div class="cohort-grid">
+        <div class="field"><label for="cohort-product">Loại khoản vay</label><select id="cohort-product" name="product"><option value="">Tất cả loại vay</option>{% for key,label in products.items() %}<option value="{{ key }}" {% if filters.product==key %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>
+        <div class="field"><label for="cohort-income">Nguồn thu nhập</label><select id="cohort-income" name="income"><option value="">Tất cả nhóm</option>{% for key,label in income_types.items() %}<option value="{{ key }}" {% if filters.income==key %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>
+        <div class="field"><label for="cohort-amount-min">Số tiền khoản vay từ</label><input id="cohort-amount-min" name="amount_min" type="number" min="0" step="any" value="{{ filters.amount_min if filters.amount_min is not none else '' }}" placeholder="Không giới hạn"></div>
+        <div class="field"><label for="cohort-amount-max">Số tiền khoản vay đến</label><input id="cohort-amount-max" name="amount_max" type="number" min="0" step="any" value="{{ filters.amount_max if filters.amount_max is not none else '' }}" placeholder="Không giới hạn"></div>
+      </div>
+      <details class="advanced-filters" {% if filters.age_min is not none or filters.age_max is not none or filters.availability %}open{% endif %}>
+        <summary>Điều kiện nâng cao: tuổi và dữ liệu khả dụng</summary>
+        <div class="cohort-grid">
+          <div class="field"><label for="cohort-age-min">Tuổi từ</label><input id="cohort-age-min" name="age_min" type="number" min="0" step="any" value="{{ filters.age_min if filters.age_min is not none else '' }}" placeholder="Không giới hạn"></div>
+          <div class="field"><label for="cohort-age-max">Tuổi đến</label><input id="cohort-age-max" name="age_max" type="number" min="0" step="any" value="{{ filters.age_max if filters.age_max is not none else '' }}" placeholder="Không giới hạn"></div>
+          <div class="field span-two"><label for="cohort-availability">Tình trạng dữ liệu</label><select id="cohort-availability" name="availability"><option value="">Tất cả hồ sơ</option>{% for key,label in availability_options.items() %}<option value="{{ key }}" {% if filters.availability==key %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>
+        </div>
+      </details>
+      <div class="filter-toolbar"><div class="button-row"><button class="button primary" type="submit">{{ icon('filter') }}Áp dụng bộ lọc</button><a class="button" href="{{ url_for('dashboard') }}">Đặt lại</a></div><span class="subtext">Số tiền theo đơn vị nguồn · Mẫu số và chỉ số tính lại theo phân khúc đã chọn.</span></div>
+    </form>
+      </div>
+    </div>
+  </details>
+  <p id="cohort-draft-notice" class="draft-notice" role="status" tabindex="-1" hidden>Bạn đã đổi điều kiện nhưng chưa áp dụng. Mở Bộ lọc và nhấn Áp dụng bộ lọc trước khi mở các danh sách bên dưới.</p>
+  {% if filter_chips %}<div class="quick-filters"><span>ĐANG ÁP DỤNG</span>{% for chip in filter_chips %}<a class="chip selected" data-cohort-link href="{{ chip.remove_url }}">{{ chip.label }}: {{ chip.value }} ×</a>{% endfor %}</div>{% endif %}
+</section>

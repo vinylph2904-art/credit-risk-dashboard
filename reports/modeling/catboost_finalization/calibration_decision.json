@@ -1,0 +1,8 @@
+{
+  "case_id": "B_CAT_02",
+  "raw_oof_brier": 0.06655721743939502,
+  "sigmoid_oof_brier": 0.0676596740630547,
+  "use_sigmoid": false,
+  "scope": "outer train folds; sigmoid fitted only on inner OOF of outer train",
+  "cache_id": "4fec95c745d24f99893d"
+}

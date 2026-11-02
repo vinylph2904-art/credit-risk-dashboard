@@ -1,0 +1,13 @@
+set,branch,fold,fit_n,probe_n,output_columns_n,finite,unknown_category_ok
+A,LR,0,123004,61502,318,True,True
+A,LR,1,123004,61502,322,True,True
+A,LR,2,123004,61502,321,True,True
+A,TREE,0,123004,61502,318,True,True
+A,TREE,1,123004,61502,322,True,True
+A,TREE,2,123004,61502,321,True,True
+B,LR,0,123004,61502,434,True,True
+B,LR,1,123004,61502,438,True,True
+B,LR,2,123004,61502,437,True,True
+B,TREE,0,123004,61502,434,True,True
+B,TREE,1,123004,61502,438,True,True
+B,TREE,2,123004,61502,437,True,True

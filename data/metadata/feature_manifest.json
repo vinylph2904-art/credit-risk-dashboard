@@ -1,0 +1,84 @@
+{
+  "version": "1.0",
+  "split_sha256": "c2b83e1356dd44714c4f1141894d7af41c484e6ccbdc9055c76e500eddb3d3c8",
+  "A_features_n": 127,
+  "B_features_n": 199,
+  "artifacts": [
+    {
+      "path": "data\\features\\A\\application_test.parquet",
+      "rows": 48744,
+      "sha256": "6c621c635e91b859ee0b765ead43e8aa3bb0e994ecf8d9821f2f1eda02e39d2c"
+    },
+    {
+      "path": "data\\features\\A\\test.parquet",
+      "rows": 61503,
+      "sha256": "34fcd66964917027c8576b459a779e9a28c87719532d52c65e0204a7761bc654"
+    },
+    {
+      "path": "data\\features\\A\\train.parquet",
+      "rows": 184506,
+      "sha256": "b8273506a7f7bcc58e65ce28c75a08a4ffd612e9eedf6da9f7eedf7b9778dc9d"
+    },
+    {
+      "path": "data\\features\\A\\validation.parquet",
+      "rows": 61502,
+      "sha256": "6295465e5c8d6210b3cf0f6dfdbe91a295c7a06d469d5b020e148d33ac9deac4"
+    },
+    {
+      "path": "data\\features\\B\\application_test.parquet",
+      "rows": 48744,
+      "sha256": "3bf9e1788a81660901cdecb729bededa04fe83b2c3e77eb6346876d5028fda36"
+    },
+    {
+      "path": "data\\features\\B\\test.parquet",
+      "rows": 61503,
+      "sha256": "acad20e61b92442e058fcd4c5e28b2e856afff2c018432ab692dbb70c84b850a"
+    },
+    {
+      "path": "data\\features\\B\\train.parquet",
+      "rows": 184506,
+      "sha256": "d5d4603d0a22f5f5d654212062bbef2e69967ae00a11bd2d72edd52f07359c6b"
+    },
+    {
+      "path": "data\\features\\B\\validation.parquet",
+      "rows": 61502,
+      "sha256": "56b94ddb16cfaf191c3d63ad841bf4c06620b155b5224965b5588c285bce7e93"
+    },
+    {
+      "path": "data\\features\\feature_index.parquet",
+      "rows": 356255,
+      "sha256": "a98d7f77feb52b80f259ac93e1a2c3c3cfe9e8ae99ca2003ac90cebb8400538a"
+    },
+    {
+      "path": "data\\features\\history\\bureau.parquet",
+      "rows": 305807,
+      "sha256": "726f0d6e088da2419e2618ef360cf52380059f1af357b079d57964a3be32c958"
+    },
+    {
+      "path": "data\\features\\history\\bureau_balance.parquet",
+      "rows": 134299,
+      "sha256": "2fbfe82f0c0382f3289d98808ff42d7ae1b7c28dc6814de6d68a0e16af587778"
+    },
+    {
+      "path": "data\\features\\history\\credit_card_balance.parquet",
+      "rows": 103558,
+      "sha256": "c46616ba98ca06b450227f3f823f9ea3fc748fabc0ff070d5e792109d70972f4"
+    },
+    {
+      "path": "data\\features\\history\\installments_payments.parquet",
+      "rows": 339575,
+      "sha256": "7d922285fe0b80649a8f4ec96fdc75b9b34d5a6ec259a296b3b49b8b2e6ac64e"
+    },
+    {
+      "path": "data\\features\\history\\pos_cash_balance.parquet",
+      "rows": 337252,
+      "sha256": "21228a044bd83e01bdecba3583f768d66b854d4ede050014e6e01a178544aed3"
+    },
+    {
+      "path": "data\\features\\history\\previous_application.parquet",
+      "rows": 338857,
+      "sha256": "0cf2df8440da9797f3636109b3601b8881d2832cf87222cfaa731524c4dc7ed9"
+    }
+  ],
+  "fit_scope": "No population preprocessing fitted in exported A/B"
+}

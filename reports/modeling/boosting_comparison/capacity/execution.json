@@ -1,0 +1,20 @@
+{
+  "status": "complete",
+  "input_rows": 184506,
+  "positive_n": 14895,
+  "checkpoint_files": 12,
+  "model_fits": 0,
+  "database_queries": 0,
+  "validation_labels_used": false,
+  "test_labels_used": false,
+  "dashboard_model_changed": false,
+  "protected_files_unchanged": true,
+  "checkpoint_bytes_unchanged": true,
+  "repeatability_check": "exact DataFrame equality",
+  "primary_scope": "top ceil(fraction*n) within each fold, sum counts across folds",
+  "secondary_scope": "pooled OOF rankings, sensitive to between-fold score scales",
+  "original_notebook_cells_and_outputs_preserved": true,
+  "elapsed_seconds": 6.782324500003597,
+  "independent_numpy_ranking_checks": 48,
+  "notebook_code_cells_compile": true
+}

@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "default_constructor_mysql_connection_passed": true,
+  "database": "home_credit_ml",
+  "source_sha256": "4e96309123563df3c2afe9f724452571df2c809ef780f7bd2497020accf7119c",
+  "query": "SELECT DATABASE() AS database_name, 1 AS connected",
+  "data_modified": false
+}

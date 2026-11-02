@@ -1,0 +1,6 @@
+rule,eligible_n,flagged_n,not_checked_n,flagged_pct,interpretation
+Việc làm bắt đầu trước ngày sinh,151384,0,33122,0.0,Dấu hiệu mâu thuẫn thời gian
+Ngày đổi giấy tờ trước ngày sinh,184506,0,0,0.0,Dấu hiệu mâu thuẫn thời gian
+Ngày đổi đăng ký trước ngày sinh,184506,0,0,0.0,Dấu hiệu mâu thuẫn thời gian
+Số con lớn hơn số thành viên gia đình,184504,0,2,0.0,Cần xác minh định nghĩa gia đình
+Không sở hữu xe nhưng có tuổi xe,62577,0,121929,0.0,Cần xác minh thời điểm ghi nhận xe

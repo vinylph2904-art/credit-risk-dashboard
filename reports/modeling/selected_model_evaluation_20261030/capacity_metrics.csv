@@ -1,0 +1,7 @@
+dataset,fraction,review_n,captured_positive_n,precision,recall,lift,tie_break
+validation,0.05,3076,1107,0.35988296488946686,0.2229607250755287,4.457909789855386,"score descending, SK_ID_CURR ascending"
+validation,0.1,6151,1763,0.2866200617785726,0.3550855991943605,3.5503941670706487,"score descending, SK_ID_CURR ascending"
+validation,0.2,12301,2721,0.22120152833103,0.5480362537764351,2.7400476123695885,"score descending, SK_ID_CURR ascending"
+historical_internal_test,0.05,3076,1160,0.37711313394018203,0.23363544813695872,4.671417739521251,"score descending, SK_ID_CURR ascending"
+historical_internal_test,0.1,6151,1820,0.295886847667046,0.36656596173212486,3.665242455602483,"score descending, SK_ID_CURR ascending"
+historical_internal_test,0.2,12301,2805,0.22803024144378506,0.5649546827794562,2.8246815588151284,"score descending, SK_ID_CURR ascending"

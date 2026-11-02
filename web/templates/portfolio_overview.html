@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% from '_kpi_mini.html' import mini %}
+{% from '_components.html' import icon with context %}
+{% from '_kpi_targets.html' import comparison, settings %}
+{% block title %}Dư nợ và quá hạn{% endblock %}
+{% block breadcrumb %}Dư nợ và quá hạn{% endblock %}
+{% block topbar_content %}
+<div class="workspace-heading"><div><h1>Dư nợ và quá hạn</h1>{% include '_history_scope_subtitle.html' %}</div>{% include '_report_tools.html' %}</div>
+{% endblock %}
+{% block content %}
+
+{% include '_portfolio_filters.html' %}
+<div class="kpi-grid financial-kpis reference-card-layout">
+  <a class="kpi" data-cohort-link href="{{ cohort_url('applications',financial_filter='money') }}"><div class="financial-kpi-heading"><span class="label">Dư nợ bureau ghi nhận</span></div><strong title="{{ finance.debt|amount }}"><span class="kpi-symbol" aria-hidden="true">{{ icon('wallet') }}</span>{{ finance.debt|compact_amount }}</strong>{{ comparison('debt', finance.debt, 'Dư nợ bureau ghi nhận', 'money', financial_currency) }}{{ mini(kpi_minis.get('debt', []), 'Dư nợ bureau', 'money', 'donut', kpi_mini_meta['debt'].caption) }}</a>
+  <a class="kpi" data-cohort-link href="{{ cohort_url('applications',financial_filter='overdue_money') }}"><div class="financial-kpi-heading"><span class="label">Số tiền quá hạn ghi nhận</span></div><strong class="financial-risk-value" title="{{ finance.overdue|amount }}"><span class="kpi-symbol" aria-hidden="true">{{ icon('alert') }}</span>{{ finance.overdue|compact_amount }}</strong>{{ comparison('overdue', finance.overdue, 'Số tiền quá hạn ghi nhận', 'money', financial_currency) }}{{ mini(kpi_minis.get('overdue', []), 'Tiền quá hạn', 'money', 'bar', kpi_mini_meta['overdue'].caption) }}</a>
+  <div class="kpi"><div class="financial-kpi-heading"><span class="label">Tỷ trọng tiền quá hạn</span></div><strong><span class="kpi-symbol" aria-hidden="true">{{ icon('share') }}</span>{{ finance.money_share|small_percent }}</strong>{{ comparison('money_share', finance.money_share, 'Tỷ trọng tiền quá hạn', 'percent') }}{{ mini(kpi_minis.get('money_share', []), 'Tỷ trọng tiền quá hạn', 'percent', 'horizontal', kpi_mini_meta['money_share'].caption) }}</div>
+  <a class="kpi" data-cohort-link href="{{ cohort_url('applications',financial_filter='overdue') }}"><div class="financial-kpi-heading"><span class="label">Khoản bureau có quá hạn</span></div><strong><span class="kpi-symbol" aria-hidden="true">{{ icon('percent') }}</span>{{ finance.loan_share|percent }}</strong>{{ comparison('loan_share', finance.loan_share, 'Tỷ lệ khoản bureau có quá hạn', 'percent') }}{{ mini(kpi_minis.get('loan_share', []), 'Tỷ lệ khoản quá hạn', 'percent', 'stacked', kpi_mini_meta['loan_share'].caption) }}</a>
+</div>
+{{ settings(false) }}
+<div class="history-chart-grid">
+  <section class="panel report-panel"><div class="panel-heading"><div><h2><span class="chart-symbol" aria-hidden="true">{{ icon('model') }}</span>Phân bố khoản vay theo số ngày quá hạn</h2></div></div>
+    <div class="report-chart">{{ dpd_chart|safe }}</div>
+  </section>
+  <section class="panel report-panel segment-panel"><div class="panel-heading"><div><h2><span class="chart-symbol" aria-hidden="true">{{ icon('grid') }}</span>Dư nợ và số tiền quá hạn theo phân khúc</h2></div><div class="segmented-control"><a data-dashboard-nav data-cohort-link class="{% if breakdown=='income' %}active{% endif %}" href="{{ cohort_url('credit_diagnostics',breakdown='income') }}">Nguồn thu</a><a data-dashboard-nav data-cohort-link class="{% if breakdown=='product' %}active{% endif %}" href="{{ cohort_url('credit_diagnostics',breakdown='product') }}">Loại vay</a></div></div>
+    <div class="report-chart">{{ segment_chart|safe }}</div>
+  </section>
+</div>
+<details class="panel history-details" open><summary><strong>Đối chiếu phân khúc & tiến độ rà soát</strong><span>Bảng số liệu</span></summary><div class="history-details-body">
+    <div class="report-table" data-report-table data-max-rows="4" aria-label="Chi tiết phân khúc"><div class="table-scroll"><table><thead><tr><th>Phân khúc</th><th class="right">Dư nợ</th><th class="right">Tiền quá hạn</th><th class="right">Khoản có DPD &gt; 0</th><th class="right">Chưa rà soát</th></tr></thead><tbody>
+      {% for row in finance_groups %}<tr><td>{% if row.filter_url %}<a data-dashboard-nav data-cohort-link href="{{ row.filter_url }}">{{ row.label }}</a>{% else %}{{ row.label }}{% endif %}</td><td class="right">{{ row.debt|amount }}</td><td class="right">{{ row.overdue|amount }}</td><td class="right">{{ row.overdue_n }} / {{ row.dpd_n }} · {{ row.overdue_share|percent }}</td><td class="right">{% if row.url %}<a data-cohort-link href="{{ row.url }}">{{ row.pending_n }} →</a>{% else %}{{ row.pending_n }}{% endif %}</td></tr>{% else %}<tr><td colspan="5" class="empty">Không có khoản phù hợp bộ lọc.</td></tr>{% endfor %}
+    </tbody></table></div><div class="report-table-pager" aria-label="Phân trang phân khúc"></div></div>
+    <div class="review-summary"><div class="review-heading"><strong>Tiến độ rà soát</strong><a data-cohort-link href="{{ cohort_url('applications',status='pending') }}">Xem hồ sơ chờ rà soát →</a></div>
+      <div class="review-metrics"><a data-cohort-link href="{{ cohort_url('applications',status='new') }}"><strong>{{ work_summary.new_n }}</strong><span>Mới</span></a><a data-cohort-link href="{{ cohort_url('applications',status='in_review') }}"><strong>{{ work_summary.reviewing_n }}</strong><span>Đang xem xét</span></a><a data-cohort-link href="{{ cohort_url('applications',status='reviewed') }}"><strong>{{ work_summary.reviewed_n }}</strong><span>Đã rà soát</span></a></div>
+    </div>
+</div></details>
+<dialog id="report-notes" class="report-dialog" aria-labelledby="report-notes-title">
+<div class="dialog-header"><h2 id="report-notes-title">Cách tính & độ bao phủ dữ liệu</h2><button class="icon-button" type="button" data-close aria-label="Đóng">×</button></div>
+<div class="dialog-body"><p>Dữ liệu bureau trước ngày nộp hồ sơ · DPD: số ngày quá hạn · Hồ sơ đang quản lý</p>
+<p>Đơn vị tiền: {{ financial_currency }}. Tỷ trọng tiền quá hạn = tổng tiền quá hạn / tổng dư nợ trên cùng tập khoản đủ dữ liệu. Tỷ lệ khoản có quá hạn = {{ finance.overdue_n }} / {{ finance.dpd_n }} khoản có DPD hợp lệ.</p>
+
+  <p>Ba chỉ số tiền dùng chung {{ finance.money_n }} khoản có debt/overdue hữu hạn, không âm, đúng loại tiền và trạng thái; mỗi khoản tính một lần. Tỷ lệ DPD dùng {{ finance.dpd_n }} khoản có DPD hợp lệ.</p>
+  <p>{{ finance.excluded_n }} khoản trong phạm vi tiền chưa đủ điều kiện; {{ finance.exception_n }} khoản có debt=0 nhưng overdue&gt;0 cần đối chiếu. {{ finance.invalid_time_n }} bản ghi của tập hồ sơ bị loại do mốc thời gian không hợp lệ. Không đổi dữ liệu nguồn.</p>
+  <p>Utilization dùng snapshot thẻ gần nhất trước nộp đơn, hạn mức dương; giá trị trên 100% được giữ. Tỷ lệ trả đúng hạn chỉ tính trên nhóm kỳ/phiên bản nhất quán đã quan sát trả đủ; các lần trả từng phần được cộng theo thời điểm. Nhóm kỳ có nhiều phiên bản không xác định được lịch được loại và báo riêng.</p>
+  {% if exceptions %}<h3>Khoản cần đối chiếu thông tin tiền</h3><table><thead><tr><th>Khoản bureau</th><th>Hồ sơ</th><th>Dư nợ</th><th>Tiền quá hạn</th></tr></thead><tbody>{% for row in exceptions %}<tr><td>{{ row.SK_ID_BUREAU }}</td><td><a data-cohort-link href="{{ cohort_url('application_detail',profile_id=row.profile_id) }}">{{ row.case_label }}</a></td><td>{{ row.debt|amount }}</td><td>{{ row.overdue|amount }}</td></tr>{% endfor %}</tbody></table>{% endif %}
+  <h3>Đối chiếu khoản bureau (tối đa 100 dòng)</h3><div class="table-scroll"><table><thead><tr><th>Khoản</th><th>Hồ sơ</th><th>DPD</th><th>Dư nợ</th><th>Tiền quá hạn</th><th>Cập nhật trước mốc nộp đơn</th></tr></thead><tbody>{% for row in loan_rows %}<tr><td>{{ row.SK_ID_BUREAU }}</td><td><a data-cohort-link href="{{ cohort_url('application_detail',profile_id=row.profile_id) }}">{{ row.case_label }}</a></td><td>{{ row.dpd|number }}</td><td>{{ row.debt|amount }}</td><td>{{ row.overdue|amount }}</td><td>{{ -row.DAYS_CREDIT_UPDATE|int }} ngày</td></tr>{% else %}<tr><td colspan="6" class="empty">Không có khoản phù hợp.</td></tr>{% endfor %}</tbody></table></div>
+</div></dialog>
+{% endblock %}

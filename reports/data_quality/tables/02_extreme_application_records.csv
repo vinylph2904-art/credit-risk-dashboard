@@ -1,0 +1,41 @@
+SK_ID_CURR,NAME_CONTRACT_TYPE,NAME_INCOME_TYPE,OCCUPATION_TYPE,AMT_INCOME_TOTAL,AMT_CREDIT,AMT_ANNUITY,AMT_GOODS_PRICE,age_years,checked_column,tail,global_iqr_flag
+101965,Cash loans,Working,Cleaning staff,25650.0,158148.0,5809.5,103500.0,48.8,AMT_INCOME_TOTAL,Thấp nhất,False
+316377,Cash loans,Pensioner,,26100.0,54000.0,5391.0,54000.0,58.8,AMT_INCOME_TOTAL,Thấp nhất,False
+384810,Cash loans,Pensioner,,26100.0,173092.5,12438.0,157500.0,57.2,AMT_INCOME_TOTAL,Thấp nhất,False
+303289,Cash loans,Unemployed,,26550.0,571500.0,16281.0,571500.0,55.3,AMT_INCOME_TOTAL,Thấp nhất,False
+103644,Cash loans,Working,Cleaning staff,27000.0,101880.0,10075.5,90000.0,38.3,AMT_INCOME_TOTAL,Thấp nhất,False
+336147,Cash loans,Commercial associate,,18000090.0,675000.0,69295.5,675000.0,43.0,AMT_INCOME_TOTAL,Cao nhất,True
+190160,Cash loans,Working,Managers,9000000.0,1431531.0,132601.5,1377000.0,45.0,AMT_INCOME_TOTAL,Cao nhất,True
+252084,Cash loans,Working,Laborers,6750000.0,790830.0,52978.5,675000.0,53.0,AMT_INCOME_TOTAL,Cao nhất,True
+219563,Revolving loans,Working,Managers,4500000.0,2250000.0,225000.0,2250000.0,29.5,AMT_INCOME_TOTAL,Cao nhất,True
+337151,Cash loans,Working,Managers,4500000.0,450000.0,47749.5,450000.0,50.5,AMT_INCOME_TOTAL,Cao nhất,True
+106941,Cash loans,Working,Cleaning staff,67500.0,45000.0,4725.0,45000.0,45.8,AMT_CREDIT,Thấp nhất,False
+107678,Cash loans,Working,Laborers,126000.0,45000.0,5206.5,45000.0,24.5,AMT_CREDIT,Thấp nhất,False
+108074,Cash loans,Working,,67500.0,45000.0,4774.5,45000.0,35.2,AMT_CREDIT,Thấp nhất,False
+110765,Cash loans,Commercial associate,Sales staff,135000.0,45000.0,4207.5,45000.0,23.5,AMT_CREDIT,Thấp nhất,False
+115599,Cash loans,Working,Sales staff,90000.0,45000.0,4450.5,45000.0,37.5,AMT_CREDIT,Thấp nhất,False
+117337,Cash loans,Commercial associate,Managers,760846.5,4050000.0,146002.5,4050000.0,35.0,AMT_CREDIT,Cao nhất,True
+238782,Cash loans,Commercial associate,Managers,931365.0,4050000.0,102514.5,4050000.0,34.3,AMT_CREDIT,Cao nhất,True
+228135,Cash loans,Commercial associate,Managers,864900.0,4050000.0,102384.0,4050000.0,40.9,AMT_CREDIT,Cao nhất,True
+433294,Cash loans,Commercial associate,Accountants,405000.0,4050000.0,102514.5,4050000.0,31.1,AMT_CREDIT,Cao nhất,True
+210956,Cash loans,Working,Managers,430650.0,4031032.5,102033.0,3712500.0,45.1,AMT_CREDIT,Cao nhất,True
+421207,Cash loans,Pensioner,,31500.0,45000.0,1615.5,45000.0,64.3,AMT_ANNUITY,Thấp nhất,False
+185284,Cash loans,Working,Laborers,94500.0,45000.0,1980.0,45000.0,46.1,AMT_ANNUITY,Thấp nhất,False
+268596,Cash loans,Pensioner,,67500.0,45000.0,1980.0,45000.0,62.0,AMT_ANNUITY,Thấp nhất,False
+245237,Cash loans,Pensioner,,130500.0,49500.0,1993.5,49500.0,58.4,AMT_ANNUITY,Thấp nhất,False
+119887,Cash loans,Commercial associate,,90000.0,53910.0,2052.0,45000.0,51.3,AMT_ANNUITY,Thấp nhất,False
+291492,Revolving loans,Commercial associate,Managers,765000.0,2250000.0,225000.0,2250000.0,40.4,AMT_ANNUITY,Cao nhất,True
+313601,Revolving loans,Commercial associate,Managers,630000.0,2250000.0,225000.0,2250000.0,27.0,AMT_ANNUITY,Cao nhất,True
+406901,Revolving loans,Pensioner,,450000.0,2250000.0,225000.0,2250000.0,69.1,AMT_ANNUITY,Cao nhất,True
+408308,Revolving loans,State servant,Accountants,900000.0,2250000.0,225000.0,2250000.0,62.3,AMT_ANNUITY,Cao nhất,True
+411101,Revolving loans,Pensioner,,675000.0,2250000.0,225000.0,2250000.0,50.4,AMT_ANNUITY,Cao nhất,True
+445866,Cash loans,Working,Low-skill Laborers,135000.0,48519.0,4576.5,40500.0,35.3,AMT_GOODS_PRICE,Thấp nhất,False
+100127,Cash loans,Pensioner,,112500.0,52128.0,5341.5,45000.0,58.4,AMT_GOODS_PRICE,Thấp nhất,False
+100556,Cash loans,Pensioner,,58500.0,50940.0,4959.0,45000.0,62.2,AMT_GOODS_PRICE,Thấp nhất,False
+100966,Cash loans,Working,Cooking staff,63000.0,47970.0,4873.5,45000.0,36.9,AMT_GOODS_PRICE,Thấp nhất,False
+102164,Cash loans,Pensioner,,121500.0,50940.0,2974.5,45000.0,65.1,AMT_GOODS_PRICE,Thấp nhất,False
+117337,Cash loans,Commercial associate,Managers,760846.5,4050000.0,146002.5,4050000.0,35.0,AMT_GOODS_PRICE,Cao nhất,True
+238782,Cash loans,Commercial associate,Managers,931365.0,4050000.0,102514.5,4050000.0,34.3,AMT_GOODS_PRICE,Cao nhất,True
+228135,Cash loans,Commercial associate,Managers,864900.0,4050000.0,102384.0,4050000.0,40.9,AMT_GOODS_PRICE,Cao nhất,True
+433294,Cash loans,Commercial associate,Accountants,405000.0,4050000.0,102514.5,4050000.0,31.1,AMT_GOODS_PRICE,Cao nhất,True
+210956,Cash loans,Working,Managers,430650.0,4031032.5,102033.0,3712500.0,45.1,AMT_GOODS_PRICE,Cao nhất,True

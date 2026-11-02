@@ -1,0 +1,49 @@
+/* Chuyển động nhẹ, không thay đổi kích thước hay vị trí điểm dữ liệu. */
+:root{--motion-fast:160ms;--motion-normal:280ms;--motion-ease:cubic-bezier(.2,.7,.2,1)}
+@keyframes content-enter{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@keyframes chart-enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes backdrop-enter{from{opacity:0}to{opacity:1}}
+.page>.page-heading,.page>.report-heading,.login-form-wrap{animation:content-enter 380ms var(--motion-ease) both}
+.kpi-grid>.kpi{animation:content-enter 400ms var(--motion-ease) both}
+.kpi-grid>.kpi:nth-child(2){animation-delay:35ms}.kpi-grid>.kpi:nth-child(3){animation-delay:70ms}.kpi-grid>.kpi:nth-child(4){animation-delay:105ms}.kpi-grid>.kpi:nth-child(5){animation-delay:140ms}
+.dashboard-chart.chart-ready{animation:chart-enter 560ms var(--motion-ease) both}
+.financial-chart-grid>.report-panel:nth-child(2) .chart-ready{animation-delay:40ms}
+.financial-chart-grid>.report-panel:nth-child(3) .chart-ready{animation-delay:80ms}
+.financial-chart-grid>.report-panel:nth-child(4) .chart-ready{animation-delay:100ms}
+.financial-chart-grid>.report-panel:nth-child(5) .chart-ready{animation-delay:130ms}
+.financial-chart-grid>.report-panel:nth-child(6) .chart-ready{animation-delay:160ms}
+.dashboard-chart .barlayer .point,.dashboard-chart .pielayer .slice,.dashboard-chart .scatterlayer .points .point{transition:opacity 220ms ease,filter 220ms ease}
+.dashboard-chart .bar-focus-muted{opacity:.38}
+.dashboard-chart .bar-focus-active{opacity:1;filter:brightness(1.06) saturate(1.12)}
+.analytics-shell .button,.analytics-shell .nav-item,.analytics-shell .icon-button,.login-submit,.login-password button{transition:background-color var(--motion-fast) ease,border-color var(--motion-fast) ease,color var(--motion-fast) ease,box-shadow var(--motion-fast) ease,transform var(--motion-fast) var(--motion-ease)}
+.analytics-shell input,.analytics-shell select,.analytics-shell textarea{transition:border-color var(--motion-fast) ease,box-shadow var(--motion-fast) ease}
+.analytics-shell .kpi,.analytics-shell .report-panel{transition:border-color var(--motion-normal) ease,box-shadow var(--motion-normal) ease}
+.analytics-shell tbody tr{transition:background-color 130ms ease}
+.analytics-shell dialog[open]{animation:content-enter 220ms var(--motion-ease)}
+.analytics-shell dialog::backdrop{animation:backdrop-enter 180ms ease-out;background:rgba(23,35,51,.32);backdrop-filter:blur(3px)}
+.page[aria-busy=true]{cursor:progress}.page[aria-busy=true] .financial-chart-grid,.page[aria-busy=true] .kpi-grid{opacity:.62;transition:opacity 180ms ease}
+@keyframes loading-spin{to{transform:rotate(360deg)}}
+@keyframes loading-shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+.is-loading{display:flex;align-items:center;justify-content:center;gap:12px;min-height:48px}
+.is-loading::before{content:"";display:inline-block;width:20px;height:20px;flex:0 0 20px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:loading-spin .85s linear infinite}
+.dashboard-status.is-loading{background:#fff;color:#35465c;border:1px solid #e3e8ee;box-shadow:0 8px 30px #26374b14;max-width:min(430px,90vw)}
+#chart-detail-content.is-loading{min-height:200px;padding:28px;color:#68798b}
+.page[aria-busy=true] .financial-chart-grid{pointer-events:none}
+.dashboard-chart{position:relative}
+.dashboard-chart:not(.chart-ready):not(.chart-error)::before{content:"";position:absolute;inset:12px;border-radius:var(--dashboard-radius,10px);background:linear-gradient(100deg,#f5f7f9 20%,#e9eef3 45%,#f5f7f9 70%);background-size:200% 100%;animation:loading-shimmer 1.8s ease-in-out infinite}
+.dashboard-chart:not(.chart-ready):not(.chart-error)::after{content:"";position:absolute;left:50%;top:50%;width:30px;height:30px;margin:-15px 0 0 -15px;border:3px solid #dce3ea;border-top-color:#3377a8;border-radius:50%;animation:loading-spin .85s linear infinite}
+.dashboard-chart .hoverlayer .hovertext{filter:drop-shadow(0 3px 9px rgba(30,46,67,.14));pointer-events:none}
+.dashboard-chart .hoverlayer .hovertext path{stroke-linejoin:round}
+.dashboard-chart .hoverlayer .hovertext text{letter-spacing:.1px}
+@media(hover:hover) and (pointer:fine){
+  .analytics-shell .button:hover,.login-submit:hover{transform:translateY(-1px);box-shadow:0 3px 9px rgba(33,47,65,.08)}
+  .analytics-shell .button:active,.login-submit:active{transform:translateY(0);box-shadow:none}
+  .analytics-shell .kpi:hover{border-color:#d4dce5;box-shadow:0 3px 12px rgba(33,47,65,.045)}
+  .dashboard-chart .barlayer .point path,.dashboard-chart .scatterlayer .point,.dashboard-chart .pielayer .slice path{transition:filter 130ms ease,stroke 130ms ease}
+  .dashboard-chart .scatterlayer .point:hover,.dashboard-chart .pielayer .slice path:hover{filter:brightness(.96)}
+  .dashboard-chart[data-interactive=true] .barlayer .point path,.dashboard-chart[data-interactive=true] .scatterlayer .point,.dashboard-chart[data-interactive=true] .pielayer .slice{cursor:pointer}
+}
+@media(prefers-reduced-motion:reduce){
+  .analytics-shell *,.analytics-shell *::before,.analytics-shell *::after,.login-layout *,.login-layout *::before,.login-layout *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .analytics-shell .button:hover,.login-submit:hover{transform:none}
+}

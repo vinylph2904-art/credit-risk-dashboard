@@ -1,0 +1,80 @@
+{
+  "status": "passed",
+  "source": "previous_application",
+  "implementation": "Explicit SELECT/JOIN/WHERE through Connector.queryDataset; existing pandas aggregates retained",
+  "full_rows_verified": 338857,
+  "features_verified": 10,
+  "id_order_dtype_values_nan_exact": true,
+  "parquet_hash_unchanged": true,
+  "scope_unchanged": true,
+  "repeat_call_extra_sql": 0,
+  "fixture_assertions": 18,
+  "integrated_method_seconds": 17.099,
+  "sql_aggregation_trial": {
+    "status": "floating_point_differences",
+    "sql_seconds": 40.433,
+    "rows": 338857,
+    "exact_dtype_order_values_nan_equal": false,
+    "comparisons": [
+      {
+        "column": "PREV_APPLICATION_N",
+        "unequal_values": 0,
+        "max_absolute_difference": 0.0
+      },
+      {
+        "column": "PREV_APPROVED_N",
+        "unequal_values": 0,
+        "max_absolute_difference": 0.0
+      },
+      {
+        "column": "PREV_REFUSED_N",
+        "unequal_values": 0,
+        "max_absolute_difference": 0.0
+      },
+      {
+        "column": "PREV_REFUSED_SHARE",
+        "unequal_values": 0,
+        "max_absolute_difference": 0.0
+      },
+      {
+        "column": "PREV_REQUESTED_MEAN",
+        "unequal_values": 1040,
+        "max_absolute_difference": 2.3283064365386963e-10
+      },
+      {
+        "column": "PREV_APPROVED_CREDIT_MEAN",
+        "unequal_values": 61,
+        "max_absolute_difference": 1.1641532182693481e-10
+      },
+      {
+        "column": "PREV_APPROVED_CREDIT_MAX",
+        "unequal_values": 0,
+        "max_absolute_difference": 0.0
+      },
+      {
+        "column": "PREV_APPROVED_ANNUITY_MEAN",
+        "unequal_values": 32054,
+        "max_absolute_difference": 2.9103830456733704e-11
+      },
+      {
+        "column": "PREV_APPROVED_PAYMENT_COUNT_MEAN",
+        "unequal_values": 0,
+        "max_absolute_difference": 0.0
+      },
+      {
+        "column": "PREV_RECENT_DECISION_DAYS_AGO",
+        "unequal_values": 0,
+        "max_absolute_difference": 0.0
+      }
+    ],
+    "production_changed": false,
+    "database_modified": false
+  },
+  "decision": "Keep pandas means to preserve frozen features exactly; SQL AVG trial has tiny floating-point differences, not a business-definition error",
+  "protected_files_unchanged": 79,
+  "intentionally_changed_file": "models/HomeCreditPreparation.py",
+  "database_modified": false,
+  "classifiers_retrained": false,
+  "full_notebook_rerun": false,
+  "source_sha256": "d670870d81d9272bf37580060f48f281cb08f201ecb23bad3a2d473fa04381cd"
+}

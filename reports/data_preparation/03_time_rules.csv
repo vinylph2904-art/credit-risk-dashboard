@@ -1,0 +1,7 @@
+source,time_rule,limitation
+bureau,DAYS_CREDIT <= 0 and DAYS_CREDIT_UPDATE <= 0 and DAYS_CREDIT_UPDATE >= DAYS_CREDIT,Trạng thái/tiền ở lần cập nhật đủ điều kiện; ngày kết thúc dự kiến không làm bộ lọc
+bureau_balance,Eligible bureau parent and MONTHS_BALANCE < 0,Không xác định chủ thì không tạo feature
+previous_application,DAYS_DECISION < 0,Không dùng DAYS_LAST_DUE/DAYS_TERMINATION và ngày thực tế chưa xác minh
+pos_cash_balance,MONTHS_BALANCE < 0,Số tháng quan sát khác số kỳ thanh toán
+credit_card_balance,MONTHS_BALANCE < 0,"Tỷ số tính cùng khoản/cùng tháng, mẫu số > 0"
+installments_payments,DAYS_ENTRY_PAYMENT <= 0 and DAYS_INSTALMENT <= 0; valid keys and amounts,Giữ phiên bản lịch trả trong khóa kỳ; không suy ra nợ quá hạn hiện hữu từ thiếu dòng

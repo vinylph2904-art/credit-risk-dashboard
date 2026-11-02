@@ -1,0 +1,21 @@
+{% if contributions %}
+{% set labels = namespace(values={}) %}{% for field in feature_rows %}{% set _ = labels.values.update({field.name: field.meaning}) %}{% endfor %}
+{% set _ = labels.values.update({'EXT_SOURCE_1':'Điểm nguồn ngoài 1','EXT_SOURCE_2':'Điểm nguồn ngoài 2','EXT_SOURCE_3':'Điểm nguồn ngoài 3','CODE_GENDER':'Giới tính ghi nhận','AGE_YEARS':'Tuổi quy đổi','EMPLOYED_YEARS':'Thời gian làm việc','RATIO_CREDIT_GOODS_RECORDED':'Khoản vay / giá hàng hóa','RATIO_ANNUITY_INCOME_RECORDED':'Niên kim / thu nhập','RATIO_CREDIT_INCOME_RECORDED':'Khoản vay / thu nhập','INS_PERIOD_WITH_AFTER_DUE_PAYMENT_SHARE':'Tỷ lệ kỳ trả góp có thanh toán sau hạn','BUR_CREDIT_DAYS_AGO_MEAN':'Số ngày từ khoản tín dụng đến hồ sơ · trung bình'}) %}
+<section class="panel case-explanation" aria-labelledby="case-explanation-title">
+  <div class="panel-heading"><div><h2 id="case-explanation-title">Các yếu tố tác động đến điểm rủi ro</h2><p class="case-explanation-intro">{{ contributions|length }} yếu tố được xếp theo độ lớn tác động, từ mạnh đến yếu.</p></div><span class="case-method-label">{{ 'SHAP' if model_family=='CAT' else 'Đóng góp mô hình nền' }}</span></div>
+  <div class="panel-body">
+    <div class="case-direction-key"><span class="case-contribution-positive">+ Tăng điểm rủi ro</span><span class="case-contribution-negative">− Giảm điểm rủi ro</span></div>
+    {% set scale = namespace(maximum=0) %}{% for row in contributions %}{% if row.value|abs > scale.maximum %}{% set scale.maximum = row.value|abs %}{% endif %}{% endfor %}
+    <ol class="case-ranked-factors">
+    {% for row in contributions %}
+      <li class="case-ranked-factor {{ 'is-positive' if row.value>0 else 'is-negative' if row.value<0 else 'is-neutral' }}">
+        <span class="case-factor-rank" aria-hidden="true">{{ '%02d'|format(loop.index) }}</span>
+        <div class="case-factor-main"><span class="case-factor-name" title="{{ row.feature }}">{{ labels.values.get(row.feature, row.feature|replace('_',' ')) }}</span><span class="case-factor-track" aria-hidden="true"><i style="width:{{ (row.value|abs / scale.maximum * 100) if scale.maximum else 0 }}%"></i></span></div>
+        <strong class="{{ 'case-contribution-positive' if row.value>0 else 'case-contribution-negative' if row.value<0 else 'case-contribution-neutral' }}">{{ '%+.4f'|format(row.value) }}<span class="sr-only"> · {{ 'tăng điểm rủi ro' if row.value>0 else 'giảm điểm rủi ro' if row.value<0 else 'không làm thay đổi điểm' }}</span></strong>
+      </li>
+    {% endfor %}
+    </ol>
+    <p class="subtext case-explanation-footnote">{{ 'Giá trị SHAP' if model_family=='CAT' else 'Giá trị đóng góp' }} được tính trên thang logit của mô hình nền, trước hiệu chỉnh. Giá trị này không phải mức thay đổi theo phần trăm và không xác định nguyên nhân hay thay thế kết luận thẩm định.</p>
+  </div>
+</section>
+{% endif %}

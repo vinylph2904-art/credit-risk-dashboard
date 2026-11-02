@@ -1,0 +1,106 @@
+{
+  "stage": "comparison_only",
+  "plan": {
+    "seed": 42,
+    "threads": 4,
+    "libraries": {
+      "XGB": "3.4.1",
+      "CAT": "1.2.10"
+    },
+    "XGB": {
+      "objective": "binary:logistic",
+      "eval_metric": "logloss",
+      "tree_method": "hist",
+      "enable_categorical": true,
+      "n_estimators": 500,
+      "learning_rate": 0.05,
+      "max_bin": 128,
+      "min_child_weight": 20,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 5.0,
+      "reg_alpha": 0.0,
+      "scale_pos_weight": 1.0
+    },
+    "CAT": {
+      "loss_function": "Logloss",
+      "iterations": 500,
+      "learning_rate": 0.05,
+      "l2_leaf_reg": 5.0,
+      "boosting_type": "Plain",
+      "bootstrap_type": "Bernoulli",
+      "subsample": 0.8,
+      "rsm": 0.8,
+      "max_ctr_complexity": 1,
+      "used_ram_limit": "1gb",
+      "allow_writing_files": false,
+      "verbose": false
+    }
+  },
+  "cases": {
+    "A_XGB_01": {
+      "set": "A",
+      "model": "XGB",
+      "config": {
+        "max_depth": 3
+      }
+    },
+    "A_XGB_02": {
+      "set": "A",
+      "model": "XGB",
+      "config": {
+        "max_depth": 5
+      }
+    },
+    "A_CAT_01": {
+      "set": "A",
+      "model": "CAT",
+      "config": {
+        "depth": 4
+      }
+    },
+    "A_CAT_02": {
+      "set": "A",
+      "model": "CAT",
+      "config": {
+        "depth": 6
+      }
+    },
+    "B_XGB_01": {
+      "set": "B",
+      "model": "XGB",
+      "config": {
+        "max_depth": 3
+      }
+    },
+    "B_XGB_02": {
+      "set": "B",
+      "model": "XGB",
+      "config": {
+        "max_depth": 5
+      }
+    },
+    "B_CAT_01": {
+      "set": "B",
+      "model": "CAT",
+      "config": {
+        "depth": 4
+      }
+    },
+    "B_CAT_02": {
+      "set": "B",
+      "model": "CAT",
+      "config": {
+        "depth": 6
+      }
+    }
+  },
+  "cache_id": "850c0e56187d77bc2d0c",
+  "expected_cv_fits": 24,
+  "selection": "mean AP rounded 4 decimals, ROC-AUC, declared family order, fit time, ID",
+  "fixed_rounds": 500,
+  "early_stopping": false,
+  "validation_labels_used": false,
+  "test_labels_used": false,
+  "dashboard_model_changed": false
+}

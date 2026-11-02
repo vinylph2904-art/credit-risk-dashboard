@@ -1,0 +1,36 @@
+{% macro mini(points, label, unit='percent', chart='bar', caption='Theo nhóm tuổi', note='') -%}
+<div class="kpi-mini-chart" data-mini-kind="{{ chart }}">
+{% if points and chart=='donut' %}<svg viewBox="30 0 40 40" role="img" tabindex="0" aria-label="{{ label }} · {{ caption }} · cơ cấu trong tổng"><title>{{ caption }}. {{ note }} Các phần cộng thành 100% của dữ liệu hợp lệ. Nhóm ít mẫu và nhóm ngoài bốn nhóm chính được gộp thành Nhóm còn lại.</title>
+{% for point in points %}<circle data-kpi-point
+  data-share="{{ point.share }}"
+  cx="50"
+  cy="20"
+  r="15"
+  pathLength="100"
+  fill="none"
+  stroke="{{ point.color }}"
+  stroke-width="8"
+  stroke-dasharray="{{ point.share*100 }} {{ 100-point.share*100 }}"
+  stroke-dashoffset="{{ -point.offset }}"
+  transform="rotate(-90 50 20)"><title>{{ point.label }}: {{ point.share|percent }} · {% if unit in ['money','amount'] %}{{ point.value|compact_amount }}{% elif unit=='percent' %}{{ point.value|percent }}{% else %}{{ point.value|number }}{% endif %} · {{ point.n }} quan sát hợp lệ</title></circle>{% endfor %}</svg><span title="{{ caption }}">{{ caption }}</span>
+{% elif points %}<svg
+  viewBox="0 0 100 40"
+  role="img"
+  tabindex="0"
+  aria-label="{{ label }} · {{ caption }}; {{ 'thanh 100 phần trăm' if chart=='stacked' else 'thanh ngang' if chart=='horizontal' else 'cột' }}; không phải thời gian"><title>{{ caption }}. {{ note }} {% if chart=='stacked' %}Mỗi thanh là 100% trong một nhóm: màu xanh là tỷ lệ được đo, nền nhạt là phần còn lại.{% elif chart=='horizontal' %}So sánh giá trị giữa các nhóm, thang bắt đầu từ 0.{% else %}So sánh quy mô giữa các nhóm, cột bắt đầu từ 0.{% endif %} Không phải thời gian. Chỉ hiện nhóm có ít nhất 5 quan sát hợp lệ; đây là quy ước hiển thị, không phải kiểm định thống kê.</title>
+{% for point in points %}
+<g data-kpi-point>
+{% if chart in ['horizontal','stacked'] %}
+<rect x="3" y="{{ ((point.x-5)/19)*8+1 }}" width="94" height="5" rx="1" fill="#e4edf4"/>
+<rect
+  x="3"
+  y="{{ ((point.x-5)/19)*8+1 }}"
+  width="{{ point.value*94 if chart=='stacked' else point.height/34*94 }}"
+  height="5"
+  rx="1"
+  fill="currentColor">
+{% else %}<rect x="{{ point.x-2 }}" y="0" width="15" height="40" fill="transparent"/><rect x="{{ point.x }}" y="{{ 38-point.height }}" width="11" height="{{ point.height }}" rx="2" fill="currentColor">{% endif %}
+<title>{{ point.label }}: {% if unit=='percent' %}{{ point.value|percent }}{% elif unit in ['money','amount'] %}{{ point.value|compact_amount }}{% elif unit=='times' %}{{ point.value|times }}{% else %}{{ point.value|number }}{% endif %}{% if chart=='stacked' %} · Phần còn lại: {{ (1-point.value)|percent }}{% endif %}{% if point.n is defined %} · {{ point.n }} quan sát hợp lệ{% endif %}</title></rect>
+</g>{% endfor %}</svg><span title="{{ caption }}">{{ caption }}</span>
+{% else %}<span>{{ caption }} · chưa đủ nhóm</span>{% endif %}</div>
+{%- endmacro %}

@@ -1,0 +1,7 @@
+table,missing_parent_rows,owner_conflict_rows,unresolved_owner_rows,outside_scope_rows,applications_with_history,total_applications,coverage_pct
+bureau,0,0,0,0,305811,356255,85.84047943186762
+bureau_balance,3120184,0,3120184,0,134542,356255,37.7656453944506
+previous_application,0,0,0,0,338857,356255,95.11641941867482
+pos_cash_balance,340561,0,0,0,337252,356255,94.66589942597297
+credit_card_balance,1082816,0,0,0,103558,356255,29.068504301694013
+installments_payments,1250826,0,0,0,339587,356255,95.3213288234551

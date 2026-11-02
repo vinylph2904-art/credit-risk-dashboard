@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "artifact_directory": "artifacts",
+  "pipeline_bytes_unchanged": true,
+  "policy_parameters_unchanged": true,
+  "model_version": "0f70b06abaf3cbab-f44b5a28",
+  "metadata_and_mysql_paths_updated": true,
+  "notebook04_existing_model_load_passed": true,
+  "prediction_rows": 100,
+  "max_score_difference": 0.0,
+  "same_alerts": true,
+  "web_get_routes_checked": 6,
+  "dashboard_profiles": 200,
+  "dashboard_alerts": 24,
+  "profile_event_note_rows_and_hashes_unchanged": true,
+  "training_run": false,
+  "raw_data_reloaded": false
+}

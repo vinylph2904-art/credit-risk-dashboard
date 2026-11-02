@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "scope": "Shared .py classes and notebook01 only; notebook02-04 await user review",
+  "fresh_notebook_execution": {
+    "notebook": "notebooks\\01_Data_Understanding.ipynb",
+    "fresh_kernel": true,
+    "kernel_mode": "in_process_ipython_in_separate_fresh_python_process",
+    "code_cells_executed": 20,
+    "errors": 0,
+    "elapsed_seconds": 301.46,
+    "executed_code_sha256": "081314efdd8f44fb16a444bbbea9f868bb408c84094793b45a55a81d3e78b58f",
+    "code_hash_definition": "sha256 of code-cell sources joined by two newline characters",
+    "shared_source_sha256": {
+      "Connectors/Connector.py": "26480561e7e47b629e154cbb3d52bd714ffab968590cb8bf0f7440399c036910",
+      "Models/HomeCreditData.py": "59ea56d28dd710ab3bf593dc1859bf23944b2173966c278926fec0dbbae581a1"
+    }
+  },
+  "business_data_input": "MySQL raw_* -> shared HomeCreditData -> DataFrames",
+  "raw_parquet_input_in_notebook01": false,
+  "parquet_read_remaining": "comparison of the saved split output only",
+  "compared_reports_exact_values_after_sorting_by_key": [
+    "key_checks.csv",
+    "relationships.csv",
+    "split_summary.csv",
+    "fold_summary.csv"
+  ],
+  "raw_tables": 8,
+  "raw_rows": 58489893,
+  "counts_and_columns_unchanged": true,
+  "intentional_report_changes": [
+    "dataset_overview no longer reports compressed Parquet file size",
+    "column_dictionary.dtype now describes MySQL BIGINT/DOUBLE/TEXT types",
+    "relationship rows follow candidate-key order; values are unchanged",
+    "split_provenance names MySQL source and original ingestion source SHA256"
+  ],
+  "protected_files_unchanged": 33,
+  "notebook02_03_04_unchanged": true,
+  "training_run": false,
+  "dashboard_layout_changed": false
+}

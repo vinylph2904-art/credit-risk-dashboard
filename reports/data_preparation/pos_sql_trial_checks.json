@@ -1,0 +1,104 @@
+{
+  "status": "passed",
+  "source": "pos_cash_balance",
+  "server_version": "8.0.32",
+  "raw_rows": 10001358,
+  "result_rows": 337252,
+  "features": 9,
+  "sql_seconds": 44.104,
+  "python_seconds": 52.757,
+  "python_over_sql_time_ratio": 1.1961896726883194,
+  "benchmark_design": "One SQL run followed by one Python run on same database/connection; shared setup excluded; not repeated trials",
+  "sql_read_rows_to_python": 337252,
+  "python_read_rows_to_python": 10001358,
+  "id_and_order_equal": true,
+  "columns_equal": true,
+  "exact_dtype_values_nan_equal": true,
+  "per_column_comparison": [
+    {
+      "column": "POS_LOAN_N",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "reference_dtype": "int64",
+      "sql_dtype": "int64"
+    },
+    {
+      "column": "POS_MONTH_N",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "reference_dtype": "int64",
+      "sql_dtype": "int64"
+    },
+    {
+      "column": "POS_KNOWN_DPD_MONTH_N",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "reference_dtype": "int64",
+      "sql_dtype": "int64"
+    },
+    {
+      "column": "POS_DPD_MONTH_SHARE",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "reference_dtype": "float64",
+      "sql_dtype": "float64"
+    },
+    {
+      "column": "POS_DPD_MAX",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "reference_dtype": "int64",
+      "sql_dtype": "int64"
+    },
+    {
+      "column": "POS_DPD_DEF_MAX",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "reference_dtype": "int64",
+      "sql_dtype": "int64"
+    },
+    {
+      "column": "POS_FUTURE_INST_MEAN",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "reference_dtype": "float64",
+      "sql_dtype": "float64"
+    },
+    {
+      "column": "POS_OLDEST_MONTH",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "reference_dtype": "int64",
+      "sql_dtype": "int64"
+    },
+    {
+      "column": "POS_RECENT_MONTH",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "reference_dtype": "int64",
+      "sql_dtype": "int64"
+    }
+  ],
+  "scope": {
+    "source": "pos_cash_balance",
+    "source_rows": 10001358,
+    "eligible_rows": 10001358,
+    "train_eligible_rows": 5125192
+  },
+  "production_changed": true,
+  "database_modified": false,
+  "reference_file_sha256": "21228a044bd83e01bdecba3583f768d66b854d4ede050014e6e01a178544aed3",
+  "changed_method": "HomeCreditPreparation.processPos",
+  "tested_sql_equals_integrated_sql": true,
+  "frozen_output_parquet_sha256_unchanged": true,
+  "frozen_output_sha256": "21228a044bd83e01bdecba3583f768d66b854d4ede050014e6e01a178544aed3",
+  "integrated_scope_matches_previous": true,
+  "repeat_call_extra_queries": 0,
+  "mysql_temporary_fixture_assertions": 16,
+  "protected_files_unchanged": 79,
+  "intentionally_changed_protected_file": "models/HomeCreditPreparation.py",
+  "other_history_sources_changed": false,
+  "classifiers_retrained": false,
+  "full_notebook_rerun": false,
+  "source_sha256": "43fe507c969bd4cf410aa636fc27b497fc8be85b8fa6cdaa61b7dd8ee86dd931"
+}

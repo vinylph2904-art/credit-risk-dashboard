@@ -1,0 +1,8 @@
+{
+  "cache_id": "4fec95c745d24f99893d",
+  "case_id": "B_CAT_02",
+  "use_sigmoid": false,
+  "train_n": 184506,
+  "fit_seconds": 169.82251279999036,
+  "model_sha256": "ff1d1fdeb27d5431482a7b9ea0c3d17b34bd19296d1262ebfa85aed9b3bbddfb"
+}

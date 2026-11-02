@@ -1,0 +1,26 @@
+table,rule,SK_ID_CURR,SK_ID_BUREAU,DAYS_CREDIT,DAYS_ENDDATE_FACT,DAYS_CREDIT_UPDATE,AMT_CREDIT_SUM,AMT_CREDIT_SUM_DEBT,AMT_CREDIT_SUM_OVERDUE,SK_ID_PREV,MONTHS_BALANCE,AMT_BALANCE,AMT_CREDIT_LIMIT_ACTUAL
+bureau,Ngày kết thúc trước ngày xin vay,104463,6550986.0,-2340.0,-42023.0,-2196.0,225000.0,0.0,0.0,,,,
+bureau,Ngày kết thúc trước ngày xin vay,241703,6460615.0,-872.0,-2148.0,-19.0,2700000.0,0.0,0.0,,,,
+bureau,Ngày kết thúc trước ngày xin vay,324899,5019170.0,-1279.0,-2776.0,-1191.0,2250000.0,0.0,0.0,,,,
+bureau,Ngày kết thúc trước ngày xin vay,289566,5457839.0,-543.0,-564.0,-385.0,153000.0,0.0,0.0,,,,
+bureau,Ngày kết thúc trước ngày xin vay,316507,5520045.0,-887.0,-1062.0,-391.0,1350000.0,0.0,0.0,,,,
+bureau,Ngày cập nhật trước ngày xin vay,219708,5716863.0,-331.0,-208.0,-41857.0,16414.245,0.0,0.0,,,,
+bureau,Ngày cập nhật trước ngày xin vay,380623,5800600.0,-281.0,,-41906.0,225000.0,0.0,0.0,,,,
+bureau,Ngày cập nhật trước ngày xin vay,163624,5803704.0,-9.0,,-16.0,45000.0,45805.5,0.0,,,,
+bureau,Ngày cập nhật trước ngày xin vay,214335,5238926.0,-311.0,,-41934.0,90000.0,0.0,0.0,,,,
+bureau,Ngày cập nhật trước ngày xin vay,368921,5610302.0,-1095.0,-1095.0,-41878.0,36000.0,0.0,0.0,,,,
+bureau,Dư nợ lớn hơn số tiền tín dụng,242993,5714550.0,-382.0,,-341.0,58500.0,59809.5,0.0,,,,
+bureau,Dư nợ lớn hơn số tiền tín dụng,166034,5714701.0,-706.0,,-4.0,459000.0,483534.0,0.0,,,,
+bureau,Dư nợ lớn hơn số tiền tín dụng,198319,5714841.0,-126.0,,-27.0,2466000.0,3479481.0,0.0,,,,
+bureau,Dư nợ lớn hơn số tiền tín dụng,452711,5714930.0,-1288.0,,-19.0,324000.0,329332.5,0.0,,,,
+bureau,Dư nợ lớn hơn số tiền tín dụng,224915,5715137.0,-244.0,,-81.0,0.0,73215.45,0.0,,,,
+bureau,Tiền quá hạn lớn hơn dư nợ,295460,5716741.0,-926.0,,-40.0,699300.0,0.0,36.0,,,,
+bureau,Tiền quá hạn lớn hơn dư nợ,398626,5717166.0,-1348.0,,-40.0,585000.0,0.0,36.0,,,,
+bureau,Tiền quá hạn lớn hơn dư nợ,178283,5717190.0,-1492.0,,-47.0,0.0,0.0,349428.06,,,,
+bureau,Tiền quá hạn lớn hơn dư nợ,100915,5722930.0,-362.0,,-48.0,135000.0,4.5,409.5,,,,
+bureau,Tiền quá hạn lớn hơn dư nợ,436084,5723861.0,-987.0,,-11.0,112095.0,0.0,172048.5,,,,
+credit_card_balance,Số dư lớn hơn hạn mức cùng tháng,363914,,,,,,,,2582071.0,-1.0,63975.555,45000.0
+credit_card_balance,Số dư lớn hơn hạn mức cùng tháng,337855,,,,,,,,1389973.0,-4.0,236572.11,225000.0
+credit_card_balance,Số dư lớn hơn hạn mức cùng tháng,231608,,,,,,,,1189095.0,-4.0,452774.7,450000.0
+credit_card_balance,Số dư lớn hơn hạn mức cùng tháng,217113,,,,,,,,1683604.0,-1.0,68710.14,67500.0
+credit_card_balance,Số dư lớn hơn hạn mức cùng tháng,105755,,,,,,,,2021411.0,-5.0,464452.47,450000.0

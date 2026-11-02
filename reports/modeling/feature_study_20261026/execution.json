@@ -1,0 +1,11 @@
+{
+  "status": "complete",
+  "new_cv_fit_artifacts": 30,
+  "reused_A_cv_folds": 3,
+  "new_final_candidate_fits": 0,
+  "elapsed_seconds_first_execution": 3866.12,
+  "sum_new_cv_fit_seconds": 3620.927014300134,
+  "active_model_changed": false,
+  "final_variant": "full_B",
+  "historical_test_rows": 61503
+}

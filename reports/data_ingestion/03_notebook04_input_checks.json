@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "executed_notebook04_input_cells": [
+    3,
+    4,
+    13,
+    17
+  ],
+  "feature_sql_rows": 356255,
+  "features": 199,
+  "fresh_sql_equals_notebook03_and_frozen_inputs": true,
+  "label_source": "data/raw_mysql/application_train.parquet",
+  "train_labels_n": 184506,
+  "test_predictions_checked": 61503,
+  "test_labels_unchanged": true,
+  "max_score_difference": 0.0,
+  "all_scores_and_alerts_exactly_equal": true,
+  "run_signature_unchanged": true,
+  "training_or_model_selection_run": false
+}

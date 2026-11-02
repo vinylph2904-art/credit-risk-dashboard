@@ -1,0 +1,9 @@
+table,key,rows,missing_key_rows,duplicate_key_rows,expected_unique
+application_train,SK_ID_CURR,307511,0,0,True
+application_test,SK_ID_CURR,48744,0,0,True
+bureau,SK_ID_BUREAU,1716428,0,0,True
+bureau_balance,"SK_ID_BUREAU, MONTHS_BALANCE",27299925,0,0,True
+previous_application,SK_ID_PREV,1670214,0,0,True
+pos_cash_balance,"SK_ID_PREV, MONTHS_BALANCE",10001358,0,0,True
+credit_card_balance,"SK_ID_PREV, MONTHS_BALANCE",3840312,0,0,True
+installments_payments,"SK_ID_PREV, NUM_INSTALMENT_VERSION, NUM_INSTALMENT_NUMBER",13605401,0,653483,False

@@ -1,0 +1,40 @@
+{
+  "server_version": "8.0.32",
+  "database": "home_credit_ml",
+  "split_sha256": "c2b83e1356dd44714c4f1141894d7af41c484e6ccbdc9055c76e500eddb3d3c8",
+  "source_feature_manifest_sha256": "514e02903a246fbb80ab6a2f58b7be6c68f23e9497843cc03a191604cecc0c81",
+  "snapshots": [
+    {
+      "split": "train",
+      "n": 184506,
+      "features_n": 199,
+      "ids_schema_values_nan_equal": true,
+      "path": "data\\model_input\\mysql\\train.parquet",
+      "sha256": "f1a40f0fdd4e771a51cfda91ab24401aca056b3de471ca38f58681a4ed902ef5"
+    },
+    {
+      "split": "validation",
+      "n": 61502,
+      "features_n": 199,
+      "ids_schema_values_nan_equal": true,
+      "path": "data\\model_input\\mysql\\validation.parquet",
+      "sha256": "9f0f7d076a2c41c75801526f16f3909e3478ed6d6c0141de604264f31a0fb107"
+    },
+    {
+      "split": "test",
+      "n": 61503,
+      "features_n": 199,
+      "ids_schema_values_nan_equal": true,
+      "path": "data\\model_input\\mysql\\test.parquet",
+      "sha256": "aefb6a8323f220a5221d267d4ed4a3011d97ee0586f134b48de5e9bc9db19172"
+    },
+    {
+      "split": "application_test",
+      "n": 48744,
+      "features_n": 199,
+      "ids_schema_values_nan_equal": true,
+      "path": "data\\model_input\\mysql\\application_test.parquet",
+      "sha256": "75d773160e2778514196f75ea1d8b175bda1b0f93e8ef02884bdcbf772b0bb4b"
+    }
+  ]
+}

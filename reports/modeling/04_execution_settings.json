@@ -1,0 +1,10 @@
+{
+  "changed_at_local": "2026-10-21T00:28:00+07:00",
+  "baseline_rf_n_jobs": 1,
+  "actual_rf_n_jobs": 4,
+  "other_models_n_jobs": 1,
+  "cv_fits_run_sequentially": true,
+  "reason": "Serial RF fit took 172.85 seconds; 16 logical CPUs and 3.75 GiB free RAM were available.",
+  "candidates_features_folds_selection_unchanged": true,
+  "serial_rf_fold_repeated_for_comparable_fit_times": true
+}

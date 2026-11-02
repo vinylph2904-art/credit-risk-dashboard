@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% from '_components.html' import icon, kpi_icon with context %}
+{% block title %}Phân tích danh mục{% endblock %}
+{% block breadcrumb %}Phân tích danh mục{% endblock %}
+{% block topbar_content %}
+<div class="workspace-heading"><div><h1>Phân tích danh mục</h1></div>{% include '_risk_toolbar.html' %}</div>
+{% endblock %}
+{% block content %}
+
+{% include '_risk_filters.html' %}
+<div class="kpi-grid portfolio-kpis">
+<div class="kpi"><span class="label">Tổng giá trị tín dụng</span><strong>{{ kpi_icon('wallet') }}{{ (amounts.total_amount if amounts.eligible_n else none)|amount }}</strong></div>
+<div class="kpi"><span class="label">Giá trị tín dụng nhóm cảnh báo</span><strong class="risk-value">{{ kpi_icon('alert') }}{{ (amounts.alert_amount if amounts.eligible_n else none)|amount }}</strong></div>
+<div class="kpi"><span class="label">Tỷ trọng giá trị tín dụng cảnh báo</span><strong>{{ kpi_icon('share') }}{{ amounts.alert_share|percent }}</strong></div>
+<div class="kpi"><span class="label">Tỷ lệ cảnh báo</span><strong>{{ kpi_icon('receipt') }}{{ summary.alert_share|percent }}</strong><small>{{ summary.alert_n }} / {{ summary.scored_n }} hồ sơ đã chấm</small></div></div>
+
+<section class="panel segment-toolbar" aria-label="Điều khiển phân khúc">{% include '_segment_controls.html' %}</section>
+<div class="risk-story portfolio-story">
+<section class="panel report-panel"><div class="panel-heading"><div><h2>{{ 'Tỷ lệ cảnh báo' if segment_metric=='alert_share' else 'Điểm rủi ro trung bình' }} theo phân khúc</h2></div></div><div class="report-chart">{{ segment_chart|safe }}</div></section>
+<section class="panel report-panel"><div class="panel-heading"><div><h2>Giá trị tín dụng & nhóm cảnh báo</h2></div></div><div class="report-chart">{{ exposure_chart|safe }}</div></section>
+<section class="panel report-panel portfolio-matrix"><div class="panel-heading"><div><h2>Ma trận tập trung cảnh báo</h2></div></div><div class="report-chart">{{ concentration_chart|safe }}</div></section>
+<section class="panel report-panel portfolio-table"><div class="panel-heading"><div><h2>Đối chiếu phân khúc</h2></div></div><div class="report-table" data-report-table data-max-rows="8"><div class="table-scroll"><table><thead><tr><th>Phân khúc</th>{% for key,label in [('n','Đã chấm'),('alert_share','Tỷ lệ cảnh báo'),('mean_score','Điểm trung bình'),('credit','Tổng giá trị tín dụng'),('alerted_credit','Tiền cảnh báo'),('alerted_amount_share','Tỷ trọng giá trị khoản vay của các hồ sơ có cảnh báo / nhóm'),('alerted_contribution','Đóng góp / tổng tiền cảnh báo')] %}<th class="right" aria-sort="{{ ('descending' if segment_direction=='desc' else 'ascending') if segment_sort==key else 'none' }}"><a data-dashboard-nav href="{{ cohort_url(request.endpoint,segment_sort=key,segment_direction='asc' if segment_sort==key and segment_direction=='desc' else 'desc') }}">{{ label }}{% if segment_sort==key %} {{ '↓' if segment_direction=='desc' else '↑' }}{% endif %}</a></th>{% endfor %}</tr></thead><tbody>{% for row in segment_rows %}<tr><td><a data-cohort-link href="{{ row.queue_url }}">{{ row.label }}</a>{% if row.n<5 %}<small class="small-sample">Mẫu nhỏ · n={{ row.n }}</small>{% endif %}</td><td class="right">{{ row.n }}</td><td class="right">{{ row.alert_share|percent }}</td><td class="right">{{ row.mean_score|percent }}</td><td class="right">{{ row.credit|amount }}</td><td class="right">{{ row.alerted_credit|amount }}</td><td class="right">{{ row.alerted_amount_share|percent }}</td><td class="right">{{ row.alerted_contribution|percent }}</td></tr>{% else %}<tr><td colspan="8" class="empty">Không có hồ sơ đã chấm để so sánh.</td></tr>{% endfor %}</tbody></table></div><div class="report-table-pager" aria-label="Phân trang phân khúc"></div></div></section>
+
+</div>{% include '_risk_notes.html' %}{% include '_policy_scenario.html' %}
+{% endblock %}

@@ -1,0 +1,9 @@
+table,rows,duplicate_excess_rows
+application_test,48744,0
+application_train,307511,0
+bureau,1716428,0
+bureau_balance,27299925,0
+credit_card_balance,3840312,0
+installments_payments,13605401,0
+pos_cash_balance,10001358,0
+previous_application,1670214,0

@@ -1,0 +1,439 @@
+feature,value,absolute_value,method
+categorical__ORGANIZATION_TYPE_Realtor,0.5340591737244008,0.5340591737244008,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Transport: type 3,0.49053528445905803,0.49053528445905803,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Military,-0.4413718727589962,0.4413718727589962,coefficient of transformed base-model feature
+categorical__NAME_CONTRACT_TYPE_Cash loans,-0.4224730568919721,0.4224730568919721,coefficient of transformed base-model feature
+categorical__CODE_GENDER_F,-0.4026999773978754,0.4026999773978754,coefficient of transformed base-model feature
+numeric__EXT_SOURCE_3,-0.3795281206715392,0.3795281206715392,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Legal Services,0.3670964818099382,0.3670964818099382,coefficient of transformed base-model feature
+numeric__EXT_SOURCE_2,-0.3654798792068326,0.3654798792068326,coefficient of transformed base-model feature
+amounts__AMT_CREDIT,0.3235293391157116,0.3235293391157116,coefficient of transformed base-model feature
+numeric__BUR_CLOSED_N,-0.3184716067072372,0.3184716067072372,coefficient of transformed base-model feature
+numeric__BUR_LOAN_N,0.31756681905120165,0.31756681905120165,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Bank,-0.31548185102436915,0.31548185102436915,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Police,-0.29894015982752825,0.29894015982752825,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Trade: type 2,-0.29864120184693554,0.29864120184693554,coefficient of transformed base-model feature
+categorical__FLAG_OWN_CAR_N,-0.29544108173680206,0.29544108173680206,coefficient of transformed base-model feature
+categorical__NAME_HOUSING_TYPE_Office apartment,-0.2950294645017509,0.2950294645017509,coefficient of transformed base-model feature
+categorical__NAME_EDUCATION_TYPE_Academic degree,-0.27333326000753827,0.27333326000753827,coefficient of transformed base-model feature
+categorical__FLAG_OWN_REALTY_N,-0.26664127478407734,0.26664127478407734,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Industry: type 9,-0.256345635793464,0.256345635793464,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Security Ministries,-0.25597742433512305,0.25597742433512305,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Trade: type 6,-0.2530289051445738,0.2530289051445738,coefficient of transformed base-model feature
+numeric__INS_OBS_VERSIONED_PERIOD_N,-0.2512720300013477,0.2512720300013477,coefficient of transformed base-model feature
+categorical__NAME_TYPE_SUITE___MISSING__,-0.2490073186880113,0.2490073186880113,coefficient of transformed base-model feature
+categorical__NAME_FAMILY_STATUS_Married,-0.24824382375615642,0.24824382375615642,coefficient of transformed base-model feature
+categorical__NAME_INCOME_TYPE_Pensioner,-0.23773019946447946,0.23773019946447946,coefficient of transformed base-model feature
+categorical__FLAG_OWN_REALTY_Y,-0.23650837161931074,0.23650837161931074,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Advertising,0.23537658268049666,0.23537658268049666,coefficient of transformed base-model feature
+categorical__NAME_EDUCATION_TYPE_Higher education,-0.23243635257060283,0.23243635257060283,coefficient of transformed base-model feature
+numeric__OBS_60_CNT_SOCIAL_CIRCLE,-0.22569247370457615,0.22569247370457615,coefficient of transformed base-model feature
+categorical__HOUSETYPE_MODE___MISSING__,-0.21807331004521274,0.21807331004521274,coefficient of transformed base-model feature
+numeric__OBS_30_CNT_SOCIAL_CIRCLE,0.21569470040921151,0.21569470040921151,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Trade: type 4,-0.21146576629259267,0.21146576629259267,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_3,0.2106822410880783,0.2106822410880783,coefficient of transformed base-model feature
+categorical__FLAG_OWN_CAR_Y,-0.20770856466860896,0.20770856466860896,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Cleaning,0.2072449307682616,0.2072449307682616,coefficient of transformed base-model feature
+categorical__EMERGENCYSTATE_MODE_No,-0.20582755547958936,0.20582755547958936,coefficient of transformed base-model feature
+numeric__BASEMENTAREA_MEDI,0.20424916333049495,0.20424916333049495,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Telecom,0.20285992882029114,0.20285992882029114,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE_Accountants,-0.19776783401724618,0.19776783401724618,coefficient of transformed base-model feature
+amounts__AMT_GOODS_PRICE,-0.19505208974255125,0.19505208974255125,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Industry: type 12,-0.19496633240182593,0.19496633240182593,coefficient of transformed base-model feature
+numeric__EXT_SOURCE_1,-0.19270839560347164,0.19270839560347164,coefficient of transformed base-model feature
+categorical__EMERGENCYSTATE_MODE_Yes,-0.18929830755795965,0.18929830755795965,coefficient of transformed base-model feature
+numeric__RATIO_ANNUITY_INCOME_RECORDED,0.1829290620105093,0.1829290620105093,coefficient of transformed base-model feature
+numeric__PREV_APPROVED_CREDIT_MAX,0.1829027090402783,0.1829027090402783,coefficient of transformed base-model feature
+categorical__FONDKAPREMONT_MODE___MISSING__,-0.18165879366773438,0.18165879366773438,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE_High skill tech staff,-0.17965780282090157,0.17965780282090157,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Emergency,-0.1764913698925765,0.1764913698925765,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Construction,0.17499435545704156,0.17499435545704156,coefficient of transformed base-model feature
+numeric__YEARS_BUILD_AVG,0.16577077834767406,0.16577077834767406,coefficient of transformed base-model feature
+categorical__WALLSMATERIAL_MODE___MISSING__,-0.16394031801195158,0.16394031801195158,coefficient of transformed base-model feature
+numeric__RATIO_CREDIT_INCOME_RECORDED,-0.16210343233233007,0.16210343233233007,coefficient of transformed base-model feature
+numeric__PREV_APPROVED_ANNUITY_MEAN,-0.16161818887963206,0.16161818887963206,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE_Low-skill Laborers,0.1614889370243384,0.1614889370243384,coefficient of transformed base-model feature
+numeric__INS_PERIOD_WITH_AFTER_DUE_PAYMENT_SHARE,0.15790881966909642,0.15790881966909642,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_School,-0.15749855887882827,0.15749855887882827,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE_Private service staff,-0.15490133487143581,0.15490133487143581,coefficient of transformed base-model feature
+numeric__YEARS_BUILD_MEDI,-0.15078975589692387,0.15078975589692387,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Trade: type 5,-0.14745726729587763,0.14745726729587763,coefficient of transformed base-model feature
+numeric__POS_FUTURE_INST_MEAN,0.1460701084864625,0.1460701084864625,coefficient of transformed base-model feature
+categorical__NAME_TYPE_SUITE_Other_A,-0.1452573482653884,0.1452573482653884,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Industry: type 5,-0.14517863330926112,0.14517863330926112,coefficient of transformed base-model feature
+numeric__BASEMENTAREA_AVG,-0.1431710719739053,0.1431710719739053,coefficient of transformed base-model feature
+numeric__ELEVATORS_AVG,-0.1412887079271173,0.1412887079271173,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Self-employed,0.13794509582980782,0.13794509582980782,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Industry: type 8,0.137795452470446,0.137795452470446,coefficient of transformed base-model feature
+categorical__WEEKDAY_APPR_PROCESS_START_SATURDAY,-0.1367108747399621,0.1367108747399621,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Hotel,-0.1355825452503812,0.1355825452503812,coefficient of transformed base-model feature
+categorical__NAME_INCOME_TYPE_State servant,-0.13448536597488964,0.13448536597488964,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE_Core staff,-0.133928876196801,0.133928876196801,coefficient of transformed base-model feature
+numeric__POS_OLDEST_MONTH,0.13313791615213263,0.13313791615213263,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE_HR staff,0.132095520400444,0.132095520400444,coefficient of transformed base-model feature
+numeric__LIVINGAREA_MEDI,-0.13044544186047963,0.13044544186047963,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Industry: type 3,0.1300410276443354,0.1300410276443354,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_6,0.1293675865303045,0.1293675865303045,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Transport: type 1,-0.12831333124298502,0.12831333124298502,coefficient of transformed base-model feature
+numeric__missingindicator_EXT_SOURCE_1,0.12800665480233114,0.12800665480233114,coefficient of transformed base-model feature
+categorical__WALLSMATERIAL_MODE_Panel,-0.12636550085376258,0.12636550085376258,coefficient of transformed base-model feature
+categorical__HOUSETYPE_MODE_terraced house,-0.12482789559758492,0.12482789559758492,coefficient of transformed base-model feature
+numeric__REGION_RATING_CLIENT_W_CITY,0.12396666101660894,0.12396666101660894,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Trade: type 1,0.12274272198054538,0.12274272198054538,coefficient of transformed base-model feature
+numeric__EMPLOYED_YEARS,-0.12169602667100694,0.12169602667100694,coefficient of transformed base-model feature
+categorical__WEEKDAY_APPR_PROCESS_START_MONDAY,-0.11866070418558106,0.11866070418558106,coefficient of transformed base-model feature
+numeric__LIVINGAREA_AVG,0.11808674754777047,0.11808674754777047,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Trade: type 3,0.11801722965264289,0.11801722965264289,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_University,-0.1173575775697681,0.1173575775697681,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Industry: type 1,0.11483033288915799,0.11483033288915799,coefficient of transformed base-model feature
+numeric__PREV_APPROVED_CREDIT_MEAN,-0.11424071652380006,0.11424071652380006,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Trade: type 7,0.1139447986750747,0.1139447986750747,coefficient of transformed base-model feature
+categorical__NAME_EDUCATION_TYPE_Incomplete higher,-0.11116594090974388,0.11116594090974388,coefficient of transformed base-model feature
+categorical__NAME_HOUSING_TYPE_House / apartment,-0.10984761804400318,0.10984761804400318,coefficient of transformed base-model feature
+categorical__NAME_FAMILY_STATUS_Widow,-0.10950547906503927,0.10950547906503927,coefficient of transformed base-model feature
+numeric__NONLIVINGAREA_MODE,-0.10938797362141313,0.10938797362141313,coefficient of transformed base-model feature
+categorical__WALLSMATERIAL_MODE_Monolithic,-0.10879660302862418,0.10879660302862418,coefficient of transformed base-model feature
+categorical__FONDKAPREMONT_MODE_reg oper spec account,-0.10818046961315335,0.10818046961315335,coefficient of transformed base-model feature
+categorical__EMERGENCYSTATE_MODE___MISSING__,-0.10802378336959402,0.10802378336959402,coefficient of transformed base-model feature
+numeric__RATIO_CREDIT_GOODS_RECORDED,0.10793457547016796,0.10793457547016796,coefficient of transformed base-model feature
+categorical__NAME_INCOME_TYPE_Unemployed,0.10665911454437965,0.10665911454437965,coefficient of transformed base-model feature
+numeric__PREV_REFUSED_SHARE,0.10636138560054603,0.10636138560054603,coefficient of transformed base-model feature
+numeric__COMMONAREA_MEDI,-0.10606213596550255,0.10606213596550255,coefficient of transformed base-model feature
+categorical__HOUSETYPE_MODE_block of flats,-0.10536069531486132,0.10536069531486132,coefficient of transformed base-model feature
+categorical__WEEKDAY_APPR_PROCESS_START_SUNDAY,-0.10500790285462458,0.10500790285462458,coefficient of transformed base-model feature
+numeric__FLAG_EMP_PHONE,-0.103598741924268,0.103598741924268,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_XNA,-0.10321999938608639,0.10321999938608639,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Agriculture,0.10231963421091236,0.10231963421091236,coefficient of transformed base-model feature
+categorical__NAME_EDUCATION_TYPE_Lower secondary,0.10190698036860038,0.10190698036860038,coefficient of transformed base-model feature
+numeric__PREV_APPROVED_N,-0.10141904555533564,0.10141904555533564,coefficient of transformed base-model feature
+numeric__POS_RECENT_MONTH,-0.09856583195119,0.09856583195119,coefficient of transformed base-model feature
+numeric__POS_LOAN_N,0.09709314206960884,0.09709314206960884,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Services,-0.09655453913738721,0.09655453913738721,coefficient of transformed base-model feature
+categorical__FONDKAPREMONT_MODE_org spec account,-0.09619546997135432,0.09619546997135432,coefficient of transformed base-model feature
+numeric__CC_BALANCE_MAX,0.09569731043382369,0.09569731043382369,coefficient of transformed base-model feature
+categorical__CODE_GENDER_M,-0.09519115739482528,0.09519115739482528,coefficient of transformed base-model feature
+numeric__CC_DRAWINGS_MEAN,0.09432999903036587,0.09432999903036587,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE___MISSING__,-0.09333273120881751,0.09333273120881751,coefficient of transformed base-model feature
+numeric__ELEVATORS_MODE,0.09332815945573567,0.09332815945573567,coefficient of transformed base-model feature
+"categorical__NAME_TYPE_SUITE_Spouse, partner",-0.09282837302241741,0.09282837302241741,coefficient of transformed base-model feature
+categorical__NAME_INCOME_TYPE_Student,-0.09240145937284451,0.09240145937284451,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Industry: type 4,-0.09178684026731773,0.09178684026731773,coefficient of transformed base-model feature
+numeric__PREV_APPROVED_PAYMENT_COUNT_MEAN,0.09143308349307101,0.09143308349307101,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Culture,0.09031318883409618,0.09031318883409618,coefficient of transformed base-model feature
+numeric__CC_BALANCE_LIMIT_RATIO_MAX,0.08798081659158254,0.08798081659158254,coefficient of transformed base-model feature
+categorical__NAME_HOUSING_TYPE_With parents,-0.08784816626588071,0.08784816626588071,coefficient of transformed base-model feature
+numeric__APARTMENTS_MEDI,0.08624825881071119,0.08624825881071119,coefficient of transformed base-model feature
+numeric__missingindicator_TOTALAREA_MODE,0.08517140752073293,0.08517140752073293,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE_Drivers,0.08454588290412675,0.08454588290412675,coefficient of transformed base-model feature
+categorical__NAME_TYPE_SUITE_Family,-0.08367145488580655,0.08367145488580655,coefficient of transformed base-model feature
+categorical__NAME_INCOME_TYPE_Commercial associate,-0.08272362545217984,0.08272362545217984,coefficient of transformed base-model feature
+categorical__NAME_CONTRACT_TYPE_Revolving loans,-0.08067658951768696,0.08067658951768696,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Business Entity Type 3,0.08011790836287315,0.08011790836287315,coefficient of transformed base-model feature
+numeric__INS_OBS_PAYMENT_ROW_N,0.07955646340082995,0.07955646340082995,coefficient of transformed base-model feature
+categorical__FONDKAPREMONT_MODE_reg oper account,-0.0787594120517657,0.0787594120517657,coefficient of transformed base-model feature
+numeric__LANDAREA_MEDI,-0.07868659222569745,0.07868659222569745,coefficient of transformed base-model feature
+numeric__CAR_AGE_NOT_APPLICABLE,0.07825753363017758,0.07825753363017758,coefficient of transformed base-model feature
+categorical__NAME_TYPE_SUITE_Other_B,0.07810707347662242,0.07810707347662242,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_8,0.07803148424098756,0.07803148424098756,coefficient of transformed base-model feature
+numeric__missingindicator_OWN_CAR_AGE,0.07799709438295545,0.07799709438295545,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Medicine,-0.07787800136738351,0.07787800136738351,coefficient of transformed base-model feature
+numeric__NONLIVINGAPARTMENTS_MODE,0.07725046411717343,0.07725046411717343,coefficient of transformed base-model feature
+numeric__CC_LOAN_N,0.07710471681809862,0.07710471681809862,coefficient of transformed base-model feature
+categorical__NAME_FAMILY_STATUS_Civil marriage,-0.07672309244388918,0.07672309244388918,coefficient of transformed base-model feature
+numeric__CC_PAYMENT_TOTAL_MEAN,-0.07528502140124724,0.07528502140124724,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE_Secretaries,0.07512845913506186,0.07512845913506186,coefficient of transformed base-model feature
+numeric__missingindicator_POS_FUTURE_INST_MEAN,0.0724509405577819,0.0724509405577819,coefficient of transformed base-model feature
+numeric__missingindicator_BUR_CREDIT_DAYS_AGO_MEAN,0.07214552722266415,0.07214552722266415,coefficient of transformed base-model feature
+numeric__missingindicator_BUR_RECENT_UPDATE_DAYS_AGO,0.07214552722266415,0.07214552722266415,coefficient of transformed base-model feature
+numeric__missingindicator_BUR_OVERDUE_DAYS_MAX,0.07214552722266415,0.07214552722266415,coefficient of transformed base-model feature
+numeric__HAS_USABLE_BUREAU,-0.07214551361589915,0.07214551361589915,coefficient of transformed base-model feature
+numeric__APARTMENTS_AVG,-0.0709837578282333,0.0709837578282333,coefficient of transformed base-model feature
+numeric__NONLIVINGAREA_AVG,0.07083235652481916,0.07083235652481916,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE_Medicine staff,-0.07038191818885818,0.07038191818885818,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Industry: type 6,-0.06911623855458217,0.06911623855458217,coefficient of transformed base-model feature
+numeric__INS_RECENT_OBS_PAYMENT_DAYS_AGO,0.06871825652573817,0.06871825652573817,coefficient of transformed base-model feature
+numeric__FLAG_WORK_PHONE,0.06866646374170932,0.06866646374170932,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Business Entity Type 2,0.06857832119213197,0.06857832119213197,coefficient of transformed base-model feature
+numeric__BUR_RECENT_UPDATE_DAYS_AGO,0.06848008543367799,0.06848008543367799,coefficient of transformed base-model feature
+categorical__WALLSMATERIAL_MODE_Block,-0.06695901895742243,0.06695901895742243,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Postal,0.06449305980188105,0.06449305980188105,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Government,-0.06437584504541571,0.06437584504541571,coefficient of transformed base-model feature
+categorical__NAME_TYPE_SUITE_Group of people,0.06347099053773837,0.06347099053773837,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Restaurant,0.06309395738529386,0.06309395738529386,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Kindergarten,-0.0629888492096087,0.0629888492096087,coefficient of transformed base-model feature
+numeric__FLOORSMIN_MEDI,-0.06169145643203303,0.06169145643203303,coefficient of transformed base-model feature
+numeric__NONLIVINGAPARTMENTS_MEDI,-0.061621812238748616,0.061621812238748616,coefficient of transformed base-model feature
+categorical__NAME_TYPE_SUITE_Unaccompanied,-0.06127766979046707,0.06127766979046707,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE_Sales staff,-0.060955150011608145,0.060955150011608145,coefficient of transformed base-model feature
+numeric__FLOORSMIN_MODE,0.058932064928841406,0.058932064928841406,coefficient of transformed base-model feature
+numeric__COMMONAREA_AVG,0.05854603084888329,0.05854603084888329,coefficient of transformed base-model feature
+numeric__REG_CITY_NOT_LIVE_CITY,0.057397731646666006,0.057397731646666006,coefficient of transformed base-model feature
+numeric__COMMONAREA_MODE,0.0572467899156624,0.0572467899156624,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Mobile,0.05703956728553752,0.05703956728553752,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE_Waiters/barmen staff,0.05540322179291583,0.05540322179291583,coefficient of transformed base-model feature
+categorical__HOUSETYPE_MODE_specific housing,-0.05488774544165822,0.05488774544165822,coefficient of transformed base-model feature
+numeric__BUR_C1_CREDIT_MEAN,-0.05469000969957716,0.05469000969957716,coefficient of transformed base-model feature
+numeric__CC_BALANCE_LIMIT_RATIO_MEAN,0.05416091240470256,0.05416091240470256,coefficient of transformed base-model feature
+numeric__PREV_APPLICATION_N,0.05059341849937588,0.05059341849937588,coefficient of transformed base-model feature
+numeric__BUR_CREDIT_DAYS_AGO_MEAN,-0.049196579104704645,0.049196579104704645,coefficient of transformed base-model feature
+numeric__REG_REGION_NOT_WORK_REGION,0.04899142554350646,0.04899142554350646,coefficient of transformed base-model feature
+numeric__REGION_RATING_CLIENT,-0.04888824500130964,0.04888824500130964,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_5,0.0476307841355916,0.0476307841355916,coefficient of transformed base-model feature
+numeric__LIVE_REGION_NOT_WORK_REGION,-0.047457760971755886,0.047457760971755886,coefficient of transformed base-model feature
+numeric__missingindicator_BUR_C1_OVERDUE_MEAN,-0.0464790159977943,0.0464790159977943,coefficient of transformed base-model feature
+numeric__missingindicator_BUR_C1_CREDIT_MAX,-0.0464790159977943,0.0464790159977943,coefficient of transformed base-model feature
+numeric__missingindicator_BUR_C1_CREDIT_MEAN,-0.0464790159977943,0.0464790159977943,coefficient of transformed base-model feature
+numeric__missingindicator_BUR_C1_OVERDUE_MAX,-0.0464790159977943,0.0464790159977943,coefficient of transformed base-model feature
+numeric__FLOORSMAX_MODE,-0.04548753854951621,0.04548753854951621,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_4,-0.04495964861242648,0.04495964861242648,coefficient of transformed base-model feature
+numeric__PREV_RECENT_DECISION_DAYS_AGO,-0.04472217709621057,0.04472217709621057,coefficient of transformed base-model feature
+numeric__LANDAREA_MODE,0.04412693183506789,0.04412693183506789,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE_Cooking staff,-0.044042322336463054,0.044042322336463054,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Housing,-0.04388482476440037,0.04388482476440037,coefficient of transformed base-model feature
+numeric__REG_REGION_NOT_LIVE_REGION,-0.04365692262348983,0.04365692262348983,coefficient of transformed base-model feature
+numeric__BASEMENTAREA_MODE,-0.043448266354239186,0.043448266354239186,coefficient of transformed base-model feature
+numeric__REG_CITY_NOT_WORK_CITY,-0.0431708360949502,0.0431708360949502,coefficient of transformed base-model feature
+numeric__CC_LIMIT_MEAN,-0.042894386584652486,0.042894386584652486,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_16,-0.04256320811227166,0.04256320811227166,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_13,-0.042489432596976524,0.042489432596976524,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE_Managers,-0.04238317361381244,0.04238317361381244,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE_Realty agents,-0.041096709739970094,0.041096709739970094,coefficient of transformed base-model feature
+categorical__WEEKDAY_APPR_PROCESS_START_WEDNESDAY,-0.041007404395165606,0.041007404395165606,coefficient of transformed base-model feature
+numeric__REGISTRATION_YEARS,-0.040933030872295155,0.040933030872295155,coefficient of transformed base-model feature
+amounts__AMT_ANNUITY,0.04033886361372333,0.04033886361372333,coefficient of transformed base-model feature
+categorical__WEEKDAY_APPR_PROCESS_START_FRIDAY,-0.03995271734980544,0.03995271734980544,coefficient of transformed base-model feature
+numeric__CNT_FAM_MEMBERS,0.039827737975339464,0.039827737975339464,coefficient of transformed base-model feature
+categorical__NAME_INCOME_TYPE_Businessman,-0.03932844723504554,0.03932844723504554,coefficient of transformed base-model feature
+numeric__ID_DOCUMENT_YEARS,-0.038668624190660215,0.038668624190660215,coefficient of transformed base-model feature
+numeric__BB_KNOWN_DPD_MONTH_N,-0.03864140934824801,0.03864140934824801,coefficient of transformed base-model feature
+numeric__BUR_C1_DEBT_MAX,0.038586173638212366,0.038586173638212366,coefficient of transformed base-model feature
+categorical__FONDKAPREMONT_MODE_not specified,-0.03835550110558012,0.03835550110558012,coefficient of transformed base-model feature
+categorical__WALLSMATERIAL_MODE_Wooden,-0.03815634353794641,0.03815634353794641,coefficient of transformed base-model feature
+numeric__DEF_30_CNT_SOCIAL_CIRCLE,0.03792241169277606,0.03792241169277606,coefficient of transformed base-model feature
+numeric__FLOORSMAX_MEDI,-0.03762478554801279,0.03762478554801279,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_18,-0.03751893032906944,0.03751893032906944,coefficient of transformed base-model feature
+numeric__DEF_60_CNT_SOCIAL_CIRCLE,0.03724376138958275,0.03724376138958275,coefficient of transformed base-model feature
+numeric__ENTRANCES_AVG,-0.036905901895411895,0.036905901895411895,coefficient of transformed base-model feature
+numeric__BB_OLDEST_MONTH,-0.036777651546599774,0.036777651546599774,coefficient of transformed base-model feature
+categorical__NAME_FAMILY_STATUS_Separated,-0.03627085039556571,0.03627085039556571,coefficient of transformed base-model feature
+numeric__LANDAREA_AVG,0.035894132903667754,0.035894132903667754,coefficient of transformed base-model feature
+categorical__WEEKDAY_APPR_PROCESS_START_THURSDAY,-0.034960879642573175,0.034960879642573175,coefficient of transformed base-model feature
+numeric__FLOORSMAX_AVG,0.03434994939439846,0.03434994939439846,coefficient of transformed base-model feature
+numeric__BUR_C1_CREDIT_MAX,-0.03432472720346515,0.03432472720346515,coefficient of transformed base-model feature
+numeric__BB_LOAN_N,0.03413901524336294,0.03413901524336294,coefficient of transformed base-model feature
+numeric__missingindicator_EMPLOYED_YEARS,-0.03360211613700571,0.03360211613700571,coefficient of transformed base-model feature
+numeric__EMPLOYED_SENTINEL,-0.03360211613700571,0.03360211613700571,coefficient of transformed base-model feature
+numeric__NONLIVINGAREA_MEDI,0.0333115218684823,0.0333115218684823,coefficient of transformed base-model feature
+numeric__missingindicator_BB_MAX_STATUS_CODE,0.03281584836917352,0.03281584836917352,coefficient of transformed base-model feature
+numeric__missingindicator_BB_DPD_MONTH_SHARE,0.03281584836917352,0.03281584836917352,coefficient of transformed base-model feature
+numeric__YEARS_BEGINEXPLUATATION_MODE,0.03274954138852529,0.03274954138852529,coefficient of transformed base-model feature
+numeric__LIVINGAPARTMENTS_MEDI,0.03268681571874228,0.03268681571874228,coefficient of transformed base-model feature
+numeric__missingindicator_LIVINGAREA_MODE,-0.03251176961702906,0.03251176961702906,coefficient of transformed base-model feature
+numeric__missingindicator_LIVINGAREA_MEDI,-0.03251176961702906,0.03251176961702906,coefficient of transformed base-model feature
+numeric__missingindicator_LIVINGAREA_AVG,-0.03251176961702906,0.03251176961702906,coefficient of transformed base-model feature
+categorical__NAME_FAMILY_STATUS_Single / not married,-0.03237217840265462,0.03237217840265462,coefficient of transformed base-model feature
+categorical__NAME_HOUSING_TYPE_Rented apartment,-0.031820869196973224,0.031820869196973224,coefficient of transformed base-model feature
+numeric__BUR_C1_DEBT_MEAN,0.03168787353155402,0.03168787353155402,coefficient of transformed base-model feature
+categorical__NAME_HOUSING_TYPE_Municipal apartment,0.03161470717942934,0.03161470717942934,coefficient of transformed base-model feature
+numeric__YEARS_BUILD_MODE,-0.031591590841491365,0.031591590841491365,coefficient of transformed base-model feature
+numeric__OWN_CAR_AGE,0.031035935760453406,0.031035935760453406,coefficient of transformed base-model feature
+numeric__PHONE_CHANGE_YEARS,-0.03043660855164128,0.03043660855164128,coefficient of transformed base-model feature
+numeric__CC_MONTH_N,0.030217408975221686,0.030217408975221686,coefficient of transformed base-model feature
+numeric__CC_KNOWN_DPD_MONTH_N,0.030217408975221686,0.030217408975221686,coefficient of transformed base-model feature
+categorical__WALLSMATERIAL_MODE_Others,0.030107156250087197,0.030107156250087197,coefficient of transformed base-model feature
+numeric__LIVE_CITY_NOT_WORK_CITY,0.030088792541159058,0.030088792541159058,coefficient of transformed base-model feature
+numeric__BUR_ACTIVE_N,0.02973040534223155,0.02973040534223155,coefficient of transformed base-model feature
+numeric__BB_DPD_MONTH_SHARE,0.029469921450827264,0.029469921450827264,coefficient of transformed base-model feature
+numeric__POS_DPD_MAX,0.029174431417937036,0.029174431417937036,coefficient of transformed base-model feature
+numeric__ELEVATORS_MEDI,0.02826572781533233,0.02826572781533233,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Security,0.027211754733550968,0.027211754733550968,coefficient of transformed base-model feature
+numeric__FLAG_PHONE,-0.026859721738098755,0.026859721738098755,coefficient of transformed base-model feature
+categorical__WEEKDAY_APPR_PROCESS_START_TUESDAY,-0.02684916324332185,0.02684916324332185,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Industry: type 11,0.02670925907468199,0.02670925907468199,coefficient of transformed base-model feature
+numeric__CAR_AGE_MISSING_WITH_CAR,-0.02660261071761865,0.02660261071761865,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Industry: type 10,-0.02655597458524263,0.02655597458524263,coefficient of transformed base-model feature
+numeric__missingindicator_BUR_C1_ANNUITY_MEAN,-0.02653551873297731,0.02653551873297731,coefficient of transformed base-model feature
+numeric__AMT_REQ_CREDIT_BUREAU_QRT,-0.026341768554681236,0.026341768554681236,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_15,-0.026275022018837912,0.026275022018837912,coefficient of transformed base-model feature
+numeric__YEARS_BEGINEXPLUATATION_MEDI,-0.025771346450365884,0.025771346450365884,coefficient of transformed base-model feature
+numeric__AGE_YEARS,-0.025414433469982983,0.025414433469982983,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_14,-0.025323910183113266,0.025323910183113266,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Industry: type 13,0.02492753924701266,0.02492753924701266,coefficient of transformed base-model feature
+numeric__REGION_POPULATION_RELATIVE,0.02445625957908433,0.02445625957908433,coefficient of transformed base-model feature
+numeric__PREV_REQUESTED_MEAN,-0.024128729481432205,0.024128729481432205,coefficient of transformed base-model feature
+numeric__missingindicator_FLOORSMAX_MEDI,0.02406366352381595,0.02406366352381595,coefficient of transformed base-model feature
+numeric__missingindicator_FLOORSMAX_AVG,0.02406366352381595,0.02406366352381595,coefficient of transformed base-model feature
+numeric__missingindicator_FLOORSMAX_MODE,0.02406366352381595,0.02406366352381595,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Other,-0.02339565620686783,0.02339565620686783,coefficient of transformed base-model feature
+numeric__LIVINGAPARTMENTS_MODE,-0.02288576893108645,0.02288576893108645,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE_Laborers,0.02285556539781254,0.02285556539781254,coefficient of transformed base-model feature
+numeric__missingindicator_YEARS_BUILD_MEDI,0.02257148878820411,0.02257148878820411,coefficient of transformed base-model feature
+numeric__missingindicator_YEARS_BUILD_MODE,0.02257148878820411,0.02257148878820411,coefficient of transformed base-model feature
+numeric__missingindicator_YEARS_BUILD_AVG,0.02257148878820411,0.02257148878820411,coefficient of transformed base-model feature
+numeric__YEARS_BEGINEXPLUATATION_AVG,-0.02098140533588962,0.02098140533588962,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_17,-0.020872750643551055,0.020872750643551055,coefficient of transformed base-model feature
+"categorical__WALLSMATERIAL_MODE_Stone, brick",-0.020028251630571925,0.020028251630571925,coefficient of transformed base-model feature
+numeric__LIVINGAREA_MODE,0.018508749821166123,0.018508749821166123,coefficient of transformed base-model feature
+categorical__NAME_INCOME_TYPE_Working,-0.01783610694548709,0.01783610694548709,coefficient of transformed base-model feature
+numeric__missingindicator_NONLIVINGAREA_MODE,0.017381509460536612,0.017381509460536612,coefficient of transformed base-model feature
+numeric__missingindicator_NONLIVINGAREA_AVG,0.017381509460536612,0.017381509460536612,coefficient of transformed base-model feature
+numeric__missingindicator_NONLIVINGAREA_MEDI,0.017381509460536612,0.017381509460536612,coefficient of transformed base-model feature
+numeric__INS_OBS_AMOUNT_COVERED_SHARE,-0.017202015130048053,0.017202015130048053,coefficient of transformed base-model feature
+numeric__BB_MONTH_N,-0.016986421033157176,0.016986421033157176,coefficient of transformed base-model feature
+numeric__missingindicator_RATIO_ANNUITY_INCOME_RECORDED,-0.01693240150024188,0.01693240150024188,coefficient of transformed base-model feature
+amount_missing__missingindicator_AMT_ANNUITY,-0.01693240150024188,0.01693240150024188,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Industry: type 2,0.016862697614000034,0.016862697614000034,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_9,0.016636687977487446,0.016636687977487446,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Electricity,-0.016012575213688103,0.016012575213688103,coefficient of transformed base-model feature
+numeric__missingindicator_CC_BALANCE_LIMIT_RATIO_MEAN,-0.014194593406226334,0.014194593406226334,coefficient of transformed base-model feature
+numeric__missingindicator_CC_BALANCE_LIMIT_RATIO_MAX,-0.014194593406226334,0.014194593406226334,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_10,-0.014027794680380732,0.014027794680380732,coefficient of transformed base-model feature
+numeric__missingindicator_EXT_SOURCE_2,0.01400452566583753,0.01400452566583753,coefficient of transformed base-model feature
+numeric__AMT_REQ_CREDIT_BUREAU_YEAR,-0.013684456142580325,0.013684456142580325,coefficient of transformed base-model feature
+numeric__HOUR_APPR_PROCESS_START,-0.013367209029833306,0.013367209029833306,coefficient of transformed base-model feature
+numeric__missingindicator_ELEVATORS_MEDI,-0.013129990453548514,0.013129990453548514,coefficient of transformed base-model feature
+numeric__missingindicator_ELEVATORS_MODE,-0.013129990453548514,0.013129990453548514,coefficient of transformed base-model feature
+numeric__missingindicator_ELEVATORS_AVG,-0.013129990453548514,0.013129990453548514,coefficient of transformed base-model feature
+categorical__NAME_TYPE_SUITE_Children,-0.012685545768013024,0.012685545768013024,coefficient of transformed base-model feature
+numeric__CNT_CHILDREN,-0.012680385318466459,0.012680385318466459,coefficient of transformed base-model feature
+numeric__BUR_OTHER_CURRENCY_N,0.012479811953592077,0.012479811953592077,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_20,0.012405176581582949,0.012405176581582949,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Industry: type 7,-0.012346016813868476,0.012346016813868476,coefficient of transformed base-model feature
+numeric__AMT_REQ_CREDIT_BUREAU_DAY,0.012054009286110749,0.012054009286110749,coefficient of transformed base-model feature
+categorical__NAME_EDUCATION_TYPE_Secondary / secondary special,0.011878926718777588,0.011878926718777588,coefficient of transformed base-model feature
+numeric__FLAG_CONT_MOBILE,-0.011285989465560031,0.011285989465560031,coefficient of transformed base-model feature
+numeric__BB_UNKNOWN_MONTH_N,-0.011167154657858546,0.011167154657858546,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Business Entity Type 1,-0.01048091062095259,0.01048091062095259,coefficient of transformed base-model feature
+numeric__missingindicator_PREV_APPROVED_CREDIT_MEAN,-0.010349430541279373,0.010349430541279373,coefficient of transformed base-model feature
+numeric__missingindicator_PREV_APPROVED_CREDIT_MAX,-0.010349430541279373,0.010349430541279373,coefficient of transformed base-model feature
+numeric__missingindicator_PREV_APPROVED_ANNUITY_MEAN,-0.010349430541279373,0.010349430541279373,coefficient of transformed base-model feature
+numeric__missingindicator_PREV_APPROVED_PAYMENT_COUNT_MEAN,-0.010349430541279373,0.010349430541279373,coefficient of transformed base-model feature
+categorical__NAME_HOUSING_TYPE_Co-op apartment,-0.010218235583160993,0.010218235583160993,coefficient of transformed base-model feature
+numeric__INS_OBS_PAID_SUM,0.009909722611760676,0.009909722611760676,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_2,0.00990896075102925,0.00990896075102925,coefficient of transformed base-model feature
+numeric__missingindicator_LANDAREA_AVG,-0.009859218516782176,0.009859218516782176,coefficient of transformed base-model feature
+numeric__missingindicator_LANDAREA_MEDI,-0.009859218516782176,0.009859218516782176,coefficient of transformed base-model feature
+numeric__missingindicator_LANDAREA_MODE,-0.009859218516782176,0.009859218516782176,coefficient of transformed base-model feature
+numeric__missingindicator_LIVINGAPARTMENTS_AVG,0.009234329661285677,0.009234329661285677,coefficient of transformed base-model feature
+numeric__missingindicator_LIVINGAPARTMENTS_MODE,0.009234329661285677,0.009234329661285677,coefficient of transformed base-model feature
+numeric__missingindicator_LIVINGAPARTMENTS_MEDI,0.009234329661285677,0.009234329661285677,coefficient of transformed base-model feature
+numeric__missingindicator_BUR_C1_DEBT_MAX,0.00908791315417941,0.00908791315417941,coefficient of transformed base-model feature
+numeric__missingindicator_BUR_C1_DEBT_MEAN,0.00908791315417941,0.00908791315417941,coefficient of transformed base-model feature
+numeric__CC_BALANCE_MEAN,-0.009030931977355904,0.009030931977355904,coefficient of transformed base-model feature
+categorical__WALLSMATERIAL_MODE_Mixed,-0.009010766635181142,0.009010766635181142,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_11,-0.008746294301201869,0.008746294301201869,coefficient of transformed base-model feature
+numeric__missingindicator_INCOME_DIV_FAMILY_SIZE_RECORDED,-0.008737902235367844,0.008737902235367844,coefficient of transformed base-model feature
+numeric__missingindicator_CNT_FAM_MEMBERS,-0.008737902235367844,0.008737902235367844,coefficient of transformed base-model feature
+numeric__BUR_C1_OVERDUE_MAX,0.008665521402710308,0.008665521402710308,coefficient of transformed base-model feature
+numeric__INS_OBS_PAID_SCHEDULED_RATIO_MEAN,0.008398258009494834,0.008398258009494834,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_12,-0.00827340120438965,0.00827340120438965,coefficient of transformed base-model feature
+numeric__FLOORSMIN_AVG,0.008162085489065541,0.008162085489065541,coefficient of transformed base-model feature
+numeric__AMT_REQ_CREDIT_BUREAU_MON,-0.00809862800738842,0.00809862800738842,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE_IT staff,-0.008092034628840996,0.008092034628840996,coefficient of transformed base-model feature
+numeric__missingindicator_APARTMENTS_MEDI,-0.007886122184240873,0.007886122184240873,coefficient of transformed base-model feature
+numeric__missingindicator_APARTMENTS_AVG,-0.007886122184240873,0.007886122184240873,coefficient of transformed base-model feature
+numeric__missingindicator_APARTMENTS_MODE,-0.007886122184240873,0.007886122184240873,coefficient of transformed base-model feature
+numeric__POS_KNOWN_DPD_MONTH_N,-0.007675180549092778,0.007675180549092778,coefficient of transformed base-model feature
+numeric__POS_MONTH_N,-0.007675180549092778,0.007675180549092778,coefficient of transformed base-model feature
+numeric__missingindicator_NONLIVINGAPARTMENTS_AVG,-0.007471840114655103,0.007471840114655103,coefficient of transformed base-model feature
+numeric__missingindicator_NONLIVINGAPARTMENTS_MODE,-0.007471840114655103,0.007471840114655103,coefficient of transformed base-model feature
+numeric__missingindicator_NONLIVINGAPARTMENTS_MEDI,-0.007471840114655103,0.007471840114655103,coefficient of transformed base-model feature
+numeric__FLAG_EMAIL,-0.007352630853293648,0.007352630853293648,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Insurance,0.007086112005000917,0.007086112005000917,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_21,0.007049790100475991,0.007049790100475991,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Transport: type 4,0.006717098121249718,0.006717098121249718,coefficient of transformed base-model feature
+numeric__INS_OBS_SCHEDULED_MEAN,0.006653156279698707,0.006653156279698707,coefficient of transformed base-model feature
+numeric__missingindicator_BB_OLDEST_MONTH,-0.006607023796565879,0.006607023796565879,coefficient of transformed base-model feature
+numeric__missingindicator_BB_RECENT_MONTH,-0.006607023796565879,0.006607023796565879,coefficient of transformed base-model feature
+numeric__HAS_USABLE_BUREAU_BALANCE,0.006606985005202356,0.006606985005202356,coefficient of transformed base-model feature
+numeric__POS_DPD_MONTH_SHARE,0.00658788045242199,0.00658788045242199,coefficient of transformed base-model feature
+numeric__AMT_REQ_CREDIT_BUREAU_WEEK,-0.006581747319260055,0.006581747319260055,coefficient of transformed base-model feature
+numeric__LIVINGAPARTMENTS_AVG,0.0065798021071507016,0.0065798021071507016,coefficient of transformed base-model feature
+numeric__INS_OBS_LOAN_N,0.006487716880093311,0.006487716880093311,coefficient of transformed base-model feature
+numeric__missingindicator_PHONE_CHANGE_YEARS,-0.006405811500318111,0.006405811500318111,coefficient of transformed base-model feature
+numeric__FLAG_MOBIL,0.006404915695957375,0.006404915695957375,coefficient of transformed base-model feature
+numeric__CC_RECENT_MONTH,0.006367525938007609,0.006367525938007609,coefficient of transformed base-model feature
+numeric__ENTRANCES_MODE,-0.006349610834610549,0.006349610834610549,coefficient of transformed base-model feature
+numeric__HAS_USABLE_INSTALLMENTS,-0.005480170799370379,0.005480170799370379,coefficient of transformed base-model feature
+numeric__missingindicator_INS_OBS_PAID_SUM,0.005480113767478901,0.005480113767478901,coefficient of transformed base-model feature
+numeric__missingindicator_INS_OBS_AMOUNT_COVERED_SHARE,0.005480113767478901,0.005480113767478901,coefficient of transformed base-model feature
+numeric__missingindicator_INS_OBS_SCHEDULED_MEAN,0.005480113767478901,0.005480113767478901,coefficient of transformed base-model feature
+numeric__missingindicator_INS_OBS_PAID_SCHEDULED_RATIO_MEAN,0.005480113767478901,0.005480113767478901,coefficient of transformed base-model feature
+numeric__missingindicator_INS_PERIOD_WITH_AFTER_DUE_PAYMENT_SHARE,0.005480113767478901,0.005480113767478901,coefficient of transformed base-model feature
+numeric__missingindicator_INS_RECENT_OBS_PAYMENT_DAYS_AGO,0.005480113767478901,0.005480113767478901,coefficient of transformed base-model feature
+numeric__missingindicator_INS_MAX_OBS_LATE_DAYS,0.005480113767478901,0.005480113767478901,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE_Cleaning staff,-0.0054368387170728085,0.0054368387170728085,coefficient of transformed base-model feature
+numeric__BB_DPD_MONTH_N,-0.0053742960413860575,0.0053742960413860575,coefficient of transformed base-model feature
+categorical__NAME_INCOME_TYPE_Maternity leave,-0.005303556499916764,0.005303556499916764,coefficient of transformed base-model feature
+categorical__CODE_GENDER_XNA,-0.005258511604817609,0.005258511604817609,coefficient of transformed base-model feature
+numeric__INS_MAX_OBS_LATE_DAYS,0.004957922372242678,0.004957922372242678,coefficient of transformed base-model feature
+numeric__missingindicator_AMT_REQ_CREDIT_BUREAU_WEEK,0.004729759613595765,0.004729759613595765,coefficient of transformed base-model feature
+numeric__missingindicator_AMT_REQ_CREDIT_BUREAU_HOUR,0.004729759613595765,0.004729759613595765,coefficient of transformed base-model feature
+numeric__missingindicator_AMT_REQ_CREDIT_BUREAU_YEAR,0.004729759613595765,0.004729759613595765,coefficient of transformed base-model feature
+numeric__missingindicator_AMT_REQ_CREDIT_BUREAU_MON,0.004729759613595765,0.004729759613595765,coefficient of transformed base-model feature
+numeric__missingindicator_AMT_REQ_CREDIT_BUREAU_DAY,0.004729759613595765,0.004729759613595765,coefficient of transformed base-model feature
+numeric__missingindicator_AMT_REQ_CREDIT_BUREAU_QRT,0.004729759613595765,0.004729759613595765,coefficient of transformed base-model feature
+numeric__missingindicator_FLOORSMIN_MEDI,-0.004540531934800278,0.004540531934800278,coefficient of transformed base-model feature
+numeric__missingindicator_FLOORSMIN_MODE,-0.004540531934800278,0.004540531934800278,coefficient of transformed base-model feature
+numeric__missingindicator_FLOORSMIN_AVG,-0.004540531934800278,0.004540531934800278,coefficient of transformed base-model feature
+numeric__ENTRANCES_MEDI,0.004429876841074662,0.004429876841074662,coefficient of transformed base-model feature
+numeric__CC_DPD_MAX,-0.004393903494993039,0.004393903494993039,coefficient of transformed base-model feature
+numeric__BUR_OVERDUE_DAYS_MAX,-0.00436362506532463,0.00436362506532463,coefficient of transformed base-model feature
+numeric__missingindicator_EXT_SOURCE_3,-0.004362661239373681,0.004362661239373681,coefficient of transformed base-model feature
+numeric__INCOME_DIV_FAMILY_SIZE_RECORDED,0.004166272837288205,0.004166272837288205,coefficient of transformed base-model feature
+numeric__BB_RECENT_MONTH,-0.004063291460553806,0.004063291460553806,coefficient of transformed base-model feature
+amounts__AMT_INCOME_TOTAL,-0.00391454397949235,0.00391454397949235,coefficient of transformed base-model feature
+numeric__AMT_REQ_CREDIT_BUREAU_HOUR,-0.0038738189587778373,0.0038738189587778373,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Transport: type 2,0.0038246592483033273,0.0038246592483033273,coefficient of transformed base-model feature
+numeric__PREV_REFUSED_N,-0.0037758282662611973,0.0037758282662611973,coefficient of transformed base-model feature
+numeric__POS_DPD_DEF_MAX,0.0035754174488113214,0.0035754174488113214,coefficient of transformed base-model feature
+numeric__BUR_C1_OVERDUE_MEAN,-0.0034002308511322885,0.0034002308511322885,coefficient of transformed base-model feature
+numeric__missingindicator_YEARS_BEGINEXPLUATATION_AVG,0.003351072199143199,0.003351072199143199,coefficient of transformed base-model feature
+numeric__missingindicator_YEARS_BEGINEXPLUATATION_MODE,0.003351072199143199,0.003351072199143199,coefficient of transformed base-model feature
+numeric__missingindicator_YEARS_BEGINEXPLUATATION_MEDI,0.003351072199143199,0.003351072199143199,coefficient of transformed base-model feature
+numeric__CC_DPD_MONTH_SHARE,-0.0031143654727875023,0.0031143654727875023,coefficient of transformed base-model feature
+numeric__BUR_C1_ANNUITY_MEAN,-0.0028106675772093304,0.0028106675772093304,coefficient of transformed base-model feature
+categorical__ORGANIZATION_TYPE_Religion,0.0027669036504466525,0.0027669036504466525,coefficient of transformed base-model feature
+numeric__TOTALAREA_MODE,0.002702591816455579,0.002702591816455579,coefficient of transformed base-model feature
+categorical__OCCUPATION_TYPE_Security staff,-0.0026905067150445636,0.0026905067150445636,coefficient of transformed base-model feature
+numeric__missingindicator_BASEMENTAREA_AVG,0.00259994159205291,0.00259994159205291,coefficient of transformed base-model feature
+numeric__missingindicator_BASEMENTAREA_MEDI,0.00259994159205291,0.00259994159205291,coefficient of transformed base-model feature
+numeric__missingindicator_BASEMENTAREA_MODE,0.00259994159205291,0.00259994159205291,coefficient of transformed base-model feature
+numeric__missingindicator_COMMONAREA_AVG,0.002478247478817673,0.002478247478817673,coefficient of transformed base-model feature
+numeric__missingindicator_COMMONAREA_MODE,0.002478247478817673,0.002478247478817673,coefficient of transformed base-model feature
+numeric__missingindicator_COMMONAREA_MEDI,0.002478247478817673,0.002478247478817673,coefficient of transformed base-model feature
+numeric__missingindicator_ENTRANCES_MODE,0.002371973688920285,0.002371973688920285,coefficient of transformed base-model feature
+numeric__missingindicator_ENTRANCES_AVG,0.002371973688920285,0.002371973688920285,coefficient of transformed base-model feature
+numeric__missingindicator_ENTRANCES_MEDI,0.002371973688920285,0.002371973688920285,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_19,-0.0018876900425399937,0.0018876900425399937,coefficient of transformed base-model feature
+numeric__NONLIVINGAPARTMENTS_AVG,-0.0017704253392162828,0.0017704253392162828,coefficient of transformed base-model feature
+numeric__FLAG_DOCUMENT_7,0.0017138583345700602,0.0017138583345700602,coefficient of transformed base-model feature
+numeric__APARTMENTS_MODE,-0.0016308175812456047,0.0016308175812456047,coefficient of transformed base-model feature
+numeric__missingindicator_POS_OLDEST_MONTH,-0.0014740788550177061,0.0014740788550177061,coefficient of transformed base-model feature
+numeric__missingindicator_POS_DPD_DEF_MAX,-0.0014740788550177061,0.0014740788550177061,coefficient of transformed base-model feature
+numeric__missingindicator_POS_DPD_MAX,-0.0014740788550177061,0.0014740788550177061,coefficient of transformed base-model feature
+numeric__missingindicator_POS_RECENT_MONTH,-0.0014740788550177061,0.0014740788550177061,coefficient of transformed base-model feature
+numeric__missingindicator_POS_DPD_MONTH_SHARE,-0.0014740788550177061,0.0014740788550177061,coefficient of transformed base-model feature
+numeric__HAS_USABLE_POS,0.001474029489322239,0.001474029489322239,coefficient of transformed base-model feature
+numeric__BB_MAX_STATUS_CODE,-0.0013894469635252669,0.0013894469635252669,coefficient of transformed base-model feature
+numeric__HAS_USABLE_PREVIOUS,-0.0008183897830120323,0.0008183897830120323,coefficient of transformed base-model feature
+numeric__missingindicator_PREV_REFUSED_SHARE,0.0008183471873697934,0.0008183471873697934,coefficient of transformed base-model feature
+numeric__missingindicator_PREV_RECENT_DECISION_DAYS_AGO,0.0008183471873697934,0.0008183471873697934,coefficient of transformed base-model feature
+numeric__missingindicator_PREV_REQUESTED_MEAN,0.0008183471873697934,0.0008183471873697934,coefficient of transformed base-model feature
+numeric__BB_CLOSED_MONTH_N,-0.0007714204744483136,0.0007714204744483136,coefficient of transformed base-model feature
+numeric__missingindicator_OBS_60_CNT_SOCIAL_CIRCLE,-0.000763772826941455,0.000763772826941455,coefficient of transformed base-model feature
+numeric__missingindicator_DEF_30_CNT_SOCIAL_CIRCLE,-0.000763772826941455,0.000763772826941455,coefficient of transformed base-model feature
+numeric__missingindicator_DEF_60_CNT_SOCIAL_CIRCLE,-0.000763772826941455,0.000763772826941455,coefficient of transformed base-model feature
+numeric__missingindicator_OBS_30_CNT_SOCIAL_CIRCLE,-0.000763772826941455,0.000763772826941455,coefficient of transformed base-model feature
+numeric__missingindicator_CC_DPD_MONTH_SHARE,-0.00043409443601687966,0.00043409443601687966,coefficient of transformed base-model feature
+numeric__missingindicator_CC_BALANCE_MEAN,-0.00043409443601687966,0.00043409443601687966,coefficient of transformed base-model feature
+numeric__missingindicator_CC_DPD_MAX,-0.00043409443601687966,0.00043409443601687966,coefficient of transformed base-model feature
+numeric__missingindicator_CC_LIMIT_MEAN,-0.00043409443601687966,0.00043409443601687966,coefficient of transformed base-model feature
+numeric__missingindicator_CC_PAYMENT_TOTAL_MEAN,-0.00043409443601687966,0.00043409443601687966,coefficient of transformed base-model feature
+numeric__missingindicator_CC_BALANCE_MAX,-0.00043409443601687966,0.00043409443601687966,coefficient of transformed base-model feature
+numeric__HAS_USABLE_CARD,0.00043409443601687966,0.00043409443601687966,coefficient of transformed base-model feature
+numeric__missingindicator_CC_DRAWINGS_MEAN,-0.00043409443601687966,0.00043409443601687966,coefficient of transformed base-model feature
+numeric__missingindicator_CC_RECENT_MONTH,-0.00043409443601687966,0.00043409443601687966,coefficient of transformed base-model feature
+numeric__missingindicator_RATIO_CREDIT_GOODS_RECORDED,-0.00023230837044359428,0.00023230837044359428,coefficient of transformed base-model feature
+amount_missing__missingindicator_AMT_GOODS_PRICE,-0.00023230837044359428,0.00023230837044359428,coefficient of transformed base-model feature
+categorical__NAME_FAMILY_STATUS_Unknown,-3.422234586256425e-05,3.422234586256425e-05,coefficient of transformed base-model feature

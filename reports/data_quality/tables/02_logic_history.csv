@@ -1,0 +1,8 @@
+rule,eligible_n,flagged_n,table,flagged_pct
+Ngày kết thúc trước ngày xin vay,552658,6,bureau,0.0010856623807128458
+Ngày cập nhật trước ngày xin vay,879847,69,bureau,0.007842272576936671
+Dư nợ lớn hơn số tiền tín dụng,740886,14962,bureau,2.019473981152296
+Tiền quá hạn lớn hơn dư nợ,740888,435,bureau,0.05871332779043526
+Ngày đến hạn đầu trước ngày quyết định,491391,0,previous_application,0.0
+Ngày đến hạn cuối dự kiến trước kỳ đầu,460445,0,previous_application,0.0
+Số dư lớn hơn hạn mức cùng tháng,1939991,176568,credit_card_balance,9.101485522355517

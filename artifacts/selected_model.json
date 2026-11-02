@@ -1,0 +1,7 @@
+{
+  "frozen_policy_path": "artifacts/0f70b06abaf3cbab/frozen_policy.json",
+  "run_signature": "0f70b06abaf3cbab6b4a5947d8cd1dc0f8dc4e062a0a29021c19a6cc3f4f15f7",
+  "model_path": "artifacts/0f70b06abaf3cbab/credit_risk_pipeline.joblib",
+  "feature_set": "B",
+  "model_sha256": "a362b0d41396b0e620b4704754dc51a0cd60c3956ce2e058c36450392dba81bb"
+}

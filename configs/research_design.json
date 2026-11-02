@@ -1,0 +1,115 @@
+{
+  "version": "1.1",
+  "date": "2026-10-20",
+  "observation": "current_loan_application",
+  "id": "SK_ID_CURR",
+  "target": "TARGET",
+  "positive_label": 1,
+  "serving": "web_for_existing_applications_with_required_features",
+  "split": {
+    "train": 0.6,
+    "validation": 0.2,
+    "test": 0.2,
+    "stratify": "TARGET",
+    "random_state": 42,
+    "created": true,
+    "path": "data/splits/application_split.parquet",
+    "sha256": "c2b83e1356dd44714c4f1141894d7af41c484e6ccbdc9055c76e500eddb3d3c8",
+    "procedure": "hold_out_20_percent_test_then_25_percent_of_remaining_for_validation"
+  },
+  "cross_validation": {
+    "dataset": "train_only",
+    "folds": 3,
+    "stratified": true,
+    "shuffle": true,
+    "random_state": 42
+  },
+  "candidates": [
+    "LogisticRegression",
+    "DecisionTreeClassifier",
+    "RandomForestClassifier"
+  ],
+  "baseline": "DummyClassifier",
+  "feature_sets": [
+    "A_current_application",
+    "B_current_plus_time_valid_history"
+  ],
+  "search": {
+    "max_configurations_per_model_per_feature_set": 12,
+    "class_weight": [
+      null,
+      "balanced"
+    ],
+    "random_state": 42
+  },
+  "selection": {
+    "primary": "mean_cv_average_precision",
+    "tie_break": "equal_at_4_decimal_places_then_mean_roc_auc_then_LR_DT_RF_then_fit_time"
+  },
+  "metrics": [
+    "average_precision",
+    "roc_auc",
+    "accuracy",
+    "precision",
+    "recall",
+    "f1",
+    "confusion_matrix",
+    "alert_rate",
+    "recall_at_top_10_percent",
+    "lift_at_top_10_percent"
+  ],
+  "probability_checks": [
+    "brier_score",
+    "reliability_diagram"
+  ],
+  "calibration": {
+    "allowed": "sigmoid_on_train_only_internal_3_fold",
+    "decision_evidence": "train_out_of_fold_predictions",
+    "test_must_not_select_calibration": true
+  },
+  "threshold": {
+    "selection_dataset": "validation_only",
+    "positive_rule": "score >= threshold",
+    "objective": "(C_FN * FN + C_FP * FP) / N",
+    "main_cost_fn": 5,
+    "main_cost_fp": 1,
+    "sensitivity_fn_to_fp": [
+      2,
+      10,
+      20
+    ],
+    "cost_units": "hypothetical_relative_penalties",
+    "candidates": "all_distinct_label_partitions_including_all_positive_and_all_negative",
+    "tie_break": [
+      "higher_recall",
+      "higher_threshold"
+    ],
+    "comparators": [
+      "threshold_0.5",
+      "no_alerts"
+    ]
+  },
+  "top_k": {
+    "fraction": 0.1,
+    "count_rule": "ceil(fraction * N)",
+    "tie_break": "SK_ID_CURR_ascending",
+    "purpose": "separate_hypothetical_review_capacity_policy"
+  },
+  "final_evaluation": {
+    "test_open_only_after_freeze": true,
+    "refit_train_plus_validation_before_test": false,
+    "application_test_has_labels": false
+  },
+  "web_prediction_parity_absolute_tolerance": 1e-08,
+  "change_control": "revise_version_and_reason_before_test_results_are_used",
+  "change_log": [
+    {
+      "version": "1.1",
+      "date": "2026-10-20",
+      "reason": "Add supplementary Accuracy reporting to match project outline2.5.2 and3.7.2; course-slide review before classifier experiments.",
+      "unchanged": "Frozen split/CV, model candidates, search budget, primary mean CV AP, calibration and threshold/test roles.",
+      "stage4_classifier_experiments_started": false,
+      "attribution": "Group reporting choice; not stated as a mandatory metric in the reviewed MLBA slide text."
+    }
+  ]
+}

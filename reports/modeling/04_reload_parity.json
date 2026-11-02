@@ -1,0 +1,8 @@
+{
+  "new_python_process": true,
+  "n": 100,
+  "max_absolute_score_error": 0.0,
+  "tolerance": 1e-08,
+  "same_alerts": true,
+  "model_sha256": "a362b0d41396b0e620b4704754dc51a0cd60c3956ce2e058c36450392dba81bb"
+}

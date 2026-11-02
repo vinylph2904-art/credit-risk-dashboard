@@ -1,0 +1,18 @@
+{% macro comparison(key, value, label, unit, currency='') -%}
+<span class="kpi-comparison" data-kpi="{{ key }}" data-value="{{ value if value is not none else '' }}" data-label="{{ label }}" data-unit="{{ unit }}" data-currency="{{ currency }}" hidden></span>
+{%- endmacro %}
+
+{% macro settings(show_button=True) -%}
+{% if show_button %}
+<div class="target-toolbar"><button class="button small" type="button" data-open="kpi-targets">Đặt mục tiêu KPI</button></div>
+{% endif %}
+<dialog id="kpi-targets">
+  <div class="dialog-header"><h2>Mục tiêu KPI</h2><button class="icon-button" type="button" data-close aria-label="Đóng">×</button></div>
+  <div class="dialog-body"><form id="kpi-target-form" class="form-stack">
+    <p>Đặt mục tiêu theo phạm vi đang lọc. Mục tiêu do người dùng chọn, không phải chuẩn ngành hoặc ngưỡng của mô hình.</p>
+    <div id="kpi-target-fields" class="form-stack"></div>
+    <p id="kpi-target-error" class="draft-notice" role="status" hidden></p>
+    <div class="dialog-actions"><button class="button" type="button" data-close>Hủy</button><button class="button primary" type="submit">Lưu mục tiêu</button></div>
+  </form></div>
+</dialog>
+{%- endmacro %}

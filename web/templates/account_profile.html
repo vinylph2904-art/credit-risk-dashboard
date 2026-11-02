@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% from '_components.html' import csrf with context %}
+{% block title %}Tài khoản của tôi{% endblock %}
+{% block breadcrumb %}Tài khoản{% endblock %}
+{% block topbar_content %}
+<div class="workspace-heading"><div><h1>Tài khoản của tôi</h1><p>Thông tin cá nhân và bảo mật tài khoản.</p></div></div>
+{% endblock %}
+{% block content %}
+<div class="account-page">
+  
+  <section class="panel account-profile" aria-labelledby="account-profile-title">
+    <div class="account-profile-heading"><span class="account-avatar" aria-hidden="true">{{ user_display_name[:1]|upper }}</span><div><h2 id="account-profile-title">{{ user_display_name }}</h2><p>{{ roles[current_user.role] }}</p></div></div>
+    <dl class="account-information">
+      <div><dt>Họ tên</dt><dd>{{ user_display_name }}</dd></div>
+      <div><dt>Tên đăng nhập</dt><dd>{{ signed_in_user }}</dd></div>
+      <div><dt>Vai trò</dt><dd>{{ roles[current_user.role] }}</dd></div>
+    </dl>
+    <div class="account-actions"><a class="button" href="{{ url_for('change_password') }}">Đổi mật khẩu</a><form method="post" action="{{ url_for('logout') }}">{{ csrf() }}<button class="button account-logout" type="submit">Đăng xuất</button></form></div>
+  </section>
+  <a class="account-back" href="{{ url_for(home_endpoint) }}">← Về trang tổng quan</a>
+</div>
+{% endblock %}

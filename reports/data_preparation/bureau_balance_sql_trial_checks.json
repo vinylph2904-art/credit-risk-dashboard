@@ -1,0 +1,94 @@
+{
+  "status": "passed",
+  "sql_seconds": 216.263,
+  "rows": 134299,
+  "features": 10,
+  "scope": {
+    "source": "bureau_balance",
+    "source_rows": 27299925,
+    "eligible_rows": 23590930,
+    "train_eligible_rows": 8663845
+  },
+  "exact_dtype_order_values_nan_equal": true,
+  "parquet_hash_unchanged": true,
+  "comparison": [
+    {
+      "column": "BB_LOAN_N",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "dtype_equal": true
+    },
+    {
+      "column": "BB_MONTH_N",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "dtype_equal": true
+    },
+    {
+      "column": "BB_KNOWN_DPD_MONTH_N",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "dtype_equal": true
+    },
+    {
+      "column": "BB_DPD_MONTH_N",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "dtype_equal": true
+    },
+    {
+      "column": "BB_CLOSED_MONTH_N",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "dtype_equal": true
+    },
+    {
+      "column": "BB_UNKNOWN_MONTH_N",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "dtype_equal": true
+    },
+    {
+      "column": "BB_MAX_STATUS_CODE",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "dtype_equal": true
+    },
+    {
+      "column": "BB_OLDEST_MONTH",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "dtype_equal": true
+    },
+    {
+      "column": "BB_RECENT_MONTH",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "dtype_equal": true
+    },
+    {
+      "column": "BB_DPD_MONTH_SHARE",
+      "unequal_values": 0,
+      "max_absolute_difference": 0.0,
+      "dtype_equal": true
+    }
+  ],
+  "production_changed": false,
+  "database_modified": false,
+  "status_codes_observed": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "C",
+    "X"
+  ],
+  "timing_scope": "One current SQL read/transfer/DataFrame run; no paired Python benchmark",
+  "protected_files_unchanged": 80,
+  "decision": "Trial retained for review; current batch-reading and Python aggregation kept. No blanket SQL pushdown assumed from Connector style preference.",
+  "previous_python_run_seconds": 133.265,
+  "historical_timing_caveat": "Prior run, not a current paired benchmark; cannot infer a stable speed ratio.",
+  "reference_file_sha256": "2fbfe82f0c0382f3289d98808ff42d7ae1b7c28dc6814de6d68a0e16af587778"
+}

@@ -1,0 +1,9 @@
+table,source_rows,mysql_rows,elapsed_seconds
+application_test,48744,48744,5.71
+application_train,307511,307511,35.56
+bureau,1716428,1716428,50.11
+bureau_balance,27299925,27299925,362.95
+credit_card_balance,3840312,3840312,116.06
+installments_payments,13605401,13605401,266.12
+pos_cash_balance,10001358,10001358,189.61
+previous_application,1670214,1670214,90.12

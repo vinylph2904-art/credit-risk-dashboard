@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% from '_components.html' import csrf, icon, status_badge with context %}
+{% block title %}Tổng quan quản lý rủi ro{% endblock %}
+{% block content %}
+<div class="page-heading">
+  <div><h1>Tổng quan quản lý rủi ro tín dụng</h1><p>Theo dõi rủi ro dự báo · Xác định phân khúc cần chú ý · Chỉ đạo xác minh và phòng ngừa.</p></div>
+  <a class="button" data-cohort-link href="{{ cohort_url('applications') }}">{{ icon('folder') }}Xem hồ sơ đang phân tích</a>
+</div>
+{% include '_cohort_filters.html' %}
+<div class="scope-strip"><strong>Đang xem {{ summary.total|number }} / {{ baseline.total|number }} hồ sơ hoạt động</strong><span>{{ summary.scored_n|number }} đã chấm · {{ summary.unscored_n|number }} chưa chấm</span></div>
+{% if filters.amount_min is not none or filters.amount_max is not none or filters.age_min is not none or filters.age_max is not none %}
+<p class="subtext">Trước khi lọc khoảng, phân khúc này có {{ range_missing.amount }} hồ sơ thiếu số tiền và {{ range_missing.age }} hồ sơ thiếu tuổi. Hồ sơ thiếu trường đang lọc không được xem là nằm trong khoảng.</p>
+{% endif %}
+{% if not summary.total %}<div class="callout"><div><strong>Không có hồ sơ phù hợp các điều kiện đang chọn.</strong><p>Thử nới khoảng số tiền, tuổi hoặc bỏ bớt điều kiện. Mốc so sánh trước lọc vẫn được giữ để tham chiếu.</p></div></div>{% endif %}
+<nav class="layer-nav" aria-label="Các tầng phân tích"><a href="#overview-layer">1. Tổng quan</a><a href="#breakdown-layer">2. Phân khúc</a><a href="#diagnostic-layer">3. Kiểm tra và hành động</a></nav>
+<section id="overview-layer" class="analysis-layer">
+  <div class="layer-heading"><span class="layer-number">01</span><div><h2>Overview · Tình hình rủi ro dự báo</h2><p>Các chỉ số chính của phạm vi đang chọn, đối chiếu toàn bộ hồ sơ hoạt động trước lọc.</p></div></div>
+  <div class="kpi-grid three">
+    <div class="kpi"><span class="label">ĐIỂM RỦI RO TRUNG BÌNH</span><strong>{{ summary.mean_score|percent }}</strong><small>{{ summary.scored_n }} hồ sơ đã chấm trong phạm vi lọc</small><div class="benchmark">Trước lọc: <b>{{ baseline.mean_score|percent }}</b></div></div>
+    <div class="kpi"><span class="label">TỶ LỆ HỒ SƠ CẢNH BÁO</span><strong class="text-warning">{{ summary.alert_share|percent }}</strong><small>{{ summary.alert_n }} / {{ summary.scored_n }} hồ sơ đã chấm</small><div class="benchmark">Trước lọc: <b>{{ baseline.alert_share|percent }}</b> · Chênh <b>{{ delta_alert_share|pp }} đpt</b></div></div>
+    <div class="kpi"><span class="label">TỶ TRỌNG SỐ TIỀN NHÓM CẢNH BÁO</span><strong>{{ amounts.alert_share|percent }}</strong><small>Trên {{ amounts.eligible_n }} hồ sơ đã chấm có số tiền hợp lệ</small><div class="benchmark">Trước lọc: <b>{{ baseline_amounts.alert_share|percent }}</b></div></div>
+  </div>
+  <div class="callout small"><div><strong>Mốc so sánh: {{ baseline.total }} hồ sơ hoạt động trước lọc, {{ baseline.scored_n }} hồ sơ đã chấm.</strong><p>Mỗi hồ sơ lấy kết quả mới nhất của phiên bản hiện tại. Điểm dự báo và tỷ lệ cảnh báo khác tỷ lệ trễ hạn thực tế; mẫu chưa đại diện danh mục ngân hàng. đpt = điểm phần trăm.</p></div></div>
+  <div class="two-columns">
+    <section class="panel"><div class="panel-heading"><div><h2>Phân bố điểm rủi ro</h2><p>{{ summary.scored_n }} hồ sơ đã chấm · Ngưỡng {{ model_threshold|percent }}</p></div></div><div class="panel-body">
+      {% if summary.scored_n %}{% for bin in distribution %}<div class="chart-row"><span>{{ bin.label }}</span><div class="bar-track"><div class="bar-fill {% if bin.above_threshold %}high{% endif %}" style="width:{{ bin.share*100 }}%"></div></div><span class="right">{{ bin.n }} HS</span></div>{% endfor %}<div class="chart-legend"><span><i class="legend-dot"></i>Dưới ngưỡng</span><span><i class="legend-dot high"></i>Đạt ngưỡng cảnh báo</span></div>{% else %}<p class="empty">Chưa có điểm dự báo trong phạm vi này.</p>{% endif %}
+    </div></section>
+    <section class="panel" id="amount-insights"><div class="panel-heading"><div><h2>Quy mô số tiền cần chú ý</h2><p>Cùng trường số tiền khoản vay trong nguồn, theo phạm vi đã lọc.</p></div></div><div class="panel-body">
+      <dl class="data-grid"><div><dt>Nhóm cảnh báo</dt><dd>{{ amounts.alert_amount|amount }}<small>{{ amounts.alert_eligible_n }} hồ sơ có số tiền hợp lệ</small></dd></div><div><dt>Toàn bộ hồ sơ đủ điều kiện</dt><dd>{{ amounts.total_amount|amount }}<small>{{ amounts.eligible_n }} hồ sơ đã chấm</small></dd></div></dl>
+      <p class="subtext insight-note">{{ amounts.excluded_n }} hồ sơ đã chấm không đủ điều kiện tính tiền. Đơn vị tiền nguồn, chưa xác minh tiền tệ; không quy thành VND, dư nợ, EAD hoặc tổn thất.</p>
+      <p><a class="button small" data-cohort-link href="{{ cohort_url('applications',alert='1',sort='amount') }}">Xem cảnh báo theo số tiền giảm dần →</a></p>
+    </div></section>
+  </div>
+</section>
+<section id="breakdown-layer" class="analysis-layer">
+  <div class="layer-heading"><span class="layer-number">02</span><div><h2>Breakdown · Rủi ro tập trung ở phân khúc nào?</h2><p>Chọn điều kiện ở đầu trang hoặc nhấn tên nhóm để đi sâu vào hồ sơ.</p></div></div>
+  <section class="panel" id="segment-insights"><div class="panel-heading"><div><h2>Nhóm khách hàng trong phạm vi đang lọc</h2><p>So với tỷ lệ cảnh báo {{ baseline.alert_share|percent }} của toàn bộ hồ sơ hoạt động trước lọc.</p></div></div>
+    {% if income_groups or product_groups %}<div class="table-scroll"><table><thead><tr><th>Nhóm</th><th class="right">Cảnh báo / HS đã chấm</th><th class="right">Tỷ lệ</th><th class="right">Chênh so với trước lọc</th><th class="right">Chưa hoàn tất</th></tr></thead><tbody>
+    {% for row in product_groups %}<tr><td>{% if row.NAME_CONTRACT_TYPE in products %}<a data-cohort-link href="{{ cohort_url('applications',product=row.NAME_CONTRACT_TYPE) }}">{{ products[row.NAME_CONTRACT_TYPE] }}</a>{% else %}{{ row.NAME_CONTRACT_TYPE }}{% endif %}<span class="subtext">Loại khoản vay</span></td><td class="right">{{ row.alert_n|number }} / {{ row.n }}</td><td class="right">{{ row.alert_share|percent }}</td><td class="right {% if row.delta_alert_share>0 %}text-warning{% endif %}">{{ row.delta_alert_share|pp }} đpt</td><td class="right">{{ row.pending_alert_n }}</td></tr>{% endfor %}
+    {% for row in income_groups %}<tr><td>{% if row.NAME_INCOME_TYPE in income_types %}<a data-cohort-link href="{{ cohort_url('applications',income=row.NAME_INCOME_TYPE) }}">{{ income_types[row.NAME_INCOME_TYPE] }}</a>{% else %}{{ row.NAME_INCOME_TYPE }}{% endif %}<span class="subtext">Nguồn thu nhập</span></td><td class="right">{{ row.alert_n|number }} / {{ row.n }}</td><td class="right">{{ row.alert_share|percent }}</td><td class="right {% if row.delta_alert_share>0 %}text-warning{% endif %}">{{ row.delta_alert_share|pp }} đpt</td><td class="right">{{ row.pending_alert_n }}</td></tr>{% endfor %}
+    </tbody></table></div>{% else %}<p class="empty">Chưa có nhóm đủ 5 hồ sơ đã chấm để so sánh. Các hồ sơ vẫn được tính trong chỉ số tổng.</p>{% endif %}
+    <div class="panel-body subtext">Ngưỡng 5 chỉ là quy tắc trình bày của nhóm. Các phân khúc giữa hai cách phân loại có thể giao nhau; chênh lệch là mô tả, chưa chứng minh nguyên nhân hoặc ý nghĩa thống kê. {% if small_product_n %}Có {{ small_product_n }} hồ sơ thuộc nhóm loại vay dưới 5 hồ sơ đã chấm, vẫn nằm trong tổng.{% endif %}</div>
+  </section>
+  {% if focus %}<article class="focus-insight">
+    <span class="eyebrow">PHÂN KHÚC CẦN XEM XÉT</span><h3>{{ income_types.get(focus.NAME_INCOME_TYPE,focus.NAME_INCOME_TYPE) }}: {{ focus.alert_n|number }} cảnh báo trong {{ focus.n }} hồ sơ đã chấm</h3>
+    <p>Nhóm chiếm {{ focus.profile_share|percent }} hồ sơ đã chấm và {{ focus.share_of_alerts|percent }} số cảnh báo của phạm vi đang lọc. Tỷ lệ cảnh báo {{ focus.alert_share|percent }}, chênh {{ focus.delta_alert_share|pp }} đpt so với trước lọc.</p>
+    <p><strong>{{ focus.pending_alert_n }} cảnh báo chưa hoàn tất; {{ focus.unassigned_pending_n }} trong số đó chưa phân công.</strong> Mở danh sách để xác minh thông tin và điều phối rà soát.</p>
+    <a class="button small" data-cohort-link href="{{ cohort_url('applications',income=focus.NAME_INCOME_TYPE,alert='1',status='pending') }}">Xem hồ sơ cần rà soát của nhóm →</a>
+  </article>{% endif %}
+</section>
+<section id="diagnostic-layer" class="analysis-layer">
+  <div class="layer-heading"><span class="layer-number">03</span><div><h2>Diagnostic · Cần xác minh gì trước khi kết luận?</h2><p>Đối chiếu bối cảnh dữ liệu và lịch sử trong phạm vi đã chọn để định hướng kiểm tra.</p></div></div>
+  <section class="panel" id="diagnostic-insights"><div class="panel-heading"><div><h2>Dấu hiệu cần kiểm tra theo nhóm cảnh báo</h2><p>Mỗi ô ghi số hồ sơ có dấu hiệu / số hồ sơ đủ điều kiện quan sát dấu hiệu đó.</p></div></div>
+    <div class="table-scroll"><table><thead><tr><th>Thông tin cần kiểm tra</th><th class="right">Đạt ngưỡng cảnh báo</th><th class="right">Dưới ngưỡng</th><th></th></tr></thead><tbody>
+    {% for row in diagnostic %}<tr><td>{{ row.label }}</td><td class="right">{{ row.alert.n }} / {{ row.alert.denominator }}<span class="subtext">{{ row.alert.share|percent }}</span></td><td class="right">{{ row.normal.n }} / {{ row.normal.denominator }}<span class="subtext">{{ row.normal.share|percent }}</span></td><td>{% if row.alert.n %}<a class="button small" data-cohort-link href="{{ cohort_url('applications',alert='1',data_check=row.key) }}">Xem {{ row.alert.n }} hồ sơ →</a>{% else %}<span class="muted">—</span>{% endif %}</td></tr>{% endfor %}
+    </tbody></table></div><div class="panel-body subtext">Đây là dấu hiệu hỗ trợ xác minh, không phải nguyên nhân đã chứng minh hoặc lý do mô hình gắn cờ. Ghi nhận quá hạn/thanh toán sau hạn chỉ phản ánh lịch sử đủ điều kiện, chưa phải nợ quá hạn hiện tại.</div>
+  </section>
+  <div class="two-columns">
+    <section class="panel" id="readiness-insights"><div class="panel-heading"><div><h2>Khả dụng thông tin của phân khúc</h2><p>Trên {{ readiness.total }} hồ sơ đang lọc, gồm cả chưa chấm.</p></div></div><div class="panel-body">
+      <div class="readiness-item"><div><strong>{{ readiness.missing_n }} / {{ readiness.total }} hồ sơ</strong><p>Thiếu ít nhất một trong 5 trường theo dõi · {{ readiness.missing_share|percent }}</p></div><a class="button small" data-cohort-link href="{{ cohort_url('applications',data_check='monitored') }}">Xem hồ sơ →</a></div>
+      <details><summary>Xem số thiếu theo từng trường</summary><ul class="missing-fields">{% for field in readiness.fields %}<li><span>{{ data_checks[field.name] }}</span><a data-cohort-link href="{{ cohort_url('applications',data_check=field.name) }}">{{ field.n }} hồ sơ →</a></li>{% endfor %}</ul></details>
+      <div class="readiness-item"><div><strong>{{ readiness.no_bureau_n }} / {{ readiness.total }} hồ sơ</strong><p>Không có bureau đủ điều kiện · {{ readiness.no_bureau_share|percent }}</p></div><a class="button small" data-cohort-link href="{{ cohort_url('applications',data_check='no_bureau') }}">Xem hồ sơ →</a></div>
+      <p class="subtext insight-note">Không có bureau đủ điều kiện không chứng minh chưa từng vay. Thiếu điểm bên thứ ba khác với thiếu chứng từ có thể bổ sung. {% if filters.availability %}Bạn đang lọc theo khả dụng dữ liệu, nên một số tỷ lệ thiếu có thể bằng 100% do điều kiện đã chọn.{% endif %}</p>
+    </div></section>
+    <section class="panel"><div class="panel-heading"><div><h2>Hướng phòng ngừa và xác minh</h2><p>Chỉ đạo kiểm tra theo hồ sơ; người thẩm định xác nhận kết quả.</p></div></div><div class="panel-body">
+      <article class="recommendation"><h3>Xác minh nguồn thu và nghĩa vụ phải trả</h3><p>Đối chiếu thu nhập thực nhận, tính ổn định và nghĩa vụ tín dụng. Nhóm nguồn thu không thay thế chứng từ hoặc dòng tiền đã xác minh.</p><a data-cohort-link href="{{ cohort_url('applications',alert='1',status='pending') }}">Rà soát cảnh báo chưa hoàn tất →</a></article>
+      <article class="recommendation"><h3>Đối chiếu lịch sử và thông tin còn thiếu</h3><p>Làm rõ các ghi nhận lịch sử, bổ sung thông tin thu thập được. Không tự coi missing là gian lận hoặc lý do từ chối.</p><a data-cohort-link href="{{ cohort_url('applications',alert='1',status='pending',data_check='monitored') }}">Xem cảnh báo cần kiểm tra dữ liệu →</a></article>
+    </div></section>
+  </div>
+</section>
+<section class="panel" id="action-insights"><div class="panel-heading"><div><h2>Điều phối rà soát cảnh báo</h2><p>Tiến độ trên toàn bộ {{ workflow.alert_n }} cảnh báo thuộc phạm vi đã lọc.</p></div></div><div class="panel-body">
+  {% if workflow.alert_n %}<div class="action-grid">
+    <article class="action-card"><span class="label">CHƯA HOÀN TẤT</span><strong class="text-warning">{{ workflow.pending_n }}</strong><p>Mới hoặc Đang xem xét, trong {{ workflow.alert_n }} cảnh báo.</p><a class="button small" data-cohort-link href="{{ cohort_url('applications',alert='1',status='pending') }}">Mở danh sách →</a></article>
+    <article class="action-card"><span class="label">CHƯA PHÂN CÔNG TRONG SỐ CHƯA HOÀN TẤT</span><strong>{{ workflow.unassigned_pending_n }}</strong><p>Ưu tiên phân công các hồ sơ này.</p><a class="button small" data-cohort-link href="{{ cohort_url('applications',alert='1',status='pending',unassigned='1') }}">Phân công hồ sơ →</a></article>
+    <article class="action-card"><span class="label">TỶ LỆ HOÀN TẤT</span><strong class="text-green">{{ workflow.reviewed_share|percent }}</strong><p>{{ workflow.reviewed_n }} / {{ workflow.alert_n }} cảnh báo được đánh dấu Đã rà soát.</p><a class="button small" data-cohort-link href="{{ cohort_url('applications',alert='1',status='reviewed') }}">Xem kết quả rà soát →</a></article>
+  </div>{% else %}<p class="empty">Chưa có cảnh báo trong phạm vi này để tính tiến độ.</p>{% endif %}
+  <p class="subtext insight-note">Đã rà soát là trạng thái do người dùng cập nhật, không đồng nghĩa đã phê duyệt vay. Bộ lọc trạng thái và người phụ trách được đặt tại Danh sách hồ sơ.</p>
+</div></section>
+<section class="panel" id="priority-queue"><div class="panel-heading"><div><h2>Hàng đợi ưu tiên trong phân khúc</h2><p>Tối đa 10 hồ sơ điểm cao nhất trong {{ workflow.pending_n }} cảnh báo chưa hoàn tất.</p></div><a class="button small" data-cohort-link href="{{ cohort_url('applications',alert='1',status='pending') }}">Xem toàn bộ →</a></div>
+  {% if queue %}<div class="table-scroll"><table><thead><tr><th>Mã hồ sơ</th><th>Loại khoản vay</th><th class="right">Điểm dự báo</th><th class="right">Số tiền ghi nhận</th><th>Người phụ trách</th><th>Trạng thái</th><th></th></tr></thead><tbody>
+  {% for row in queue %}<tr><td><a class="profile-link" data-cohort-link href="{{ cohort_url('application_detail',profile_id=row.profile_id) }}">{{ row.case_label }}</a><span class="subtext">#{{ row.source_application_id }}</span></td><td>{{ products.get(row.NAME_CONTRACT_TYPE,row.NAME_CONTRACT_TYPE) }}</td><td class="right score-number text-warning">{{ row.score|percent }}</td><td class="right nowrap">{{ row.AMT_CREDIT|amount }}</td><td>{{ row.assignee or 'Chưa phân công' }}</td><td>{{ status_badge(row.review_status) }}</td><td><a class="icon-button" data-cohort-link href="{{ cohort_url('application_detail',profile_id=row.profile_id) }}" aria-label="Xem {{ row.case_label }}">{{ icon('eye') }}</a></td></tr>{% endfor %}
+  </tbody></table></div>{% else %}<p class="empty">Không có cảnh báo chưa hoàn tất trong phạm vi hiện tại.</p>{% endif %}
+</section>
+{% if summary.unscored_n %}<div class="callout"><div><strong>{{ summary.unscored_n }} hồ sơ trong phạm vi chưa có điểm.</strong><p>Các hồ sơ này chưa tham gia tính tỷ lệ cảnh báo và điểm trung bình.</p><a class="button small" data-cohort-link href="{{ cohort_url('applications',alert='unscored') }}">Mở hồ sơ chưa chấm →</a></div></div>{% endif %}
+{% endblock %}

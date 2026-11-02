@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% from '_kpi_mini.html' import mini %}
+{% from '_components.html' import icon with context %}
+{% from '_kpi_targets.html' import comparison, settings %}
+{% block title %}Thanh toán và thẻ{% endblock %}
+{% block breadcrumb %}Thanh toán và thẻ{% endblock %}
+{% block topbar_content %}
+<div class="workspace-heading"><div><h1>Thanh toán và thẻ</h1>{% include '_history_scope_subtitle.html' %}</div>{% include '_report_tools.html' %}</div>
+{% endblock %}
+{% block content %}
+
+{% include '_portfolio_filters.html' %}
+<div class="kpi-grid financial-kpis reference-card-layout">
+  <div class="kpi"><div class="financial-kpi-heading"><span class="label">Hồ sơ có dữ liệu lịch sử theo tháng</span></div><strong><span class="kpi-symbol" aria-hidden="true">{{ icon('calendar') }}</span>{{ monthly_report.profiles_n }}</strong>{{ comparison('history_profiles', monthly_report.profiles_n, 'Hồ sơ có dữ liệu lịch sử theo tháng', 'count') }}{{ mini(kpi_minis.get('history_profiles', []), 'Hồ sơ có lịch sử', 'count', 'donut', kpi_mini_meta['history_profiles'].caption) }}</div>
+  <div class="kpi"><div class="financial-kpi-heading"><span class="label">Số kỳ ghi nhận đã trả đủ</span></div><strong><span class="kpi-symbol" aria-hidden="true">{{ icon('check') }}</span>{{ payment_report.completed_n|number }}</strong>{{ comparison('completed_periods', payment_report.completed_n, 'Số kỳ ghi nhận đã trả đủ', 'count') }}{{ mini(kpi_minis.get('completed_periods', []), 'Kỳ đã trả đủ', 'count', 'bar', kpi_mini_meta['completed_periods'].caption) }}</div>
+  <div class="kpi"><div class="financial-kpi-heading"><span class="label">Tỷ lệ trả đúng hạn trong các kỳ đã trả đủ</span></div><strong><span class="kpi-symbol" aria-hidden="true">{{ icon('percent') }}</span>{{ payment_report.rate|percent }}</strong>{{ comparison('on_time', payment_report.rate, 'Tỷ lệ trả đúng hạn trong các kỳ đã trả đủ', 'percent') }}{{ mini(kpi_minis.get('on_time', []), 'Tỷ lệ trả đúng hạn', 'percent', 'stacked', kpi_mini_meta['on_time'].caption) }}</div>
+  <div class="kpi"><div class="financial-kpi-heading"><span class="label">Tỷ lệ sử dụng hạn mức thẻ — trung vị</span></div><strong><span class="kpi-symbol" aria-hidden="true">{{ icon('card') }}</span>{{ card_report.median|percent }}</strong>{{ comparison('utilization', card_report.median, 'Tỷ lệ sử dụng hạn mức thẻ — trung vị', 'percent') }}{{ mini(kpi_minis.get('utilization', []), 'Sử dụng hạn mức thẻ', 'percent', 'horizontal', kpi_mini_meta['utilization'].caption) }}</div>
+</div>
+{{ settings(false) }}
+
+<div class="history-chart-grid history-payment-grid">
+  <section class="panel report-panel"><div class="panel-heading"><div><h2><span class="chart-symbol" aria-hidden="true">{{ icon('model') }}</span>Diễn biến tỷ lệ khoản quá hạn</h2></div><div class="segmented-control">{% for key,label in [('bureau','Bureau'),('pos','POS'),('card','Thẻ')] %}<a data-dashboard-nav data-cohort-link class="{% if history_source==key %}active{% endif %}" href="{{ cohort_url('payment_analysis',source=key,months=history_months) }}">{{ label }}</a>{% endfor %}</div></div><div class="report-chart">{{ history_chart|safe }}</div></section>
+  <section class="panel report-panel"><div class="panel-heading"><h2><span class="chart-symbol" aria-hidden="true">{{ icon('model') }}</span>Kết quả kỳ thanh toán</h2></div><div class="report-chart">{{ payment_chart|safe }}</div></section>
+
+  <section class="panel report-panel"><div class="panel-heading"><h2><span class="chart-symbol" aria-hidden="true">{{ icon('model') }}</span>Phân bố sử dụng hạn mức thẻ</h2></div><div class="report-chart">{{ card_chart|safe }}</div></section>
+</div>
+<details class="panel history-details" open><summary><strong>Đối chiếu phân khúc</strong><span class="segmented-control" style="margin-left:auto"><a data-dashboard-nav href="{{ cohort_url('payment_analysis',breakdown='income') }}" class="{% if breakdown=='income' %}active{% endif %}">Nguồn thu</a><a data-dashboard-nav href="{{ cohort_url('payment_analysis',breakdown='product') }}" class="{% if breakdown=='product' %}active{% endif %}">Loại vay</a></span></summary><div class="history-details-body">
+  <section class="report-panel">
+    <div class="report-table" data-report-table data-max-rows="6"><div class="table-scroll"><table><thead><tr><th>Phân khúc</th><th class="right">Hồ sơ / khoản</th><th class="right">Có trạng thái</th><th class="right">Quá hạn</th><th class="right">Tỷ lệ</th></tr></thead><tbody>{% for row in history_groups %}<tr><td>{% if row.url %}<a data-cohort-link href="{{ row.url }}">{{ row.label }}</a>{% else %}{{ row.label }}{% endif %}</td><td class="right">{{ row.profiles_n }} / {{ row.loans_n }}</td><td class="right">{{ row.known_n|number }}</td><td class="right">{{ row.overdue_n|number }}</td><td class="right">{{ row.share|percent }}</td></tr>{% else %}<tr><td colspan="5" class="empty">Không có lịch sử phù hợp.</td></tr>{% endfor %}</tbody></table></div><div class="report-table-pager" aria-label="Phân trang phân khúc"></div></div>
+  </section>
+</div></details>
+<dialog id="monthly-data" class="report-dialog" aria-labelledby="monthly-data-title">
+<div class="dialog-header"><h2 id="monthly-data-title">Bảng số liệu tháng</h2><button class="icon-button" type="button" data-close aria-label="Đóng">×</button></div>
+<div class="dialog-body"><div class="table-scroll"><table><thead><tr><th>Tháng</th><th>Khoản có trạng thái</th><th>Khoản quá hạn</th><th>Tỷ lệ</th><th></th></tr></thead><tbody>{% for row in monthly_rows %}<tr><td>{{ row.MONTHS_BALANCE }}</td><td>{{ row.known_n|number }}</td><td>{{ row.overdue_n|number }}</td><td>{{ row.share|percent }}</td><td><button class="button small" data-drill-kind="month" data-drill-value="{{ row.MONTHS_BALANCE }}">Xem khoản →</button></td></tr>{% endfor %}</tbody></table></div></div></dialog>
+{% if history_source=='bureau' %}<dialog id="transition-analysis" class="report-dialog" aria-labelledby="transition-analysis-title">
+<div class="dialog-header"><h2 id="transition-analysis-title">Chuyển trạng thái tháng t → t+1</h2><button class="icon-button" type="button" data-close aria-label="Đóng">×</button></div>
+<div class="dialog-body"><h3>{{ monthly_report.pair_n|number }} cặp tháng liên tiếp</h3>{{ transition_chart|safe }}<div class="table-scroll"><table class="transition-table"><thead><tr><th>Từ / Sang</th>{% for state in monthly_report.states %}<th>{{ state }}</th>{% endfor %}</tr></thead><tbody>{% for row in monthly_report.transitions %}<tr><th>{{ row.from_state }}</th>{% for cell in row.cells %}<td><button class="button small" data-drill-kind="transition" data-drill-value="{{ row.from_state }}:{{ cell.to_state }}">{{ cell.n }} · {{ cell.share|percent }}</button></td>{% endfor %}</tr>{% endfor %}</tbody></table></div></div></dialog>{% endif %}
+<dialog id="report-notes" class="report-dialog" aria-labelledby="report-notes-title">
+<div class="dialog-header"><h2 id="report-notes-title">Cách tính & phạm vi dữ liệu</h2><button class="icon-button" type="button" data-close aria-label="Đóng">×</button></div>
+<div class="dialog-body"><p>Lịch sử trước mốc nộp đơn · Hồ sơ đang quản lý</p>
+<p>Phạm vi KPI: lịch sử tháng gồm {{ monthly_report.loans_n }} khoản và {{ monthly_report.rows_n|number }} khoản–tháng; thanh toán gồm {{ payment_report.periods_n|number }} kỳ / phiên bản hợp lệ, trong đó {{ payment_report.on_time_n|number }} / {{ payment_report.completed_n|number }} kỳ đã trả đủ được ghi nhận đúng hạn. Có {{ card_report.valid_n }} thẻ đủ dữ liệu sử dụng hạn mức.</p>
+<p>Lịch sử tháng thể hiện các mốc tương đối trước ngày nộp đơn của từng hồ sơ, không phải diễn biến danh mục theo tháng lịch. Mỗi tháng dùng số khoản có trạng thái hợp lệ làm mẫu số; số khoản có dữ liệu có thể khác nhau giữa các tháng.</p>
+<p>Tỷ lệ đúng hạn = số kỳ đã quan sát trả đủ trước/đúng ngày đến hạn / số kỳ đã quan sát trả đủ. Các lần trả từng phần được cộng theo thời điểm trên cùng kỳ và phiên bản. Chưa thấy trả đủ không đồng nghĩa quá hạn.</p>
+<p>Sử dụng hạn mức là trung vị balance/limit trên snapshot thẻ gần nhất trước mốc nộp đơn, với hạn mức dương. Giữ các giá trị trên 100%.</p>
+<p>KPI lịch sử tháng theo nguồn/cửa sổ đã chọn; KPI kỳ trả và thẻ theo lịch sử trước mốc nộp đơn trong cùng tập hồ sơ. Bộ lọc loại tiền/trạng thái bureau áp dụng cho số liệu bureau, không đổi đơn vị của kỳ trả hay thẻ.</p></div></dialog>
+{% endblock %}

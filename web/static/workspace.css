@@ -1,0 +1,107 @@
+/* Shared presentation for every workspace tab, using the overview as the reference. */
+.analytics-shell{
+  --primary:#2878b8;--primary-hover:#1d5f96;--danger:#a56617;--success:#16a37f;--warning:#f2a93b;--warning-bg:#fff5dd;
+  --blue-secondary:#5a9dcc;--blue-soft:#e0eef8;--navy:#263849;--navy-active:#fff;--sidebar-text:#263849;
+  --ink:#263849;--muted:#677b8c;--line:#dfe9f1;--soft:#edf5fb;--surface:#f5f8fb;
+  background:var(--surface);color:var(--ink);font-family:'Segoe UI',Arial,sans-serif;
+}
+.analytics-shell .sidebar{background:var(--navy);border-color:var(--line);border-radius:var(--dashboard-radius,10px);color:var(--sidebar-text)}
+.analytics-shell .brand{border-color:#ebeef1;color:var(--ink)}
+.analytics-shell .brand small{color:var(--muted)}
+.analytics-shell .nav-item{border-left:3px solid transparent;color:var(--sidebar-text);border-radius:var(--dashboard-radius,10px)}
+.analytics-shell .nav-item.active{border-left-color:transparent;background:var(--navy-active);color:var(--primary);font-weight:600}
+.analytics-shell .nav-item:not(.active):hover{background:#edf5fb;color:var(--ink)}
+.analytics-shell .nav-section{color:#94868e;font-size:10px;letter-spacing:.035em}
+.analytics-shell .model-status>summary,.analytics-shell .model-status>strong{color:var(--sidebar-text)}
+.analytics-shell .model-status{border-color:var(--line);color:var(--muted)}
+.analytics-shell .sidebar-user,.analytics-shell .sidebar-user strong{color:var(--ink)}
+.analytics-shell .sidebar-user small,.analytics-shell .account-chevron{color:var(--muted)}
+.analytics-shell .topbar{height:auto;min-height:64px;padding:12px 16px;align-items:flex-start;background:rgba(255,255,255,.94);border-color:var(--line);border-radius:var(--dashboard-radius,10px);backdrop-filter:blur(6px)}
+.analytics-shell .topbar-content{flex-wrap:wrap;gap:10px 16px}
+.analytics-shell .main{height:auto;min-height:100dvh;padding-top:var(--workspace-topbar-offset,90px)}
+.analytics-shell .page,.analytics-shell.report-view .page,.analytics-shell.history-view .page{display:flex;flex-direction:column;height:auto;min-height:calc(100dvh - var(--workspace-topbar-offset,90px));padding:12px 22px 28px 16px;gap:18px}
+.analytics-shell .page>.panel{margin:0}
+.workspace-heading{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px 16px;width:100%;min-width:0}
+.workspace-heading>div:first-child{flex:1 1 250px;min-width:0}
+.analytics-shell .workspace-heading h1{margin:0;color:var(--ink);font-size:19px;font-weight:650;line-height:1.4;letter-spacing:-.35px}
+.workspace-heading p{margin:3px 0 0;color:var(--muted);font-size:11px;line-height:1.5;max-width:720px}
+.workspace-heading .heading-actions{display:flex;align-items:center;justify-content:flex-end;flex:0 1 auto;flex-wrap:wrap;gap:8px;margin-left:auto}
+.analytics-shell .workspace-heading .button{min-height:34px;padding:6px 10px;font-size:12px;white-space:normal}
+.analytics-shell .button{background:#fff;border:1px solid var(--line);border-radius:var(--dashboard-radius,10px);color:#62545e;min-height:34px;box-shadow:none}
+.analytics-shell .button:hover{background:#f5f8fa;border-color:#bdcad4;transform:none}
+.analytics-shell .button.primary{background:var(--primary);border-color:var(--primary);color:#fff}
+.analytics-shell .button.primary:hover{background:var(--primary-hover);border-color:var(--primary-hover)}
+.analytics-shell .button.danger{color:var(--danger)}
+.analytics-shell .panel,.analytics-shell .kpi-grid .kpi{border:1px solid var(--line);border-radius:var(--dashboard-radius,10px);background:rgba(255,255,255,.96);box-shadow:0 3px 15px #2a425408;backdrop-filter:blur(6px)}
+.analytics-shell .kpi-grid{gap:12px}
+.analytics-shell .kpi-grid .kpi,.analytics-shell:is(.history-view,.model-analytics-view).report-view .kpi-grid .kpi{min-height:110px;padding:15px 16px;justify-content:flex-start;border:1px solid var(--line);border-radius:var(--dashboard-radius,10px);background:rgba(255,255,255,.96);box-shadow:0 3px 15px #2a425408;backdrop-filter:blur(6px)}
+.analytics-shell .kpi-grid .kpi .label,.analytics-shell:is(.history-view,.model-analytics-view).report-view .kpi-grid .kpi .label{font-size:12px;font-weight:500;line-height:18px;color:#756770;text-transform:none;letter-spacing:0;min-height:36px}
+.analytics-shell .kpi-grid .kpi strong,.analytics-shell:is(.history-view,.model-analytics-view).report-view .kpi-grid .kpi strong{margin:7px 0 0;color:var(--ink);font-size:clamp(24px,1.9vw,30px);line-height:1.2;font-weight:650;letter-spacing:-.65px;font-variant-numeric:tabular-nums}
+.analytics-shell .kpi-grid .kpi strong:is(.financial-risk-value,.risk-value),.analytics-shell:is(.history-view,.model-analytics-view).report-view .kpi-grid .kpi strong:is(.financial-risk-value,.risk-value){color:var(--danger)}
+.analytics-shell .text-warning{color:#8a5b00}
+.analytics-shell .kpi-grid .kpi small,.analytics-shell:is(.history-view,.model-analytics-view).report-view .kpi-grid .kpi small{margin-top:7px;color:#867780;font-size:10.5px;line-height:16px}
+.analytics-shell .financial-kpi-heading{height:36px;min-height:36px;align-items:flex-start}
+.analytics-shell:not(.financial-view) .financial-kpi-heading .kpi-symbol{display:none}
+.analytics-shell:not(.financial-view) .report-panel{min-height:0;height:auto;overflow:hidden}
+.analytics-shell .report-panel:hover{border-color:#c4d0d9;transform:none;box-shadow:0 3px 15px #2a425408}
+.analytics-shell:not(.financial-view) .report-panel>.panel-heading{min-height:52px;padding:6px 16px;align-items:flex-start;background:transparent;border:0;text-align:left;gap:8px}
+.analytics-shell:not(.financial-view) .report-panel .panel-heading h2{margin:0;color:#3b3038;font-size:14px;font-weight:600;line-height:20px;text-align:left}
+.analytics-shell:not(.financial-view) .report-panel .panel-heading p{margin:3px 0 0;color:#867780;font-size:11px;line-height:16px}
+.analytics-shell:not(.financial-view) .report-panel .chart-symbol{display:none}
+.analytics-shell:not(.financial-view) .report-panel>.report-chart{height:200px;min-height:200px;flex:0 0 200px;margin:0 16px 12px}
+.analytics-shell .chart-horizontal-legend{font-family:'Segoe UI',Arial,sans-serif;margin:0;padding:0;gap:4px 12px;justify-content:center}
+.analytics-shell .chart-horizontal-legend button{font-family:inherit;font-size:11px;line-height:16px;gap:6px}
+.analytics-shell .chart-horizontal-legend button i{width:12px;height:12px;border-radius:var(--dashboard-radius,10px)}
+.analytics-shell.history-view.report-view .history-chart-grid,.analytics-shell .evaluation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;gap:16px;align-items:stretch;align-content:start;flex:none}
+.analytics-shell:is(.financial-view,.history-view).report-view :is(.financial-chart-grid,.history-chart-grid)>.report-panel{--chart-plot-height:200px}
+.analytics-shell.history-view.report-view .history-chart-grid>.report-panel[data-chart-layout]{max-width:none;align-self:stretch}
+.analytics-shell.history-view.report-view .history-chart-grid>.report-panel>.panel-heading{min-height:52px;flex:0 0 auto;box-sizing:border-box}
+.analytics-shell .evaluation-grid>.panel,.analytics-shell .evaluation-grid>.panel:nth-child(-n+2){grid-column:auto}
+@media(min-width:1280px){
+  .analytics-shell.history-view.report-view .history-chart-grid.history-payment-grid{grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr)}
+  .analytics-shell.history-view.report-view .history-payment-grid>.report-panel:first-child{grid-column:auto}
+}
+.analytics-shell .report-insight{background:#fff;border:1px solid var(--line);border-left:3px solid var(--primary);border-radius:var(--dashboard-radius,10px);color:var(--ink);padding:12px 16px}
+.analytics-shell .report-insight p{font-size:13px;line-height:1.6}
+.analytics-shell input,.analytics-shell select,.analytics-shell textarea{background:#fff;border-color:#d8dee2;border-radius:var(--dashboard-radius,10px);color:#434e56}
+.analytics-shell :focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+.analytics-shell dialog{background:#fff;border:1px solid #dde4e9;border-radius:var(--dashboard-radius,10px)}
+.analytics-shell .dialog-header{background:#fafbfc;border-bottom:1px solid #e5eaee}
+.analytics-shell dialog::backdrop{background:#232b3044;backdrop-filter:blur(2px)}
+.analytics-shell table th{background:#f7f9fa;color:#756770}
+.analytics-shell table td{border-color:#e9edf0}
+.analytics-shell .panel table tbody tr:hover{background:#f7fafc}
+.analytics-shell .queue-tabs{border-color:var(--line)}
+.analytics-shell .queue-tabs a.active{color:var(--primary);border-color:var(--blue-soft);background:var(--blue-soft)}
+.analytics-shell .queue-tabs a.active .queue-tab-icon{background:var(--primary);color:#fff;box-shadow:none}
+.analytics-shell .model-context{flex-wrap:wrap;gap:6px 16px;color:var(--muted)}
+.analytics-shell .model-context strong{color:var(--ink)}
+.analytics-shell.history-view .history-chart-grid>.panel{border-radius:var(--dashboard-radius,10px)}
+.analytics-shell .dashboard-chart .xtick text,.analytics-shell .dashboard-chart .ytick text,
+.analytics-shell .dashboard-chart .g-xtitle text,.analytics-shell .dashboard-chart .g-ytitle text{fill:#808080!important}
+.analytics-shell .model-scope-note{background:#f5f8fa;color:var(--muted);border-radius:var(--dashboard-radius,10px)}
+.analytics-shell .model-scope-note strong{color:var(--ink)}
+.workspace-note>summary{padding:12px 16px;cursor:pointer;color:#756770;font-size:12px}
+.workspace-note>div{padding:0 16px 16px;color:var(--muted);font-size:12px;line-height:1.7}
+.analytics-shell dialog.application-filters-panel{width:min(960px,calc(100vw - 32px));max-height:85dvh;margin:auto;padding:0}
+.analytics-shell dialog.history-filters-panel{width:min(760px,calc(100vw - 32px));max-height:85dvh;padding:0}
+@media(max-width:1279px){.analytics-shell .model-kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:999px){.analytics-shell.history-view.report-view .history-chart-grid,.analytics-shell .evaluation-grid{grid-template-columns:1fr}}
+@media(max-width:767px){
+  .analytics-shell .page,.analytics-shell.report-view .page,.analytics-shell.history-view .page{padding:10px 22px 14px 16px;gap:14px}
+  .workspace-heading>div:first-child{flex-basis:100%}
+  .analytics-shell .workspace-heading h1{font-size:17px}
+  .workspace-heading .heading-actions{justify-content:flex-start;margin-left:0}
+  .analytics-shell .kpi-grid,.analytics-shell .model-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .analytics-shell:is(.history-view,.model-analytics-view).report-view .kpi-grid .kpi{min-height:108px;padding:13px}
+  .analytics-shell:is(.history-view,.model-analytics-view).report-view .kpi-grid .kpi strong{font-size:26px}
+}
+@media(max-width:720px){.analytics-shell .page,.analytics-shell.report-view .page,.analytics-shell.history-view .page{padding-left:12px;padding-right:12px}}
+@media(prefers-reduced-transparency:reduce){.analytics-shell .topbar,.analytics-shell .panel,.analytics-shell .kpi-grid .kpi{background:#fff;backdrop-filter:none;box-shadow:none}}
+@media print{
+  .analytics-shell .topbar{display:flex;position:static;min-height:0;margin:0 0 12px;padding:0;border:0;background:#fff}
+  .analytics-shell .topbar .mobile-menu,.workspace-heading .heading-actions{display:none}
+  .analytics-shell .main{padding-top:0}
+  .analytics-shell .page,.analytics-shell.report-view .page{height:auto;min-height:0}
+  .analytics-shell .panel,.analytics-shell .kpi-grid .kpi{background:#fff;box-shadow:none;backdrop-filter:none}
+}

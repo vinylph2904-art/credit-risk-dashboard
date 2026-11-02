@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "decile_counts_reconcile": true,
+  "tie_break": "score descending, SK_ID_CURR ascending",
+  "model_or_threshold_changed": false,
+  "datasets": [
+    "active_validation",
+    "frozen_finalist_historical_test"
+  ],
+  "validation_is_not_independent_of_threshold_selection": true,
+  "historical_test_is_not_a_new_independent_holdout": true
+}

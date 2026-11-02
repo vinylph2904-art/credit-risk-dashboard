@@ -1,0 +1,12 @@
+{
+  "candidate": "full_B",
+  "cv_gate": {
+    "minimum_mean_ap_gain": 0.001,
+    "minimum_nonnegative_folds": 2,
+    "maximum_single_fold_ap_loss": 0.003,
+    "maximum_mean_brier_increase": 0.0005
+  },
+  "test_labels_read": false,
+  "cache_id": "bfb13f148d4278f899b8",
+  "validation_labels_read_during_selection": false
+}

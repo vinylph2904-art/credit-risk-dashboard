@@ -1,0 +1,51 @@
+/* Neutral navigation grouped by analysis, credit history, review and model. */
+html body.analytics-shell.neo-workspace .sidebar .sidebar-navigation {
+  padding:8px 10px;
+  min-height:0;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  scrollbar-width:thin
+}
+html body.analytics-shell.neo-workspace .sidebar .sidebar-nav-group {
+  margin:0 0 8px
+}
+html body.analytics-shell.neo-workspace .sidebar .sidebar-nav-group:last-child {
+  margin-bottom:0
+}
+html body.analytics-shell.neo-workspace .sidebar .sidebar-navigation .nav-section {
+  margin:12px 10px 6px;
+  padding:0;
+  font:600 10px/16px "Segoe UI",Arial,sans-serif;
+  letter-spacing:.3px;
+  color:#7a7a7a
+}
+html body.analytics-shell.neo-workspace .sidebar .sidebar-navigation .nav-item {
+  margin:3px 0;
+  padding:10px;
+  min-height:40px;
+  gap:9px;
+  line-height:18px;
+  font-size:12px
+}
+html body.analytics-shell.neo-workspace .sidebar .sidebar-navigation .nav-symbol {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 20px;
+  width:20px;
+  height:20px;
+  background:transparent!important;
+  box-shadow:none!important
+}
+html body.analytics-shell.neo-workspace .sidebar .sidebar-navigation .nav-symbol .icon {
+  width:17px;
+  height:17px
+}
+html body.analytics-shell.neo-workspace .sidebar .sidebar-navigation .nav-item-label {
+  min-width:0;
+  white-space:normal;
+  overflow-wrap:break-word
+}
+html body.analytics-shell.neo-workspace .sidebar .sidebar-footer {
+  flex-shrink:0
+}

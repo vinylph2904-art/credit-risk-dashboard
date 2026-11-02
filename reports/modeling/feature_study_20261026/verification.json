@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "paired_folds_complete": true,
+  "feature_selection_inside_fit_fold": true,
+  "full_B_predictions_match_existing_OOF": true,
+  "frozen_before_test_hash_matches": true,
+  "test_confusion_reconciles": true,
+  "active_metadata_unchanged": true,
+  "active_artifact_hash_matches": true,
+  "regression_tests": "2 existing CatBoost runtime tests and 1 subset factory test passed",
+  "notebook_replay": {
+    "status": "passed",
+    "study_code_cells": 6,
+    "descriptive_operational_cells": 2,
+    "new_model_fits": 0,
+    "constructors_forbidden": true,
+    "fit_forbidden": true,
+    "original_notebook_cells_preserved": true,
+    "reports_and_active_metadata_unchanged": true
+  }
+}

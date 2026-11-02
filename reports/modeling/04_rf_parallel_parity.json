@@ -1,0 +1,14 @@
+{
+  "case_id": "A_RF_01",
+  "fold": 0,
+  "n": 61502,
+  "same_ids_labels_configuration": true,
+  "serial_n_jobs": 1,
+  "parallel_n_jobs": 4,
+  "max_absolute_score_error": 8.326672684688674e-17,
+  "serial_fit_s": 172.84816530003445,
+  "parallel_fit_s": 41.774064199998975,
+  "speedup": 4.137690900088162,
+  "serial_ap": 0.21773622862791794,
+  "parallel_ap": 0.21773622862791794
+}

@@ -1,0 +1,11 @@
+{
+  "model_version": "catboost-selected-a8763faa0c2ef0786f72",
+  "feature_n": 182,
+  "threshold": 0.14539365168823878,
+  "model_sha256": "943571ed90e8ea591966dd27865c8348d7b43b77376a0770dbdd56548871435b",
+  "new_scoring_events": 0,
+  "active_profiles": 200,
+  "old_events_preserved": 604,
+  "profiles_unchanged": true,
+  "notes_unchanged": true
+}

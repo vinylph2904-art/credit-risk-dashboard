@@ -1,0 +1,20 @@
+{
+  "status": "active",
+  "old_version": "0f70b06abaf3cbab-f44b5a28",
+  "new_version": "catboost-4fec95c745d24f99893d-ff1d1fde",
+  "case_id": "B_CAT_02",
+  "threshold": 0.14841034110253978,
+  "use_sigmoid": false,
+  "profiles_scored": 200,
+  "new_scoring_events": 200,
+  "old_scoring_events_preserved": 202,
+  "old_event_digest": "bb1ef142a2cbd5c6371d6e14a25a1c0d6fc13d651676972d08b0aa5131e078e4",
+  "profiles_and_review_status_unchanged": true,
+  "notes_preserved": 0,
+  "profiles_digest": "209c7848aa43115edd7f6f204c82fd897d223d3bc8f475d1b17074be520e2205",
+  "notes_digest": "a4a153550cc2293d7be3a0b0fda042124f0a7cc3cabd27ed1234e8abfd6b375c",
+  "legacy_metadata_archive": "artifacts\\0f70b06abaf3cbab\\inference_metadata.json",
+  "legacy_artifact_unchanged": true,
+  "schema_changed": false,
+  "test_labels_used": false
+}

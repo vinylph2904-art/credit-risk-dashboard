@@ -1,0 +1,79 @@
+/* One finish layer for every tab. Geometry and data presentation stay in workspace.css. */
+.analytics-shell.neo-workspace{
+  --surface:#f3f8fc;--neo-card:rgba(255,255,255,.72);--neo-edge:rgba(255,255,255,.88);
+  --neo-raised:0 10px 30px rgba(40,120,184,.10);
+  --neo-small:0 4px 14px rgba(40,120,184,.08);
+  --neo-control:var(--neo-small);
+  background:var(--surface);
+}
+.neo-workspace .sidebar{background:var(--neo-card)!important;border-color:var(--neo-edge)!important;border-radius:var(--dashboard-radius,10px)!important;box-shadow:var(--neo-raised)!important;color:#263849!important;backdrop-filter:blur(18px)!important}
+.analytics-shell.neo-workspace .topbar{background:var(--neo-card)!important;border-color:var(--neo-edge)!important;border-radius:var(--dashboard-radius,10px)!important;box-shadow:var(--neo-raised)!important;backdrop-filter:blur(18px)!important}
+.analytics-shell.neo-workspace .page :is(.panel,.kpi-grid .kpi){background:var(--neo-card)!important;border-color:var(--neo-edge)!important;border-radius:var(--dashboard-radius,10px)!important;box-shadow:var(--neo-raised)!important;backdrop-filter:blur(18px)!important}
+.neo-workspace .panel-heading{background:transparent!important}
+.neo-workspace .panel:hover{transform:none;box-shadow:var(--neo-raised)!important}
+.neo-workspace .brand{border-bottom-color:#edf0f2;color:#202d3e}
+.neo-workspace .brand small{color:#6d7886}
+.analytics-shell.neo-workspace .nav-item{border-radius:var(--dashboard-radius,10px);border:1px solid transparent;border-left:3px solid transparent;transition:background-color 160ms ease,box-shadow 160ms ease,color 160ms ease}
+.analytics-shell.neo-workspace .sidebar .nav-item.active{background:rgba(255,255,255,.96)!important;background-image:none!important;box-shadow:0 5px 16px rgba(40,120,184,.12)!important;border-color:transparent;border-left-color:transparent;color:#2878b8!important;font-weight:650}
+.analytics-shell.neo-workspace .sidebar .nav-item.active .nav-symbol{color:#2878b8!important;background:linear-gradient(145deg,#fff,#e0eef8);border-radius:50%;box-shadow:0 3px 10px rgba(40,120,184,.12)!important}
+.analytics-shell.neo-workspace .sidebar .nav-item.active>.icon{color:#2878b8!important}
+.analytics-shell.neo-workspace .sidebar .nav-item.active:hover{background:rgba(255,255,255,.98)!important;box-shadow:0 5px 16px rgba(40,120,184,.12)!important}
+.analytics-shell.neo-workspace .sidebar .nav-item:not(.active):hover{background:rgba(255,255,255,.52)!important;box-shadow:none!important;color:#263849!important}
+.analytics-shell.neo-workspace .sidebar .nav-section{color:#677b8c}
+.analytics-shell.neo-workspace .sidebar .model-status,.analytics-shell.neo-workspace .sidebar .model-status>summary,.analytics-shell.neo-workspace .sidebar .model-status>strong{color:#6d7886}
+.analytics-shell.neo-workspace .sidebar .model-status{border-color:#e6e9ed}
+.neo-workspace .sidebar-user{color:#202d3e}
+.neo-workspace .sidebar-user strong{color:#202d3e}
+.neo-workspace .sidebar-user small,.neo-workspace .account-chevron{color:#6d7886}
+.neo-workspace .sidebar-user:hover,.neo-workspace .sidebar-user.active{background:#f3f8fc!important;box-shadow:none!important;color:#226a9e!important}
+.neo-workspace .sidebar-user{border-radius:var(--dashboard-radius,10px);transition:background-color 160ms ease}
+.neo-workspace .avatar,.neo-workspace .account-avatar{box-shadow:var(--neo-small)!important}
+.neo-workspace .avatar,.neo-workspace .account-avatar{background:linear-gradient(145deg,#fff,#e0eef8)!important;color:#2878b8!important}
+.neo-workspace .button,.neo-workspace .icon-button{background:var(--neo-card)!important;border-color:var(--neo-edge)!important;border-radius:var(--dashboard-radius,10px)!important;box-shadow:var(--neo-small)!important;transition:box-shadow 140ms ease,background-color 140ms ease}
+.neo-workspace .button:hover,.neo-workspace .icon-button:hover{background:#fbfcfd!important;transform:none}
+.neo-workspace .button:active,.neo-workspace .icon-button:active{box-shadow:1px 1px 3px #b6bdca55,-1px -1px 3px #ffffffcc!important}
+.neo-workspace .button.primary{background:#2878b8!important;border-color:#2878b8!important;color:#fff!important;box-shadow:0 4px 14px rgba(40,120,184,.16)!important}
+.neo-workspace .button.primary:hover{background:#1d5f96!important;border-color:#1d5f96!important}
+.neo-workspace .button.primary:active{box-shadow:1px 1px 4px #b6bdca66!important}
+.neo-workspace .button:disabled{box-shadow:none!important;opacity:.5}
+.neo-workspace .button.financial-help-action{background:transparent!important;border-color:transparent!important;box-shadow:none!important}
+.neo-workspace input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=hidden]),
+.neo-workspace select,.neo-workspace textarea{background:var(--neo-card)!important;border-color:var(--neo-edge)!important;border-radius:var(--dashboard-radius,10px);box-shadow:var(--neo-control)!important}
+.neo-workspace :is(input,select,textarea):focus-visible{outline:2px solid #2878b8;outline-offset:2px}
+.neo-workspace dialog{background:var(--neo-card)!important;border-color:var(--neo-edge)!important;box-shadow:10px 12px 32px #27313f29!important}
+.neo-workspace .dialog-header{background:transparent!important;border-color:#e4e6ec}
+.neo-workspace table th{background:#edf5fb!important}
+.neo-workspace .report-insight{background:var(--neo-card)!important;box-shadow:var(--neo-small)!important}
+.neo-workspace .chart-horizontal-legend button{background:transparent!important;box-shadow:none!important}
+.neo-workspace .kpi-grid .kpi{position:relative}
+.neo-workspace .kpi-grid .kpi>strong{display:block!important;position:static!important}
+.neo-workspace .kpi-grid .financial-kpi-heading{height:auto!important;min-height:36px!important;padding-left:36px}
+.neo-workspace .kpi-grid .kpi>.label{padding-left:36px}
+.neo-workspace .kpi-grid .kpi>strong>.kpi-symbol{position:absolute;top:15px;left:16px;display:inline-grid!important;place-items:center;width:26px;height:26px;min-height:0;margin:0;border:0;border-radius:50%;background:linear-gradient(145deg,#fff,#e0eef8)!important;color:#2878b8;box-shadow:var(--neo-control)!important}
+.neo-workspace .kpi-grid .kpi>strong>.kpi-symbol .icon{width:15px;height:15px;stroke-width:1.7}
+.neo-workspace .kpi-grid .kpi>strong:is(.financial-risk-value,.risk-value)>.kpi-symbol{color:#2878b8}
+@media(max-width:767px){.neo-workspace .kpi-grid .kpi>strong>.kpi-symbol{top:13px;left:13px;width:22px;height:22px;border-radius:var(--dashboard-radius,10px)}.neo-workspace .kpi-grid .kpi>strong>.kpi-symbol .icon{width:14px;height:14px}.neo-workspace .kpi-grid .financial-kpi-heading,.neo-workspace .kpi-grid .kpi>.label{padding-left:30px}}
+.neo-workspace .queue-tabs a.active{box-shadow:var(--neo-control)!important}
+.analytics-shell.neo-workspace.financial-view{background:linear-gradient(145deg,#ffffff 0%,#f3f8fc 48%,#eef6fb 100%)}
+@media(prefers-reduced-motion:reduce){.neo-workspace .button,.neo-workspace .icon-button,.neo-workspace .sidebar-user{transition:none}}
+@media(forced-colors:active){.analytics-shell.neo-workspace .page :is(.panel,.kpi-grid .kpi),.neo-workspace .button{border:1px solid CanvasText!important;box-shadow:none!important}}
+@media print{
+  .neo-workspace{background:#fff!important}
+  .analytics-shell.neo-workspace .page :is(.panel,.kpi-grid .kpi),.analytics-shell.neo-workspace .topbar,.neo-workspace .report-insight{background:#fff!important;box-shadow:none!important;border-color:#ddd!important}
+}
+
+/* Neutral sidebar keeps the original logo as the brand accent. */
+.analytics-shell.neo-workspace .sidebar{background:#fafafa!important;color:#383838!important;border-color:#ededed!important;box-shadow:0 8px 24px rgba(0,0,0,.06)!important;--primary:#454545;--ink:#383838;--muted:#777;--neo-small:0 3px 10px rgba(0,0,0,.06)}
+.analytics-shell.neo-workspace .sidebar .nav-item{color:#626262!important}
+.analytics-shell.neo-workspace .sidebar .nav-item.active,.analytics-shell.neo-workspace .sidebar .nav-item.active:hover{background:#fff!important;color:#333!important;box-shadow:0 3px 12px rgba(0,0,0,.07)!important}
+.analytics-shell.neo-workspace .sidebar .nav-item.active .nav-symbol,.analytics-shell.neo-workspace .sidebar .nav-item.active>.icon{color:#454545!important;background:#f1f1f1;box-shadow:none!important}
+.analytics-shell.neo-workspace .sidebar .nav-item:not(.active):hover,.analytics-shell.neo-workspace .sidebar-user:hover,.analytics-shell.neo-workspace .sidebar-user.active{background:#f0f0f0!important;color:#333!important}
+.analytics-shell.neo-workspace .sidebar :is(.avatar,.account-avatar){background:linear-gradient(145deg,#fff,#ededed)!important;color:#555!important;box-shadow:0 3px 10px rgba(0,0,0,.06)!important}
+.analytics-shell.neo-workspace .sidebar :is(.brand,.sidebar-user,.sidebar-user strong){color:#383838}
+.analytics-shell.neo-workspace .sidebar :is(.nav-section,.brand small,.sidebar-user small,.account-chevron){color:#777}
+
+/* Fresh complementary accents; the sidebar retains its neutral brand setting. */
+.analytics-shell.neo-workspace{--primary:#2584d4;--primary-hover:#245fa8;--blue-secondary:#35b9d0;--blue-soft:#e5f5fb}
+.analytics-shell.neo-workspace .page .kpi-grid .kpi:nth-child(4n+2)>strong>.kpi-symbol{background:linear-gradient(145deg,#fff,#dcf5ee)!important;color:#168f83!important}
+.analytics-shell.neo-workspace .page .kpi-grid .kpi:nth-child(4n+3)>strong>.kpi-symbol{background:linear-gradient(145deg,#fff,#eee8fb)!important;color:#7962bd!important}
+.analytics-shell.neo-workspace .page .kpi-grid .kpi:nth-child(4n+4)>strong>.kpi-symbol{background:linear-gradient(145deg,#fff,#fcebe5)!important;color:#b35f4e!important}

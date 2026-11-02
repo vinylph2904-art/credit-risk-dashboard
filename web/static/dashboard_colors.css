@@ -1,0 +1,104 @@
+.analytics-shell.neo-workspace {
+  --surface:#f5f6f8;
+  --ink:#20252b;
+  --muted:#697580;
+  --primary:#2f7be5;
+  --danger:#dc3545;
+  --success:#15803d;
+  --warning:#854d0e;
+  --neo-raised:0 4px 16px #00000006;
+  --neo-small:0 2px 8px #00000006;
+  background:#f5f6f8!important
+}
+.analytics-shell.neo-workspace .page .kpi-grid .kpi>strong>.kpi-symbol {
+  background:#edf4fc!important;
+  color:#2f7be5!important;
+  box-shadow:none!important
+}
+.analytics-shell.neo-workspace .kpi-grid .kpi strong {
+  color:#20252b!important
+}
+.analytics-shell.neo-workspace .kpi-grid .kpi[data-level=good] strong,.analytics-shell.neo-workspace .kpi-grid .kpi[data-level=good] .kpi-symbol {
+  color:#15803d!important
+}
+.analytics-shell.neo-workspace .kpi-grid .kpi[data-level=warning] strong,.analytics-shell.neo-workspace .kpi-grid .kpi[data-level=warning] .kpi-symbol {
+  color:#854d0e!important
+}
+.analytics-shell.neo-workspace .kpi-grid .kpi[data-level=danger] strong,.analytics-shell.neo-workspace .kpi-grid .kpi[data-level=danger] .kpi-symbol {
+  color:#dc3545!important
+}
+.kpi-level-label {
+  font-size:11px;
+  color:#697580;
+  margin-top:6px;
+  display:block
+}
+[data-level=good] .kpi-level-label {
+  color:#15803d
+}
+[data-level=warning] .kpi-level-label {
+  color:#854d0e
+}
+[data-level=danger] .kpi-level-label {
+  color:#dc3545
+}
+.financial-topbar-controls .analytics-shell.neo-workspace .page .kpi-grid .kpi:nth-child(n)>strong>.kpi-symbol {
+  background:#edf4fc!important;
+  color:#2f7be5!important
+}
+.analytics-shell.neo-workspace .page .kpi-grid .kpi[data-level=good] .kpi-symbol {
+  color:#15803d!important
+}
+.analytics-shell.neo-workspace .page .kpi-grid .kpi[data-level=warning] .kpi-symbol {
+  color:#854d0e!important
+}
+.analytics-shell.neo-workspace .page .kpi-grid .kpi[data-level=danger] .kpi-symbol {
+  color:#dc3545!important
+}
+.kpi-info-button {
+  position:absolute;
+  right:9px;
+  bottom:8px;
+  border:0;
+  background:transparent;
+  color:#697580;
+  font:18px/1 Segoe UI,Arial,sans-serif;
+  cursor:pointer;
+  padding:5px
+}
+.kpi-info-button:focus-visible {
+  outline:2px solid #2f7be5;
+  outline-offset:2px
+}
+.kpi-level-label {
+  padding-right:25px
+}
+#kpi-reference-info {
+  width:min(540px,calc(100vw - 32px));
+  max-height:85dvh;
+  overflow:auto
+}
+#kpi-reference-info p {
+  line-height:1.65;
+  margin-bottom:12px
+}
+/* Mini-chart presentation; card geometry belongs exclusively to kpi_cards.css. */
+.kpi-mini-summary {
+  display:contents
+}
+.kpi-mini-comparison {
+  font-size:12px;
+  min-width:0
+}
+.kpi-mini-comparison span,.kpi-mini-chart span {
+  display:block;
+  font-size:9px;
+  line-height:12px;
+  color:#697580
+}
+.kpi-mini-chart {
+  color:#56afe4
+}
+.kpi-mini-chart span {
+  text-align:center
+}

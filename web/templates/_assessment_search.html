@@ -1,0 +1,16 @@
+<section class="assessment-toolbar" aria-label="Tìm và lọc hồ sơ">
+  <form class="assessment-search" method="get" action="{{ url_for('applications') }}" role="search" data-suggestion-url="{{ url_for('application_suggestions') }}">
+    <label class="sr-only" for="application-search">Tìm mã hoặc tên hồ sơ</label>
+    <input id="application-search" type="search" name="q" value="{{ q }}" placeholder="Nhập mã hoặc tên hồ sơ…" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="application-search-suggestions" autocomplete="off">
+    <div class="assessment-suggestions" hidden>
+      <div class="assessment-suggestion-heading">Mở nhanh hồ sơ · trong hồ sơ bạn được phép xem</div>
+      <div id="application-search-suggestions" role="listbox" aria-label="Gợi ý hồ sơ"></div>
+      <p class="assessment-search-status" role="status" aria-live="polite" hidden></p>
+      <button class="assessment-search-all" type="submit">Xem tất cả kết quả theo bộ lọc hiện tại →</button>
+    </div>
+    {% for name,value in request.args.items() %}{% if name not in ['q','page'] %}<input type="hidden" name="{{ name }}" value="{{ value }}">{% endif %}{% endfor %}
+    <button class="button" type="submit" aria-label="Tìm kiếm hồ sơ">{{ icon('search') }}<span class="assessment-search-label">Tìm kiếm</span></button>
+  </form>
+    <button class="button small assessment-filter-button" type="button" data-open="application-filters" aria-controls="application-filters" aria-haspopup="dialog">{{ icon('filter') }}Bộ lọc</button>
+
+</section>

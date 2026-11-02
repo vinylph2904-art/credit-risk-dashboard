@@ -1,0 +1,71 @@
+{
+  "notebook": "notebooks\\04_Model_Training_Evaluation.ipynb",
+  "fresh_kernel": true,
+  "kernel_mode": "in_process_ipython_in_separate_fresh_python_process",
+  "code_cells_executed": 28,
+  "errors": 0,
+  "elapsed_seconds": 213.98,
+  "executed_code_sha256": "f7b503c8e56ff6d632d7ffbc09e90350ada3cb84fab8b3158d0d88a1f0665998",
+  "shared_source_sha256": {
+    "Connectors/Connector.py": "4e96309123563df3c2afe9f724452571df2c809ef780f7bd2497020accf7119c",
+    "Models/HomeCreditModelData.py": "ce9a32ee17583b777ddb9690e69c976e9cdc111434f8b001548a43161d69d81e",
+    "Models/HomeCreditTraining.py": "8266338f714f5fe3927e383ee321ad42d599bae4d38949ff7ff7782b30702189",
+    "Utils/FileUtil.py": "d67a4661966622d4e5d7d73c9cc45374194b4239371f22c457db00917dd039e0"
+  },
+  "cv_checkpoints_reused": 102,
+  "calibration_checkpoints_reused": 3,
+  "full_data_classifier_fit_calls": 0,
+  "frozen_model_reused": true,
+  "small_data_fresh_fit_checks": {
+    "status": "passed",
+    "sample_rows": 900,
+    "checks": [
+      {
+        "name": "all_34_pipeline_configurations_equal",
+        "passed": true
+      },
+      {
+        "name": "fit_transform_and_predictions_exact",
+        "cases": [
+          "A_Dummy_01",
+          "A_LR_01",
+          "A_LR_02",
+          "A_DT_01",
+          "A_RF_01",
+          "B_Dummy_01",
+          "B_LR_01",
+          "B_LR_02",
+          "B_DT_01",
+          "B_RF_01"
+        ],
+        "passed": true
+      },
+      {
+        "name": "fresh_three_fold_scores_and_checkpoint_reuse",
+        "passed": true
+      },
+      {
+        "name": "fresh_nested_calibration_and_checkpoint_reuse",
+        "passed": true
+      },
+      {
+        "name": "final_fit_raw_and_sigmoid_equal",
+        "passed": true
+      },
+      {
+        "name": "policy_and_capacity_metrics_equal",
+        "passed": true
+      },
+      {
+        "name": "reject_mismatched_fold_order",
+        "passed": true
+      },
+      {
+        "name": "sql_import_missing_only_types_cache_labels_and_version",
+        "passed": true
+      }
+    ],
+    "scope": "All 34 constructors; 10 representative fits; CV/calibration/final fit on small data; SQLite import/read fixture. Full-data results checked separately."
+  },
+  "verification_scope": "All 28 cells in a fresh process, existing CV/calibration checkpoints verified, existing frozen model loaded; fresh fit branches tested separately on 900-row fixture."
+}

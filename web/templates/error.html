@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block title %}Kiểm tra thao tác{% endblock %}
+{% block breadcrumb %}Thông báo{% endblock %}
+{% block content %}
+<section class="error-panel"><div class="error-code">{{ code }}</div><h1>Chưa thực hiện được thao tác</h1><p>{{ message }}</p><div class="button-row">{% if signed_in_user and not is_admin %}<a class="button primary" href="{{ url_for('applications') }}">Mở danh sách hồ sơ</a>{% endif %}<a class="button" href="{{ url_for(home_endpoint) }}">Về trang chính</a></div></section>
+{% endblock %}

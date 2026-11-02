@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "validation_scores_match_artifact": true,
+  "runtime_preparation_matches_training": true,
+  "LR_validation_matches_historical_report": true,
+  "SHAP_additivity_rows": 5,
+  "calibration_checkpoint_warm_fits": 0,
+  "warm_seconds": 0.12884349998785183,
+  "test_labels_used": false,
+  "dashboard_changed": false
+}

@@ -1,0 +1,8 @@
+{
+  "decision_sha256": "63aa821e28e627ed9f2e7b71c86203c15193af7a9da1f531a0a21793cf840194",
+  "status": "scored_frozen_finalist",
+  "n": 61503,
+  "model_selection_after_test": false,
+  "threshold_selection_after_test": false,
+  "scope": "historical internal test; previously observed for LR, not a new independent holdout"
+}

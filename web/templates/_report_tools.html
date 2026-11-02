@@ -1,0 +1,10 @@
+<div class="heading-actions">
+  <button class="button small" type="button" data-open="report-filters">{{ icon('filter') }}Bộ lọc{% if selection_chips %}<span class="filter-count">{{ selection_chips|length }}</span>{% endif %}</button>
+  <a class="button small" data-cohort-link href="{{ cohort_url('applications') }}">{{ icon('folder') }}Hồ sơ</a>
+  <details class="report-menu"><summary class="button small" aria-label="Tùy chọn báo cáo">⋯</summary><div class="report-menu-items">
+    <button type="button" data-open="kpi-targets">Mục tiêu KPI</button>
+    <button type="button" data-open="report-notes">Cách tính & dữ liệu</button>
+    {% if active=='payment_analysis' %}<button type="button" data-open="monthly-data">Bảng số liệu tháng</button>{% if history_source=='bureau' %}<button type="button" data-open="transition-analysis">Chuyển trạng thái</button>{% endif %}{% endif %}
+    {% if active=='risk_dashboard' %}<button type="button" data-open="score-utilization">Điểm & sử dụng hạn mức</button><button type="button" data-open="risk-diagnostics">Thông tin cần xác minh</button>{% endif %}
+  </div></details>
+</div>

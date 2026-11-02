@@ -1,0 +1,31 @@
+{% from '_components.html' import icon with context %}
+{% macro item(endpoint, label, symbol, selected=False, assessment=False) -%}
+<a data-cohort-link href="{{ cohort_url(endpoint,view='assessment' if assessment else none,section=none) }}" class="nav-item {% if selected %}active{% endif %}"{% if selected %} aria-current="page"{% endif %}><span class="nav-symbol">{{ icon(symbol) }}</span><span class="nav-item-label">{{ label }}</span></a>
+{%- endmacro %}
+{% if not is_admin %}
+<nav class="sidebar-navigation" aria-label="Không gian làm việc">
+  <div class="sidebar-nav-group" role="group" aria-labelledby="nav-analysis">
+    <h2 class="nav-section" id="nav-analysis">Phân tích</h2>
+    {{ item('dashboard','Tổng quan tài chính','grid',active=='dashboard') }}
+    {{ item('risk_dashboard','Phân tích phân khúc','model',active=='risk_dashboard') }}
+  </div>
+  {% if is_manager %}<div class="sidebar-nav-group" role="group" aria-labelledby="nav-credit-history">
+    <h2 class="nav-section" id="nav-credit-history">Lịch sử tín dụng</h2>
+    {{ item('credit_diagnostics','Dư nợ và quá hạn','wallet',request.endpoint=='credit_diagnostics') }}
+    {{ item('payment_analysis','Thanh toán và thẻ','card',request.endpoint=='payment_analysis') }}
+  </div>{% endif %}
+  <div class="sidebar-nav-group" role="group" aria-labelledby="nav-review">
+    <h2 class="nav-section" id="nav-review">Công việc</h2>
+    {{ item('applications','Rà soát hồ sơ','folder',active in ['assessment','applications','history'],True) }}
+  </div>
+  <div class="sidebar-nav-group" role="group" aria-labelledby="nav-model">
+    <h2 class="nav-section" id="nav-model">Mô hình hỗ trợ</h2>
+    {{ item('model_info','Đánh giá mô hình','gauge',active=='model') }}
+  </div>
+</nav>
+{% else %}
+<nav class="sidebar-navigation" aria-label="Quản trị hệ thống"><div class="sidebar-nav-group" role="group" aria-labelledby="nav-admin"><h2 class="nav-section" id="nav-admin">Quản trị hệ thống</h2>
+<a class="nav-item {% if active=='users' %}active{% endif %}" href="{{ url_for('users_admin') }}"{% if active=='users' %} aria-current="page"{% endif %}><span class="nav-symbol">{{ icon('user') }}</span><span class="nav-item-label">Tài khoản người dùng</span></a>
+<a class="nav-item {% if active=='user_audit' %}active{% endif %}" href="{{ url_for('user_audit_page') }}"{% if active=='user_audit' %} aria-current="page"{% endif %}><span class="nav-symbol">{{ icon('history') }}</span><span class="nav-item-label">Nhật ký tài khoản</span></a>
+</div></nav>
+{% endif %}

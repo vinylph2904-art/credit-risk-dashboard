@@ -1,0 +1,1225 @@
+/* The page gap owns section spacing; nested cards must not add another margin. */
+.analytics-shell .assessment-page {
+  background:transparent
+}
+.analytics-shell .page.assessment-page {
+  gap:16px
+}
+.analytics-shell .assessment-page .queue-tabs {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  align-self:flex-start;
+  max-width:100%;
+  width:auto;
+  min-height:0;
+  margin:0;
+  padding:4px;
+  border:1px solid #e4eaee;
+  border-radius:var(--dashboard-radius,10px);
+  background:#f8f9fa;
+  gap:6px
+}
+.analytics-shell .assessment-page .queue-tabs a {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-width:0;
+  min-height:40px;
+  padding:7px 14px;
+  border:1px solid transparent;
+  border-radius:var(--dashboard-radius,10px);
+  font-size:13px;
+  font-weight:550;
+  line-height:18px;
+  text-align:center;
+  transition:background .16s ease,border-color .16s ease,color .16s ease
+}
+.analytics-shell .assessment-page .queue-tabs .queue-tab-icon {
+  display:grid;
+  place-items:center;
+  flex:0 0 24px;
+  width:24px;
+  height:24px;
+  border-radius:var(--dashboard-radius,10px);
+  background:#f2f5f7;
+  color:#786872
+}
+.analytics-shell .assessment-page .queue-tabs .queue-tab-icon .icon {
+  width:16px;
+  height:16px
+}
+.analytics-shell .assessment-page .queue-tabs a:hover {
+  background:#edf5fb;
+  border-color:#ccdfed;
+  color:#1d5f96
+}
+.analytics-shell .assessment-page .queue-tabs a.active {
+  background:#e0eef8;
+  border-color:#ccdfed;
+  color:#1d5f96;
+  font-weight:650
+}
+.analytics-shell .assessment-page .queue-tabs a.active .queue-tab-icon {
+  background:#2878b8;
+  color:#fff
+}
+.analytics-shell .assessment-page>.callout {
+  padding:14px 16px;
+  border:1px solid #d9e6f0;
+  border-radius:var(--dashboard-radius,10px);
+  background:#f9fcfe;
+  gap:12px
+}
+.analytics-shell .assessment-page>.callout p {
+  margin:4px 0 0;
+  line-height:1.5
+}
+.analytics-shell .assessment-page .queue-tabs,
+.analytics-shell .assessment-page>.callout,
+.analytics-shell .assessment-page .assessment-table-panel,
+.assessment-page .assessment-layout .panel,
+.assessment-page .assessment-layout .assessment-hero {
+  margin:0
+}
+.assessment-page>#assessment-page-size {
+  display:none
+}
+.assessment-page>#batch-form {
+  margin:0;
+  min-width:0
+}
+.assessment-page .assessment-layout>div {
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  min-width:0
+}
+.assessment-page .assessment-layout {
+  gap:16px
+}
+.assessment-page .decision-summary {
+  margin:0 0 14px;
+  border-color:#dce2e7;
+  background:#fff
+}
+.assessment-page .decision-financial-kpis {
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  margin:0 0 16px
+}
+.assessment-page .decision-financial-kpis .kpi {
+  min-width:0;
+  min-height:104px;
+  padding:14px 16px
+}
+.assessment-page .decision-financial-kpis .label {
+  min-height:32px;
+  font-size:12px;
+  line-height:17px
+}
+.assessment-page .decision-financial-kpis strong {
+  font-size:clamp(20px,1.7vw,27px);
+  white-space:nowrap
+}
+.assessment-page .decision-financial-kpis small {
+  display:block;
+  margin-top:5px;
+  color:#867780;
+  font-size:11px;
+  white-space:nowrap
+}
+.assessment-page .decision-layout {
+  grid-template-columns:minmax(0,1.65fr) minmax(300px,.9fr);
+  align-items:start;
+  gap:16px
+}
+.assessment-page .assessment-primary,.assessment-page .assessment-secondary {
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  min-width:0
+}
+.assessment-page .case-credit-summary {
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px
+}
+.assessment-page .case-credit-summary dd {
+  font-size:17px;
+  font-variant-numeric:tabular-nums
+}
+.assessment-page .case-credit-summary .risk-value {
+  color:#2980bf
+}
+.assessment-page .case-verification-data {
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px
+}
+.assessment-page .case-verification-data dd {
+  font-size:14px;
+  line-height:1.45
+}
+.assessment-page .case-data-note {
+  margin:14px 0 0;
+  line-height:1.5
+}
+.assessment-page .decision-panel .panel-body {
+  padding-top:12px
+}
+.assessment-page .case-supporting-details>summary,.assessment-page .case-admin-details>summary {
+  padding:12px 16px;
+  margin:0;
+  list-style:none;
+  font-size:13px;
+  font-weight:550;
+  color:#5d4d57
+}
+.assessment-page .case-supporting-details>summary::-webkit-details-marker,.assessment-page .case-admin-details>summary::-webkit-details-marker {
+  display:none
+}
+.assessment-page .case-supporting-details[open]>summary,.assessment-page .case-admin-details[open]>summary {
+  border-bottom:1px solid #e5eaee
+}
+.assessment-page .case-score-again {
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid #e5eaee
+}
+.assessment-page .case-admin-details {
+  margin-top:14px;
+  border-top:1px solid #e5eaee
+}
+.assessment-page .case-admin-details .details-body {
+  padding:12px 0 0
+}
+.assessment-page .case-admin-details .danger-zone {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:12px
+}
+.assessment-page .case-admin-details .danger-zone form {
+  margin:0
+}
+.assessment-page .note-actions {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:end;
+  gap:8px
+}
+.assessment-page .note-actions .form-stack {
+  min-width:0
+}
+.assessment-page .note-actions textarea {
+  min-height:78px
+}
+.assessment-page .case-supporting-details .panel-heading {
+  padding:0 0 10px;
+  border:0
+}
+.assessment-page .case-explanation>summary {
+  padding:12px 16px;
+  margin:0;
+  list-style:none;
+  font-size:13px;
+  font-weight:550;
+  color:#5d4d57
+}
+.assessment-page .case-explanation>summary::-webkit-details-marker {
+  display:none
+}
+.assessment-page .case-explanation[open]>summary {
+  border-bottom:1px solid #e5eaee
+}
+.assessment-page .case-contributions {
+  display:grid;
+  gap:0
+}
+.assessment-page .case-contributions>div {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:12px;
+  padding:7px 0;
+  border-bottom:1px solid #eaeef1;
+  font-size:12px
+}
+.assessment-page .case-contributions>div:last-child {
+  border-bottom:0
+}
+.assessment-page .case-contributions>div>span {
+  overflow-wrap:anywhere;
+  color:#5f5159
+}
+.assessment-page .case-contributions strong {
+  font-variant-numeric:tabular-nums;
+  font-weight:600
+}
+.assessment-page .case-contribution-positive {
+  color:#2980bf
+}
+.assessment-page .case-contribution-negative {
+  color:#16a37f
+}
+/* Keep evidence visible and review actions after the reading flow. */
+.assessment-page:has(.case-reference-section) .decision-summary {
+  grid-template-columns:1.2fr 1fr 1fr;
+  margin:0
+}
+.assessment-page:has(.case-reference-section) .decision-layout {
+  display:flex;
+  flex-direction:column;
+  gap:16px
+}
+.assessment-page:has(.case-reference-section) .assessment-primary {
+  width:100%;
+  gap:16px
+}
+.assessment-page:has(.case-reference-section) .assessment-secondary {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  width:100%;
+  align-items:start
+}
+.assessment-page:has(.case-reference-section) .decision-financial-kpis {
+  margin:0;
+  gap:16px
+}
+.assessment-page:has(.case-reference-section) .case-credit-summary {
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px
+}
+.assessment-page:has(.case-reference-section) .case-verification-data {
+  gap:16px
+}
+.assessment-page .case-reference-section {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  min-width:0
+}
+.assessment-page .case-reference-section>.panel {
+  margin:0;
+  min-width:0;
+  align-self:start
+}
+.assessment-page .case-reference-section summary {
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px
+}
+.assessment-page .case-reference-section summary::after {
+  content:'+';
+  font-size:18px;
+  flex-shrink:0
+}
+.assessment-page .case-reference-section details[open]>summary::after {
+  content:'−'
+}
+.assessment-page .case-explanation .case-contributions {
+  grid-template-columns:1fr 1fr;
+  column-gap:24px
+}
+.assessment-page .case-explanation .case-contributions>div {
+  font-size:13px;
+  min-width:0
+}
+.analytics-shell .assessment-page:has(.case-reference-section) .decision-summary {
+  padding:18px 24px;
+  gap:24px;
+  border:0;
+  border-radius:var(--dashboard-radius,10px);
+  background:linear-gradient(110deg,#fff 45%,#f5fafd);
+  box-shadow:0 8px 24px #2980bf08
+}
+.assessment-page:has(.case-reference-section) .decision-summary>div+div {
+  border-left:1px solid #dfecf5;
+  padding-left:24px
+}
+.assessment-page:has(.case-reference-section) .decision-summary .hero-score {
+  font-size:38px;
+  line-height:1.1
+}
+.assessment-page:has(.case-reference-section) .decision-summary .hero-label {
+  font-size:13px;
+  color:#635563
+}
+.assessment-page:has(.case-reference-section) .decision-summary small {
+  font-size:12px;
+  color:#736571
+}
+.assessment-page:has(.case-reference-section) .decision-summary .risk-pill {
+  display:inline-flex;
+  padding:7px 12px;
+  border-radius:var(--dashboard-radius,10px);
+  font-size:13px;
+  font-weight:600
+}
+.analytics-shell .assessment-page:has(.case-reference-section) .assessment-primary {
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  align-items:stretch;
+  gap:16px
+}
+.assessment-page:has(.case-reference-section) .assessment-primary>.case-explanation {
+  grid-column:1/-1
+}
+.assessment-page:has(.case-reference-section) .assessment-primary>.decision-financial-kpis {
+  grid-column:span 5;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-content:stretch
+}
+.assessment-page:has(.case-reference-section) .assessment-primary:not(:has(.case-explanation))>.decision-financial-kpis {
+  grid-column:1/-1;
+  grid-template-columns:repeat(4,minmax(0,1fr))
+}
+.assessment-page:has(.case-reference-section) .case-payment-history {
+  grid-column:span 7
+}
+.assessment-page:has(.case-reference-section) .case-profile-facts {
+  grid-column:span 5
+}
+.assessment-page:has(.case-reference-section) .decision-panel {
+  grid-column:1/-1
+}
+.assessment-page:has(.case-reference-section) .panel-heading {
+  padding:16px 20px;
+  min-height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap
+}
+.assessment-page:has(.case-reference-section) .panel-heading h2 {
+  font-size:15px;
+  font-weight:650;
+  line-height:1.4;
+  margin:0
+}
+.assessment-page:has(.case-reference-section) .panel-body {
+  padding:0 20px 20px
+}
+.assessment-page:has(.case-reference-section) .case-credit-summary {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px 16px
+}
+.assessment-page:has(.case-reference-section) .case-verification-data {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px
+}
+.assessment-page:has(.case-reference-section) .data-grid dt {
+  font-size:12px;
+  line-height:1.5;
+  color:#736571;
+  margin-bottom:5px
+}
+.assessment-page:has(.case-reference-section) .data-grid dd {
+  font-size:15px;
+  line-height:1.45;
+  overflow-wrap:anywhere
+}
+.assessment-page:has(.case-reference-section) .decision-financial-kpis .kpi {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:20px;
+  min-height:126px
+}
+.assessment-page:has(.case-reference-section) .decision-financial-kpis .label {
+  min-height:0;
+  font-size:13px;
+  margin-bottom:12px
+}
+.assessment-page:has(.case-reference-section) .decision-financial-kpis strong {
+  font-size:clamp(22px,2vw,30px);
+  line-height:1.2
+}
+.assessment-page:has(.case-reference-section) .decision-financial-kpis small {
+  white-space:normal;
+  line-height:1.4;
+  font-size:12px
+}
+.assessment-page .case-direction-key {
+  display:flex;
+  gap:12px;
+  font-size:11px;
+  white-space:nowrap
+}
+.assessment-page .case-direction-key>span:first-child {
+  color:#2980bf
+}
+.assessment-page .case-direction-key>span:last-child {
+  color:#168364
+}
+.assessment-page:has(.case-reference-section) .case-explanation .case-contributions {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px 20px
+}
+.assessment-page:has(.case-reference-section) .case-contributions>.case-factor {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:5px 10px;
+  border:0;
+  padding:0;
+  align-content:start
+}
+.assessment-page:has(.case-reference-section) .case-factor>span:first-child {
+  font-size:12px;
+  line-height:1.45;
+  color:#554653
+}
+.assessment-page:has(.case-reference-section) .case-factor strong {
+  font-size:12px;
+  align-self:start;
+  line-height:1.45
+}
+.assessment-page:has(.case-reference-section) .case-factor>.case-factor-track {
+  grid-column:1/-1;
+  height:4px;
+  background:#edf5fb;
+  border-radius:var(--dashboard-radius,10px);
+  overflow:hidden
+}
+.assessment-page .case-factor-track i {
+  display:block;
+  height:100%;
+  border-radius:var(--dashboard-radius,10px);
+  background:linear-gradient(90deg,#c1ddf2,#3a94d5)
+}
+.assessment-page .is-negative .case-factor-track i {
+  background:linear-gradient(90deg,#b9eadb,#16a37f)
+}
+.assessment-page:has(.case-reference-section) .case-data-note {
+  font-size:11px;
+  line-height:1.5;
+  margin-top:16px;
+  color:#736571
+}
+.assessment-page:has(.case-reference-section) .decision-panel .panel-body {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  padding-top:0
+}
+.assessment-page:has(.case-reference-section) .recommendation {
+  padding:14px 16px;
+  background:#f8fbfd;
+  border:0;
+  border-radius:var(--dashboard-radius,10px)
+}
+.assessment-page:has(.case-reference-section) .recommendation h3 {
+  font-size:13px;
+  line-height:1.5;
+  margin:0
+}
+.assessment-page:has(.case-reference-section) .recommendation p {
+  font-size:12px;
+  line-height:1.6;
+  margin:6px 0 0
+}
+.assessment-page:has(.case-reference-section) .recommendation .action {
+  font-weight:550
+}
+.assessment-page:has(.case-reference-section) :is(input,select,textarea) {
+  font:inherit;
+  font-size:13px;
+  border-radius:var(--dashboard-radius,10px);
+  min-height:40px
+}
+.assessment-page:has(.case-reference-section) textarea {
+  min-height:96px;
+  resize:vertical
+}
+.assessment-page:has(.case-reference-section) .field label {
+  font-size:12px;
+  line-height:1.5
+}
+.assessment-page:has(.case-reference-section) .button {
+  min-height:38px;
+  border-radius:var(--dashboard-radius,10px);
+  font-size:13px
+}
+.assessment-page:has(.case-reference-section) .case-reference-section {
+  border-top:1px solid #dfebf4;
+  padding-top:16px
+}
+@media(max-width:1100px) {
+  .analytics-shell .assessment-page:has(.case-reference-section) .assessment-primary {
+    grid-template-columns:1fr 1fr
+  }
+  .assessment-page:has(.case-reference-section) .assessment-primary>:is(.decision-financial-kpis,.case-payment-history,.case-profile-facts) {
+    grid-column:span 1
+  }
+  .assessment-page:has(.case-reference-section) .case-explanation .case-contributions {
+    grid-template-columns:1fr
+  }
+}
+@media(max-width:760px) {
+  .assessment-page:has(.case-reference-section) .decision-summary {
+    grid-template-columns:1fr
+  }
+  .assessment-page:has(.case-reference-section) .assessment-secondary,.assessment-page .case-reference-section,.assessment-page .case-explanation .case-contributions {
+    grid-template-columns:1fr
+  }
+  .assessment-page:has(.case-reference-section) .case-credit-summary {
+    grid-template-columns:repeat(2,minmax(0,1fr))
+  }
+  .analytics-shell .assessment-page:has(.case-reference-section) .assessment-primary {
+    grid-template-columns:1fr
+  }
+  .assessment-page:has(.case-reference-section) .decision-summary>div+div {
+    border-left:0;
+    border-top:1px solid #dfecf5;
+    padding:12px 0 0
+  }
+  .assessment-page:has(.case-reference-section) .decision-panel .panel-body {
+    grid-template-columns:1fr
+  }
+}
+@media(max-width:1100px) {
+  .assessment-page .decision-layout {
+    grid-template-columns:1fr
+  }
+  .assessment-page .decision-financial-kpis {
+    grid-template-columns:repeat(4,minmax(0,1fr))
+  }
+}
+@media(max-width:760px) {
+  .assessment-page .decision-financial-kpis {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px
+  }
+  .assessment-page .case-credit-summary {
+    grid-template-columns:repeat(2,minmax(0,1fr))
+  }
+  .assessment-page .case-verification-data {
+    grid-template-columns:1fr 1fr
+  }
+  .assessment-page .decision-summary {
+    grid-template-columns:repeat(2,minmax(0,1fr))
+  }
+  .assessment-page .note-actions {
+    grid-template-columns:1fr
+  }
+  .assessment-page .note-actions>form:last-child {
+    justify-self:start
+  }
+}
+.assessment-page .panel-body,.assessment-page .details-body {
+  padding:16px
+}
+.assessment-toolbar {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex:0 0 auto;
+  flex-wrap:wrap;
+  margin:0;
+  min-width:0
+}
+.assessment-search {
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  flex:1;
+  max-width:520px;
+  min-width:240px
+}
+.assessment-search input {
+  flex:1;
+  min-width:140px;
+  min-height:40px;
+  padding:8px 11px;
+  border:1px solid var(--line);
+  border-radius:var(--dashboard-radius,10px);
+  font:13px 'Segoe UI',Arial,sans-serif;
+  color:var(--ink)
+}
+.assessment-clear {
+  font-size:13px;
+  color:#796a74
+}
+.assessment-table-toolbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  padding:16px;
+  flex-wrap:wrap
+}
+.assessment-count {
+  margin:0;
+  font-size:13px;
+  color:#776b75
+}
+.assessment-count strong {
+  color:var(--ink);
+  font-size:14px;
+  font-weight:600
+}
+.assessment-count small {
+  display:block;
+  margin-top:5px;
+  font-size:12px;
+  color:#82757e
+}
+.assessment-page-size {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  color:#776b75
+}
+.assessment-page-size select {
+  width:72px;
+  min-height:32px;
+  padding:5px 8px
+}
+.assessment-table-panel .profile-table {
+  min-width:760px
+}
+.analytics-shell.neo-workspace .assessment-page .assessment-table-panel {
+  background:#fff!important
+}
+.assessment-table-panel .table-scroll,.assessment-table-panel .profile-table {
+  background:#fff
+}
+.assessment-table-panel .profile-table th {
+  position:sticky;
+  top:0;
+  z-index:2;
+  font-size:12px;
+  font-weight:550;
+  padding:11px 14px;
+  color:#655b63
+}
+.assessment-table-panel .profile-table td {
+  font-size:14px;
+  line-height:19px;
+  padding:9px 14px
+}
+.assessment-table-panel .profile-table .subtext {
+  display:block;
+  margin-top:3px;
+  font-size:12px;
+  line-height:16px;
+  color:#746871
+}
+.assessment-page .assessment-table-panel .pagination {
+  margin:0;
+  padding:16px
+}
+.assessment-action-group>.button {
+  white-space:nowrap
+}
+.assessment-export {
+  position:relative;
+  flex:0 0 auto
+}
+.assessment-export>summary {
+  cursor:pointer;
+  list-style:none
+}
+.assessment-export>summary::-webkit-details-marker {
+  display:none
+}
+.assessment-export .report-menu-items {
+  min-width:160px
+}
+.assessment-export .report-menu-items {
+  position:absolute;
+  top:calc(100% + 7px);
+  right:0;
+  z-index:80;
+  padding:5px;
+  border:1px solid #dfe4e8;
+  border-radius:var(--dashboard-radius,10px);
+  background:#fff;
+  box-shadow:0 10px 28px #2b33381c
+}
+.assessment-export .report-menu-items>a {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:9px 10px;
+  border-radius:var(--dashboard-radius,10px);
+  color:#4e4149;
+  text-decoration:none
+}
+.assessment-export .report-menu-items>a:hover,.assessment-export .report-menu-items>a:focus-visible {
+  background:#e0eef8;
+  color:#1d5f96
+}
+.assessment-menu-caret {
+  width:7px;
+  height:7px;
+  margin-left:4px;
+  border-right:1.5px solid currentColor;
+  border-bottom:1.5px solid currentColor;
+  transform:translateY(-2px) rotate(45deg);
+  transition:transform .16s ease
+}
+.assessment-export[open] .assessment-menu-caret {
+  transform:translateY(2px) rotate(225deg)
+}
+.financial-topbar-controls .assessment-toolbar .button {
+  min-height:40px;
+  padding:7px 11px;
+  font-size:13px
+}
+.assessment-search .sr-only {
+  position:absolute;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  clip-path:inset(50%);
+  white-space:nowrap
+}
+.assessment-suggestions {
+  position:absolute;
+  z-index:30;
+  top:calc(100% + 6px);
+  left:0;
+  right:0;
+  display:flex;
+  flex-direction:column;
+  max-height:min(360px,55vh);
+  overflow:hidden;
+  padding:5px;
+  border:1px solid #dce2e7;
+  border-radius:var(--dashboard-radius,10px);
+  background:#fff;
+  box-shadow:0 12px 28px #26323b1c
+}
+.assessment-suggestions [role=listbox] {
+  min-height:0;
+  overflow:auto
+}
+.assessment-suggestion {
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  padding:9px 11px;
+  border-radius:var(--dashboard-radius,10px);
+  color:#493b43;
+  text-decoration:none
+}
+.assessment-suggestion strong {
+  font-size:13px;
+  font-weight:600
+}
+.assessment-suggestion span,.assessment-suggestion-empty {
+  font-size:11px;
+  color:#84757e
+}
+.assessment-suggestion:hover,.assessment-suggestion.is-active {
+  background:#e0eef8;
+  color:#1d5f96
+}
+.assessment-suggestion-empty {
+  padding:10px 11px
+}
+.analytics-shell.financial-view:has(.assessment-page) .topbar-content {
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px 16px;
+  width:100%
+}
+.analytics-shell.financial-view:has(.assessment-page) .financial-topbar-title {
+  flex:1 1 180px
+}
+.analytics-shell.financial-view:has(.assessment-page) .financial-topbar-title h1 {
+  font-size:18px
+}
+.analytics-shell.financial-view:has(.assessment-page) .financial-topbar-controls {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  width:auto;
+  margin:0;
+  overflow:visible;
+  padding:0
+}
+.analytics-shell.financial-view:has(.assessment-page) .assessment-toolbar {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+  min-width:0;
+  margin:0
+}
+.analytics-shell.financial-view:has(.assessment-page) .assessment-search {
+  flex:1 1 360px;
+  max-width:520px;
+  min-width:180px
+}
+.analytics-shell.financial-view:has(.assessment-page) .assessment-action-group {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  white-space:nowrap
+}
+.analytics-shell.financial-view:has(.assessment-page) .assessment-filter-button {
+  flex-shrink:0
+}
+@media(max-width:760px) {
+  .analytics-shell.financial-view:has(.assessment-page) .assessment-toolbar {
+    flex-wrap:wrap;
+    order:0;
+    flex:1 1 auto
+  }
+  .analytics-shell.financial-view:has(.assessment-page) .assessment-search {
+    flex-basis:100%;
+    min-width:0;
+    max-width:none
+  }
+  .analytics-shell.financial-view:has(.assessment-page) .assessment-action-group {
+    justify-content:flex-start;
+    flex-wrap:wrap
+  }
+}
+@media(max-width:560px) {
+  .analytics-shell .assessment-page .queue-tabs {
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    width:100%;
+    gap:6px;
+    padding:4px
+  }
+  .analytics-shell .assessment-page .queue-tabs a {
+    flex-direction:column;
+    gap:4px;
+    min-height:60px;
+    padding:7px 4px;
+    font-size:11px;
+    line-height:14px
+  }
+  .analytics-shell .assessment-page .queue-tabs .queue-tab-icon {
+    flex-basis:22px;
+    width:22px;
+    height:22px
+  }
+  .analytics-shell .assessment-page .queue-tabs .queue-tab-icon .icon {
+    width:15px;
+    height:15px
+  }
+}
+/* Use the shared surface, shadows and motion from the workspace theme. */
+.analytics-shell.neo-workspace:has(.assessment-page) .topbar {
+  min-height:64px;
+  align-items:center
+}
+.analytics-shell:has(.assessment-page) :is(dialog,dialog[open]) {
+  background:#fff!important;
+  opacity:1;
+  backdrop-filter:none!important
+}
+.analytics-shell:has(.assessment-page) dialog::backdrop {
+  background:#232b3055;
+  backdrop-filter:blur(2px)
+}
+.analytics-shell.neo-workspace .assessment-suggestions {
+  box-shadow:var(--neo-raised)!important
+}
+.analytics-shell:has(.assessment-page) .dialog-header {
+  background:#fff!important
+}
+.analytics-shell:has(.assessment-page) dialog.application-filters-panel {
+  width:min(780px,calc(100vw - 32px));
+  border-radius:var(--dashboard-radius,10px);
+  overflow:auto
+}
+.application-filters {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px
+}
+.assessment-filter-heading {
+  margin:0;
+  font-size:13px;
+  font-weight:650;
+  color:#493b44
+}
+.application-filters .list-cohort-ranges {
+  border-top:1px solid #e2e6e9;
+  padding-top:14px
+}
+.application-filters .filter-actions {
+  grid-column:1/-1;
+  justify-content:flex-end;
+  border-top:1px solid #e2e6e9;
+  padding-top:16px;
+  margin-top:0
+}
+.application-filters .field label {
+  font-size:12px;
+  color:#655963
+}
+.application-filters .field :is(input,select) {
+  min-height:40px;
+  font-size:13px
+}
+.assessment-active-filters {
+  display:flex;
+  gap:8px;
+  align-items:center;
+  flex-wrap:wrap
+}
+.assessment-filter-chip {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:5px 9px;
+  border:1px solid #ccdfed;
+  border-radius:var(--dashboard-radius,10px);
+  background:#edf5fb;
+  color:#1d5f96!important;
+  font-size:12px;
+  text-decoration:none;
+  line-height:20px
+}
+.assessment-filter-chip span {
+  font-size:17px
+}
+.assessment-clear {
+  padding:5px;
+  text-underline-offset:3px
+}
+.assessment-threshold {
+  position:relative;
+  margin-left:auto;
+  max-width:100%;
+  font-size:12px;
+  color:#786670
+}
+.assessment-threshold summary {
+  display:flex;
+  align-items:center;
+  gap:7px;
+  min-height:28px;
+  cursor:pointer;
+  list-style:none
+}
+.assessment-threshold summary::-webkit-details-marker {
+  display:none
+}
+.assessment-threshold summary>.icon {
+  width:15px;
+  height:15px
+}
+.assessment-threshold strong {
+  color:#2d6d9b;
+  font-variant-numeric:tabular-nums
+}
+.assessment-threshold p {
+  position:absolute;
+  z-index:10;
+  top:calc(100% + 6px);
+  right:0;
+  width:min(350px,calc(100vw - 56px));
+  margin:0;
+  padding:14px;
+  border:1px solid #dce4ea;
+  border-radius:var(--dashboard-radius,10px);
+  background:#fff;
+  line-height:1.6;
+  color:#5e5059
+}
+.assessment-list-settings {
+  display:flex;
+  align-items:center;
+  gap:8px 12px;
+  flex-wrap:wrap;
+  font-size:12px;
+  color:#72626d
+}
+.assessment-list-settings select {
+  width:auto;
+  min-height:36px;
+  padding:6px 10px;
+  font-size:12px
+}
+.assessment-page-size {
+  margin-left:8px
+}
+.assessment-table-panel .table-scroll {
+  max-height:65dvh;
+  overflow:auto;
+  border-radius:0
+}
+.assessment-table-panel tbody tr:hover {
+  background:#f8fafc
+}
+.assessment-table-panel tbody tr:focus-within {
+  background:#f8fbfd
+}
+.assessment-table-panel input[type=checkbox] {
+  width:16px;
+  height:16px;
+  accent-color:#2878b8;
+  cursor:pointer
+}
+.assessment-page .assessment-table-panel a.button {
+  min-height:34px;
+  padding:6px 10px;
+  font-size:12px
+}
+.assessment-suggestion-heading {
+  flex-shrink:0;
+  padding:7px 11px;
+  font-size:11px;
+  color:#7a6974;
+  font-weight:600
+}
+.assessment-search-all {
+  display:block;
+  flex-shrink:0;
+  width:100%;
+  padding:10px 11px;
+  border:0;
+  border-top:1px solid #dfe9f1;
+  background:#fff;
+  text-align:left;
+  color:#2878b8;
+  font-size:12px;
+  cursor:pointer
+}
+.assessment-suggestion mark {
+  background:#e0eef8;
+  color:inherit;
+  font-weight:700
+}
+.assessment-search-status {
+  margin:0;
+  padding:10px 11px;
+  color:#7a6974;
+  font-size:12px
+}
+.assessment-suggestions[hidden] {
+  display:none!important
+}
+.assessment-navigation-row {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px 16px;
+  min-width:0
+}
+.assessment-tab-label-short {
+  display:none
+}
+.analytics-shell.financial-view:has(.assessment-page) .topbar-content:has(.assessment-toolbar) {
+  display:grid;
+  grid-template-columns:auto minmax(260px,1fr) auto;
+  gap:16px
+}
+.analytics-shell.financial-view:has(.assessment-page) .topbar-content>.assessment-toolbar {
+  flex-wrap:nowrap;
+  gap:8px
+}
+.analytics-shell.financial-view:has(.assessment-page) .topbar-content .assessment-search {
+  flex:1 1 auto;
+  min-width:0;
+  max-width:none
+}
+.analytics-shell.financial-view:has(.assessment-page) .topbar-content .assessment-search input {
+  min-width:0;
+  width:100%
+}
+.analytics-shell.financial-view:has(.assessment-page) .topbar-content:has(.assessment-toolbar) .button {
+  min-height:40px;
+  white-space:nowrap
+}
+.analytics-shell.financial-view:has(.assessment-page) .financial-topbar-title h1 {
+  white-space:nowrap
+}
+@media(max-width:1150px) {
+  .analytics-shell.financial-view:has(.assessment-page) .topbar-content:has(.assessment-toolbar) {
+    grid-template-columns:auto minmax(0,1fr);
+    gap:10px 16px
+  }
+  .analytics-shell.financial-view:has(.assessment-page) .topbar-content>.assessment-toolbar {
+    grid-column:2;
+    grid-row:1
+  }
+  .analytics-shell.financial-view:has(.assessment-page) .topbar-content:has(.assessment-toolbar)>.financial-topbar-controls {
+    grid-column:1/-1;
+    grid-row:2;
+    justify-content:flex-end
+  }
+}
+@media(min-width:681px) and (max-width:1000px) {
+  .assessment-navigation-row {
+    flex-wrap:nowrap;
+    gap:8px
+  }
+  .analytics-shell .assessment-page .queue-tabs a {
+    font-size:12px;
+    padding:7px 8px
+  }
+  .analytics-shell .assessment-page .queue-tabs .queue-tab-icon {
+    display:none
+  }
+  .assessment-tab-label-full {
+    display:none
+  }
+  .assessment-tab-label-short {
+    display:inline
+  }
+  .assessment-search-label {
+    display:none
+  }
+  .assessment-threshold summary {
+    font-size:11px;
+    white-space:nowrap;
+    gap:5px
+  }
+}
+@media(max-width:680px) {
+  .assessment-table-toolbar {
+    padding:14px;
+    gap:12px
+  }
+  .assessment-list-settings {
+    width:100%;
+    gap:8px
+  }
+  .assessment-page-size {
+    margin-left:0
+  }
+  .analytics-shell.financial-view:has(.assessment-page) .assessment-search {
+    min-width:0;
+    flex-basis:100%
+  }
+  .application-filters {
+    grid-template-columns:1fr
+  }
+  .application-filters .span-two {
+    grid-column:1/-1
+  }
+  .analytics-shell.financial-view:has(.assessment-page) .topbar-content:has(.assessment-toolbar) {
+    grid-template-columns:minmax(0,1fr)
+  }
+  .analytics-shell.financial-view:has(.assessment-page) .topbar-content>.assessment-toolbar {
+    grid-column:1;
+    grid-row:2
+  }
+  .analytics-shell.financial-view:has(.assessment-page) .topbar-content:has(.assessment-toolbar)>.financial-topbar-controls {
+    grid-row:3
+  }
+  .analytics-shell.financial-view:has(.assessment-page) .topbar-content .assessment-search {
+    flex:1 1 auto;
+    min-width:0
+  }
+  .assessment-navigation-row {
+    align-items:stretch
+  }
+}

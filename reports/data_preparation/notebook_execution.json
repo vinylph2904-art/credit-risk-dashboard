@@ -1,0 +1,30 @@
+{
+  "notebook": "notebooks\\03_Data_Preparation_Feature_Engineering.ipynb",
+  "fresh_kernel": true,
+  "kernel_mode": "in_process_ipython_in_separate_fresh_python_process",
+  "code_cells_executed": 40,
+  "errors": 0,
+  "elapsed_seconds": 2418.04,
+  "executed_code_sha256": "6704f9739f7a01b39e5140d09350b4df5396306b1b702d7602e8cbbfe74de1cd",
+  "execution_count_metadata_recovered_from_completed_trace": [
+    9,
+    17
+  ],
+  "shared_source_sha256": {
+    "Connectors/Connector.py": "4e96309123563df3c2afe9f724452571df2c809ef780f7bd2497020accf7119c",
+    "Models/HomeCreditData.py": "59ea56d28dd710ab3bf593dc1859bf23944b2173966c278926fec0dbbae581a1",
+    "Models/HomeCreditPreparation.py": "6df956f926bacedaffaf1de0bd266c7117ee89d366faabbd92d51c729091743d"
+  },
+  "final_module_sha256": "a7b3a5436b40114a6388a06d911aa1a5e2da79d1ca41aa7c9fe234910c4c169c",
+  "final_installments_reader_verification": {
+    "status": "passed",
+    "rows": 339575,
+    "features": 10,
+    "elapsed_seconds": 197.138,
+    "exact_values_dtype_order_nan_and_hash_match": true,
+    "example_and_scope_csvs_match": true,
+    "repeat_call_extra_reads": 0,
+    "full_run_module_sha256": "6df956f926bacedaffaf1de0bd266c7117ee89d366faabbd92d51c729091743d",
+    "final_module_sha256": "a7b3a5436b40114a6388a06d911aa1a5e2da79d1ca41aa7c9fe234910c4c169c"
+  }
+}

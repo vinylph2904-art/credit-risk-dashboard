@@ -1,0 +1,67 @@
+{
+  "candidate": "B_CAT_02",
+  "base_plan": {
+    "seed": 42,
+    "threads": 4,
+    "libraries": {
+      "XGB": "3.4.1",
+      "CAT": "1.2.10"
+    },
+    "XGB": {
+      "objective": "binary:logistic",
+      "eval_metric": "logloss",
+      "tree_method": "hist",
+      "enable_categorical": true,
+      "n_estimators": 500,
+      "learning_rate": 0.05,
+      "max_bin": 128,
+      "min_child_weight": 20,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 5.0,
+      "reg_alpha": 0.0,
+      "scale_pos_weight": 1.0
+    },
+    "CAT": {
+      "loss_function": "Logloss",
+      "iterations": 500,
+      "learning_rate": 0.05,
+      "l2_leaf_reg": 5.0,
+      "boosting_type": "Plain",
+      "bootstrap_type": "Bernoulli",
+      "subsample": 0.8,
+      "rsm": 0.8,
+      "max_ctr_complexity": 1,
+      "used_ram_limit": "1gb",
+      "allow_writing_files": false,
+      "verbose": false
+    },
+    "calibration": {
+      "method": "sigmoid",
+      "inner_folds": 3,
+      "shuffle": true,
+      "seed": 42,
+      "ensemble": false,
+      "sklearn": "1.9.1"
+    }
+  },
+  "case": {
+    "set": "B",
+    "model": "CAT",
+    "config": {
+      "depth": 6
+    }
+  },
+  "calibration_selection": "sigmoid iff nested train OOF Brier < raw and all fits converged",
+  "threshold_selection": "validation cost FN:FP=5:1; ties recall desc then threshold desc",
+  "deployment_gate": "candidate validation cost_5_to_1 strictly below existing LR at its frozen threshold",
+  "additional_diagnostics": [
+    "validation AP/ROC/Brier",
+    "recall/precision/alert_rate",
+    "top 5/10/20 capacity"
+  ],
+  "test_labels_used": false,
+  "test_status": "historical LR test already observed; not a new untouched evaluation",
+  "maximum_new_base_model_fits": 16,
+  "dashboard_changed_during_evaluation": false
+}

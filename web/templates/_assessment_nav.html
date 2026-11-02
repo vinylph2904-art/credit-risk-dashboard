@@ -1,0 +1,15 @@
+<div class="assessment-navigation-row">
+<nav class="queue-tabs" aria-label="Điều hướng rà soát hồ sơ">
+  <a href="{{ cohort_url('applications',view='assessment') }}" class="{% if request.endpoint == 'applications' and request.args.get('section') != 'assignments' %}active{% endif %}" {% if request.endpoint == 'applications' and request.args.get('section') != 'assignments' %}aria-current="page"{% endif %}>
+    <span class="queue-tab-icon" aria-hidden="true">{{ icon('folder') }}</span>Hàng đợi
+  </a>
+  <a href="{{ url_for('history') }}" class="{% if request.endpoint == 'history' %}active{% endif %}" {% if request.endpoint == 'history' %}aria-current="page"{% endif %}>
+    <span class="queue-tab-icon" aria-hidden="true">{{ icon('history') }}</span><span class="assessment-tab-label-full">Lịch sử chấm điểm</span><span class="assessment-tab-label-short">Lịch sử</span>
+  </a>
+  <a href="{{ cohort_url('applications',view='assessment',section='assignments',score_min=none,score_max=none) }}" class="{% if request.endpoint == 'applications' and request.args.get('section') == 'assignments' %}active{% endif %}" {% if request.endpoint == 'applications' and request.args.get('section') == 'assignments' %}aria-current="page"{% endif %}>
+    <span class="queue-tab-icon" aria-hidden="true">{{ icon('user') }}</span>Phân công
+  </a>
+</nav>
+
+{% if request.endpoint == 'applications' and request.args.get('section') != 'assignments' %}{% include '_assessment_threshold.html' %}{% endif %}
+</div>

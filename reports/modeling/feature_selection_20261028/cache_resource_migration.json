@@ -1,0 +1,9 @@
+{
+  "old_input_key": "f3b8882cdcefff677ec9",
+  "new_input_key": "13f0a288d9058e4ac6e8",
+  "old_rf_jobs": 4,
+  "new_rf_jobs": 1,
+  "reason": "Windows denied joblib ThreadPool named-pipe creation; RF resumes serially.",
+  "preserved_completed_fits": 39,
+  "rf_fits_preserved": 0
+}

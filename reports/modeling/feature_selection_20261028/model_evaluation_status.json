@@ -1,0 +1,8 @@
+{
+  "status": "deferred_by_user",
+  "completed_cv_fits": 41,
+  "planned_cv_fits": 63,
+  "results_complete": false,
+  "next_step": "Evaluate models on the selected-feature procedure.",
+  "checkpoint_folder": "cache"
+}

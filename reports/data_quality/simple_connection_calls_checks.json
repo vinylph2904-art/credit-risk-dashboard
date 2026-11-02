@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "notebook_connection_checks": [
+    {
+      "notebook": "01_Data_Understanding.ipynb",
+      "setup_and_connection_passed": true,
+      "raw_table_read_passed": true,
+      "heavy_cells_rerun": false
+    },
+    {
+      "notebook": "02_Data_Quality_EDA.ipynb",
+      "setup_and_connection_passed": true,
+      "raw_table_read_passed": true,
+      "heavy_cells_rerun": false
+    },
+    {
+      "notebook": "03_Data_Preparation_Feature_Engineering.ipynb",
+      "setup_and_connection_passed": true,
+      "raw_table_read_passed": true,
+      "heavy_cells_rerun": false
+    },
+    {
+      "notebook": "04_Model_Training_Evaluation.ipynb",
+      "setup_and_connection_passed": true,
+      "raw_table_read_passed": true,
+      "heavy_cells_rerun": false
+    }
+  ],
+  "get_routes_checked": 60,
+  "route_status_and_json_results_match_previous": true,
+  "prediction_rows_verified": 100,
+  "prediction_max_difference": 0.0,
+  "web_tables_unchanged": {
+    "demo_profiles": {
+      "rows": 200,
+      "sha256": "f7696f69be9618522807c6a8465835f122438bd9bede5f603f2fff0dc4d9b2a6"
+    },
+    "scoring_events": {
+      "rows": 202,
+      "sha256": "d5edddba6e7f40a438fcfa34554869c5b1e30e83cbedafc0c99b2c8fa659e880"
+    },
+    "review_notes": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "model_versions": {
+      "rows": 1,
+      "sha256": "3d50c7710f4144a9e8bea390c1c7fb7d7b2f399e0ac0a7aaa3fd3488f769d57a"
+    }
+  },
+  "protected_files_unchanged": 80,
+  "constructor_call": "Connector()",
+  "connector_source_changed": false,
+  "full_notebooks_rerun": false,
+  "model_retrained": false,
+  "changed_setup_cells_outputs_cleared": true,
+  "prior_full_execution_reports_are_historical": true
+}

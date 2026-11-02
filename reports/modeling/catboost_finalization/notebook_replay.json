@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "model_fits": 0,
+  "scope": "all six finalization code cells replayed on real MySQL train/validation with model constructors/fit forbidden",
+  "original_LR_outputs_preserved": true,
+  "notebook_cells_compile": true
+}

@@ -1,0 +1,20 @@
+{
+  "status": "complete",
+  "cache_id": "4fec95c745d24f99893d",
+  "gate_passed": true,
+  "elapsed_seconds": 1556.5302399999928,
+  "nested_calibration_base_fits_planned": 12,
+  "final_base_fits_planned": 1,
+  "calibration": {
+    "case_id": "B_CAT_02",
+    "raw_oof_brier": 0.06655721743939502,
+    "sigmoid_oof_brier": 0.0676596740630547,
+    "use_sigmoid": false,
+    "scope": "outer train folds; sigmoid fitted only on inner OOF of outer train",
+    "cache_id": "4fec95c745d24f99893d"
+  },
+  "candidate_metadata_path": "artifacts\\catboost_4fec95c745d24f99893d\\inference_metadata.json",
+  "validation_rows": 61502,
+  "test_labels_used": false,
+  "dashboard_changed": false
+}

@@ -1,0 +1,52 @@
+/* Semantic signals remain distinct from the blue navigation/data palette. */
+html body.analytics-shell.neo-workspace {
+  --danger:#dc3545;
+  --warning:#854d0e;
+  --warning-bg:#fefce8;
+  --success:#15803d
+}
+html body.analytics-shell.neo-workspace .page .risk-value,
+html body.analytics-shell.neo-workspace .page .kpi-grid .kpi strong.risk-value,
+html body.analytics-shell.neo-workspace .assessment-page .hero-score.risk-value,
+html body.analytics-shell.neo-workspace .assessment-page .case-credit-summary .risk-value {
+  color:#dc3545!important
+}
+html body.analytics-shell.neo-workspace .risk-pill.is-alert {
+  color:#b42332!important;
+  background:#fff1f2!important;
+  border:1px solid #fecdd3
+}
+html body.analytics-shell.neo-workspace .risk-pill.is-below {
+  color:#15803d!important;
+  background:#ecfdf3!important;
+  border:1px solid #bbf7d0
+}
+html body.analytics-shell.neo-workspace .risk-pill.is-unscored {
+  color:#697580!important;
+  background:#f1f3f5!important;
+  border:1px solid #e5e9ee
+}
+html body.analytics-shell.neo-workspace .assessment-page .score-number.risk-value {
+  color:#dc3545!important
+}
+html body.analytics-shell.neo-workspace .assessment-page .text-warning {
+  color:#854d0e!important
+}
+html body.analytics-shell.neo-workspace .assessment-page .case-contribution-positive {
+  color:#dc3545!important
+}
+html body.analytics-shell.neo-workspace .assessment-page .case-contribution-negative {
+  color:#15803d!important
+}
+html body.analytics-shell.neo-workspace .assessment-page .case-contribution-neutral {
+  color:#697580!important
+}
+html body.analytics-shell.neo-workspace .assessment-page .is-positive .case-factor-track i {
+  background:linear-gradient(90deg,#fecdd3,#dc3545)!important
+}
+html body.analytics-shell.neo-workspace .assessment-page .is-negative .case-factor-track i {
+  background:linear-gradient(90deg,#bbf7d0,#15803d)!important
+}
+html body.analytics-shell.neo-workspace .assessment-page .is-neutral .case-factor-track i {
+  background:#d9dfe5!important
+}

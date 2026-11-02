@@ -1,0 +1,16 @@
+{
+  "protocol_version": "1.0",
+  "seed": 42,
+  "ratios": {
+    "train": 0.6,
+    "validation": 0.2,
+    "test": 0.2
+  },
+  "source_sha256": "685c7ef40c8de858ab63c278b9e607aa13a11a1a637d96b354530a608cb8ed3f",
+  "id_manifest_sha256": "c2b83e1356dd44714c4f1141894d7af41c484e6ccbdc9055c76e500eddb3d3c8",
+  "stratified": true,
+  "cv_folds": 3,
+  "label_column_saved_in_id_manifest": false,
+  "procedure": "hold_out_20_percent_test_then_25_percent_of_remaining_for_validation",
+  "existing_split_must_match_on_rerun": true
+}

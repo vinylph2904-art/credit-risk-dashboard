@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "cache_key": "a8763faa0c2ef0786f72",
+  "case_id": "B_FILTER_CAT_02",
+  "final_features": 182,
+  "use_sigmoid": false,
+  "main_threshold": 0.14539365168823878,
+  "model_path": "artifacts/catboost_selected_a8763faa0c2ef0786f72/credit_risk_model.joblib",
+  "metadata_path": "artifacts/catboost_selected_a8763faa0c2ef0786f72/inference_metadata.json",
+  "train_n": 184506,
+  "validation_n": 61502,
+  "historical_test_n": 61503,
+  "test_used_for_selection": false,
+  "test_is_new_independent_evaluation": false,
+  "dashboard_model_replaced": false
+}

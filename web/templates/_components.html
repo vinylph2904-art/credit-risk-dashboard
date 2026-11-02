@@ -1,0 +1,30 @@
+{% macro csrf() -%}
+<input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+{%- endmacro %}
+
+{% macro icon(name) -%}
+<svg class="icon" aria-hidden="true"><use href="#icon-{{ name }}"></use></svg>
+{%- endmacro %}
+
+{% macro kpi_icon(name) -%}<span class="kpi-symbol" aria-hidden="true">{{ icon(name) }}</span>{%- endmacro %}
+
+{% macro risk_badge(score, alert) -%}
+{% if score is none %}<span class="badge muted-badge">Chưa chấm</span>
+{% elif alert %}<span class="badge warning">{{ icon('alert') }}Ưu tiên rà soát</span>
+{% else %}<span class="badge normal">{{ icon('check') }}Theo dõi thông thường</span>{% endif %}
+{%- endmacro %}
+
+{% macro status_badge(status) -%}
+<span class="badge status-{{ status }}">{{ statuses.get(status, status) }}</span>
+{%- endmacro %}
+
+{% macro pagination(page, pages, total) -%}
+<div class="pagination">
+  <span class="muted">{{ total|number }} kết quả · Trang {{ page }} / {{ pages }}</span>
+  <div class="button-row">
+    {% if page > 1 %}<a class="button small" href="{{ page_url(page-1) }}">← Trước</a>{% endif %}
+    <span class="page-number">{{ page }}</span>
+    {% if page < pages %}<a class="button small" href="{{ page_url(page+1) }}">Tiếp theo →</a>{% endif %}
+  </div>
+</div>
+{%- endmacro %}

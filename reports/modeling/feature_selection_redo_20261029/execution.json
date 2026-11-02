@@ -1,0 +1,12 @@
+{
+  "status": "cv_complete",
+  "cv_fits": 63,
+  "expected_cv_fits": 63,
+  "baseline_cache_key": "76d465df77781aec27cb",
+  "boosting_cache_key": "a450fb4764d4016017e0",
+  "validation_labels_used": false,
+  "test_labels_used": false,
+  "final_model_or_dashboard_changed": false,
+  "previous_experiment_checkpoints_reused": false,
+  "same_experiment_checkpoint_reuse_allowed": true
+}

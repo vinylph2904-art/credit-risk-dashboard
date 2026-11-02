@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% from '_components.html' import kpi_icon, icon, status_badge with context %}
+{% block title %}Tổng quan rủi ro tín dụng{% endblock %}
+{% block breadcrumb %}Tổng quan rủi ro{% endblock %}
+{% block topbar_content %}
+<div class="workspace-heading"><div><h1>Tổng quan rủi ro tín dụng</h1></div>{% include '_risk_toolbar.html' %}</div>
+{% endblock %}
+{% block content %}
+
+{% include '_risk_filters.html' %}
+<div class="kpi-grid risk-kpis">
+<div class="kpi"><span class="label">Tổng giá trị tín dụng</span><strong>{{ kpi_icon('wallet') }}{{ (amounts.total_amount if amounts.eligible_n else none)|amount }}</strong></div>
+<a class="kpi" data-cohort-link href="{{ cohort_url('applications',alert='1') }}"><span class="label">Giá trị tín dụng nhóm cảnh báo</span><strong class="risk-value">{{ kpi_icon('alert') }}{{ (amounts.alert_amount if amounts.eligible_n else none)|amount }}</strong></a>
+<div class="kpi"><span class="label">Tỷ trọng giá trị tín dụng cảnh báo</span><strong>{{ kpi_icon('share') }}{{ amounts.alert_share|percent }}</strong></div>
+<a class="kpi" data-cohort-link href="{{ cohort_url('credit_diagnostics') }}"><span class="label">Tiền quá hạn lịch sử ghi nhận</span><strong class="risk-value">{{ kpi_icon('receipt') }}{{ finance.overdue|amount }}</strong><small>Bureau · {{ financial_currency or 'chưa có tiền tệ' }} · {{ credit_states[credit_status] }}<br>{{ finance.money_n }} khoản đủ dữ liệu · trước mốc nộp đơn</small></a>
+<a class="kpi" data-cohort-link href="{{ cohort_url('applications',alert='1',status='pending') }}"><span class="label">Hồ sơ cảnh báo chưa rà soát xong</span><strong>{{ kpi_icon('folder') }}{{ priority_total|number }}</strong></a>
+</div>
+
+<div class="risk-story overview-story">
+<div class="risk-chart-row">
+<section class="panel report-panel primary-analysis"><div class="panel-heading"><div><h2>Phân bố điểm rủi ro</h2></div></div><div class="report-chart">{{ risk_histogram|safe }}</div><div class="chart-caption"><span><i class="dot neutral-dot"></i>Dưới ngưỡng</span><span><i class="dot risk-dot"></i>Vùng cảnh báo · {{ summary.alert_n }} hồ sơ</span></div></section>
+<section class="panel report-panel exposure-summary"><div class="panel-heading"><div><h2>Giá trị tín dụng cần chú ý</h2></div></div><div class="report-chart compact-exposure">{{ overview_exposure|safe }}</div><div class="summary-segments"><div class="support-heading"><h3>Nhóm giá trị vay có nhiều tiền cảnh báo</h3></div><table><thead><tr><th>Giá trị khoản vay</th><th class="right">Tỷ lệ cảnh báo</th><th class="right">Tiền cảnh báo</th></tr></thead><tbody>{% for row in summary_groups %}<tr><td>{{ row.label }}</td><td class="right">{{ row.alert_share|percent }}</td><td class="right">{{ row.alerted_credit|amount }}</td></tr>{% else %}<tr><td colspan="3" class="empty">Chưa có nhóm từ 5 hồ sơ với tiền cảnh báo dương.</td></tr>{% endfor %}</tbody></table><a class="analysis-link" data-cohort-link href="{{ cohort_url('risk_dashboard',segment='credit_band') }}">Xem phân tích danh mục →</a></div></section>
+</div>
+<div class="support-row"><section class="panel workflow-compact"><div class="support-heading"><h2>Tiến độ rà soát</h2><span>{{ work_summary.total }} hồ sơ</span></div><div class="workflow-counts">{% for key,label,status in [('new_n','Mới','new'),('reviewing_n','Đang xem xét','in_review'),('reviewed_n','Đã rà soát','reviewed')] %}<a data-cohort-link href="{{ cohort_url('applications',status=status) }}"><strong>{{ work_summary[key] }}</strong><span>{{ label }}</span></a>{% endfor %}</div></section>
+<section class="panel history-compact"><div class="support-heading"><h2>Tín hiệu lịch sử tín dụng</h2><a data-cohort-link href="{{ cohort_url('credit_diagnostics') }}">Đối chiếu →</a></div><div class="history-counts"><div><strong>{{ history_signals.bureau_n }}</strong><span>Có bureau khả dụng</span></div><div><strong>{{ history_signals.overdue_n }}</strong><span>Có tín hiệu quá hạn</span></div><div><strong>{{ history_signals.installment_n }}</strong><span>Có thanh toán sau hạn kỳ trả góp</span></div><div><strong>{{ history_signals.no_bureau_n }}</strong><span>Thiếu bureau khả dụng</span></div></div></section></div>
+<section class="panel report-panel priority-panel"><div class="panel-heading"><div><h2>Hồ sơ ưu tiên rà soát</h2></div><a data-cohort-link href="{{ cohort_url('applications',alert='1',status='pending') }}">Mở hàng đợi →</a></div>
+<div class="report-table" data-report-table data-max-rows="5"><div class="table-scroll"><table class="priority-table"><thead><tr><th>Mã hồ sơ nguồn</th><th class="right">Điểm rủi ro</th><th class="right">Giá trị tín dụng</th><th>Loại khoản vay</th><th>Cảnh báo</th><th>Trạng thái rà soát</th></tr></thead><tbody>
+{% for row in priority_profiles %}<tr data-profile-href="{{ cohort_url('application_detail',profile_id=row.profile_id) }}" tabindex="0" aria-label="Đánh giá hồ sơ {{ row.source_application_id }}"><td><a class="profile-link" data-cohort-link href="{{ cohort_url('application_detail',profile_id=row.profile_id) }}">{{ row.source_application_id }}</a></td><td class="right"><strong class="score-figure {% if row.alert %}risk-value{% endif %}">{{ row.score|percent }}</strong></td><td class="right">{{ row.AMT_CREDIT|amount }}</td><td>{{ products.get(row.NAME_CONTRACT_TYPE,row.NAME_CONTRACT_TYPE) }}</td><td><span class="risk-pill {% if row.alert %}is-alert{% endif %}">{{ 'Cảnh báo' if row.alert else 'Dưới ngưỡng' }}</span></td><td>{{ status_badge(row.review_status) }}</td></tr>{% else %}<tr><td colspan="6" class="empty">Không có hồ sơ cảnh báo đang chờ rà soát trong phạm vi.</td></tr>{% endfor %}
+</tbody></table></div><div class="report-table-pager" aria-label="Phân trang hồ sơ ưu tiên"></div></div></section>
+
+</div>
+{% include '_risk_notes.html' %}
+{% endblock %}

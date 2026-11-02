@@ -1,0 +1,86 @@
+{
+  "database": "home_credit_ml",
+  "source_type": "mysql_raw_readback",
+  "tables": [
+    {
+      "name": "application_test",
+      "table": "raw_application_test",
+      "path": "data/raw_mysql/application_test.parquet",
+      "rows": 48744,
+      "columns": 121,
+      "sha256": "50d3083510f1dd9a0a5e6b4158ce296fad30ecb16ef064078aefd5db413d453a",
+      "source_sha256": "64b552448025527adba82ac29fa4770e36da1bae42ccea9f037471fc53f173eb",
+      "all_values_equal": true
+    },
+    {
+      "name": "application_train",
+      "table": "raw_application_train",
+      "path": "data/raw_mysql/application_train.parquet",
+      "rows": 307511,
+      "columns": 122,
+      "sha256": "ba501ee00cec0c72b89c0612768b5ebba17ba7fc001752e086a465bd2a024fec",
+      "source_sha256": "685c7ef40c8de858ab63c278b9e607aa13a11a1a637d96b354530a608cb8ed3f",
+      "all_values_equal": true
+    },
+    {
+      "name": "bureau",
+      "table": "raw_bureau",
+      "path": "data/raw_mysql/bureau.parquet",
+      "rows": 1716428,
+      "columns": 17,
+      "sha256": "b0b8ecbc88ef937f637a8476f4fe4228dcc95925d7043d34090840d6797f9f8e",
+      "source_sha256": "c39508af9426d47041d3cf457d3b4d8f4aae474607b75731967825a5d38298d8",
+      "all_values_equal": true
+    },
+    {
+      "name": "bureau_balance",
+      "table": "raw_bureau_balance",
+      "path": "data/raw_mysql/bureau_balance.parquet",
+      "rows": 27299925,
+      "columns": 3,
+      "sha256": "dd43ebac645d3b2f989d5f204927acfa20938dd382561a9080a56ed38d8f243c",
+      "source_sha256": "8f7b824d3cac8d40c9417501feb1fd93b8e5643e48f22fe039772c79c769b3f4",
+      "all_values_equal": true
+    },
+    {
+      "name": "credit_card_balance",
+      "table": "raw_credit_card_balance",
+      "path": "data/raw_mysql/credit_card_balance.parquet",
+      "rows": 3840312,
+      "columns": 23,
+      "sha256": "df01afb3e4332d00c449e0ea0e3b756d31bcfec83af146a3b196a268b9878d91",
+      "source_sha256": "5da088faea76214e086cf87b381c2a4e01a731d43d7b8c67908c00d0d45f1736",
+      "all_values_equal": true
+    },
+    {
+      "name": "installments_payments",
+      "table": "raw_installments_payments",
+      "path": "data/raw_mysql/installments_payments.parquet",
+      "rows": 13605401,
+      "columns": 8,
+      "sha256": "b3aaf996f64513508ddeba20f2fc42c60107f6bdb1fb936f87483049387bc5be",
+      "source_sha256": "adb0cbee8126090ebc412cf25137dd36b53b2eab15d1784cae7572c8dc249c01",
+      "all_values_equal": true
+    },
+    {
+      "name": "pos_cash_balance",
+      "table": "raw_pos_cash_balance",
+      "path": "data/raw_mysql/pos_cash_balance.parquet",
+      "rows": 10001358,
+      "columns": 8,
+      "sha256": "5af389a13132acacf5506d24746f27951067652f88c1072e8cc78367ce65eb0e",
+      "source_sha256": "d4e7187c03e527f3a582d8dd465990e2f9800a4397383757c9b89343a3f9c11e",
+      "all_values_equal": true
+    },
+    {
+      "name": "previous_application",
+      "table": "raw_previous_application",
+      "path": "data/raw_mysql/previous_application.parquet",
+      "rows": 1670214,
+      "columns": 37,
+      "sha256": "97f8c42e43c8cef7bfba1516a4587e892894a3a7d70e9b2e928a8882d7a5b20f",
+      "source_sha256": "24693d7f92a2256091678bcd13fa54d6a27aec2fc629db2ea50c7e5c46993657",
+      "all_values_equal": true
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "database": "home_credit_ml",
+  "source_table": "raw_application_train",
+  "seed": 42,
+  "ratios": {
+    "train": 0.6,
+    "validation": 0.2,
+    "test": 0.2
+  },
+  "stratified": true,
+  "cv_folds": 3,
+  "split_path": "data/splits/application_split.parquet"
+}

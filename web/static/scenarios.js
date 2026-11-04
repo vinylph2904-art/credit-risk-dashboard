@@ -1,3 +1,21 @@
+function setScenarioLoading(output, loading, isPortfolio = false) {
+  output.classList.toggle('is-loading', loading);
+  if (!loading) {
+    output.removeAttribute('aria-busy');
+    return;
+  }
+  output.setAttribute('aria-busy', 'true');
+  const line = '<span class="scenario-skeleton-line"></span>';
+  const card = `<div>${line}${line}${line}</div>`;
+  const row = `<div class="scenario-skeleton-row">${line}${line}${line}</div>`;
+  output.innerHTML = `<span class="scenario-loading-label" role="status">Đang tính mô phỏng…</span>
+    <div class="scenario-skeleton" aria-hidden="true">
+      <div class="scenario-skeleton-cards${isPortfolio ? ' scenario-skeleton-portfolio' : ''}">${card}${card}${isPortfolio ? card + card : ''}</div>
+      <div class="scenario-skeleton-caption">${line}</div>
+      <div class="scenario-skeleton-table">${row.repeat(isPortfolio ? 5 : 8)}</div>
+    </div>`;
+}
+
 function initializeScenarios(root) {
   root.querySelectorAll('form[data-scenario]').forEach(form => {
     const container = form.closest('.dialog-body, .details-body');
@@ -10,7 +28,7 @@ function initializeScenarios(root) {
 
     function clearResult() {
       controller?.abort();
-      setLoadingState(output, false);
+      setScenarioLoading(output, false);
       output.hidden = true;
       error.hidden = true;
       submit.disabled = false;
@@ -79,7 +97,7 @@ function initializeScenarios(root) {
       }
       submit.disabled = true;
       output.hidden = false;
-      setLoadingState(output, true, 'Đang tính mô phỏng…', 'Đang tổng hợp kết quả theo giả định bạn chọn…');
+      setScenarioLoading(output, true, isPortfolio);
       try {
         const response = await fetch(url, options);
         if (response.status === 401) {
@@ -100,7 +118,7 @@ function initializeScenarios(root) {
         }
       } finally {
         if (controller === request) {
-          setLoadingState(output, false);
+          setScenarioLoading(output, false);
           submit.disabled = false;
         }
       }

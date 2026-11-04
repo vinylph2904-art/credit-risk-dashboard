@@ -1,17 +1,44 @@
 let pageRequest;
 let detailRequest;
 let detailUrl;
-const loadingTimers = new WeakMap();
+function skeletonMarkup(kind = 'table') {
+  const line = '<span class="loading-line"></span>';
+  const card = `<div class="loading-card">${line}${line}${line}</div>`;
+  const row = `<div class="loading-table-row">${line}${line}${line}${line}</div>`;
+  const table = `<div class="loading-table">${row.repeat(7)}</div>`;
+  if (kind === 'table') return `<div class="loading-skeleton" aria-hidden="true">${table}</div>`;
+  const chart = `<div class="loading-card loading-chart">${line}<div class="loading-bars">${line.repeat(7)}</div></div>`;
+  return `<div class="loading-skeleton" aria-hidden="true"><div class="loading-heading">${line}${line}</div>
+    <div class="loading-kpis">${card.repeat(4)}</div><div class="loading-charts">${chart.repeat(3)}</div>${table}</div>`;
+}
+
+function setPageSkeleton(loading) {
+  const page = document.querySelector('.page');
+  if (!page) return;
+  page.classList.toggle('page-loading', loading);
+  page.querySelector(':scope > .page-loading-overlay')?.remove();
+  if (!loading) {
+    page.removeAttribute('aria-busy');
+    return;
+  }
+  page.setAttribute('aria-busy', 'true');
+  const overlay = document.createElement('div');
+  overlay.className = 'page-loading-overlay';
+  overlay.innerHTML = '<span class="loading-accessible" role="status">Đang tải nội dung…</span>' + skeletonMarkup('page');
+  page.append(overlay);
+}
 
 function setLoadingState(element, loading, message = 'Đang tải dữ liệu…',
     slowMessage = 'Đang tổng hợp số liệu theo bộ lọc…') {
-  clearTimeout(loadingTimers.get(element));
-  loadingTimers.delete(element);
   element.classList.toggle('is-loading', loading);
   if (loading) {
     element.setAttribute('aria-busy', 'true');
-    element.textContent = message;
-    loadingTimers.set(element, setTimeout(() => { element.textContent = slowMessage; }, 5000));
+    const label = document.createElement('span');
+    label.className = 'loading-accessible';
+    label.setAttribute('role', 'status');
+    label.textContent = message;
+    element.innerHTML = skeletonMarkup();
+    element.prepend(label);
   } else element.removeAttribute('aria-busy');
 }
 
@@ -25,9 +52,10 @@ function filtersHaveDraft() {
 
 function showDashboardMessage(message, loading = false) {
   const status = document.getElementById('dashboard-status');
-  setLoadingState(status, loading, message);
+  setPageSkeleton(loading);
+  status.classList.remove('is-loading');
   status.textContent = message;
-  status.hidden = !message;
+  status.hidden = loading || !message;
 }
 
 async function updateDashboard(target, pushHistory = true) {
@@ -94,7 +122,25 @@ async function updateDashboard(target, pushHistory = true) {
   } catch (error) {
     if (pageRequest === controller && error.name !== 'AbortError') showDashboardMessage(error.message);
   } finally {
-    if (pageRequest === controller) page.removeAttribute('aria-busy');
+    if (pageRequest === controller) setPageSkeleton(false);
   }
 }
+
+// Native page navigation and form posts also retain the shell while loading.
+document.addEventListener('click', event => {
+  if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+  const link = event.target.closest('a[href]');
+  if (!link || link.hasAttribute('download') || (link.target && link.target !== '_self')) return;
+  const url = new URL(link.href, window.location.href);
+  if (url.origin !== window.location.origin || url.pathname.startsWith('/api/') || /export|download|template/.test(url.pathname)) return;
+  if (url.pathname === window.location.pathname && url.search === window.location.search) return;
+  queueMicrotask(() => { if (!event.defaultPrevented) setPageSkeleton(true); });
+});
+document.addEventListener('submit', event => {
+  const form = event.target;
+  if (form.target && form.target !== '_self') return;
+  if (/export|download|template/.test(new URL(form.action, window.location.href).pathname)) return;
+  queueMicrotask(() => { if (!event.defaultPrevented) setPageSkeleton(true); });
+});
+window.addEventListener('pageshow', () => setPageSkeleton(false));
 

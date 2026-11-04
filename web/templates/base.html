@@ -26,9 +26,11 @@
   <script defer src="{{ url_for('static', filename='assessment.js') }}"></script>
   {% endif %}
   <script defer src="{{ url_for('static', filename='report_layout.js') }}"></script>
-  <script defer src="{{ url_for('static', filename='scenarios.js', v='combined-inputs-1') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='scenario_loading.css', v='1') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard_loading.css', v='1') }}">
+  <script defer src="{{ url_for('static', filename='scenarios.js', v='scenario-skeleton-1') }}"></script>
   <script defer src="{{ url_for('static', filename='kpi_targets.js') }}"></script>
-  <script defer src="{{ url_for('static', filename='dashboard_navigation.js') }}"></script>
+  <script defer src="{{ url_for('static', filename='dashboard_navigation.js', v='skeleton-1') }}"></script>
   <script defer src="{{ url_for('static', filename='chart_interactions.js') }}"></script>
   <script defer src="{{ url_for('static', filename='app.js') }}"></script>
   {% if plotly_enabled %}<script src="{{ url_for('plotly_javascript') }}"></script>{% endif %}

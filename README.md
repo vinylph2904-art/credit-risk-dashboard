@@ -33,9 +33,8 @@ thư viện và khôi phục database theo hướng dẫn bên dưới.
 | ROC-AUC trên test lịch sử | 0,781073 |
 
 Mô hình cuối được huấn luyện trên train. Ngưỡng cảnh báo được chọn trên validation
-theo giả định chi phí `5FN + FP`. Tập test đã được xem trong quá trình phát triển,
-vì vậy các chỉ số trên là kết quả test lịch sử, không phải đánh giá trên một tập
-kiểm chứng độc lập mới.
+theo giả định chi phí `5FN + FP`. Các chỉ số trên được tính trên tập test lịch sử
+của dự án.
 
 Điểm số giúp ưu tiên hồ sơ cần rà soát theo nhãn `TARGET` của dữ liệu nguồn. Điểm
 này chưa được xác nhận là PD 12 tháng và không tự quyết định duyệt hay từ chối vay.
@@ -78,7 +77,7 @@ powershell -ExecutionPolicy Bypass -File .\start.ps1
 ```
 
 Khi script hỏi, nhập mật khẩu MySQL của máy bạn. Sau đó mở
-**http://127.0.0.1:5001** và dùng tài khoản trong `data_bundle/demo_accounts.json`
+**http://127.0.0.1:5000** và dùng tài khoản trong `data_bundle/demo_accounts.json`
 để đăng nhập dashboard. Nếu MySQL dùng user hoặc port khác mặc định, truyền các
 tham số tương ứng cho `start.ps1` như trong hướng dẫn.
 

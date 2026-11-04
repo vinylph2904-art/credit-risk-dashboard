@@ -78,8 +78,9 @@ Kiểm chứng số dòng sau nhập (đọc dữ liệu, không sửa):
 powershell -ExecutionPolicy Bypass -File .\start.ps1
 ```
 
-Lệnh hỏi mật khẩu MySQL và chạy local tại **http://127.0.0.1:5001**. Cổng 5001
-giúp tránh trùng với phiên ứng dụng khác đang chạy. Nếu máy dùng host, port hoặc
+Lệnh hỏi mật khẩu MySQL và chạy local tại **http://127.0.0.1:5000**.
+Nếu cổng 5000 đang bận, thêm `-WebPort 5001` và mở địa chỉ với cổng tương ứng.
+Nếu máy dùng host, port hoặc
 username khác, truyền `-DatabaseHost`, `-DatabasePort`, `-DatabaseUser` tương ứng.
 
 Đăng nhập dashboard bằng tài khoản/mật khẩu trong `data_bundle/demo_accounts.json`.

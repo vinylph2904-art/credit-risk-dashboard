@@ -3,7 +3,7 @@ param(
     [int]$DatabasePort = 3306,
     [string]$DatabaseName = 'home_credit_submission',
     [string]$DatabaseUser = 'root',
-    [int]$WebPort = 5001
+    [int]$WebPort = 5000
 )
 $ErrorActionPreference = 'Stop'
 Set-Location -LiteralPath $PSScriptRoot

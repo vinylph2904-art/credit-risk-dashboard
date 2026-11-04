@@ -101,11 +101,28 @@ def test_profile_simulation_updates_dependent_ratios_and_preserves_other_feature
     assert sent['RATIO_ANNUITY_INCOME_RECORDED'] == np.float32(.15)
 
 
+def test_combined_profile_edits_recalculate_all_ratios_without_mutating_source():
+    model, source, observed = simulation_fixture()
+    before = source.copy(deep=True)
+    result = model.simulate(source, {'AMT_INCOME_TOTAL': 100., 'AMT_CREDIT': 600., 'AMT_ANNUITY': 30.})
+    sent = observed[-1].iloc[0]
+    assert sent['RATIO_CREDIT_INCOME_RECORDED'] == 6
+    assert sent['RATIO_ANNUITY_INCOME_RECORDED'] == np.float32(.3)
+    assert sent['RATIO_CREDIT_GOODS_RECORDED'] == .5
+    assert sent['INCOME_DIV_FAMILY_SIZE_RECORDED'] == 50
+    assert sent['EXT_SOURCE_1'] == np.float32(.3)
+    assert pd.isna(sent['BUR_DEBT'])
+    assert len(result['comparisons']) == 7
+    pd.testing.assert_frame_equal(source, before)
+
+
 def test_unchanged_profile_is_exact_and_ratio_zero_rules_remain_original():
     model, source, observed = simulation_fixture()
     result = model.simulate(source, {'AMT_INCOME_TOTAL': 200.})
     pd.testing.assert_frame_equal(observed[0], observed[1])
     assert result['delta_pp'] == 0
+    model.simulate(source, {'AMT_INCOME_TOTAL': 200., 'AMT_CREDIT': 1000., 'AMT_ANNUITY': 50.})
+    pd.testing.assert_frame_equal(observed[-2], observed[-1])
     source['AMT_INCOME_TOTAL'] = 0
     zero = HomeCreditPreparation.addApplicationRatios(source.copy())
     assert pd.isna(zero.iloc[0]['RATIO_CREDIT_INCOME_RECORDED'])

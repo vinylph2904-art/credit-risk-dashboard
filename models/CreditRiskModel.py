@@ -75,8 +75,9 @@ class CreditRiskModel:
         if len(frame) != 1 or not isinstance(changes, dict):
             raise ValueError('Mô phỏng cần đúng một hồ sơ và các giá trị giả định.')
         fields = set(changes)
-        if fields not in [set(), {'AMT_INCOME_TOTAL'}, {'AMT_CREDIT', 'AMT_ANNUITY'}]:
-            raise ValueError('Chỉ thay thu nhập hoặc nhập đồng thời khoản vay và niên kim.')
+        if fields not in [set(), {'AMT_INCOME_TOTAL'}, {'AMT_CREDIT', 'AMT_ANNUITY'},
+                          {'AMT_INCOME_TOTAL', 'AMT_CREDIT', 'AMT_ANNUITY'}]:
+            raise ValueError('Chỉ thay thu nhập, cặp khoản vay/niên kim hoặc cả ba trường.')
         scenario = frame.copy(deep=True)
         dependencies = {
             'AMT_INCOME_TOTAL': ['RATIO_CREDIT_INCOME_RECORDED',

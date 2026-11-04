@@ -22,11 +22,6 @@ function initializeScenarios(root) {
         fields.querySelectorAll('input,select').forEach(input => { input.disabled = fields.hidden; });
         form.querySelector('[data-portfolio-scope-note]').hidden =
           mode.value !== 'capacity' || form.elements.namedItem('scope').value !== 'portfolio';
-      } else {
-        form.querySelectorAll('[data-profile-mode]').forEach(fields => {
-          fields.hidden = fields.dataset.profileMode !== mode.value;
-          fields.querySelectorAll('input').forEach(input => { input.disabled = fields.hidden; });
-        });
       }
     }
     form.addEventListener('input', clearResult);
@@ -74,7 +69,7 @@ function initializeScenarios(root) {
         url.searchParams.set('scope', form.elements.scope.value);
         if (mode.value === 'capacity') url.searchParams.set('capacity', String(Number(form.elements.capacity.value)));
       } else {
-        const names = mode.value === 'income' ? ['AMT_INCOME_TOTAL'] : ['AMT_CREDIT', 'AMT_ANNUITY'];
+        const names = ['AMT_INCOME_TOTAL', 'AMT_CREDIT', 'AMT_ANNUITY'];
         const changes = {};
         names.forEach(name => { changes[name] = Number(form.elements.namedItem(name).value); });
         options.method = 'POST';

@@ -20,6 +20,12 @@ thư viện và khôi phục database theo hướng dẫn bên dưới.
 - Quản lý truy cập theo ba vai trò: quản trị viên, trưởng bộ phận và chuyên viên.
 - Xuất dữ liệu hồ sơ và xem thông tin, kết quả đánh giá mô hình.
 
+Trong chi tiết hồ sơ, mở **Mô phỏng thu nhập, khoản vay và niên kim** để sửa cùng
+lúc cả ba giá trị rồi bấm **Chấm thử**. Trường không muốn đổi giữ giá trị hiện tại;
+cả ba giá trị phải lớn hơn 0. Hệ thống tính lại các tỷ số liên quan, hiển thị điểm
+trước/sau và cảnh báo. **Đặt lại** khôi phục các giá trị ban đầu; mô phỏng không lưu
+thay đổi vào hồ sơ.
+
 ## Mô hình và kết quả
 
 | Thành phần | Thiết lập |

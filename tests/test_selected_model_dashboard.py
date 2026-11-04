@@ -42,13 +42,16 @@ def test_runtime_predictions_and_shap_use_frozen_selected_artifact(selected):
     np.testing.assert_allclose([row['value'] for row in contribution], [row[1] for row in expected], atol=1e-10)
 
 
-def test_selected_simulation_uses_original_goods_price_without_extra_model_inputs(selected):
+@pytest.mark.parametrize('combined', [False, True])
+def test_selected_simulation_uses_original_goods_price_without_extra_model_inputs(selected, combined):
     model, source = selected
     assert 'AMT_GOODS_PRICE' not in model.feature_order
     row = source.loc[source['AMT_GOODS_PRICE'].gt(0) & source['AMT_CREDIT'].gt(0)].head(1)
     original = row.copy(deep=True)
     changes = {'AMT_CREDIT': float(row.iloc[0]['AMT_CREDIT']) * .8,
                'AMT_ANNUITY': float(row.iloc[0]['AMT_ANNUITY']) * .8}
+    if combined:
+        changes['AMT_INCOME_TOTAL'] = float(row.iloc[0]['AMT_INCOME_TOTAL']) * 1.2
     result = model.simulate(row, changes)
     expected = row.assign(**changes)
     expected = HomeCreditPreparation.addApplicationRatios(expected)

@@ -1,10 +1,9 @@
-<details class="panel profile-scenario"><summary>Mô phỏng thay đổi thu nhập hoặc khoản vay</summary><div class="details-body">
+<details class="panel profile-scenario"><summary>Mô phỏng thu nhập, khoản vay và niên kim</summary><div class="details-body">
   <form data-scenario="profile" action="{{ url_for('simulate_profile',profile_id=profile.profile_id) }}" method="post" class="scenario-form">
     <span class="scenario-badge">Mô phỏng · Không lưu vào hồ sơ</span>
-    <div class="field"><label for="profile-scenario-mode">Giả định thay đổi</label><select id="profile-scenario-mode" name="mode"><option value="income">Thu nhập</option><option value="loan">Khoản vay & niên kim</option></select></div>
-    <div class="field" data-profile-mode="income"><label for="scenario-income">Thu nhập ghi nhận</label><input id="scenario-income" name="AMT_INCOME_TOTAL" type="number" min="0" step="any" value="{{ feature.AMT_INCOME_TOTAL if feature.AMT_INCOME_TOTAL is not none else '' }}" required></div>
-    <div class="field-grid" data-profile-mode="loan" hidden><div class="field"><label for="scenario-credit">Giá trị khoản vay</label><input id="scenario-credit" name="AMT_CREDIT" type="number" min="0" step="any" value="{{ feature.AMT_CREDIT if feature.AMT_CREDIT is not none else '' }}" disabled required></div><div class="field"><label for="scenario-annuity">Niên kim ghi nhận</label><input id="scenario-annuity" name="AMT_ANNUITY" type="number" min="0" step="any" value="{{ feature.AMT_ANNUITY if feature.AMT_ANNUITY is not none else '' }}" disabled required></div></div>
-    <p class="scenario-note">Số tiền theo đơn vị nguồn. Các thông tin khác giữ nguyên.</p>
+    <div class="field"><label for="scenario-income">Thu nhập ghi nhận</label><input id="scenario-income" name="AMT_INCOME_TOTAL" type="number" min="0" step="any" value="{{ feature.AMT_INCOME_TOTAL if feature.AMT_INCOME_TOTAL is not none else '' }}" required></div>
+    <div class="field-grid"><div class="field"><label for="scenario-credit">Giá trị khoản vay</label><input id="scenario-credit" name="AMT_CREDIT" type="number" min="0" step="any" value="{{ feature.AMT_CREDIT if feature.AMT_CREDIT is not none else '' }}" required></div><div class="field"><label for="scenario-annuity">Niên kim ghi nhận</label><input id="scenario-annuity" name="AMT_ANNUITY" type="number" min="0" step="any" value="{{ feature.AMT_ANNUITY if feature.AMT_ANNUITY is not none else '' }}" required></div></div>
+    <p class="scenario-note">Có thể sửa đồng thời cả ba trường; giữ nguyên giá trị ở trường không muốn đổi. Số tiền theo đơn vị nguồn và phải lớn hơn 0. Các thông tin khác giữ nguyên.</p>
     <div class="scenario-actions"><button type="reset" class="button">Đặt lại</button><button type="submit" class="button primary">Chấm thử</button></div>
   </form>
   <div class="scenario-error" data-scenario-error role="alert" hidden></div>

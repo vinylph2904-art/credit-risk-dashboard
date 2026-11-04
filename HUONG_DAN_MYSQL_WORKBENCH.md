@@ -117,3 +117,17 @@ Script `audit_ml_system.py` kiểm tra thêm dữ liệu/model/DB khi đã giả
   rồi nhập lại, cấu hình ứng dụng sang đúng schema đó.
 
 Tham khảo: [MySQL Workbench — SQL Data Export and Import Wizard](https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-management.html).
+
+
+## Mật khẩu đăng nhập dashboard
+
+Ba tài khoản `admin`, `risk_manager`, `analyst` đều dùng mật khẩu demo **`HomeCredit@123`**.
+Nhập nguyên mật khẩu này trên web; không nhập hash trong bảng `users`.
+Mật khẩu MySQL vẫn là mật khẩu riêng trên máy nhận.
+
+Nếu đã nhập database của bản cũ: mở SQL tab trong MySQL Workbench, chọn đúng
+database web đang dùng rồi chạy file `DAT_LAI_MAT_KHAU_DEMO.sql` trong bộ bàn giao
+(hoặc `data_bundle/reset_demo_passwords.sql`). Nếu tải từ GitHub, dùng
+[`sql/06_reset_demo_passwords.sql`](sql/06_reset_demo_passwords.sql).
+Không cần nhập lại dữ liệu lớn.
+Sau đó đăng nhập lại bằng mật khẩu trên. Chỉ dùng mật khẩu này cho bản demo.

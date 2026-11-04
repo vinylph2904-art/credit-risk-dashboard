@@ -1,0 +1,4 @@
+-- Demo only. Run in the database configured for this dashboard.
+UPDATE users SET password_hash='scrypt:32768:8:1$7eVQt2zLJITZM52w$c5db84f024f22705401c70516c6d32faa551f266c6bf640ce0783f3b9a23a49255a5d2c4a3c429979701ec34c13b08120e6713409e27d382d1e3afda1706dad1', session_version=session_version+1 WHERE username='admin';
+UPDATE users SET password_hash='scrypt:32768:8:1$5McQtMgfZ7HRogbX$391864a68926cc5f2165c990f9d4754dccce5b87a0464b31f2b4d25786a23459fc388d0b3ef9cef63ddc13be58006a6584536907419ae274aa7db7bbbd560059', session_version=session_version+1 WHERE username='risk_manager';
+UPDATE users SET password_hash='scrypt:32768:8:1$jtFyv6uNCz86CD3F$e2706883055555af565115a59d7736ff76b894b9d77a63a1b8a3fbffc500147060b0f8e18339bd1b50e7a351370ffefa5c2a5dda1745d4ba7cba2d31a5d2e386', session_version=session_version+1 WHERE username='analyst';
